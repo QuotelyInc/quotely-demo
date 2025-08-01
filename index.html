@@ -1,21 +1,155 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quotely - Insurance Competitive Analysis Platform</title>
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotely Demo - Modern Insurance Platform Alternative to Applied Rater & EZLynx</title>
+    <meta name="description" content="Modern insurance quoting platform demo - Built as alternative to Applied Rater and EZLynx with TurboRater, Momentom AMP, and Gail integrations">
+    <meta name="keywords" content="insurance software, applied rater alternative, ezlynx alternative, independent agents, insurance quoting, turborator integration">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; }
+        .hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 60px 20px; text-align: center; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; font-weight: 700; }
+        .hero p { font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9; }
+        .cta-group { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
+        .cta { background: #ff6b6b; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: 600; transition: transform 0.2s; }
+        .cta:hover { transform: translateY(-2px); }
+        .cta.secondary { background: rgba(255,255,255,0.2); }
+        .features { padding: 80px 20px; background: #f8f9fa; }
+        .features h2 { text-align: center; font-size: 2.5rem; margin-bottom: 50px; }
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 50px; }
+        .feature { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .feature h3 { color: #667eea; margin-bottom: 15px; }
+        .comparison { padding: 80px 20px; }
+        .comparison h2 { text-align: center; font-size: 2.5rem; margin-bottom: 50px; }
+        .comparison-table { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        th, td { padding: 15px; text-align: left; border-bottom: 1px solid #eee; }
+        th { background: #667eea; color: white; font-weight: 600; }
+        .winner { color: #28a745; font-weight: 600; }
+        .footer { background: #333; color: white; padding: 40px 20px; text-align: center; }
+        @media (max-width: 768px) { .hero h1 { font-size: 2rem; } .cta-group { flex-direction: column; align-items: center; } }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="container">
+            <h1>Quotely Demo Platform</h1>
+            <p>The modern insurance quoting platform built for independent agents who want to escape Applied Rater and EZLynx limitations</p>
+            <div class="cta-group">
+                <a href="https://github.com/QuotelyInc/quotely-demo" class="cta">View Demo Code</a>
+                <a href="#features" class="cta secondary">See Features</a>
+                <a href="https://quotely.com/demo" class="cta">Schedule Live Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Why Agents Choose Quotely</h2>
+            <div class="feature-grid">
+                <div class="feature">
+                    <h3>🚀 Modern Interface</h3>
+                    <p>Say goodbye to Applied Rater's 1990s interface. Quotely provides a clean, intuitive design that works on any device.</p>
+                </div>
+                <div class="feature">
+                    <h3>⚡ Lightning Fast</h3>
+                    <p>Generate quotes in 30-60 seconds vs 3-5 minutes with EZLynx. Our optimized platform delivers results when you need them.</p>
+                </div>
+                <div class="feature">
+                    <h3>🔗 Seamless Integrations</h3>
+                    <p>Built-in connections to TurboRater, Momentom AMP (formerly NowCerts), and Gail. No more switching between systems.</p>
+                </div>
+                <div class="feature">
+                    <h3>💰 Transparent Pricing</h3>
+                    <p>No hidden fees like EZLynx. What you see is what you pay, with no surprise charges or add-on costs.</p>
+                </div>
+                <div class="feature">
+                    <h3>📱 Mobile Ready</h3>
+                    <p>Quote on the go with our fully responsive mobile interface. Works perfectly on phones and tablets.</p>
+                </div>
+                <div class="feature">
+                    <h3>🔧 API Access</h3>
+                    <p>Full REST API included at no extra cost. Integrate with any system or build custom workflows.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="comparison">
+        <div class="container">
+            <h2>Platform Comparison</h2>
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Applied Rater</th>
+                            <th>EZLynx</th>
+                            <th>Quotely</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>User Interface</strong></td>
+                            <td>❌ Outdated</td>
+                            <td>⚠️ Average</td>
+                            <td class="winner">✅ Modern & Intuitive</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mobile Support</strong></td>
+                            <td>❌ Limited</td>
+                            <td>⚠️ Basic</td>
+                            <td class="winner">✅ Full Featured</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Quote Speed</strong></td>
+                            <td>⚠️ 2-4 minutes</td>
+                            <td>⚠️ 3-5 minutes</td>
+                            <td class="winner">✅ 30-60 seconds</td>
+                        </tr>
+                        <tr>
+                            <td><strong>API Access</strong></td>
+                            <td>❌ Restricted</td>
+                            <td>⚠️ Limited & Expensive</td>
+                            <td class="winner">✅ Full REST API Included</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Setup Time</strong></td>
+                            <td>⚠️ 2-4 weeks</td>
+                            <td>⚠️ 3-6 weeks</td>
+                            <td class="winner">✅ Same Day</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Customer Support</strong></td>
+                            <td>⚠️ Ticket-based</td>
+                            <td>⚠️ Phone only</td>
+                            <td class="winner">✅ Chat + Phone + Email</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Ready to Modernize Your Agency?</h2>
+            <p>Join thousands of independent agents who've made the switch from legacy platforms</p>
+            <div class="cta-group">
+                <a href="https://quotely.com/trial" class="cta">Start Free Trial</a>
+                <a href="https://quotely.com/migrate" class="cta secondary">Migration Assistance</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Quotely Inc. Built by independent agents, for independent agents.</p>
+            <p>Modern insurance platform - Alternative to Applied Rater, EZLynx</p>
+        </div>
+    </footer>
+</body>
 </html>
