@@ -1,0 +1,10 @@
+{
+  "name": "quotely-playwright-mcp",
+  "version": "1.0.0",
+  "scripts": {
+    "start:mcp": "npx @playwright/mcp"
+  },
+  "dependencies": {
+    "@playwright/mcp": "^0.0.5"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "quotely-mcp-tests",
+  "version": "1.0.0",
+  "description": "Playwright MCP tests for Quotely demo platform",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test tests/test-ui-layout.js",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "install:browsers": "playwright install"
+  },
+  "keywords": [
+    "playwright",
+    "mcp",
+    "testing",
+    "insurance",
+    "quotely",
+    "ui-testing"
+  ],
+  "author": "Quotely Inc",
+  "license": "MIT",
+  "dependencies": {
+    "@playwright/test": "^1.40.0"
+  },
+  "devDependencies": {
+    "@playwright/mcp": "^0.0.5"
+  }
+}

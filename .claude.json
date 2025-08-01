@@ -1,0 +1,54 @@
+{
+  "name": "Quotely Insurance Demo - MCP Ready",
+  "description": "Modern insurance quoting platform demo with Playwright MCP integration for AI-assisted testing",
+  "version": "1.0.0",
+  "mcp": {
+    "servers": {
+      "playwright": {
+        "command": "npx",
+        "args": ["@playwright/mcp"],
+        "env": {
+          "PLAYWRIGHT_BROWSERS_PATH": "./node_modules/playwright-core/.local-browsers"
+        }
+      }
+    }
+  },
+  "ai_context": {
+    "project_type": "insurance_saas_demo",
+    "key_features": [
+      "Applied Rater alternative positioning",
+      "EZLynx competitive comparison",
+      "TurboRater integration docs",
+      "Momentom AMP setup guides",
+      "Mobile-responsive design"
+    ],
+    "testing_focus": [
+      "UI layout validation",
+      "Competitive comparison tables",
+      "Mobile responsiveness",
+      "Pricing grid layouts",
+      "SEO meta tag verification"
+    ],
+    "development_commands": {
+      "start_dev": "npm run dev",
+      "start_mcp": "npm run start:mcp",
+      "run_tests": "cd mcp && npm test",
+      "test_ui": "cd mcp && npm run test:ui",
+      "debug_tests": "cd mcp && npm run test:debug"
+    }
+  },
+  "directories": {
+    "docs": "Documentation including migration guides and integration setups",
+    "examples": "Competitive comparisons and use cases",
+    "mcp": "Playwright MCP test configuration and test files",
+    "src": "React application source code"
+  },
+  "integrations": {
+    "insurance_platforms": [
+      "Applied Rater (migration target)",
+      "EZLynx (competitive alternative)",
+      "TurboRater (Zywave integration)",
+      "Momentom AMP (formerly NowCerts)"
+    ]
+  }
+}
