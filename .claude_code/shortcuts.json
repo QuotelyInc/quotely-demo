@@ -1,0 +1,7 @@
+{
+  "restart_web": "docker-compose restart web",
+  "view_logs": "docker-compose logs -f",
+  "rebuild_all": "docker-compose up --build -d",
+  "stop_services": "docker-compose down",
+  "celery_status": "docker-compose exec worker celery -A app.celery inspect active"
+}

@@ -1,0 +1,16 @@
+{
+  "name": "quotely-saas-platform",
+  "description": "Quotely - Modern insurance quoting SaaS platform for independent agents",
+  "main_technologies": ["Python", "Docker", "Celery", "Flask/FastAPI"],
+  "business_context": "Insurtech SaaS competing with Applied Rater and EZLynx",
+  "development_server": {
+    "command": "docker-compose up -d",
+    "port": 5000,
+    "health_check_url": "http://localhost:5000"
+  },
+  "services": {
+    "web": "quotely-web-server",
+    "worker": "quotely-celery-worker", 
+    "scheduler": "quotely-celery-beat"
+  }
+}
