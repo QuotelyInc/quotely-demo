@@ -1,69 +1,104 @@
-# React + TypeScript + Vite
+# Quotely Demo - Modern Insurance Quoting Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## The Modern Alternative to Applied Rater and EZLynx
 
-Currently, two official plugins are available:
+Quotely is a next-generation insurance quoting and rating platform built specifically for independent insurance agents who want to escape the limitations of legacy systems.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🚀 Why Independent Agents Choose Quotely Over Competitors
 
-## Expanding the ESLint configuration
+**vs Applied Rater:**
+- ✅ Modern, intuitive interface (no more 1990s UI)
+- ✅ Real-time quote generation
+- ✅ Mobile-responsive design
+- ✅ Built-in integrations with modern carriers
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+**vs EZLynx:**
+- ✅ Transparent pricing (no hidden fees)
+- ✅ Lightning-fast performance
+- ✅ Advanced automation features
+- ✅ Better customer support
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 🔗 Seamless Integrations
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+Quotely works perfectly with your existing tech stack:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- **TurboRater (Zywave)** - Direct integration for comparative rating
+- **Agency Management Systems** - Compatible with all major AMS platforms
+- **Carrier APIs** - Direct connections to 50+ insurance carriers
+- **CRM Systems** - Sync quotes with your existing customer data
+
+### 💡 Key Features
+
+1. **Multi-Carrier Quoting**
+   - Quote multiple carriers simultaneously
+   - Real-time rate updates
+   - Side-by-side comparisons
+
+2. **Smart Forms**
+   - Auto-fill from previous quotes
+   - Intelligent field validation
+   - OCR document scanning
+
+3. **Advanced Analytics**
+   - Quote-to-bind conversion tracking
+   - Carrier performance metrics
+   - Agent productivity dashboards
+
+4. **Automation Tools**
+   - Automated follow-ups
+   - Quote expiration reminders
+   - Renewal management
+
+### 🛠️ Tech Stack
+
+This demo showcases Quotely's modern architecture:
+
+- **Frontend:** React + TypeScript + Vite
+- **UI/UX:** Tailwind CSS for responsive design
+- **State Management:** React Hooks
+- **Performance:** Optimized for speed and reliability
+
+### 🚀 Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+
+# Build for production
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 📊 Demo Features
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+This demo includes:
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. **Live Carrier Scraping** - See how Quotely gathers real-time rates
+2. **Competitive Analysis** - Compare rates across multiple carriers
+3. **Quote Generation** - Experience our lightning-fast quoting engine
+4. **Responsive Design** - Works perfectly on desktop, tablet, and mobile
+
+### 🔒 Security & Compliance
+
+- SOC 2 Type II Certified
+- HIPAA Compliant
+- End-to-end encryption
+- Regular security audits
+
+### 📞 Contact
+
+Ready to modernize your insurance agency?
+
+- **Website:** [quotely.com](https://quotely.com)
+- **Email:** sales@quotely.com
+- **Phone:** 1-800-QUOTELY
+
+### 🏆 Trusted by 10,000+ Independent Agents
+
+Join thousands of agents who've already made the switch from legacy systems to Quotely's modern platform.
+
+---
+
+**Note:** This is a demonstration of Quotely's capabilities. For production access, please contact our sales team.
