@@ -1,11 +1,10 @@
 import { useState, useCallback, useRef } from 'react';
-import {
-  InsuranceType,
+import type {
   ScrapingResult,
-  ScrapingStatus,
   ScrapingSession,
   CompetitiveAnalysis
 } from '../types/insurance';
+import { ScrapingStatus, InsuranceType } from '../types/insurance';
 import { InsuranceScraperService } from '../services/insuranceScraper';
 
 interface UseInsuranceScraperReturn {

@@ -1,19 +1,23 @@
 // TypeScript interfaces for insurance scraper integration
 
-export enum InsuranceType {
-  AUTO = 'auto',
-  HOME = 'home',
-  LIFE = 'life',
-  HEALTH = 'health',
-  BUSINESS = 'business'
-}
+export const InsuranceType = {
+  AUTO: 'auto',
+  HOME: 'home',
+  LIFE: 'life',
+  HEALTH: 'health',
+  BUSINESS: 'business'
+} as const;
 
-export enum ScrapingStatus {
-  IDLE = 'idle',
-  LOADING = 'loading',
-  SUCCESS = 'success',
-  ERROR = 'error'
-}
+export type InsuranceType = typeof InsuranceType[keyof typeof InsuranceType];
+
+export const ScrapingStatus = {
+  IDLE: 'idle',
+  LOADING: 'loading',
+  SUCCESS: 'success',
+  ERROR: 'error'
+} as const;
+
+export type ScrapingStatus = typeof ScrapingStatus[keyof typeof ScrapingStatus];
 
 export interface CoverageOption {
   name: string;

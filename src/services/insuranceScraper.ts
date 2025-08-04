@@ -1,14 +1,11 @@
-import axios, { AxiosResponse } from 'axios';
-import * as cheerio from 'cheerio';
-import {
-  InsuranceType,
+import type {
   InsuranceQuote,
   ScraperConfig,
   ScrapingResult,
-  ScrapingStatus,
   CoverageOption,
   CompetitiveAnalysis
 } from '../types/insurance';
+import { InsuranceType, ScrapingStatus } from '../types/insurance';
 
 export class InsuranceScraperService {
   private configs: Map<string, ScraperConfig> = new Map();
@@ -91,7 +88,7 @@ export class InsuranceScraperService {
   public async scrapeProvider(
     provider: string,
     insuranceType: InsuranceType,
-    params?: Record<string, any>
+    _params?: Record<string, any>
   ): Promise<ScrapingResult> {
     const config = this.configs.get(provider);
     if (!config) {
