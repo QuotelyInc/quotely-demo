@@ -5,6 +5,12 @@ import CompetitiveAnalysis from './CompetitiveAnalysis';
 import ScrapingResults from './ScrapingResults';
 import './ScraperDashboard.css';
 
+// Define the interface for scraper config
+interface ScraperConfig {
+  provider: string;
+  insuranceTypes: string[];
+}
+
 const ScraperDashboard: React.FC = () => {
   const [selectedInsuranceType, setSelectedInsuranceType] = useState<InsuranceType>(InsuranceType.AUTO);
   const [selectedProviders, setSelectedProviders] = useState<string[]>([]);
@@ -37,8 +43,10 @@ const ScraperDashboard: React.FC = () => {
   };
 
   const availableProviders = configs
-    .filter(config => config.insuranceTypes.includes(selectedInsuranceType))
-    .map(config => config.provider);
+    .filter((config: ScraperConfig) =>
+      config.insuranceTypes.includes(selectedInsuranceType)
+    )
+    .map((config: ScraperConfig) => config.provider);
 
   return (
     <div className="scraper-dashboard">
@@ -94,7 +102,7 @@ const ScraperDashboard: React.FC = () => {
           <div className="control-group">
             <label className="control-label">Select Providers (Optional)</label>
             <div className="provider-grid">
-              {availableProviders.map(provider => (
+              {availableProviders.map((provider: string) => (
                 <label key={provider} className="provider-checkbox">
                   <input
                     type="checkbox"

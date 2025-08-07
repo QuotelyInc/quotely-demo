@@ -1,4 +1,3 @@
-import React from 'react'
 import ScraperDashboard from './components/ScraperDashboard'
 import './App.css'
 
