@@ -42,12 +42,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* OTTO SEO Dynamic Optimization Script */}
+        {/* OTTO SEO Dynamic Optimization Script - Base64 Loader */}
         <Script
           id="sa-dynamic-optimization"
           strategy="afterInteractive"
-          src="https://dashboard.searchatlas.com/scripts/dynamic_optimization.js"
           data-uuid="93fecead-4a44-4a94-8620-c45564441a5b"
+          dangerouslySetInnerHTML={{
+            __html: `
+              var script = document.createElement("script");
+              script.setAttribute("nowprocket", "");
+              script.setAttribute("nitro-exclude", "");
+              script.src = "https://dashboard.searchatlas.com/scripts/dynamic_optimization.js";
+              script.dataset.uuid = "93fecead-4a44-4a94-8620-c45564441a5b";
+              script.id = "sa-dynamic-optimization-loader";
+              document.head.appendChild(script);
+            `
+          }}
         />
       </head>
       <body
