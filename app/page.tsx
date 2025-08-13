@@ -143,7 +143,7 @@ function HomePage() {
     
     if (demoContainer && playButton) {
       // Simulate video playing
-      playButton.style.display = 'none'
+      (playButton as HTMLElement).style.display = 'none'
       demoContainer.innerHTML = `
         <div style="width: 100%; height: 100%; background: #000; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.25rem; flex-direction: column;">
           🎬 Demo Video Playing...
