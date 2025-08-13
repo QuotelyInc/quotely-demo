@@ -1,7 +1,9 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { OTTOProvider, useOTTOTracking } from '@/components/OTTOProvider'
+import { useOTTOTracking } from '@/components/OTTOProvider'
+import Navigation from '@/components/Navigation'
+import Footer from '@/components/Footer'
 
 function HomePage() {
   const { trackPageView, trackUserAction } = useOTTOTracking()
@@ -678,6 +680,8 @@ function HomePage() {
       `}</style>
 
       <div>
+        <Navigation />
+        
         {/* HERO SECTION */}
         <section className="hero">
           <div className="hero-content">
@@ -882,15 +886,13 @@ function HomePage() {
         <button className="floating-cta" onClick={handleStartTrial}>
           Try Quote Builder 🚀
         </button>
+        
+        <Footer />
       </div>
     </>
   )
 }
 
 export default function Home() {
-  return (
-    <OTTOProvider>
-      <HomePage />
-    </OTTOProvider>
-  )
+  return <HomePage />
 }
