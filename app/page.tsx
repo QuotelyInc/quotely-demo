@@ -139,7 +139,7 @@ function HomePage() {
 
   const playDemo = () => {
     const demoContainer = document.querySelector('.demo-video')
-    const playButton = document.querySelector('.play-button')
+    const playButton = document.querySelector('.play-button') as HTMLElement
     
     if (demoContainer && playButton) {
       // Simulate video playing

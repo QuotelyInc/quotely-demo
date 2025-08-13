@@ -4,7 +4,6 @@ import { useEffect } from 'react'
 import { useOTTOTracking } from '@/components/OTTOProvider'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
-import Link from 'next/link'
 
 function AboutPage() {
   const { trackPageView, trackUserAction } = useOTTOTracking()
