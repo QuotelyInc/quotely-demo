@@ -486,31 +486,292 @@
             transform: translateY(0);
         }
         
+        /* PRICING SECTION */
+        .pricing-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #e5e7eb 100%);
+        }
+        
+        .pricing-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .pricing-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .pricing-card.popular {
+            border: 3px solid var(--primary);
+            transform: scale(1.05);
+        }
+        
+        .pricing-card.recommended {
+            border: 2px solid var(--accent);
+        }
+        
+        .pricing-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        
+        .popular-badge {
+            background: var(--primary);
+        }
+        
+        .pricing-card h3 {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .pricing-main {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .buy-in-price {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .monthly-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .monthly-price span {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+        
+        .retail-price {
+            color: var(--text-secondary);
+            text-decoration: line-through;
+            margin-top: 0.25rem;
+        }
+        
+        .savings-highlight {
+            background: linear-gradient(135deg, #00C851, #28a745);
+            color: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .savings-amount {
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+        
+        .payback-period {
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+        
+        .feature-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .feature-list li {
+            padding: 0.5rem 0;
+            color: var(--text-primary);
+        }
+        
+        .pricing-benefits {
+            max-width: 1000px;
+            margin: 3rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .benefit-item {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .benefit-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .benefit-item h4 {
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        
+        /* AGGREGATOR SECTION */
+        .aggregator-section {
+            padding: 4rem 2rem;
+            background: var(--gradient);
+            color: white;
+        }
+        
+        .aggregator-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .aggregator-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .aggregator-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .aggregator-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .volume-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .volume-stats .stat {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+        }
+        
+        .volume-stats .stat-number {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        
+        .aggregator-card ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        
+        .aggregator-card li {
+            padding: 0.25rem 0;
+        }
+        
+        .state-exclusivity {
+            background: rgba(255, 107, 53, 0.2);
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            border: 2px solid rgba(255, 107, 53, 0.4);
+        }
+        
+        .state-exclusivity h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .exclusivity-subtitle {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .exclusivity-pricing {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .exclusivity-item {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 1rem;
+            border-radius: 0.5rem;
+        }
+        
+        .exclusivity-item .price {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--warning);
+        }
+        
+        .exclusivity-guarantee {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+        
+        .exclusivity-btn {
+            background: var(--warning);
+            color: white;
+            padding: 1rem 2rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+        
         /* FLOATING CTA */
         .floating-cta {
             position: fixed;
             bottom: 20px;
             right: 20px;
             z-index: 1000;
-            background: var(--primary);
+            background: var(--warning);
             color: white;
             padding: 1rem 1.5rem;
             border-radius: 50px;
-            box-shadow: 0 8px 30px rgba(0, 87, 255, 0.3);
+            box-shadow: 0 8px 30px rgba(255, 107, 53, 0.4);
             animation: pulse 2s infinite;
             cursor: pointer;
             transition: all 0.3s ease;
+            font-weight: 600;
         }
         
         .floating-cta:hover {
-            background: var(--primary-dark);
+            background: #e55a2b;
             transform: scale(1.05);
         }
         
         @keyframes pulse {
-            0% { box-shadow: 0 8px 30px rgba(0, 87, 255, 0.3); }
-            50% { box-shadow: 0 8px 30px rgba(0, 87, 255, 0.6); }
-            100% { box-shadow: 0 8px 30px rgba(0, 87, 255, 0.3); }
+            0% { box-shadow: 0 8px 30px rgba(255, 107, 53, 0.4); }
+            50% { box-shadow: 0 8px 30px rgba(255, 107, 53, 0.7); }
+            100% { box-shadow: 0 8px 30px rgba(255, 107, 53, 0.4); }
         }
     </style>
 </head>
@@ -649,9 +910,162 @@
             
             <div class="table-row quotely-highlight">
                 <div class="feature-name">💰 Pricing (per agent/month)</div>
-                <div class="check-mark">$49</div>
-                <div class="x-mark">$89</div>
-                <div class="x-mark">$95</div>
+                <div class="check-mark">$679</div>
+                <div class="x-mark">$879+</div>
+                <div class="x-mark">$949+</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUAD PRICING SECTION -->
+    <section class="pricing-section fade-in" id="pricing">
+        <div class="section-header">
+            <h2 class="section-title">Choose Your QUAD Experience</h2>
+            <p class="section-subtitle">🔥 Early Access Pricing - Lock in lifetime savings before public launch</p>
+        </div>
+        
+        <div class="pricing-container">
+            <div class="pricing-card recommended">
+                <div class="pricing-badge">RECOMMENDED</div>
+                <h3>QUAD 1.0</h3>
+                <div class="pricing-main">
+                    <div class="buy-in-price">$1,500 Buy-In</div>
+                    <div class="monthly-price">$679<span>/month</span></div>
+                    <div class="retail-price">vs $879 retail</div>
+                </div>
+                <div class="savings-highlight">
+                    <div class="savings-amount">$200/month savings</div>
+                    <div class="payback-period">7.5 month payback</div>
+                </div>
+                <ul class="feature-list">
+                    <li>✓ 65 Monthly Quotes</li>
+                    <li>✓ Complete Analytics Dashboard</li>
+                    <li>✓ All Product Lines</li>
+                    <li>✓ Perfect for testing platform</li>
+                </ul>
+                <a href="#" class="btn btn-primary">Start Here</a>
+            </div>
+            
+            <div class="pricing-card popular">
+                <div class="pricing-badge popular-badge">MOST POPULAR</div>
+                <h3>QUAD 3.0</h3>
+                <div class="pricing-main">
+                    <div class="buy-in-price">$3,000 Buy-In</div>
+                    <div class="monthly-price">$929<span>/month</span></div>
+                    <div class="retail-price">vs $1,199 retail</div>
+                </div>
+                <div class="savings-highlight">
+                    <div class="savings-amount">$270/month savings</div>
+                    <div class="payback-period">11.1 month payback</div>
+                </div>
+                <ul class="feature-list">
+                    <li>✓ 225 Monthly Quotes</li>
+                    <li>✓ Premium Analytics Suite</li>
+                    <li>✓ Advanced Features</li>
+                    <li>✓ Best value for growing agencies</li>
+                </ul>
+                <a href="#" class="btn btn-primary">Get Started</a>
+            </div>
+            
+            <div class="pricing-card enterprise">
+                <div class="pricing-badge">ENTERPRISE</div>
+                <h3>QUAD 7.0</h3>
+                <div class="pricing-main">
+                    <div class="buy-in-price">$6,000 Buy-In</div>
+                    <div class="monthly-price">$1,529<span>/month</span></div>
+                    <div class="retail-price">vs $1,999 retail</div>
+                </div>
+                <div class="savings-highlight">
+                    <div class="savings-amount">$470/month savings</div>
+                    <div class="payback-period">12.8 month payback</div>
+                </div>
+                <ul class="feature-list">
+                    <li>✓ 625+ Monthly Quotes</li>
+                    <li>✓ Unlimited Everything</li>
+                    <li>✓ Custom Development</li>
+                    <li>✓ Maximum features & support</li>
+                </ul>
+                <a href="#" class="btn btn-primary">Scale Up</a>
+            </div>
+        </div>
+        
+        <div class="pricing-benefits">
+            <div class="benefit-item">
+                <div class="benefit-icon">💰</div>
+                <h4>Lifetime Savings</h4>
+                <p>Your rate stays locked forever - even as we raise retail prices</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">🔄</div>
+                <h4>Flexible Upgrades</h4>
+                <p>Start conservative, upgrade anytime with full credit applied</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">⚡</div>
+                <h4>Quick ROI</h4>
+                <p>3-15 month payback periods. Lower tiers pay for themselves in under a year</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- AGGREGATOR PROGRAM SECTION -->
+    <section class="aggregator-section fade-in">
+        <div class="section-header">
+            <h2 class="section-title">🏢 Aggregator Partnership Program</h2>
+            <p class="section-subtitle">Leverage your buying power for exclusive group rates</p>
+        </div>
+        
+        <div class="aggregator-content">
+            <div class="aggregator-benefits">
+                <div class="aggregator-card">
+                    <h3>Volume Advantage</h3>
+                    <p>Bring 25+ agents and unlock special pricing that individual agents can't access</p>
+                    <div class="volume-stats">
+                        <div class="stat">
+                            <span class="stat-number">$5,000</span>
+                            <span class="stat-label">Monthly collective savings (25 agents)</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">$10,000</span>
+                            <span class="stat-label">Monthly collective savings (50 agents)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="aggregator-card">
+                    <h3>Member Benefits</h3>
+                    <p>Offer your agents exclusive QUAD access at discounted rates - a powerful recruitment tool</p>
+                    <ul>
+                        <li>✓ Group pricing for all agents</li>
+                        <li>✓ Member recruitment advantage</li>
+                        <li>✓ White-label options available</li>
+                        <li>✓ Priority support & training</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="state-exclusivity">
+                <h3>🗺️ State Exclusivity Program</h3>
+                <p class="exclusivity-subtitle">Lock out your competition forever - ONE AGGREGATOR PER STATE</p>
+                <div class="exclusivity-pricing">
+                    <div class="exclusivity-item">
+                        <span class="price">$7,500</span>
+                        <span class="label">State Exclusivity Fee</span>
+                    </div>
+                    <div class="exclusivity-item">
+                        <span class="price">25</span>
+                        <span class="label">Agent Minimum Required</span>
+                    </div>
+                    <div class="exclusivity-item">
+                        <span class="price">9</span>
+                        <span class="label">Month Payback Period</span>
+                    </div>
+                </div>
+                <div class="exclusivity-guarantee">
+                    <p><strong>🔒 What Exclusivity Guarantees:</strong></p>
+                    <p>No other aggregator in your state gets discount pricing. Ever. All future agents you recruit get the same exclusive rate. Permanent competitive advantage in your territory.</p>
+                </div>
+                <a href="#" class="btn btn-primary exclusivity-btn">Claim Your State</a>
             </div>
         </div>
     </section>
@@ -702,22 +1116,27 @@
     <!-- CTA SECTION -->
     <section class="cta-section">
         <div class="cta-content">
-            <h2 class="cta-title">Ready to quote 10x faster?</h2>
-            <p class="cta-subtitle">Join 1000+ agencies who've already made the switch. Start your free trial today.</p>
+            <h2 class="cta-title">Ready to lock in lifetime savings?</h2>
+            <p class="cta-subtitle">⚠️ Early access pricing ends when we launch publicly. These rates will never be available again.</p>
             <div class="cta-buttons">
-                <a href="#" class="btn btn-primary" style="background: white; color: var(--primary);">
-                    🚀 Start Free Trial
+                <a href="#pricing" class="btn btn-primary" style="background: white; color: var(--primary);">
+                    💰 See QUAD Pricing
                 </a>
                 <a href="#" class="btn btn-secondary">
                     📞 Schedule Demo Call
                 </a>
             </div>
+            <div style="margin-top: 1.5rem; background: rgba(255, 255, 255, 0.1); padding: 1rem; border-radius: 0.5rem;">
+                <p style="font-size: 0.875rem; opacity: 0.9;">
+                    <strong>Smart Strategy:</strong> Most agents start with QUAD 1.0 ($1,500 buy-in, $679/month) to test the platform, then upgrade with full credit applied.
+                </p>
+            </div>
         </div>
     </section>
 
     <!-- FLOATING CTA -->
-    <div class="floating-cta" onclick="window.location.href='#'">
-        Try Quote Builder 🚀
+    <div class="floating-cta" onclick="window.location.href='#pricing'">
+        Lock In Early Pricing 🔥
     </div>
 
     <script>
