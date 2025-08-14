@@ -1146,7 +1146,6 @@ function HomePage() {
         {/* MENTAL CHAPTER: PROBLEM → PROOF */}
         <div className="chapter-divider" data-chapter="Chapter I: The Problem"></div>
         
-        {/* SECTION BREAK: PROBLEM → SOLUTION TRANSITION */}
         <div className="section-break state-curiosity">
           <div className="completion-trigger visible">✓</div>
         </div>
@@ -1183,18 +1182,14 @@ function HomePage() {
           </div>
         </section>
 
-        {/* MENTAL CHAPTER: PROOF → COMPARISON */}
         <div className="chapter-divider" data-chapter="Chapter II: The Evidence"></div>
         
-        {/* SECTION BREAK: PROOF → COMPARISON TRANSITION */}
         <div className="section-break state-concern">
           <div className="completion-trigger visible">📊</div>
         </div>
 
-        {/* Section Break - Solution Discovery */}
         <div className="section-break-hard" data-section="2" />
         
-        {/* COMPARISON SECTION - Solution Psychology */}
         <section className="comparison-section fade-in solution-section elevation-3" id="comparison">
           <div className="section-header f-pattern-container">
             <h2>Why agencies choose Quotely</h2>
@@ -1266,7 +1261,6 @@ function HomePage() {
         {/* MENTAL CHAPTER: LOGIC → EMOTION */}
         <div className="chapter-divider" data-chapter="Chapter III: The Proof"></div>
         
-        {/* SECTION BREAK: LOGIC → EMOTION TRANSITION */}
         <div className="section-break state-confidence">
           <div className="completion-trigger visible">💪</div>
         </div>
@@ -1320,7 +1314,6 @@ function HomePage() {
         {/* MENTAL CHAPTER: SOCIAL PROOF → AUTHORITY */}
         <div className="chapter-divider" data-chapter="Chapter IV: The Social Proof"></div>
         
-        {/* SECTION BREAK: SOCIAL PROOF → AUTHORITY TRANSITION */}
         <div className="section-break state-confidence">
           <div className="completion-trigger visible">🎯</div>
         </div>
@@ -1342,7 +1335,6 @@ function HomePage() {
         {/* MENTAL CHAPTER: INSIGHT → ACTION */}
         <div className="chapter-divider" data-chapter="Chapter V: The Decision"></div>
         
-        {/* SECTION BREAK: INSIGHT → ACTION TRANSITION */}
         <div className="section-break state-urgency pasa-action">
           <div className="completion-trigger visible">🚀</div>
         </div>
