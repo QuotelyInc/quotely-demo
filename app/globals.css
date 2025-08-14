@@ -1,23 +1,29 @@
 @import "tailwindcss";
 
 :root {
-  /* Default Theme */
-  --primary: #0057FF;
-  --primary-dark: #0041CC;
-  --secondary: #1B2951;
-  --accent: #00B8A3;
-  --warning: #FF6B35;
-  --surface: #FFFFFF;
-  --background: #F8FAFC;
-  --text-primary: #1F2937;
-  --text-secondary: #6B7280;
+  /* High-Converting Conversion King Theme */
+  --primary: #FF4655;        /* High-energy red-orange for urgency & action */
+  --primary-dark: #E63946;   /* Darker shade for hover states */
+  --secondary: #1A365D;      /* Deep navy for trust & authority */
+  --accent: #38D9A9;         /* Success green for positive reinforcement */
+  --accent-secondary: #4299E1; /* Confident blue for secondary CTAs */
+  --warning: #F6AD55;        /* Attention-grabbing orange */
+  --error: #FC8181;          /* Non-threatening red */
+  --success: #38D9A9;        /* Dopamine-triggering green */
+  --premium: #6B46C1;        /* Purple for luxury/premium features */
+  --surface: #FFFFFF;        /* Pure white for clarity */
+  --background: #F7FAFC;     /* Clean, premium white-blue */
+  --text-primary: #2D3748;   /* Strong contrast for readability */
+  --text-secondary: #4A5568; /* Softer for hierarchy */
   --border: #E5E7EB;
-  --gradient: linear-gradient(135deg, #0057FF 0%, #0041CC 100%);
-  --gradient-bg: linear-gradient(135deg, #1B2951 0%, #0F1729 100%);
+  --gradient: linear-gradient(135deg, #FF4655 0%, #E63946 100%);
+  --gradient-bg: linear-gradient(135deg, #1A365D 0%, #0F172A 100%);
+  --gradient-cta: linear-gradient(135deg, #FF4655 0%, #38D9A9 100%);
+  --gradient-premium: linear-gradient(135deg, #6B46C1 0%, #FF4655 100%);
   --card-bg: #FFFFFF;
   
   /* Legacy support */
-  --foreground: #171717;
+  --foreground: #2D3748;
 }
 
 @theme inline {

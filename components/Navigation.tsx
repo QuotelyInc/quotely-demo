@@ -305,11 +305,11 @@ export default function Navigation({ className = '' }: NavigationProps) {
               Login
             </button>
             <Link 
-              href="/demo" 
+              href="/get-started" 
               className="btn btn-primary"
               onClick={handleTrialClick}
             >
-              Free Trial
+              Get Started
             </Link>
           </div>
           
@@ -394,11 +394,11 @@ export default function Navigation({ className = '' }: NavigationProps) {
               Login
             </button>
             <Link 
-              href="/demo" 
+              href="/get-started" 
               className="btn btn-primary"
               onClick={handleTrialClick}
             >
-              Free Trial
+              Get Started
             </Link>
           </div>
         </div>
