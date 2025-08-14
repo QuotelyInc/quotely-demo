@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useOTTOTracking } from './OTTOProvider'
+import { useState, useEffect } from 'react'
 
 interface NavigationProps {
   className?: string
@@ -11,12 +12,23 @@ interface NavigationProps {
 export default function Navigation({ className = '' }: NavigationProps) {
   const pathname = usePathname()
   const { trackUserAction } = useOTTOTracking()
+  const [scrolled, setScrolled] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const handleNavClick = (page: string) => {
     trackUserAction('navigation_clicked', {
       destination: page,
       source: 'main_navigation'
     })
+    setMobileMenuOpen(false)
   }
 
   const handleLoginClick = () => {
@@ -40,42 +52,117 @@ export default function Navigation({ className = '' }: NavigationProps) {
   return (
     <>
       <style jsx>{`
+        /* Premium Navigation System */
         .header {
-          background: rgba(255, 255, 255, 0.95);
-          backdrop-filter: blur(10px);
-          padding: 1rem 0;
           position: fixed;
           width: 100%;
           top: 0;
-          z-index: 1000;
-          box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+          z-index: 9999;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          background: rgba(255, 255, 255, 0.98);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .header.scrolled {
+          background: rgba(255, 255, 255, 1);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 10px 40px rgba(0, 0, 0, 0.06);
+          border-bottom: 1px solid rgba(0, 0, 0, 0.08);
         }
         
-        .nav {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          max-width: 1200px;
+        .nav-container {
+          max-width: 1440px;
           margin: 0 auto;
-          padding: 0 20px;
+          padding: 0 32px;
+          height: 72px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .scrolled .nav-container {
+          height: 64px;
         }
         
+        /* Logo */
+        .logo-section {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+
         .logo {
-          font-size: 2rem;
-          font-weight: bold;
-          color: #4f46e5;
+          display: flex;
+          align-items: center;
+          gap: 10px;
           text-decoration: none;
-          transition: color 0.3s;
+          transition: all 0.2s ease;
+        }
+
+        .logo-icon {
+          width: 36px;
+          height: 36px;
+          background: linear-gradient(135deg, #0052CC 0%, #0747A6 100%);
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 800;
+          font-size: 20px;
+          color: white;
+          box-shadow: 0 2px 8px rgba(0, 82, 204, 0.15);
+          transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .logo:hover .logo-icon {
+          transform: rotate(-5deg) scale(1.05);
+          box-shadow: 0 4px 12px rgba(0, 82, 204, 0.25);
+        }
+
+        .logo-text {
+          font-size: 22px;
+          font-weight: 700;
+          color: #0A0E27;
+          letter-spacing: -0.02em;
+        }
+
+        /* Trust Badge Next to Logo */
+        .trust-indicator {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          padding: 4px 10px;
+          background: #F0F9FF;
+          border: 1px solid #BAE6FD;
+          border-radius: 100px;
+          font-size: 11px;
+          font-weight: 600;
+          color: #0369A1;
+          text-transform: uppercase;
+          letter-spacing: 0.02em;
+        }
+
+        .trust-dot {
+          width: 6px;
+          height: 6px;
+          background: #10B981;
+          border-radius: 50%;
+          animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+          0%, 100% { opacity: 1; transform: scale(1); }
+          50% { opacity: 0.5; transform: scale(1.2); }
         }
         
-        .logo:hover {
-          color: #3730a3;
-        }
-        
+        /* Main Navigation */
         .nav-links {
           display: flex;
+          align-items: center;
+          gap: 8px;
           list-style: none;
-          gap: 2rem;
           margin: 0;
           padding: 0;
         }
@@ -84,160 +171,301 @@ export default function Navigation({ className = '' }: NavigationProps) {
           margin: 0;
         }
         
-        .nav-links a {
-          text-decoration: none;
-          color: #333;
-          font-weight: 500;
-          transition: color 0.3s;
-          padding: 0.5rem 0;
+        .nav-link {
           position: relative;
-        }
-        
-        .nav-links a:hover {
-          color: #4f46e5;
-        }
-        
-        .nav-links a.active {
-          color: #4f46e5;
-        }
-        
-        .nav-links a.active::after {
-          content: '';
-          position: absolute;
-          bottom: -0.5rem;
-          left: 0;
-          right: 0;
-          height: 2px;
-          background: #4f46e5;
-          border-radius: 1px;
-        }
-        
-        .nav-buttons {
-          display: flex;
-          gap: 1rem;
-        }
-        
-        .btn {
-          padding: 12px 24px;
-          border-radius: 8px;
-          font-weight: 600;
+          padding: 8px 16px;
           text-decoration: none;
+          color: #4B5563;
+          font-size: 15px;
+          font-weight: 500;
+          border-radius: 8px;
+          transition: all 0.2s ease;
+          display: flex;
+          align-items: center;
+          gap: 4px;
+        }
+        
+        .nav-link:hover {
+          color: #0052CC;
+          background: rgba(0, 82, 204, 0.04);
+        }
+        
+        .nav-link.active {
+          color: #0052CC;
+          background: rgba(0, 82, 204, 0.08);
+          font-weight: 600;
+        }
+
+        /* QUAD Special Badge */
+        .quad-badge {
+          background: linear-gradient(135deg, #FFB800 0%, #FF6B35 100%);
+          color: white;
+          padding: 2px 6px;
+          border-radius: 4px;
+          font-size: 9px;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.03em;
+          margin-left: 4px;
+          box-shadow: 0 2px 4px rgba(255, 107, 53, 0.2);
+        }
+        
+        /* Right Section - Auth Buttons */
+        .nav-actions {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+
+        /* Login Button - Subtle */
+        .btn-login {
+          padding: 10px 20px;
+          background: transparent;
+          color: #4B5563;
           border: none;
+          border-radius: 8px;
+          font-size: 15px;
+          font-weight: 600;
           cursor: pointer;
-          transition: all 0.3s ease;
-          font-size: 16px;
+          transition: all 0.2s ease;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .btn-login:hover {
+          color: #0052CC;
+          background: rgba(0, 82, 204, 0.04);
+        }
+
+        /* Get Started - Premium CTA */
+        .btn-get-started {
+          position: relative;
+          padding: 11px 24px;
+          background: linear-gradient(135deg, #0052CC 0%, #0747A6 100%);
+          color: white;
+          border: none;
+          border-radius: 8px;
+          font-size: 15px;
+          font-weight: 600;
+          cursor: pointer;
+          text-decoration: none;
           display: inline-flex;
           align-items: center;
-          gap: 0.5rem;
+          gap: 8px;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          box-shadow: 0 4px 14px rgba(0, 82, 204, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+          overflow: hidden;
         }
-        
-        .btn-primary {
-          background: linear-gradient(135deg, #4f46e5, #7c3aed);
-          color: white;
-          box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4);
+
+        .btn-get-started::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+          transition: left 0.5s;
         }
-        
-        .btn-primary:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 8px 25px rgba(79, 70, 229, 0.6);
+
+        .btn-get-started:hover {
+          transform: translateY(-1px);
+          box-shadow: 0 6px 20px rgba(0, 82, 204, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2);
         }
-        
-        .btn-secondary {
-          background: transparent;
-          color: #4f46e5;
-          border: 2px solid #4f46e5;
+
+        .btn-get-started:hover::before {
+          left: 100%;
         }
-        
-        .btn-secondary:hover {
-          background: #4f46e5;
-          color: white;
-          transform: translateY(-2px);
+
+        .btn-get-started:active {
+          transform: translateY(0);
         }
-        
+
+        /* Arrow Animation */
+        .arrow-icon {
+          transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .btn-get-started:hover .arrow-icon {
+          transform: translateX(3px);
+        }
+
+        /* Mobile Menu Button */
         .mobile-menu-button {
           display: none;
-          background: none;
-          border: none;
-          font-size: 1.5rem;
+          width: 48px;
+          height: 48px;
+          background: transparent;
+          border: 1px solid rgba(0, 0, 0, 0.08);
+          border-radius: 8px;
           cursor: pointer;
-          color: #333;
+          position: relative;
+          transition: all 0.3s ease;
         }
-        
-        .mobile-menu {
-          display: none;
+
+        .mobile-menu-button:hover {
+          background: rgba(0, 82, 204, 0.04);
+          border-color: rgba(0, 82, 204, 0.2);
+        }
+
+        .hamburger {
           position: absolute;
-          top: 100%;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 20px;
+          height: 14px;
+        }
+
+        .hamburger span {
+          display: block;
+          position: absolute;
+          height: 2px;
+          width: 100%;
+          background: #4B5563;
+          border-radius: 2px;
+          transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .hamburger span:nth-child(1) {
+          top: 0;
+        }
+
+        .hamburger span:nth-child(2) {
+          top: 6px;
+        }
+
+        .hamburger span:nth-child(3) {
+          top: 12px;
+        }
+
+        .mobile-menu-button.open .hamburger span:nth-child(1) {
+          transform: rotate(45deg);
+          top: 6px;
+        }
+
+        .mobile-menu-button.open .hamburger span:nth-child(2) {
+          opacity: 0;
+        }
+
+        .mobile-menu-button.open .hamburger span:nth-child(3) {
+          transform: rotate(-45deg);
+          top: 6px;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+          position: fixed;
+          top: 72px;
           left: 0;
           right: 0;
-          background: white;
-          box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-          padding: 1rem 0;
+          bottom: 0;
+          background: rgba(255, 255, 255, 0.98);
+          backdrop-filter: blur(20px);
+          transform: translateX(100%);
+          transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          overflow-y: auto;
+          padding: 24px;
         }
-        
+
         .mobile-menu.open {
-          display: block;
+          transform: translateX(0);
         }
-        
+
         .mobile-nav-links {
           list-style: none;
-          margin: 0;
+          margin: 0 0 24px 0;
           padding: 0;
         }
-        
+
         .mobile-nav-links li {
-          margin: 0;
+          margin: 0 0 8px 0;
         }
-        
-        .mobile-nav-links a {
-          display: block;
-          padding: 1rem 2rem;
+
+        .mobile-nav-link {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 16px 20px;
           text-decoration: none;
-          color: #333;
+          color: #4B5563;
+          font-size: 16px;
           font-weight: 500;
-          transition: background-color 0.3s;
+          border-radius: 12px;
+          transition: all 0.2s ease;
         }
-        
-        .mobile-nav-links a:hover,
-        .mobile-nav-links a.active {
-          background-color: #f8fafc;
-          color: #4f46e5;
+
+        .mobile-nav-link:hover,
+        .mobile-nav-link.active {
+          background: rgba(0, 82, 204, 0.08);
+          color: #0052CC;
         }
-        
-        .mobile-buttons {
-          padding: 1rem 2rem;
+
+        .mobile-actions {
           display: flex;
           flex-direction: column;
-          gap: 1rem;
+          gap: 12px;
+          padding-top: 24px;
+          border-top: 1px solid rgba(0, 0, 0, 0.08);
         }
-        
+
+        .mobile-actions .btn-login,
+        .mobile-actions .btn-get-started {
+          width: 100%;
+          padding: 16px;
+          font-size: 16px;
+          justify-content: center;
+        }
+
         /* Responsive */
+        @media (max-width: 1024px) {
+          .nav-container {
+            padding: 0 24px;
+          }
+
+          .trust-indicator {
+            display: none;
+          }
+        }
+
         @media (max-width: 768px) {
           .nav-links,
-          .nav-buttons {
+          .nav-actions {
             display: none;
           }
           
           .mobile-menu-button {
             display: block;
           }
+
+          .nav-container {
+            padding: 0 16px;
+          }
         }
       `}</style>
 
-      <header className={`header ${className}`}>
-        <nav className="nav">
-          <Link 
-            href="/" 
-            className="logo"
-            onClick={() => handleNavClick('home')}
-          >
-            Quotely
-          </Link>
+      <header className={`header ${scrolled ? 'scrolled' : ''} ${className}`}>
+        <div className="nav-container">
+          <div className="logo-section">
+            <Link 
+              href="/" 
+              className="logo"
+              onClick={() => handleNavClick('home')}
+            >
+              <div className="logo-icon">Q</div>
+              <span className="logo-text">Quotely</span>
+            </Link>
+            <div className="trust-indicator">
+              <span className="trust-dot"></span>
+              <span>SOC 2 Certified</span>
+            </div>
+          </div>
           
           <ul className="nav-links">
             <li>
               <Link 
                 href="/" 
-                className={isActive('/') ? 'active' : ''}
+                className={`nav-link ${isActive('/') ? 'active' : ''}`}
                 onClick={() => handleNavClick('home')}
               >
                 Home
@@ -246,15 +474,17 @@ export default function Navigation({ className = '' }: NavigationProps) {
             <li>
               <Link 
                 href="/quad" 
-                className={isActive('/quad') ? 'active' : ''}
+                className={`nav-link ${isActive('/quad') ? 'active' : ''}`}
                 onClick={() => handleNavClick('quad')}
               >
                 QUAD
+                <span className="quad-badge">NEW</span>
               </Link>
             </li>
             <li>
               <Link 
                 href="/#features" 
+                className="nav-link"
                 onClick={() => handleNavClick('features')}
               >
                 Features
@@ -263,7 +493,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
             <li>
               <Link 
                 href="/pricing" 
-                className={isActive('/pricing') ? 'active' : ''}
+                className={`nav-link ${isActive('/pricing') ? 'active' : ''}`}
                 onClick={() => handleNavClick('pricing')}
               >
                 Pricing
@@ -272,6 +502,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
             <li>
               <Link 
                 href="/#integrations"
+                className="nav-link"
                 onClick={() => handleNavClick('integrations')}
               >
                 Integrations
@@ -280,7 +511,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
             <li>
               <Link 
                 href="/blog" 
-                className={isActive('/blog') ? 'active' : ''}
+                className={`nav-link ${isActive('/blog') ? 'active' : ''}`}
                 onClick={() => handleNavClick('blog')}
               >
                 Blog
@@ -289,7 +520,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
             <li>
               <Link 
                 href="/about" 
-                className={isActive('/about') ? 'active' : ''}
+                className={`nav-link ${isActive('/about') ? 'active' : ''}`}
                 onClick={() => handleNavClick('about')}
               >
                 About
@@ -297,36 +528,42 @@ export default function Navigation({ className = '' }: NavigationProps) {
             </li>
           </ul>
           
-          <div className="nav-buttons">
+          <div className="nav-actions">
             <button 
               onClick={handleLoginClick}
-              className="btn btn-secondary"
+              className="btn-login"
             >
               Login
             </button>
             <Link 
               href="/get-started" 
-              className="btn btn-primary"
+              className="btn-get-started"
               onClick={handleTrialClick}
             >
               Get Started
+              <span className="arrow-icon">→</span>
             </Link>
           </div>
           
-          <button className="mobile-menu-button" onClick={() => {
-            const menu = document.querySelector('.mobile-menu')
-            menu?.classList.toggle('open')
-          }}>
-            ☰
+          <button 
+            className={`mobile-menu-button ${mobileMenuOpen ? 'open' : ''}`}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            <div className="hamburger">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
           </button>
-        </nav>
+        </div>
         
-        <div className="mobile-menu">
+        <div className={`mobile-menu ${mobileMenuOpen ? 'open' : ''}`}>
           <ul className="mobile-nav-links">
             <li>
               <Link 
                 href="/" 
-                className={isActive('/') ? 'active' : ''}
+                className={`mobile-nav-link ${isActive('/') ? 'active' : ''}`}
                 onClick={() => handleNavClick('home')}
               >
                 Home
@@ -335,15 +572,17 @@ export default function Navigation({ className = '' }: NavigationProps) {
             <li>
               <Link 
                 href="/quad" 
-                className={isActive('/quad') ? 'active' : ''}
+                className={`mobile-nav-link ${isActive('/quad') ? 'active' : ''}`}
                 onClick={() => handleNavClick('quad')}
               >
                 QUAD
+                <span className="quad-badge">NEW</span>
               </Link>
             </li>
             <li>
               <Link 
                 href="/#features" 
+                className="mobile-nav-link"
                 onClick={() => handleNavClick('features')}
               >
                 Features
@@ -352,7 +591,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
             <li>
               <Link 
                 href="/pricing" 
-                className={isActive('/pricing') ? 'active' : ''}
+                className={`mobile-nav-link ${isActive('/pricing') ? 'active' : ''}`}
                 onClick={() => handleNavClick('pricing')}
               >
                 Pricing
@@ -361,6 +600,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
             <li>
               <Link 
                 href="/#integrations"
+                className="mobile-nav-link"
                 onClick={() => handleNavClick('integrations')}
               >
                 Integrations
@@ -369,7 +609,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
             <li>
               <Link 
                 href="/blog" 
-                className={isActive('/blog') ? 'active' : ''}
+                className={`mobile-nav-link ${isActive('/blog') ? 'active' : ''}`}
                 onClick={() => handleNavClick('blog')}
               >
                 Blog
@@ -378,7 +618,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
             <li>
               <Link 
                 href="/about" 
-                className={isActive('/about') ? 'active' : ''}
+                className={`mobile-nav-link ${isActive('/about') ? 'active' : ''}`}
                 onClick={() => handleNavClick('about')}
               >
                 About
@@ -386,19 +626,20 @@ export default function Navigation({ className = '' }: NavigationProps) {
             </li>
           </ul>
           
-          <div className="mobile-buttons">
+          <div className="mobile-actions">
             <button 
               onClick={handleLoginClick}
-              className="btn btn-secondary"
+              className="btn-login"
             >
               Login
             </button>
             <Link 
               href="/get-started" 
-              className="btn btn-primary"
+              className="btn-get-started"
               onClick={handleTrialClick}
             >
               Get Started
+              <span className="arrow-icon">→</span>
             </Link>
           </div>
         </div>
