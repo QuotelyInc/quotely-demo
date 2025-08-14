@@ -564,7 +564,7 @@ function VsEZLynxPage() {
                 </tr>
                 <tr>
                   <td className="feature-name">Setup Time</td>
-                  <td className="quotely-col"><span className="check">✓</span> < 2 minutes</td>
+                  <td className="quotely-col"><span className="check">✓</span> &lt; 2 minutes</td>
                   <td><span className="cross">✗</span> 2-4 weeks</td>
                 </tr>
                 <tr>
