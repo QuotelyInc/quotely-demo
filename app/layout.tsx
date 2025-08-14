@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { OTTOProvider } from "../components/OTTOProvider"
 import OTTOScript from "../components/OTTOScript"
+import { ThemeProvider } from "../components/ThemeProvider"
+import ClientThemeSwitcher from "../components/ClientThemeSwitcher"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -57,11 +59,31 @@ export default function RootLayout({
         <link rel="canonical" href="https://tryquotely.com" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#0057FF" />
+        
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-28RBK32B5C"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-28RBK32B5C', {
+                page_path: window.location.pathname,
+                stream_id: '12013408617',
+                stream_name: 'Quotely Platform'
+              });
+            `,
+          }}
+        />
       </head>
       <body>
-        <OTTOProvider>
-          {children}
-        </OTTOProvider>
+        <ThemeProvider>
+          <OTTOProvider>
+            {children}
+            <ClientThemeSwitcher />
+          </OTTOProvider>
+        </ThemeProvider>
       </body>
     </html>
   )

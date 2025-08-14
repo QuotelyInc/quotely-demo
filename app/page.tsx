@@ -177,8 +177,8 @@ function HomePage() {
         :root {
           --primary: #0057FF;
           --primary-dark: #0041CC;
-          --secondary: #2E2E2E;
-          --accent: #00C851;
+          --secondary: #1B2951;
+          --accent: #00B8A3;
           --warning: #FF6B35;
           --surface: #FFFFFF;
           --background: #F8FAFC;
@@ -186,7 +186,7 @@ function HomePage() {
           --text-secondary: #6B7280;
           --border: #E5E7EB;
           --gradient: linear-gradient(135deg, #0057FF 0%, #0041CC 100%);
-          --gradient-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          --gradient-bg: linear-gradient(135deg, #1B2951 0%, #0F1729 100%);
         }
         
         body {
@@ -215,9 +215,9 @@ function HomePage() {
           right: 0;
           bottom: 0;
           background: 
-            radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.3) 0%, transparent 50%),
-            radial-gradient(circle at 40% 40%, rgba(0, 200, 81, 0.2) 0%, transparent 50%);
+            radial-gradient(circle at 20% 80%, rgba(27, 41, 81, 0.3) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(0, 184, 163, 0.2) 0%, transparent 50%),
+            radial-gradient(circle at 40% 40%, rgba(0, 87, 255, 0.1) 0%, transparent 50%);
           animation: float 20s ease-in-out infinite;
         }
         
@@ -327,10 +327,10 @@ function HomePage() {
         }
         
         .demo-preview {
-          background: white;
+          background: rgba(255, 255, 255, 0.95);
           border-radius: 1rem;
           padding: 1rem;
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
           transform: rotateY(-5deg) rotateX(5deg);
           transition: transform 0.3s ease;
         }
@@ -416,7 +416,7 @@ function HomePage() {
           width: 60px;
           height: 60px;
           margin: 0 auto 1rem;
-          background: var(--gradient);
+          background: linear-gradient(135deg, #0057FF 0%, #0041CC 100%);
           border-radius: 50%;
           display: flex;
           align-items: center;
@@ -497,7 +497,7 @@ function HomePage() {
         }
         
         .check-mark {
-          color: var(--accent);
+          color: #00B8A3;
           font-weight: 700;
         }
         
@@ -572,7 +572,7 @@ function HomePage() {
         /* CTA SECTION */
         .cta-section {
           padding: 4rem 2rem;
-          background: var(--gradient);
+          background: linear-gradient(135deg, #1B2951 0%, #0F1729 100%);
           color: white;
           text-align: center;
         }
@@ -656,11 +656,11 @@ function HomePage() {
           bottom: 20px;
           right: 20px;
           z-index: 1000;
-          background: var(--primary);
+          background: #00B8A3;
           color: white;
           padding: 1rem 1.5rem;
           border-radius: 50px;
-          box-shadow: 0 8px 30px rgba(0, 87, 255, 0.3);
+          box-shadow: 0 8px 30px rgba(0, 184, 163, 0.3);
           animation: pulse 2s infinite;
           cursor: pointer;
           transition: all 0.3s ease;
@@ -668,14 +668,14 @@ function HomePage() {
         }
         
         .floating-cta:hover {
-          background: var(--primary-dark);
+          background: #009589;
           transform: scale(1.05);
         }
         
         @keyframes pulse {
-          0% { box-shadow: 0 8px 30px rgba(0, 87, 255, 0.3); }
-          50% { box-shadow: 0 8px 30px rgba(0, 87, 255, 0.6); }
-          100% { box-shadow: 0 8px 30px rgba(0, 87, 255, 0.3); }
+          0% { box-shadow: 0 8px 30px rgba(0, 184, 163, 0.3); }
+          50% { box-shadow: 0 8px 30px rgba(0, 184, 163, 0.6); }
+          100% { box-shadow: 0 8px 30px rgba(0, 184, 163, 0.3); }
         }
       `}</style>
 
@@ -686,7 +686,7 @@ function HomePage() {
         <section className="hero">
           <div className="hero-content">
             <div className="hero-text">
-              <h1>Quote insurance <span style={{color: '#00C851'}}>10x faster</span></h1>
+              <h1>Quote insurance <span style={{color: '#00B8A3'}}>10x faster</span></h1>
               <p className="subtitle">The modern alternative to EZLynx and Applied Rater. Built for independent agents who demand speed, transparency, and results.</p>
               
               <div className="hero-stats">
@@ -719,7 +719,7 @@ function HomePage() {
                 <div className="demo-video" id="demo">
                   <div className="play-button" onClick={playDemo}>▶</div>
                   {/* Simulated dashboard preview */}
-                  <div style={{position: 'absolute', top: '10px', left: '10px', right: '10px', bottom: '60px', background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', borderRadius: '8px', opacity: 0.1}}></div>
+                  <div style={{position: 'absolute', top: '10px', left: '10px', right: '10px', bottom: '60px', background: 'linear-gradient(135deg, #1B2951 0%, #0F1729 100%)', borderRadius: '8px', opacity: 0.4}}></div>
                   <div style={{position: 'absolute', top: '30px', left: '30px', right: '30px', height: '20px', background: 'white', borderRadius: '4px', opacity: 0.3}}></div>
                   <div style={{position: 'absolute', top: '60px', left: '30px', right: '30px', height: '100px', background: 'white', borderRadius: '8px', opacity: 0.4}}></div>
                 </div>

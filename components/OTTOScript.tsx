@@ -9,6 +9,7 @@ export default function OTTOScript() {
       strategy="afterInteractive"
       src="https://dashboard.searchatlas.com/scripts/dynamic_optimization.js"
       data-uuid="93fecead-4a44-4a94-8620-c45564441a5b"
+      data-api-key="0881d3c546ed5294849fa12fcc4436f5"
     />
   )
 }

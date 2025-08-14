@@ -67,8 +67,8 @@ function DemoPage() {
         :root {
           --primary: #0057FF;
           --primary-dark: #0041CC;
-          --secondary: #2E2E2E;
-          --accent: #00C851;
+          --secondary: #1B2951;
+          --accent: #00B8A3;
           --warning: #FF6B35;
           --surface: #FFFFFF;
           --background: #F8FAFC;
@@ -76,7 +76,7 @@ function DemoPage() {
           --text-secondary: #6B7280;
           --border: #E5E7EB;
           --gradient: linear-gradient(135deg, #0057FF 0%, #0041CC 100%);
-          --gradient-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          --gradient-bg: linear-gradient(135deg, #1B2951 0%, #0F1729 100%);
         }
         
         body {
@@ -184,7 +184,7 @@ function DemoPage() {
         
         /* Hero Section */
         .demo-hero {
-          background: var(--gradient-bg);
+          background: linear-gradient(135deg, #1B2951 0%, #0F1729 100%);
           padding: 150px 0 80px;
           text-align: center;
           color: white;
@@ -273,7 +273,7 @@ function DemoPage() {
         .form-submit {
           width: 100%;
           padding: 1rem;
-          background: var(--gradient);
+          background: linear-gradient(135deg, #00B8A3 0%, #009589 100%);
           color: white;
           border: none;
           border-radius: 0.75rem;
@@ -285,7 +285,7 @@ function DemoPage() {
         
         .form-submit:hover {
           transform: translateY(-2px);
-          box-shadow: 0 8px 30px rgba(0, 87, 255, 0.5);
+          box-shadow: 0 8px 30px rgba(0, 184, 163, 0.5);
         }
         
         /* Demo Features */
@@ -319,7 +319,7 @@ function DemoPage() {
           font-size: 1.5rem;
           width: 40px;
           height: 40px;
-          background: var(--gradient);
+          background: linear-gradient(135deg, #0057FF 0%, #0041CC 100%);
           border-radius: 50%;
           display: flex;
           align-items: center;
@@ -633,7 +633,7 @@ function DemoPage() {
             <div className="video-placeholder">
               <div className="play-button" onClick={handleQuickDemo}>▶</div>
               {/* Simulated dashboard preview */}
-              <div style={{position: 'absolute', top: '10px', left: '10px', right: '10px', bottom: '60px', background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', borderRadius: '8px', opacity: 0.1}}></div>
+              <div style={{position: 'absolute', top: '10px', left: '10px', right: '10px', bottom: '60px', background: 'linear-gradient(135deg, #1B2951 0%, #0F1729 100%)', borderRadius: '8px', opacity: 0.4}}></div>
               <div style={{position: 'absolute', top: '30px', left: '30px', right: '30px', height: '20px', background: 'white', borderRadius: '4px', opacity: 0.3}}></div>
               <div style={{position: 'absolute', top: '60px', left: '30px', right: '30px', height: '100px', background: 'white', borderRadius: '8px', opacity: 0.4}}></div>
             </div>

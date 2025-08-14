@@ -245,6 +245,15 @@ export default function Navigation({ className = '' }: NavigationProps) {
             </li>
             <li>
               <Link 
+                href="/quad" 
+                className={isActive('/quad') ? 'active' : ''}
+                onClick={() => handleNavClick('quad')}
+              >
+                QUAD
+              </Link>
+            </li>
+            <li>
+              <Link 
                 href="/#features" 
                 onClick={() => handleNavClick('features')}
               >
@@ -321,6 +330,15 @@ export default function Navigation({ className = '' }: NavigationProps) {
                 onClick={() => handleNavClick('home')}
               >
                 Home
+              </Link>
+            </li>
+            <li>
+              <Link 
+                href="/quad" 
+                className={isActive('/quad') ? 'active' : ''}
+                onClick={() => handleNavClick('quad')}
+              >
+                QUAD
               </Link>
             </li>
             <li>

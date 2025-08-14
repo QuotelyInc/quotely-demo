@@ -115,14 +115,14 @@ function BlogPage() {
         }
         
         .btn-primary {
-          background: linear-gradient(135deg, #4f46e5, #7c3aed);
+          background: linear-gradient(135deg, #0057FF 0%, #0041CC 100%);
           color: white;
-          box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4);
+          box-shadow: 0 4px 15px rgba(0, 87, 255, 0.4);
         }
         
         .btn-primary:hover {
           transform: translateY(-2px);
-          box-shadow: 0 8px 25px rgba(79, 70, 229, 0.6);
+          box-shadow: 0 8px 25px rgba(0, 87, 255, 0.6);
         }
         
         .btn-secondary {
@@ -139,7 +139,7 @@ function BlogPage() {
         
         /* Blog Hero */
         .blog-hero {
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          background: linear-gradient(135deg, #1B2951 0%, #0F1729 100%);
           padding: 150px 0 80px;
           text-align: center;
           color: white;
@@ -189,7 +189,7 @@ function BlogPage() {
         
         .category-tag:hover,
         .category-tag.active {
-          background: #4f46e5;
+          background: #00B8A3;
           color: white;
         }
         
@@ -225,7 +225,7 @@ function BlogPage() {
         .blog-image {
           width: 100%;
           height: 200px;
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          background: linear-gradient(135deg, #1B2951 0%, #0F1729 100%);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -249,7 +249,7 @@ function BlogPage() {
         }
         
         .blog-category {
-          color: #4f46e5;
+          color: #00B8A3;
           font-weight: 600;
         }
         
@@ -304,7 +304,7 @@ function BlogPage() {
         }
         
         .featured-image {
-          background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+          background: linear-gradient(135deg, #1B2951 0%, #0F1729 100%);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -321,8 +321,8 @@ function BlogPage() {
         
         .featured-badge {
           display: inline-block;
-          background: #fbbf24;
-          color: #1f2937;
+          background: #00B8A3;
+          color: white;
           padding: 4px 12px;
           border-radius: 4px;
           font-size: 0.75rem;
@@ -348,7 +348,7 @@ function BlogPage() {
         
         /* Newsletter */
         .newsletter {
-          background: linear-gradient(135deg, #4f46e5, #7c3aed);
+          background: linear-gradient(135deg, #1B2951 0%, #0F1729 100%);
           padding: 60px 0;
           text-align: center;
           color: white;
@@ -614,7 +614,7 @@ function BlogPage() {
           <p>Get the latest articles, product updates, and industry trends delivered to your inbox</p>
           <form className="newsletter-form" onSubmit={handleNewsletterSubmit}>
             <input type="email" className="newsletter-input" placeholder="Enter your email" required />
-            <button type="submit" className="btn btn-primary" style={{background: 'white', color: '#4f46e5'}}>Subscribe</button>
+            <button type="submit" className="btn btn-primary" style={{background: 'white', color: '#0057FF'}}>Subscribe</button>
           </form>
         </div>
       </section>

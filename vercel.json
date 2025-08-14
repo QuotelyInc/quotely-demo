@@ -3,12 +3,6 @@
   "github": {
     "enabled": false
   },
-  "rewrites": [
-    {
-      "source": "/",
-      "destination": "/index.html"
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",

@@ -23,13 +23,6 @@ function PricingPage() {
     })
   }
 
-  const handleUpgradeClick = () => {
-    trackUserAction('cta_clicked', {
-      button: 'upgrade',
-      location: 'pricing_page'
-    })
-  }
-
   const handleContactClick = () => {
     trackUserAction('cta_clicked', {
       button: 'contact_sales',
@@ -40,21 +33,6 @@ function PricingPage() {
   return (
     <div>
       <style jsx>{`
-        :root {
-          --primary: #0057FF;
-          --primary-dark: #0041CC;
-          --secondary: #2E2E2E;
-          --accent: #00C851;
-          --warning: #FF6B35;
-          --surface: #FFFFFF;
-          --background: #F8FAFC;
-          --text-primary: #1F2937;
-          --text-secondary: #6B7280;
-          --border: #E5E7EB;
-          --gradient: linear-gradient(135deg, #0057FF 0%, #0041CC 100%);
-          --gradient-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-        
         body {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
           line-height: 1.6;
@@ -66,59 +44,9 @@ function PricingPage() {
         }
         
         .container {
-          max-width: 1200px;
+          max-width: 1400px;
           margin: 0 auto;
           padding: 0 20px;
-        }
-        
-        /* Header */
-        .header {
-          background: rgba(255, 255, 255, 0.95);
-          backdrop-filter: blur(10px);
-          padding: 1rem 0;
-          position: fixed;
-          width: 100%;
-          top: 0;
-          z-index: 1000;
-          box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-        }
-        
-        .nav {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-        }
-        
-        .logo {
-          font-size: 2rem;
-          font-weight: bold;
-          color: #4f46e5;
-          text-decoration: none;
-        }
-        
-        .nav-links {
-          display: flex;
-          list-style: none;
-          gap: 2rem;
-          margin: 0;
-          padding: 0;
-        }
-        
-        .nav-links a {
-          text-decoration: none;
-          color: #333;
-          font-weight: 500;
-          transition: color 0.3s;
-        }
-        
-        .nav-links a:hover,
-        .nav-links a.active {
-          color: #4f46e5;
-        }
-        
-        .nav-buttons {
-          display: flex;
-          gap: 1rem;
         }
         
         .btn {
@@ -167,63 +95,93 @@ function PricingPage() {
         }
         
         .pricing-hero h1 {
-          font-size: 3rem;
+          font-size: 3.5rem;
           margin-bottom: 1rem;
           font-weight: 700;
         }
         
         .pricing-hero p {
-          font-size: 1.2rem;
+          font-size: 1.3rem;
           opacity: 0.95;
-          max-width: 600px;
-          margin: 0 auto 1rem;
+          max-width: 700px;
+          margin: 0 auto 2rem;
         }
         
         .early-access-badge {
-          background: var(--warning);
+          background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
           color: white;
-          padding: 0.5rem 1rem;
-          border-radius: 20px;
-          font-size: 0.875rem;
+          padding: 0.75rem 1.5rem;
+          border-radius: 25px;
+          font-size: 1rem;
           font-weight: 600;
           margin-bottom: 2rem;
           display: inline-block;
+          animation: pulse 2s infinite;
         }
         
-        /* QUAD PRICING SECTION */
+        @keyframes pulse {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.05); }
+        }
+        
+        /* QUAD Tiers Grid */
         .pricing-section {
-          padding: 4rem 2rem;
-          background: linear-gradient(135deg, #f8fafc 0%, #e5e7eb 100%);
+          padding: 5rem 2rem;
+          background: var(--background);
         }
         
-        .pricing-container {
-          max-width: 1200px;
-          margin: 0 auto;
+        .section-header {
+          text-align: center;
+          margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+          font-size: 2.5rem;
+          color: var(--text-primary);
+          margin-bottom: 1rem;
+        }
+        
+        .section-header p {
+          font-size: 1.2rem;
+          color: var(--text-secondary);
+        }
+        
+        .pricing-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
           gap: 2rem;
+          margin-bottom: 4rem;
         }
         
         .pricing-card {
-          background: white;
+          background: var(--surface);
           border-radius: 1rem;
           padding: 2rem;
-          box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
           position: relative;
-          transition: transform 0.3s ease;
+          transition: all 0.3s ease;
+          border: 2px solid var(--border);
         }
         
         .pricing-card:hover {
           transform: translateY(-5px);
-        }
-        
-        .pricing-card.popular {
-          border: 3px solid var(--primary);
-          transform: scale(1.05);
+          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
         }
         
         .pricing-card.recommended {
-          border: 2px solid var(--accent);
+          border-color: #10B981;
+          background: linear-gradient(135deg, #F0FDF4 0%, #FFFFFF 100%);
+        }
+        
+        .pricing-card.popular {
+          border-color: var(--primary);
+          background: linear-gradient(135deg, #EFF6FF 0%, #FFFFFF 100%);
+          transform: scale(1.03);
+        }
+        
+        .pricing-card.enterprise {
+          border-color: #8B5CF6;
+          background: linear-gradient(135deg, #F5F3FF 0%, #FFFFFF 100%);
         }
         
         .pricing-badge {
@@ -231,23 +189,40 @@ function PricingPage() {
           top: -12px;
           left: 50%;
           transform: translateX(-50%);
-          background: var(--accent);
-          color: white;
-          padding: 0.5rem 1rem;
+          padding: 0.5rem 1.25rem;
           border-radius: 20px;
           font-size: 0.875rem;
           font-weight: 600;
+          color: white;
         }
         
-        .popular-badge {
+        .badge-recommended {
+          background: #10B981;
+        }
+        
+        .badge-popular {
           background: var(--primary);
         }
         
-        .pricing-card h3 {
+        .badge-enterprise {
+          background: #8B5CF6;
+        }
+        
+        .pricing-header {
           text-align: center;
-          font-size: 1.5rem;
-          margin-bottom: 1rem;
+          margin-bottom: 2rem;
+        }
+        
+        .pricing-name {
+          font-size: 2rem;
+          font-weight: 700;
           color: var(--text-primary);
+          margin-bottom: 0.5rem;
+        }
+        
+        .pricing-description {
+          font-size: 1rem;
+          color: var(--text-secondary);
         }
         
         .pricing-main {
@@ -255,153 +230,242 @@ function PricingPage() {
           margin-bottom: 1.5rem;
         }
         
-        .buy-in-price {
-          font-size: 1.125rem;
-          color: var(--text-secondary);
+        .retail-price {
+          font-size: 1.2rem;
+          color: #EF4444;
+          text-decoration: line-through;
+          opacity: 0.7;
           margin-bottom: 0.5rem;
         }
         
         .monthly-price {
-          font-size: 2.5rem;
+          font-size: 3rem;
           font-weight: 700;
           color: var(--primary);
+          margin-bottom: 0.5rem;
         }
         
         .monthly-price span {
-          font-size: 1rem;
+          font-size: 1.2rem;
           color: var(--text-secondary);
         }
         
-        .retail-price {
-          color: var(--text-secondary);
-          text-decoration: line-through;
-          margin-top: 0.25rem;
-        }
-        
-        .savings-highlight {
-          background: linear-gradient(135deg, #00C851, #28a745);
-          color: white;
-          padding: 1rem;
+        .buy-in-price {
+          background: #FEF3C7;
+          color: #92400E;
+          padding: 0.75rem;
           border-radius: 0.5rem;
-          margin-bottom: 1.5rem;
+          font-weight: 600;
+          font-size: 1.1rem;
+        }
+        
+        .roi-highlight {
+          background: linear-gradient(135deg, #D1FAE5 0%, #A7F3D0 100%);
+          border: 1px solid #10B981;
+          padding: 1rem;
+          border-radius: 0.75rem;
+          margin: 1.5rem 0;
+        }
+        
+        .roi-metrics {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 0.75rem;
+        }
+        
+        .roi-item {
           text-align: center;
         }
         
-        .savings-amount {
-          font-size: 1.125rem;
-          font-weight: 600;
+        .roi-label {
+          font-size: 0.875rem;
+          color: #065F46;
+          margin-bottom: 0.25rem;
         }
         
-        .payback-period {
-          font-size: 0.875rem;
-          opacity: 0.9;
+        .roi-value {
+          font-size: 1.25rem;
+          font-weight: 700;
+          color: #059669;
         }
         
         .feature-list {
           list-style: none;
-          margin-bottom: 2rem;
+          margin: 1.5rem 0;
           padding: 0;
         }
         
         .feature-list li {
-          padding: 0.5rem 0;
+          padding: 0.75rem 0;
           color: var(--text-primary);
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          font-size: 1rem;
         }
         
-        .pricing-benefits {
-          max-width: 1000px;
-          margin: 3rem auto 0;
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: 2rem;
+        .feature-list li:before {
+          content: "✓";
+          color: #10B981;
+          font-weight: bold;
+          font-size: 1.25rem;
         }
         
-        .benefit-item {
+        .upgrade-info {
+          background: #EFF6FF;
+          border: 1px solid var(--primary);
+          padding: 1rem;
+          border-radius: 0.75rem;
+          margin: 1.5rem 0;
           text-align: center;
-          padding: 2rem;
-          background: white;
-          border-radius: 1rem;
-          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         }
         
-        .benefit-icon {
-          font-size: 2rem;
-          margin-bottom: 1rem;
-        }
-        
-        .benefit-item h4 {
+        .upgrade-info h4 {
+          color: var(--primary);
           margin-bottom: 0.5rem;
+          font-size: 1rem;
+        }
+        
+        .upgrade-info p {
           color: var(--text-primary);
+          font-size: 0.9rem;
         }
         
-        /* Complete Pricing Table */
-        .complete-pricing {
-          margin-top: 4rem;
-          background: rgba(255, 255, 255, 0.1);
-          padding: 2rem;
-          border-radius: 12px;
-          backdrop-filter: blur(10px);
+        /* Comparison Table */
+        .comparison-section {
+          max-width: 1400px;
+          margin: 4rem auto;
+          padding: 0 2rem;
         }
         
-        .complete-pricing h3 {
+        .comparison-section h2 {
           text-align: center;
+          font-size: 2.5rem;
           color: var(--text-primary);
-          margin-bottom: 2rem;
+          margin-bottom: 3rem;
         }
         
-        .pricing-table {
+        .comparison-table {
           width: 100%;
           border-collapse: collapse;
-          background: white;
+          background: var(--surface);
           border-radius: 1rem;
           overflow: hidden;
-          box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+          box-shadow: 0 8px 30px rgba(0,0,0,0.08);
         }
         
-        .pricing-table th,
-        .pricing-table td {
+        .comparison-table th,
+        .comparison-table td {
           padding: 1rem;
-          text-align: left;
+          text-align: center;
           border-bottom: 1px solid var(--border);
         }
         
-        .pricing-table th {
-          background: var(--gradient);
+        .comparison-table th {
+          background: var(--gradient-bg);
           color: white;
           font-weight: 600;
-          text-align: center;
+          font-size: 0.9rem;
         }
         
-        .pricing-table tbody tr:nth-child(even) {
+        .comparison-table tbody tr:hover {
           background: #F8FAFC;
         }
         
-        .pricing-table tbody tr.highlighted {
-          background: rgba(0, 87, 255, 0.05);
+        .comparison-table .highlight-row {
+          background: linear-gradient(90deg, #EFF6FF 0%, #F0F9FF 100%);
         }
         
-        /* Footer */
-        .footer {
-          background: #1f2937;
-          color: white;
-          padding: 50px 0;
+        .comparison-table .enterprise-row {
+          background: linear-gradient(90deg, #F5F3FF 0%, #FAF5FF 100%);
         }
         
-        .footer-content {
+        /* Add-ons Section */
+        .addons-section {
+          background: #F8FAFC;
+          padding: 4rem 2rem;
+          margin-top: 4rem;
+        }
+        
+        .addons-container {
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+        
+        .addons-section h2 {
           text-align: center;
+          font-size: 2.5rem;
+          color: var(--text-primary);
+          margin-bottom: 3rem;
+        }
+        
+        .addons-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+          gap: 2rem;
+        }
+        
+        .addon-card {
+          background: var(--surface);
+          padding: 2rem;
+          border-radius: 1rem;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        .addon-card h3 {
+          color: var(--text-primary);
+          margin-bottom: 1rem;
+          font-size: 1.5rem;
+        }
+        
+        .addon-price {
+          color: var(--primary);
+          font-size: 1.75rem;
+          font-weight: 700;
+          margin-bottom: 1rem;
+        }
+        
+        .addon-description {
+          color: var(--text-secondary);
+          line-height: 1.6;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+          background: var(--gradient-bg);
+          color: white;
+          padding: 5rem 2rem;
+          text-align: center;
+        }
+        
+        .cta-section h2 {
+          font-size: 2.5rem;
+          margin-bottom: 1.5rem;
+        }
+        
+        .cta-section p {
+          font-size: 1.2rem;
+          opacity: 0.95;
+          margin-bottom: 2rem;
+          max-width: 600px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        
+        .cta-buttons {
+          display: flex;
+          gap: 1rem;
+          justify-content: center;
+          flex-wrap: wrap;
         }
         
         /* Responsive */
         @media (max-width: 768px) {
-          .nav-links {
-            display: none;
-          }
-          
           .pricing-hero h1 {
-            font-size: 2rem;
+            font-size: 2.5rem;
           }
           
-          .pricing-container {
+          .pricing-grid {
             grid-template-columns: 1fr;
           }
           
@@ -409,13 +473,17 @@ function PricingPage() {
             transform: none;
           }
           
-          .pricing-table {
+          .comparison-table {
             font-size: 0.875rem;
           }
           
-          .pricing-table th,
-          .pricing-table td {
+          .comparison-table th,
+          .comparison-table td {
             padding: 0.75rem 0.5rem;
+          }
+          
+          .roi-metrics {
+            grid-template-columns: 1fr;
           }
         }
       `}</style>
@@ -425,233 +493,377 @@ function PricingPage() {
       {/* Pricing Hero */}
       <section className="pricing-hero">
         <div className="container">
-          <h1>Choose Your QUAD Experience</h1>
-          <p>Complete Insurance Technology Platform with Analytics & AI</p>
           <div className="early-access-badge">
-            🔥 Early Access Pricing - Lock in lifetime savings before public launch
+            🔥 Early Access Pricing - Lock in Lifetime Savings
+          </div>
+          <h1>Complete QUAD Pricing Structure</h1>
+          <p>Choose your perfect tier with flexible upgrade paths and guaranteed lifetime discount pricing</p>
+        </div>
+      </section>
+
+      {/* Featured QUAD Tiers */}
+      <section className="pricing-section">
+        <div className="container">
+          <div className="section-header">
+            <h2>Featured QUAD Tiers</h2>
+            <p>Start anywhere, upgrade anytime - your buy-in is 100% credited</p>
+          </div>
+          
+          <div className="pricing-grid">
+            {/* QUAD 1.0 */}
+            <div className="pricing-card recommended">
+              <div className="pricing-badge badge-recommended">BEST ENTRY POINT</div>
+              <div className="pricing-header">
+                <div className="pricing-name">QUAD 1.0</div>
+                <div className="pricing-description">Perfect for getting started</div>
+              </div>
+              
+              <div className="pricing-main">
+                <div className="retail-price">Retail: $879/month</div>
+                <div className="monthly-price">$679<span>/month</span></div>
+                <div className="buy-in-price">$1,500 Buy-In Required</div>
+              </div>
+              
+              <div className="roi-highlight">
+                <div className="roi-metrics">
+                  <div className="roi-item">
+                    <div className="roi-label">Monthly Savings</div>
+                    <div className="roi-value">$200</div>
+                  </div>
+                  <div className="roi-item">
+                    <div className="roi-label">Payback Period</div>
+                    <div className="roi-value">7.5 months</div>
+                  </div>
+                  <div className="roi-item">
+                    <div className="roi-label">Annual Savings</div>
+                    <div className="roi-value">$2,400</div>
+                  </div>
+                  <div className="roi-item">
+                    <div className="roi-label">Year 1 Net Gain</div>
+                    <div className="roi-value">$900</div>
+                  </div>
+                </div>
+              </div>
+              
+              <ul className="feature-list">
+                <li>65 Monthly Quotes</li>
+                <li>Complete Analytics Dashboard</li>
+                <li>All Personal Lines</li>
+                <li>All Commercial Lines</li>
+                <li>All Recreational Vehicles</li>
+                <li>Life Insurance Quoting</li>
+                <li>RingCentral VOIP Integration</li>
+                <li>QuickBooks Integration</li>
+                <li>Basic Support</li>
+              </ul>
+              
+              <div className="upgrade-info">
+                <h4>💡 Upgrade Path</h4>
+                <p>$1,500 credit applies to any higher tier. Start here to test the platform risk-free.</p>
+              </div>
+              
+              <button 
+                onClick={() => {
+                  handlePlanClick('QUAD 1.0', '$679')
+                  window.location.href = 'mailto:sales@quotely.com?subject=QUAD 1.0 Early Access'
+                }} 
+                className="btn btn-primary" 
+                style={{width: '100%'}}
+              >
+                Start with QUAD 1.0
+              </button>
+            </div>
+
+            {/* QUAD 3.0 */}
+            <div className="pricing-card popular">
+              <div className="pricing-badge badge-popular">MOST POPULAR</div>
+              <div className="pricing-header">
+                <div className="pricing-name">QUAD 3.0</div>
+                <div className="pricing-description">Growing agencies</div>
+              </div>
+              
+              <div className="pricing-main">
+                <div className="retail-price">Retail: $1,199/month</div>
+                <div className="monthly-price">$929<span>/month</span></div>
+                <div className="buy-in-price">$3,000 Buy-In Required</div>
+              </div>
+              
+              <div className="roi-highlight">
+                <div className="roi-metrics">
+                  <div className="roi-item">
+                    <div className="roi-label">Monthly Savings</div>
+                    <div className="roi-value">$270</div>
+                  </div>
+                  <div className="roi-item">
+                    <div className="roi-label">Payback Period</div>
+                    <div className="roi-value">11.1 months</div>
+                  </div>
+                  <div className="roi-item">
+                    <div className="roi-label">Annual Savings</div>
+                    <div className="roi-value">$3,240</div>
+                  </div>
+                  <div className="roi-item">
+                    <div className="roi-label">Year 1 Net Gain</div>
+                    <div className="roi-value">$240</div>
+                  </div>
+                </div>
+              </div>
+              
+              <ul className="feature-list">
+                <li>225 Monthly Quotes</li>
+                <li>Premium Analytics Suite</li>
+                <li>All Product Lines</li>
+                <li>Premium Support</li>
+                <li>Advanced Cross-Selling</li>
+                <li>Custom Dashboards</li>
+                <li>Automated Workflows</li>
+                <li>API Integration Access</li>
+                <li>Performance Optimization</li>
+              </ul>
+              
+              <div className="upgrade-info">
+                <h4>💡 Upgrade Paths</h4>
+                <p>From QUAD 1.0: Pay $1,500 more | From QUAD 2.0: Pay $1,000 more</p>
+              </div>
+              
+              <button 
+                onClick={() => {
+                  handlePlanClick('QUAD 3.0', '$929')
+                  window.location.href = 'mailto:sales@quotely.com?subject=QUAD 3.0 Early Access'
+                }} 
+                className="btn btn-primary" 
+                style={{width: '100%'}}
+              >
+                Choose QUAD 3.0
+              </button>
+            </div>
+
+            {/* QUAD 7.0 */}
+            <div className="pricing-card enterprise">
+              <div className="pricing-badge badge-enterprise">UNLIMITED</div>
+              <div className="pricing-header">
+                <div className="pricing-name">QUAD 7.0</div>
+                <div className="pricing-description">Ultimate enterprise solution</div>
+              </div>
+              
+              <div className="pricing-main">
+                <div className="retail-price">Retail: $1,999/month</div>
+                <div className="monthly-price">$1,529<span>/month</span></div>
+                <div className="buy-in-price">$6,000 Buy-In Required</div>
+              </div>
+              
+              <div className="roi-highlight">
+                <div className="roi-metrics">
+                  <div className="roi-item">
+                    <div className="roi-label">Monthly Savings</div>
+                    <div className="roi-value">$470</div>
+                  </div>
+                  <div className="roi-item">
+                    <div className="roi-label">Payback Period</div>
+                    <div className="roi-value">12.8 months</div>
+                  </div>
+                  <div className="roi-item">
+                    <div className="roi-label">Annual Savings</div>
+                    <div className="roi-value">$5,640</div>
+                  </div>
+                  <div className="roi-item">
+                    <div className="roi-label">Year 2+ Net Gain</div>
+                    <div className="roi-value">$5,640/yr</div>
+                  </div>
+                </div>
+              </div>
+              
+              <ul className="feature-list">
+                <li>625+ Monthly Quotes (Unlimited)</li>
+                <li>Unlimited Everything</li>
+                <li>Custom Enterprise Features</li>
+                <li>Full API Access & Control</li>
+                <li>24/7 Dedicated Support Team</li>
+                <li>Custom Development Team</li>
+                <li>White-Label Platform</li>
+                <li>Priority Development Queue</li>
+                <li>Custom Feature Development</li>
+              </ul>
+              
+              <div className="upgrade-info">
+                <h4>💡 Maximum Power</h4>
+                <p>Enterprise level - maximum savings for power users</p>
+              </div>
+              
+              <button 
+                onClick={() => {
+                  handlePlanClick('QUAD 7.0', '$1529')
+                  window.location.href = 'mailto:enterprise@quotely.com?subject=QUAD 7.0 Ultimate'
+                }} 
+                className="btn btn-primary" 
+                style={{width: '100%'}}
+              >
+                Choose QUAD 7.0
+              </button>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* QUAD Pricing Section */}
-      <section className="pricing-section">
-        <div className="pricing-container">
-          <div className="pricing-card recommended">
-            <div className="pricing-badge">RECOMMENDED</div>
-            <h3>QUAD 1.0</h3>
-            <div className="pricing-main">
-              <div className="buy-in-price">$1,500 Buy-In</div>
-              <div className="monthly-price">$679<span>/month</span></div>
-              <div className="retail-price">vs $879 retail</div>
-            </div>
-            <div className="savings-highlight">
-              <div className="savings-amount">$200/month savings</div>
-              <div className="payback-period">7.5 month payback</div>
-            </div>
-            <ul className="feature-list">
-              <li>✓ 65 Monthly Quotes</li>
-              <li>✓ Complete Analytics Dashboard</li>
-              <li>✓ All Product Lines</li>
-              <li>✓ Perfect for testing platform</li>
-            </ul>
-            <button onClick={() => handlePlanClick('QUAD 1.0', '$679')} className="btn btn-primary">Start Here</button>
-          </div>
-          
-          <div className="pricing-card popular">
-            <div className="pricing-badge popular-badge">MOST POPULAR</div>
-            <h3>QUAD 3.0</h3>
-            <div className="pricing-main">
-              <div className="buy-in-price">$3,000 Buy-In</div>
-              <div className="monthly-price">$929<span>/month</span></div>
-              <div className="retail-price">vs $1,199 retail</div>
-            </div>
-            <div className="savings-highlight">
-              <div className="savings-amount">$270/month savings</div>
-              <div className="payback-period">11.1 month payback</div>
-            </div>
-            <ul className="feature-list">
-              <li>✓ 225 Monthly Quotes</li>
-              <li>✓ Premium Analytics Suite</li>
-              <li>✓ Advanced Features</li>
-              <li>✓ Best value for growing agencies</li>
-            </ul>
-            <button onClick={() => handlePlanClick('QUAD 3.0', '$929')} className="btn btn-primary">Get Started</button>
-          </div>
-          
-          <div className="pricing-card enterprise">
-            <div className="pricing-badge">ENTERPRISE</div>
-            <h3>QUAD 7.0</h3>
-            <div className="pricing-main">
-              <div className="buy-in-price">$6,000 Buy-In</div>
-              <div className="monthly-price">$1,529<span>/month</span></div>
-              <div className="retail-price">vs $1,999 retail</div>
-            </div>
-            <div className="savings-highlight">
-              <div className="savings-amount">$470/month savings</div>
-              <div className="payback-period">12.8 month payback</div>
-            </div>
-            <ul className="feature-list">
-              <li>✓ 625+ Monthly Quotes</li>
-              <li>✓ Unlimited Everything</li>
-              <li>✓ Custom Development</li>
-              <li>✓ Maximum features & support</li>
-            </ul>
-            <button onClick={() => handlePlanClick('QUAD 7.0', '$1529')} className="btn btn-primary">Scale Up</button>
-          </div>
-        </div>
+      {/* Complete Comparison Table */}
+      <section className="comparison-section">
+        <h2>📊 Complete QUAD Comparison - All 7 Levels</h2>
         
-        <div className="pricing-benefits">
-          <div className="benefit-item">
-            <div className="benefit-icon">💰</div>
-            <h4>Lifetime Savings</h4>
-            <p>Your rate stays locked forever - even as we raise retail prices</p>
-          </div>
-          <div className="benefit-item">
-            <div className="benefit-icon">🔄</div>
-            <h4>Flexible Upgrades</h4>
-            <p>Start conservative, upgrade anytime with full credit applied</p>
-          </div>
-          <div className="benefit-item">
-            <div className="benefit-icon">⚡</div>
-            <h4>Quick ROI</h4>
-            <p>3-15 month payback periods. Lower tiers pay for themselves in under a year</p>
-          </div>
+        <div style={{overflowX: 'auto'}}>
+          <table className="comparison-table">
+            <thead>
+              <tr>
+                <th>Tier</th>
+                <th>Buy-In</th>
+                <th>Monthly Rate</th>
+                <th>Retail Rate</th>
+                <th>Monthly Savings</th>
+                <th>Quotes/Month</th>
+                <th>Payback Period</th>
+                <th>Best For</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="highlight-row">
+                <td><strong>QUAD 1.0</strong></td>
+                <td>$1,500</td>
+                <td><strong>$679</strong></td>
+                <td>$879</td>
+                <td>$200</td>
+                <td>65</td>
+                <td>7.5 months</td>
+                <td>New agencies, testing platform</td>
+              </tr>
+              <tr>
+                <td><strong>QUAD 2.0</strong></td>
+                <td>$2,000</td>
+                <td><strong>$779</strong></td>
+                <td>$949</td>
+                <td>$170</td>
+                <td>150</td>
+                <td>11.8 months</td>
+                <td>Small agencies</td>
+              </tr>
+              <tr className="highlight-row">
+                <td><strong>QUAD 3.0</strong></td>
+                <td>$3,000</td>
+                <td><strong>$929</strong></td>
+                <td>$1,199</td>
+                <td>$270</td>
+                <td>225</td>
+                <td>11.1 months</td>
+                <td>Growing agencies</td>
+              </tr>
+              <tr>
+                <td><strong>QUAD 4.0</strong></td>
+                <td>$3,500</td>
+                <td><strong>$1,079</strong></td>
+                <td>$1,399</td>
+                <td>$320</td>
+                <td>300</td>
+                <td>10.9 months</td>
+                <td>Established agencies</td>
+              </tr>
+              <tr>
+                <td><strong>QUAD 5.0</strong></td>
+                <td>$4,500</td>
+                <td><strong>$1,229</strong></td>
+                <td>$1,599</td>
+                <td>$370</td>
+                <td>400</td>
+                <td>12.2 months</td>
+                <td>High-volume agencies</td>
+              </tr>
+              <tr className="enterprise-row">
+                <td><strong>QUAD 6.0</strong></td>
+                <td>$5,500</td>
+                <td><strong>$1,379</strong></td>
+                <td>$1,799</td>
+                <td>$420</td>
+                <td>500</td>
+                <td>13.1 months</td>
+                <td>Enterprise agencies</td>
+              </tr>
+              <tr className="enterprise-row">
+                <td><strong>QUAD 7.0</strong></td>
+                <td>$6,000</td>
+                <td><strong>$1,529</strong></td>
+                <td>$1,999</td>
+                <td>$470</td>
+                <td>625+</td>
+                <td>12.8 months</td>
+                <td>Ultimate enterprise</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+      </section>
 
-        {/* Complete Pricing Table */}
-        <div className="complete-pricing">
-          <h3>Complete Pricing Structure - All QUAD Levels</h3>
+      {/* Add-Ons Section */}
+      <section className="addons-section">
+        <div className="addons-container">
+          <h2>🔧 Optional Add-Ons (Available for All Tiers)</h2>
           
-          <div style={{overflowX: 'auto'}}>
-            <table className="pricing-table">
-              <thead>
-                <tr>
-                  <th>Level</th>
-                  <th>Monthly Price</th>
-                  <th>Buy-In</th>
-                  <th>Quotes/Month</th>
-                  <th>Key Features</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="highlighted">
-                  <td><strong>QUAD 1.0</strong></td>
-                  <td>$679/mo</td>
-                  <td>$1,500</td>
-                  <td>65</td>
-                  <td>Basic dashboard, Auto/Home, TurboRater</td>
-                </tr>
-                
-                <tr>
-                  <td><strong>QUAD 1.5</strong></td>
-                  <td>$739/mo</td>
-                  <td>$1,750</td>
-                  <td>90</td>
-                  <td>+ Commercial lines, QuickBooks integration</td>
-                </tr>
-                
-                <tr className="highlighted">
-                  <td><strong>QUAD 2.0</strong></td>
-                  <td>$799/mo</td>
-                  <td>$2,250</td>
-                  <td>125</td>
-                  <td>+ Umbrella coverage, Advanced analytics</td>
-                </tr>
-                
-                <tr>
-                  <td><strong>QUAD 2.5</strong></td>
-                  <td>$864/mo</td>
-                  <td>$2,625</td>
-                  <td>175</td>
-                  <td>+ Flood insurance, NowCerts integration</td>
-                </tr>
-                
-                <tr style={{background: 'rgba(245, 158, 11, 0.1)'}}>
-                  <td><strong>QUAD 3.0</strong></td>
-                  <td><strong>$929/mo</strong></td>
-                  <td>$3,000</td>
-                  <td>225</td>
-                  <td>+ Recreational, Momentom AMP, Priority support</td>
-                </tr>
-                
-                <tr>
-                  <td><strong>QUAD 3.5</strong></td>
-                  <td>$994/mo</td>
-                  <td>$3,375</td>
-                  <td>280</td>
-                  <td>+ Specialty lines, AI risk assessment</td>
-                </tr>
-                
-                <tr className="highlighted">
-                  <td><strong>QUAD 4.0</strong></td>
-                  <td>$1,059/mo</td>
-                  <td>$3,750</td>
-                  <td>340</td>
-                  <td>+ Workers Comp, Multi-state operations</td>
-                </tr>
-                
-                <tr>
-                  <td><strong>QUAD 4.5</strong></td>
-                  <td>$1,124/mo</td>
-                  <td>$4,125</td>
-                  <td>405</td>
-                  <td>+ Professional liability, Gail Partnership</td>
-                </tr>
-                
-                <tr className="highlighted">
-                  <td><strong>QUAD 5.0</strong></td>
-                  <td>$1,189/mo</td>
-                  <td>$4,500</td>
-                  <td>475</td>
-                  <td>+ Cyber insurance, Custom workflows</td>
-                </tr>
-                
-                <tr>
-                  <td><strong>QUAD 5.5</strong></td>
-                  <td>$1,269/mo</td>
-                  <td>$4,875</td>
-                  <td>510</td>
-                  <td>+ E&O coverage, Advanced AI features</td>
-                </tr>
-                
-                <tr className="highlighted">
-                  <td><strong>QUAD 6.0</strong></td>
-                  <td>$1,349/mo</td>
-                  <td>$5,250</td>
-                  <td>550</td>
-                  <td>+ Directors & Officers, Team management</td>
-                </tr>
-                
-                <tr>
-                  <td><strong>QUAD 6.5</strong></td>
-                  <td>$1,439/mo</td>
-                  <td>$5,625</td>
-                  <td>590</td>
-                  <td>+ Aviation/Marine, Custom reporting</td>
-                </tr>
-                
-                <tr style={{background: 'rgba(239, 68, 68, 0.1)'}}>
-                  <td><strong>QUAD 7.0</strong></td>
-                  <td><strong>$1,529/mo</strong></td>
-                  <td>$6,000</td>
-                  <td>625+</td>
-                  <td>Unlimited everything, API, White-label, 24/7</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          
-          <div style={{textAlign: 'center', marginTop: '2rem', background: 'rgba(79, 70, 229, 0.1)', padding: '1.5rem', borderRadius: '8px'}}>
-            <h4 style={{color: '#4f46e5', marginBottom: '1rem'}}>🎯 Smart Upgrade Strategy</h4>
-            <p style={{marginBottom: '1rem'}}>Start with any level and upgrade anytime - your buy-in is 100% credited!</p>
-            <div style={{display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap'}}>
-              <button onClick={handleUpgradeClick} className="btn btn-secondary">Lock in Early Access</button>
-              <button onClick={handleContactClick} className="btn btn-primary">Get Custom Quote</button>
+          <div className="addons-grid">
+            <div className="addon-card">
+              <h3>CRM Integration</h3>
+              <div className="addon-price">+$150/month</div>
+              <div className="addon-description">
+                Full CRM functionality with lead management, pipeline tracking, and automated follow-ups. 
+                Seamlessly integrated with QUAD platform for complete client lifecycle management.
+              </div>
+            </div>
+            
+            <div className="addon-card">
+              <h3>SEO Package</h3>
+              <div className="addon-price">$200-$600/month</div>
+              <div className="addon-description">
+                Tier-based SEO services to boost your agency's online presence:
+                <br />• QUAD 1.0-2.0: $200/mo
+                <br />• QUAD 3.0-4.0: $350/mo
+                <br />• QUAD 5.0+: $500/mo
+              </div>
+            </div>
+            
+            <div className="addon-card">
+              <h3>RingCentral VOIP</h3>
+              <div className="addon-price">$20-$35/user/month</div>
+              <div className="addon-description">
+                Professional phone system with full QUAD integration, call recording, analytics, 
+                and automatic client data population from calls.
+              </div>
             </div>
           </div>
-          
-          <div style={{textAlign: 'center', marginTop: '1.5rem', background: 'rgba(239, 68, 68, 0.1)', padding: '1rem', borderRadius: '8px'}}>
-            <p style={{color: '#ef4444', fontWeight: 600, margin: 0}}>⚠️ Early access pricing available now. Lock in lifetime savings!</p>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="cta-section">
+        <div className="container">
+          <h2>🎯 Lock in Your Lifetime Savings Today</h2>
+          <p>
+            Early access pricing ends soon. These rates will never be available again once we launch publicly.
+          </p>
+          <div className="cta-buttons">
+            <button 
+              onClick={() => {
+                handleContactClick()
+                window.location.href = 'mailto:sales@quotely.com?subject=QUAD Early Access Inquiry'
+              }}
+              className="btn btn-primary"
+            >
+              Get Started Now
+            </button>
+            <button 
+              onClick={() => {
+                handleContactClick()
+                window.location.href = 'https://calendly.com/quotely/demo'
+              }}
+              className="btn btn-secondary" 
+              style={{background: 'white', color: 'var(--primary)'}}
+            >
+              Schedule Demo
+            </button>
           </div>
         </div>
       </section>

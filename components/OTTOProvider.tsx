@@ -19,6 +19,7 @@ export const OTTOProvider = ({ children }: { children: ReactNode }) => {
       waitForOTTO(() => {
         if (window.searchAtlas) {
           window.searchAtlas.configure({
+            apiKey: '0881d3c546ed5294849fa12fcc4436f5',
             industry: 'insurance',
             businessType: 'insurtech',
             targetKeywords: [

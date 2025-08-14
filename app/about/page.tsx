@@ -40,8 +40,8 @@ function AboutPage() {
         :root {
           --primary: #0057FF;
           --primary-dark: #0041CC;
-          --secondary: #2E2E2E;
-          --accent: #00C851;
+          --secondary: #1B2951;
+          --accent: #00B8A3;
           --warning: #FF6B35;
           --surface: #FFFFFF;
           --background: #F8FAFC;
@@ -49,7 +49,7 @@ function AboutPage() {
           --text-secondary: #6B7280;
           --border: #E5E7EB;
           --gradient: linear-gradient(135deg, #0057FF 0%, #0041CC 100%);
-          --gradient-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          --gradient-bg: linear-gradient(135deg, #1B2951 0%, #0F1729 100%);
         }
         
         body {
@@ -157,7 +157,7 @@ function AboutPage() {
         
         /* Hero Section */
         .about-hero {
-          background: var(--gradient-bg);
+          background: linear-gradient(135deg, #1B2951 0%, #0F1729 100%);
           padding: 150px 0 80px;
           text-align: center;
           color: white;
@@ -229,7 +229,7 @@ function AboutPage() {
         .story-image {
           width: 100%;
           height: 400px;
-          background: var(--gradient);
+          background: linear-gradient(135deg, #1B2951 0%, #0F1729 100%);
           border-radius: 1rem;
           display: flex;
           align-items: center;
@@ -278,7 +278,7 @@ function AboutPage() {
           width: 60px;
           height: 60px;
           margin: 0 auto 1rem;
-          background: var(--gradient);
+          background: linear-gradient(135deg, #0057FF 0%, #0041CC 100%);
           border-radius: 50%;
           display: flex;
           align-items: center;
@@ -337,7 +337,7 @@ function AboutPage() {
           width: 80px;
           height: 80px;
           margin: 0 auto 1rem;
-          background: var(--gradient);
+          background: linear-gradient(135deg, #0057FF 0%, #0041CC 100%);
           border-radius: 50%;
           display: flex;
           align-items: center;
@@ -399,7 +399,7 @@ function AboutPage() {
         /* CTA Section */
         .cta-section {
           padding: 4rem 2rem;
-          background: var(--gradient);
+          background: linear-gradient(135deg, #1B2951 0%, #0F1729 100%);
           color: white;
           text-align: center;
         }
