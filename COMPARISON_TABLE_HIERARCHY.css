@@ -1,0 +1,501 @@
+/* ============================================
+   QUOTELY COMPARISON TABLE HIERARCHY
+   Visual Dominance for Competitive Superiority
+   ============================================ */
+
+/* COMPETITOR COMPARISON - Psychological Framing */
+.competitor-comparison {
+  margin: var(--space-2xl, 89px) 0;
+  padding: var(--space-xl, 55px) 0;
+  position: relative;
+  
+  /* Section header with authority */
+  .comparison-header {
+    text-align: center;
+    margin-bottom: var(--space-xl, 55px);
+    
+    h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--text-primary, #1F2937);
+      margin-bottom: var(--space-md, 21px);
+      
+      /* Emphasis on superiority */
+      .vs-text {
+        color: #EF4444;
+        font-size: 0.8em;
+        opacity: 0.8;
+        margin: 0 0.5em;
+      }
+    }
+    
+    p {
+      font-size: 1.125rem;
+      color: var(--text-secondary, #6B7280);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+  
+  /* Main comparison table */
+  .comparison-table {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    position: relative;
+    
+    /* Table header */
+    .table-header {
+      display: grid;
+      grid-template-columns: 2fr repeat(3, 1fr);
+      background: #F8FAFC;
+      border-bottom: 2px solid #E5E7EB;
+      
+      .header-cell {
+        padding: var(--space-md, 21px);
+        font-weight: 600;
+        text-align: center;
+        
+        &:first-child {
+          text-align: left;
+          color: var(--text-secondary, #6B7280);
+          font-size: 0.875rem;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        }
+      }
+    }
+    
+    /* Table body */
+    .table-body {
+      .table-row {
+        display: grid;
+        grid-template-columns: 2fr repeat(3, 1fr);
+        border-bottom: 1px solid #F3F4F6;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          background: #FAFBFC;
+          
+          .our-column {
+            transform: scale(1.02);
+          }
+        }
+        
+        .row-label {
+          padding: var(--space-md, 21px);
+          font-weight: 500;
+          color: var(--text-primary, #1F2937);
+          display: flex;
+          align-items: center;
+          gap: var(--space-sm, 13px);
+          
+          .feature-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #F0F9FF;
+            border-radius: 6px;
+            color: #3B82F6;
+          }
+        }
+        
+        .cell {
+          padding: var(--space-md, 21px);
+          text-align: center;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 500;
+          transition: all 0.3s ease;
+        }
+      }
+    }
+    
+    /* Quotely column dominance */
+    .our-column {
+      background: linear-gradient(180deg, #F0F9FF 0%, #FFFFFF 100%);
+      border: 2px solid #3B82F6;
+      border-top: none;
+      border-bottom: none;
+      transform: scale(1.05);
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.1);
+      
+      /* Winner badge */
+      &::before {
+        content: 'BEST VALUE';
+        position: absolute;
+        top: -28px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(135deg, #3B82F6 0%, #0EA5E9 100%);
+        color: white;
+        padding: 4px 16px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        animation: pulse 2s ease-in-out infinite;
+      }
+      
+      /* Header emphasis */
+      .header-cell {
+        background: linear-gradient(135deg, #3B82F6 0%, #0EA5E9 100%);
+        color: white;
+        font-size: 1.25rem;
+        font-weight: 700;
+        position: relative;
+        padding: var(--space-lg, 34px) var(--space-md, 21px);
+        
+        .company-name {
+          display: block;
+          margin-bottom: 0.25rem;
+        }
+        
+        .tagline {
+          font-size: 0.875rem;
+          font-weight: 400;
+          opacity: 0.9;
+        }
+      }
+    }
+    
+    /* Competitor columns de-emphasis */
+    .competitor-column {
+      opacity: 0.85;
+      filter: grayscale(10%);
+      transition: all 0.3s ease;
+      
+      &:hover {
+        opacity: 1;
+        filter: grayscale(0);
+      }
+      
+      .header-cell {
+        color: #6B7280;
+        font-size: 1rem;
+        
+        .company-name {
+          display: block;
+        }
+        
+        .legacy-badge {
+          font-size: 0.75rem;
+          color: #9CA3AF;
+          font-style: italic;
+        }
+      }
+    }
+    
+    /* Feature comparison styling */
+    .feature-yes {
+      color: #10B981;
+      font-size: 1.5rem;
+      font-weight: 700;
+      position: relative;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        inset: -8px;
+        background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+        border-radius: 50%;
+        animation: checkPulse 2s ease-in-out infinite;
+      }
+    }
+    
+    .feature-no {
+      color: #EF4444;
+      font-size: 1.25rem;
+      opacity: 0.5;
+    }
+    
+    .feature-partial {
+      color: #F59E0B;
+      font-size: 1rem;
+      opacity: 0.7;
+    }
+    
+    /* Value display */
+    .value-cell {
+      font-weight: 700;
+      font-size: 1.125rem;
+      
+      &.best-value {
+        color: #10B981;
+        font-size: 1.25rem;
+        position: relative;
+        
+        &::after {
+          content: '↑';
+          margin-left: 0.25rem;
+          animation: float 2s ease-in-out infinite;
+        }
+      }
+      
+      &.worst-value {
+        color: #EF4444;
+        opacity: 0.7;
+        text-decoration: line-through;
+      }
+    }
+    
+    /* Pricing row special styling */
+    .pricing-row {
+      background: linear-gradient(90deg, #FEF3C7 0%, transparent 100%);
+      
+      .our-column {
+        .value-cell {
+          font-size: 1.5rem;
+          color: #059669;
+          position: relative;
+          
+          .savings-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #EF4444;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            animation: bounce 2s ease-in-out infinite;
+          }
+        }
+      }
+    }
+  }
+  
+  /* Bottom CTA */
+  .comparison-cta {
+    text-align: center;
+    margin-top: var(--space-xl, 55px);
+    
+    .cta-message {
+      font-size: 1.25rem;
+      color: var(--text-primary, #1F2937);
+      margin-bottom: var(--space-md, 21px);
+      
+      strong {
+        color: #3B82F6;
+      }
+    }
+    
+    .btn-switch {
+      padding: var(--space-md, 21px) var(--space-xl, 55px);
+      background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.125rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+      }
+      
+      .arrow {
+        margin-left: 0.5rem;
+        transition: transform 0.3s ease;
+      }
+      
+      &:hover .arrow {
+        transform: translateX(4px);
+      }
+    }
+  }
+}
+
+/* MINI COMPARISON CARDS */
+.comparison-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-lg, 34px);
+  margin: var(--space-xl, 55px) 0;
+  
+  .comparison-card {
+    background: white;
+    border-radius: 12px;
+    padding: var(--space-lg, 34px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    
+    &.quotely-card {
+      border: 2px solid #3B82F6;
+      transform: scale(1.05);
+      
+      &::before {
+        content: 'RECOMMENDED';
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #3B82F6;
+        color: white;
+        padding: 4px 12px;
+        border-radius: 12px;
+        font-size: 0.75rem;
+        font-weight: 700;
+      }
+    }
+    
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    }
+    
+    .card-header {
+      margin-bottom: var(--space-md, 21px);
+      
+      .company-logo {
+        height: 40px;
+        margin-bottom: var(--space-sm, 13px);
+      }
+      
+      .company-name {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--text-primary, #1F2937);
+      }
+    }
+    
+    .card-features {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      
+      li {
+        padding: var(--space-sm, 13px) 0;
+        border-bottom: 1px solid #F3F4F6;
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm, 13px);
+        
+        &:last-child {
+          border-bottom: none;
+        }
+        
+        .check {
+          color: #10B981;
+          font-weight: 700;
+        }
+        
+        .cross {
+          color: #EF4444;
+          opacity: 0.5;
+        }
+      }
+    }
+    
+    .card-price {
+      margin-top: var(--space-md, 21px);
+      padding-top: var(--space-md, 21px);
+      border-top: 2px solid #F3F4F6;
+      text-align: center;
+      
+      .price-value {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--text-primary, #1F2937);
+        
+        .currency {
+          font-size: 1rem;
+          vertical-align: super;
+        }
+        
+        .period {
+          font-size: 1rem;
+          color: #6B7280;
+          font-weight: 400;
+        }
+      }
+      
+      .price-savings {
+        color: #10B981;
+        font-size: 0.875rem;
+        margin-top: 0.25rem;
+      }
+    }
+  }
+}
+
+/* ANIMATIONS */
+@keyframes pulse {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-50%) scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+@keyframes checkPulse {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-4px);
+  }
+  75% {
+    transform: translateY(4px);
+  }
+}
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 768px) {
+  .competitor-comparison {
+    .comparison-table {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      
+      .table-header,
+      .table-row {
+        min-width: 600px;
+      }
+    }
+    
+    /* Mobile card view alternative */
+    .comparison-cards {
+      grid-template-columns: 1fr;
+      
+      .comparison-card.quotely-card {
+        transform: scale(1);
+        order: -1; /* Show Quotely first */
+      }
+    }
+  }
+}

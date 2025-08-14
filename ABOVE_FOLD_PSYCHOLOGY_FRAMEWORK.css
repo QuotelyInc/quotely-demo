@@ -1,0 +1,510 @@
+/* ============================================
+   QUOTELY ABOVE-THE-FOLD PSYCHOLOGY FRAMEWORK
+   Strategic Layout for Maximum Conversion Impact
+   ============================================ */
+
+/* HERO SECTION - 3-Second Authority Establishment */
+.quote-hero {
+  min-height: 80vh; /* Optimal for above-fold visibility */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: var(--space-xl, 55px);
+  padding: var(--space-2xl, 89px) var(--space-lg, 34px);
+  background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+  position: relative;
+  overflow: hidden;
+  
+  /* Psychological depth layering */
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -25%;
+    width: 100%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 82, 204, 0.1) 0%, transparent 70%);
+    animation: floatBackground 20s ease-in-out infinite;
+  }
+  
+  /* Hero content with urgency psychology */
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      color: white;
+      line-height: 1.1;
+      margin-bottom: var(--space-lg, 34px);
+      animation: fadeInUp 0.6s ease-out;
+      
+      /* Power word emphasis */
+      .power-word {
+        background: linear-gradient(135deg, #3B82F6 0%, #0EA5E9 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        position: relative;
+        
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -4px;
+          left: 0;
+          right: 0;
+          height: 3px;
+          background: linear-gradient(90deg, #3B82F6 0%, #0EA5E9 100%);
+          border-radius: 2px;
+          animation: shimmer 2s ease-in-out infinite;
+        }
+      }
+    }
+    
+    /* Subtitle with benefit psychology */
+    .hero-subtitle {
+      font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.6;
+      margin-bottom: var(--space-xl, 55px);
+      animation: fadeInUp 0.8s ease-out 0.2s both;
+      max-width: 600px;
+    }
+    
+    /* Trust indicators with social proof */
+    .trust-indicators {
+      display: flex;
+      gap: var(--space-lg, 34px);
+      margin-top: var(--space-lg, 34px);
+      animation: fadeInUp 1s ease-out 0.4s both;
+      
+      .indicator {
+        display: flex;
+        align-items: center;
+        gap: var(--space-xs, 8px);
+        padding: var(--space-sm, 13px) var(--space-md, 21px);
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+        
+        &:hover {
+          background: rgba(255, 255, 255, 0.15);
+          transform: translateY(-2px);
+        }
+        
+        .icon {
+          font-size: 1.5rem;
+        }
+        
+        .value {
+          font-size: 1.25rem;
+          font-weight: 700;
+          color: white;
+        }
+        
+        .label {
+          font-size: 0.875rem;
+          color: rgba(255, 255, 255, 0.8);
+          margin-left: 0.25rem;
+        }
+        
+        /* Color psychology for different indicators */
+        &.reviews {
+          .icon { color: #F59E0B; }
+          border-color: rgba(245, 158, 11, 0.3);
+        }
+        
+        &.clients {
+          .icon { color: #10B981; }
+          border-color: rgba(16, 185, 129, 0.3);
+        }
+        
+        &.savings {
+          .icon { color: #3B82F6; }
+          border-color: rgba(59, 130, 246, 0.3);
+        }
+        
+        &.speed {
+          .icon { color: #8B5CF6; }
+          border-color: rgba(139, 92, 246, 0.3);
+        }
+      }
+    }
+    
+    /* CTA buttons with urgency */
+    .hero-ctas {
+      display: flex;
+      gap: var(--space-md, 21px);
+      margin-top: var(--space-xl, 55px);
+      animation: fadeInUp 1.2s ease-out 0.6s both;
+      
+      .btn-primary {
+        padding: var(--space-md, 21px) var(--space-xl, 55px);
+        background: linear-gradient(135deg, #3B82F6 0%, #0EA5E9 100%);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.125rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        
+        &::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 0;
+          height: 0;
+          background: rgba(255, 255, 255, 0.3);
+          border-radius: 50%;
+          transform: translate(-50%, -50%);
+          transition: width 0.6s, height 0.6s;
+        }
+        
+        &:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+          
+          &::before {
+            width: 300px;
+            height: 300px;
+          }
+        }
+      }
+      
+      .btn-secondary {
+        padding: var(--space-md, 21px) var(--space-xl, 55px);
+        background: transparent;
+        color: white;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 8px;
+        font-size: 1.125rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          background: rgba(255, 255, 255, 0.1);
+          border-color: rgba(255, 255, 255, 0.5);
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+  
+  /* Hero form with progress psychology */
+  .hero-form {
+    background: white;
+    padding: var(--space-xl, 55px);
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    position: relative;
+    z-index: 2;
+    animation: fadeInRight 1s ease-out 0.4s both;
+    
+    /* Form header */
+    .form-header {
+      text-align: center;
+      margin-bottom: var(--space-lg, 34px);
+      
+      h2 {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: var(--text-primary, #1F2937);
+        margin-bottom: var(--space-sm, 13px);
+      }
+      
+      p {
+        color: var(--text-secondary, #6B7280);
+        font-size: 0.875rem;
+      }
+    }
+    
+    /* Progress indicator for trust */
+    .form-progress {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: var(--space-lg, 34px);
+      position: relative;
+      
+      &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: #E5E7EB;
+        transform: translateY(-50%);
+      }
+      
+      .step {
+        width: 32px;
+        height: 32px;
+        background: white;
+        border: 2px solid #E5E7EB;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        color: #9CA3AF;
+        position: relative;
+        z-index: 1;
+        transition: all 0.3s ease;
+        
+        &.active {
+          background: #3B82F6;
+          border-color: #3B82F6;
+          color: white;
+          transform: scale(1.1);
+          box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+        
+        &.completed {
+          background: #10B981;
+          border-color: #10B981;
+          color: white;
+          
+          &::after {
+            content: '✓';
+            position: absolute;
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+    
+    /* Form fields with validation psychology */
+    .form-group {
+      margin-bottom: var(--space-md, 21px);
+      
+      label {
+        display: block;
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--text-primary, #1F2937);
+        margin-bottom: var(--space-xs, 8px);
+        
+        .required {
+          color: #EF4444;
+        }
+      }
+      
+      input,
+      select {
+        width: 100%;
+        padding: var(--space-sm, 13px) var(--space-md, 21px);
+        border: 2px solid #E5E7EB;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        
+        &:focus {
+          outline: none;
+          border-color: #3B82F6;
+          box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        &.valid {
+          border-color: #10B981;
+        }
+        
+        &.error {
+          border-color: #EF4444;
+        }
+      }
+      
+      .helper-text {
+        font-size: 0.75rem;
+        color: #6B7280;
+        margin-top: var(--space-xs, 8px);
+      }
+      
+      .error-text {
+        font-size: 0.75rem;
+        color: #EF4444;
+        margin-top: var(--space-xs, 8px);
+      }
+    }
+    
+    /* Submit button with urgency */
+    .form-submit {
+      width: 100%;
+      padding: var(--space-md, 21px);
+      background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.125rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      
+      &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+      }
+      
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+        
+        &::before {
+          width: 400px;
+          height: 400px;
+        }
+      }
+      
+      .submit-text {
+        position: relative;
+        z-index: 1;
+      }
+      
+      .urgency-text {
+        font-size: 0.875rem;
+        opacity: 0.9;
+        margin-top: 0.25rem;
+      }
+    }
+    
+    /* Trust badges below form */
+    .form-trust {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-md, 21px);
+      margin-top: var(--space-lg, 34px);
+      padding-top: var(--space-lg, 34px);
+      border-top: 1px solid #E5E7EB;
+      
+      .trust-badge {
+        display: flex;
+        align-items: center;
+        gap: var(--space-xs, 8px);
+        font-size: 0.875rem;
+        color: #6B7280;
+        
+        .badge-icon {
+          color: #10B981;
+        }
+      }
+    }
+  }
+}
+
+/* ANIMATIONS */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    opacity: 0.7;
+    transform: translateX(-100%);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(100%);
+  }
+}
+
+@keyframes floatBackground {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(-20px, -20px) rotate(180deg);
+  }
+}
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 1024px) {
+  .quote-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding: var(--space-xl, 55px) var(--space-md, 21px);
+    
+    .hero-content {
+      text-align: center;
+      
+      .hero-subtitle {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      .trust-indicators {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      
+      .hero-ctas {
+        justify-content: center;
+      }
+    }
+    
+    .hero-form {
+      max-width: 500px;
+      margin: var(--space-xl, 55px) auto 0;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .quote-hero {
+    .trust-indicators {
+      flex-direction: column;
+      align-items: stretch;
+      
+      .indicator {
+        justify-content: center;
+      }
+    }
+    
+    .hero-ctas {
+      flex-direction: column;
+      
+      .btn-primary,
+      .btn-secondary {
+        width: 100%;
+      }
+    }
+    
+    .hero-form {
+      padding: var(--space-lg, 34px) var(--space-md, 21px);
+    }
+  }
+}

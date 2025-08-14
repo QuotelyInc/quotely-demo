@@ -1,0 +1,573 @@
+/* ============================================
+   QUOTELY DASHBOARD & METRIC CARD PSYCHOLOGY
+   Information Hierarchy for Decision Making
+   ============================================ */
+
+/* DASHBOARD LAYOUT - Information Architecture */
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr 320px;
+  gap: 0;
+  min-height: 100vh;
+  background: #F8FAFC;
+  
+  /* Navigation sidebar (Recognition) */
+  .sidebar {
+    background: white;
+    border-right: 1px solid #E5E7EB;
+    padding: var(--space-md, 21px);
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    overflow-y: auto;
+    z-index: 10;
+    
+    /* Logo/brand */
+    .sidebar-header {
+      padding: var(--space-md, 21px) var(--space-sm, 13px);
+      margin-bottom: var(--space-lg, 34px);
+      border-bottom: 1px solid #F3F4F6;
+      
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #3B82F6;
+      }
+    }
+    
+    /* Navigation items */
+    .nav-section {
+      margin-bottom: var(--space-lg, 34px);
+      
+      .section-title {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #9CA3AF;
+        font-weight: 600;
+        padding: var(--space-xs, 8px) var(--space-sm, 13px);
+        margin-bottom: var(--space-xs, 8px);
+      }
+      
+      .nav-item {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm, 13px);
+        padding: var(--space-sm, 13px);
+        border-radius: 8px;
+        color: #6B7280;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        position: relative;
+        
+        &:hover {
+          background: #F3F4F6;
+          color: #1F2937;
+        }
+        
+        &.active {
+          background: linear-gradient(90deg, #EFF6FF 0%, #DBEAFE 100%);
+          color: #3B82F6;
+          font-weight: 600;
+          
+          &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3px;
+            height: 60%;
+            background: #3B82F6;
+            border-radius: 0 2px 2px 0;
+          }
+        }
+        
+        .nav-icon {
+          width: 20px;
+          height: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        
+        .nav-badge {
+          margin-left: auto;
+          background: #EF4444;
+          color: white;
+          font-size: 0.75rem;
+          padding: 2px 6px;
+          border-radius: 10px;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+  
+  /* Main content area (Action) */
+  .main-content {
+    padding: var(--space-xl, 55px);
+    background: #FAFBFC;
+    min-height: 100vh;
+    overflow-y: auto;
+    
+    /* Content header */
+    .content-header {
+      margin-bottom: var(--space-xl, 55px);
+      
+      .page-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--text-primary, #1F2937);
+        margin-bottom: var(--space-sm, 13px);
+      }
+      
+      .breadcrumbs {
+        display: flex;
+        align-items: center;
+        gap: var(--space-xs, 8px);
+        font-size: 0.875rem;
+        color: #6B7280;
+        
+        .separator {
+          color: #CBD5E1;
+        }
+        
+        .current {
+          color: #3B82F6;
+          font-weight: 500;
+        }
+      }
+    }
+    
+    /* Action bar */
+    .action-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--space-lg, 34px);
+      padding: var(--space-md, 21px);
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      
+      .filters {
+        display: flex;
+        gap: var(--space-sm, 13px);
+        
+        .filter-btn {
+          padding: var(--space-xs, 8px) var(--space-md, 21px);
+          background: #F3F4F6;
+          border: 1px solid #E5E7EB;
+          border-radius: 8px;
+          color: #6B7280;
+          font-size: 0.875rem;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          
+          &:hover {
+            background: #E5E7EB;
+            color: #1F2937;
+          }
+          
+          &.active {
+            background: #3B82F6;
+            color: white;
+            border-color: #3B82F6;
+          }
+        }
+      }
+      
+      .actions {
+        display: flex;
+        gap: var(--space-sm, 13px);
+        
+        .btn-action {
+          padding: var(--space-sm, 13px) var(--space-lg, 34px);
+          background: linear-gradient(135deg, #3B82F6 0%, #0EA5E9 100%);
+          color: white;
+          border: none;
+          border-radius: 8px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          
+          &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+          }
+        }
+      }
+    }
+  }
+  
+  /* Right panel (Context/Support) */
+  .right-panel {
+    background: white;
+    border-left: 1px solid #E5E7EB;
+    padding: var(--space-lg, 34px);
+    overflow-y: auto;
+    
+    .panel-section {
+      margin-bottom: var(--space-xl, 55px);
+      
+      .section-header {
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #6B7280;
+        font-weight: 600;
+        margin-bottom: var(--space-md, 21px);
+      }
+    }
+    
+    /* Activity feed */
+    .activity-item {
+      display: flex;
+      gap: var(--space-sm, 13px);
+      margin-bottom: var(--space-md, 21px);
+      padding-bottom: var(--space-md, 21px);
+      border-bottom: 1px solid #F3F4F6;
+      
+      .activity-icon {
+        width: 32px;
+        height: 32px;
+        background: #F0F9FF;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #3B82F6;
+        flex-shrink: 0;
+      }
+      
+      .activity-content {
+        flex: 1;
+        
+        .activity-text {
+          font-size: 0.875rem;
+          color: var(--text-primary, #1F2937);
+          margin-bottom: 0.25rem;
+        }
+        
+        .activity-time {
+          font-size: 0.75rem;
+          color: #9CA3AF;
+        }
+      }
+    }
+  }
+}
+
+/* METRIC CARDS - Performance Psychology */
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg, 34px);
+  margin-bottom: var(--space-xl, 55px);
+}
+
+.metric-card {
+  padding: var(--space-lg, 34px);
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  position: relative;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Card header */
+  .metric-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--space-md, 21px);
+    
+    .metric-label {
+      font-size: 0.875rem;
+      color: #6B7280;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .metric-icon {
+      width: 32px;
+      height: 32px;
+      background: #F3F4F6;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6B7280;
+    }
+  }
+  
+  /* Metric value */
+  .metric-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary, #1F2937);
+    line-height: 1;
+    margin-bottom: var(--space-sm, 13px);
+    
+    .unit {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #9CA3AF;
+      margin-left: 0.25rem;
+    }
+  }
+  
+  /* Metric change */
+  .metric-change {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs, 8px);
+    font-size: 0.875rem;
+    
+    .change-value {
+      font-weight: 600;
+    }
+    
+    .change-label {
+      color: #6B7280;
+    }
+    
+    .trend-arrow {
+      width: 16px;
+      height: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  
+  /* Positive metrics */
+  &.positive {
+    border-left: 4px solid #10B981;
+    
+    .metric-icon {
+      background: #F0FDF4;
+      color: #10B981;
+    }
+    
+    .metric-value {
+      color: #059669;
+    }
+    
+    .metric-change {
+      color: #10B981;
+      
+      .trend-arrow {
+        animation: pulseUp 2s ease-in-out infinite;
+        
+        &::before {
+          content: '↑';
+        }
+      }
+    }
+  }
+  
+  /* Negative metrics */
+  &.negative {
+    border-left: 4px solid #EF4444;
+    
+    .metric-icon {
+      background: #FEF2F2;
+      color: #EF4444;
+    }
+    
+    .metric-value {
+      color: #DC2626;
+    }
+    
+    .metric-change {
+      color: #EF4444;
+      
+      .trend-arrow {
+        animation: pulseDown 2s ease-in-out infinite;
+        
+        &::before {
+          content: '↓';
+        }
+      }
+    }
+  }
+  
+  /* Neutral metrics */
+  &.neutral {
+    border-left: 4px solid #F59E0B;
+    
+    .metric-icon {
+      background: #FEF3C7;
+      color: #F59E0B;
+    }
+    
+    .metric-change {
+      color: #F59E0B;
+      
+      .trend-arrow::before {
+        content: '→';
+      }
+    }
+  }
+  
+  /* Featured metric */
+  &.featured {
+    grid-column: span 2;
+    background: linear-gradient(135deg, #3B82F6 0%, #0EA5E9 100%);
+    color: white;
+    
+    .metric-label,
+    .metric-value,
+    .change-label {
+      color: white;
+    }
+    
+    .metric-icon {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+    
+    .metric-change {
+      color: white;
+    }
+  }
+  
+  /* Mini sparkline */
+  .metric-sparkline {
+    margin-top: var(--space-md, 21px);
+    height: 40px;
+    position: relative;
+    
+    svg {
+      width: 100%;
+      height: 100%;
+      
+      path {
+        fill: none;
+        stroke: #3B82F6;
+        stroke-width: 2;
+        opacity: 0.3;
+      }
+      
+      .sparkline-fill {
+        fill: url(#gradient);
+        opacity: 0.1;
+      }
+    }
+  }
+}
+
+/* KPI Dashboard Header */
+.kpi-header {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md, 21px);
+  margin-bottom: var(--space-xl, 55px);
+  padding: var(--space-lg, 34px);
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  
+  .kpi-item {
+    text-align: center;
+    padding: 0 var(--space-md, 21px);
+    border-right: 1px solid #F3F4F6;
+    
+    &:last-child {
+      border-right: none;
+    }
+    
+    .kpi-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #3B82F6;
+      margin-bottom: var(--space-xs, 8px);
+    }
+    
+    .kpi-label {
+      font-size: 0.875rem;
+      color: #6B7280;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .kpi-change {
+      font-size: 0.75rem;
+      margin-top: var(--space-xs, 8px);
+      
+      &.positive {
+        color: #10B981;
+      }
+      
+      &.negative {
+        color: #EF4444;
+      }
+    }
+  }
+}
+
+/* ANIMATIONS */
+@keyframes pulseUp {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-2px);
+    opacity: 0.8;
+  }
+}
+
+@keyframes pulseDown {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(2px);
+    opacity: 0.8;
+  }
+}
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 1024px) {
+  .dashboard-layout {
+    grid-template-columns: 1fr;
+    
+    .sidebar {
+      position: fixed;
+      left: -240px;
+      transition: left 0.3s ease;
+      z-index: 100;
+      
+      &.open {
+        left: 0;
+      }
+    }
+    
+    .right-panel {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .metric-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .metric-card.featured {
+    grid-column: span 1;
+  }
+  
+  .kpi-header {
+    grid-template-columns: 1fr 1fr;
+  }
+}

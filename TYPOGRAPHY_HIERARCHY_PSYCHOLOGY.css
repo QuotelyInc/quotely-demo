@@ -1,0 +1,467 @@
+/* ============================================
+   QUOTELY TYPOGRAPHY HIERARCHY PSYCHOLOGY
+   Strategic Type Design for Authority & Conversion
+   ============================================ */
+
+/* FOUNDATION: Typography Variables */
+:root {
+  /* Font families for psychological impact */
+  --font-heading: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+  --font-body: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif;
+  --font-mono: 'SF Mono', 'Monaco', 'Inconsolata', monospace;
+  
+  /* Font size scale (Major Third: 1.25) */
+  --text-xs: clamp(0.75rem, 1.5vw, 0.875rem);    /* 12-14px */
+  --text-sm: clamp(0.875rem, 2vw, 1rem);         /* 14-16px */
+  --text-base: clamp(1rem, 2.5vw, 1.125rem);     /* 16-18px */
+  --text-lg: clamp(1.125rem, 3vw, 1.25rem);      /* 18-20px */
+  --text-xl: clamp(1.25rem, 3.5vw, 1.5rem);      /* 20-24px */
+  --text-2xl: clamp(1.5rem, 4vw, 2rem);          /* 24-32px */
+  --text-3xl: clamp(2rem, 5vw, 2.5rem);          /* 32-40px */
+  --text-4xl: clamp(2.5rem, 6vw, 3rem);          /* 40-48px */
+  --text-5xl: clamp(3rem, 7vw, 3.5rem);          /* 48-56px */
+  
+  /* Line heights for reading psychology */
+  --lh-tight: 1.236;    /* Headlines (1/φ) - Creates tension */
+  --lh-normal: 1.618;   /* Body text (φ) - Golden ratio comfort */
+  --lh-relaxed: 2.618;  /* Spacious (φ²) - Premium feel */
+  
+  /* Letter spacing for personality */
+  --ls-tight: -0.02em;  /* Modern confidence */
+  --ls-normal: 0;       /* Neutral trust */
+  --ls-wide: 0.05em;   /* Premium/luxury */
+  --ls-ultra: 0.1em;   /* Authority/emphasis */
+  
+  /* Optimal reading widths */
+  --reading-optimal: 65ch;  /* Body text maximum */
+  --reading-narrow: 45ch;   /* Mobile optimization */
+  --reading-wide: 75ch;     /* Extended content */
+}
+
+/* H1: AUTHORITY & FIRST IMPRESSION */
+h1 {
+  font-family: var(--font-heading);
+  font-size: var(--text-5xl);
+  line-height: var(--lh-tight);
+  font-weight: 800;
+  letter-spacing: var(--ls-tight);
+  color: var(--text-primary);
+  margin: 0 0 var(--space-lg) 0;
+  position: relative;
+  
+  /* Maximum cognitive comfort */
+  max-width: 20ch;
+  
+  /* Power words get gradient emphasis */
+  strong,
+  .power-word {
+    background: linear-gradient(135deg, #0052CC 0%, #0747A6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    font-weight: 900;
+    
+    /* Subtle underline accent */
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #0052CC 0%, #0747A6 100%);
+      border-radius: 2px;
+      opacity: 0.3;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease-out;
+    }
+    
+    &:hover::after {
+      transform: scaleX(1);
+      opacity: 0.5;
+    }
+  }
+  
+  /* Urgency words pulse */
+  .urgency-word {
+    color: var(--warning);
+    animation: urgencyPulse 2s ease-in-out infinite;
+  }
+  
+  /* Benefit words highlight */
+  .benefit-word {
+    color: var(--accent);
+    background: linear-gradient(135deg, transparent 0%, rgba(56, 217, 169, 0.1) 100%);
+    padding: 0 0.25em;
+    border-radius: 4px;
+  }
+}
+
+/* H2: SECTION ANCHORS (F-Pattern Scanning) */
+h2 {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  line-height: var(--lh-normal);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  margin: var(--space-xl) 0 var(--space-md) 0;
+  position: relative;
+  
+  /* Scanning optimization */
+  padding-top: var(--space-lg);
+  padding-bottom: var(--space-sm);
+  
+  /* Left accent for scanning guidance */
+  &::before {
+    content: '';
+    position: absolute;
+    left: -24px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 60%;
+    background: var(--gradient);
+    border-radius: 2px;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+  }
+  
+  &:hover::before {
+    opacity: 1;
+  }
+  
+  /* Sticky scanning helper for desktop */
+  @media (min-width: 1024px) {
+    &.sticky-header {
+      position: sticky;
+      top: 80px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 10;
+      padding: var(--space-sm) 0;
+      margin-left: -24px;
+      padding-left: 24px;
+      border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+    }
+  }
+}
+
+/* H3: LOGICAL GROUPING & QUESTIONS */
+h3 {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  line-height: var(--lh-normal);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: var(--text-primary);
+  margin: var(--space-lg) 0 var(--space-sm) 0;
+  
+  /* Question format for engagement */
+  &.question-format {
+    color: var(--primary);
+    font-style: italic;
+    position: relative;
+    padding-left: 1.5em;
+    
+    &::before {
+      content: "?";
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 1.2em;
+      color: var(--accent);
+      font-weight: 700;
+      animation: questionBounce 3s ease-in-out infinite;
+    }
+  }
+  
+  /* Statement format with arrow */
+  &.statement-format {
+    position: relative;
+    padding-left: 1.5em;
+    
+    &::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--text-secondary);
+      font-weight: 400;
+    }
+  }
+}
+
+/* H4-H6: Supporting Hierarchy */
+h4 {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  line-height: var(--lh-normal);
+  font-weight: 600;
+  margin: var(--space-md) 0 var(--space-sm) 0;
+  color: var(--text-primary);
+}
+
+h5 {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  line-height: var(--lh-normal);
+  font-weight: 600;
+  margin: var(--space-md) 0 var(--space-xs) 0;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
+}
+
+h6 {
+  font-family: var(--font-heading);
+  font-size: var(--text-base);
+  line-height: var(--lh-normal);
+  font-weight: 600;
+  margin: var(--space-sm) 0 var(--space-xs) 0;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-ultra);
+  opacity: 0.8;
+}
+
+/* BODY TEXT: Optimal Reading Psychology */
+p {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--lh-normal);
+  color: var(--text-primary);
+  margin: 0 0 var(--space-md) 0;
+  max-width: var(--reading-optimal);
+  
+  /* Lead paragraph emphasis */
+  &.lead {
+    font-size: var(--text-lg);
+    line-height: var(--lh-relaxed);
+    color: var(--text-secondary);
+    font-weight: 400;
+    max-width: 60ch;
+    
+    strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+  }
+  
+  /* Testimonial styling */
+  &.testimonial {
+    font-size: var(--text-lg);
+    line-height: var(--lh-relaxed);
+    font-style: italic;
+    position: relative;
+    padding-left: 2em;
+    
+    &::before {
+      content: """;
+      position: absolute;
+      left: 0;
+      top: -0.25em;
+      font-size: 3em;
+      color: var(--primary);
+      opacity: 0.2;
+      font-family: Georgia, serif;
+    }
+  }
+}
+
+/* POWER WORD EMPHASIS SYSTEM */
+.power-word {
+  position: relative;
+  font-weight: 700;
+  white-space: nowrap;
+  
+  /* Gradient text */
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  
+  /* Underline accent */
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: currentColor;
+    opacity: 0.3;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-out;
+  }
+  
+  &:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+/* Number emphasis for statistics */
+.number-emphasis {
+  font-weight: 800;
+  font-size: 1.2em;
+  color: var(--primary);
+  position: relative;
+  padding: 0 0.25em;
+  
+  /* Subtle border frame */
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -2px -4px;
+    border: 2px solid currentColor;
+    border-radius: 4px;
+    opacity: 0.15;
+  }
+}
+
+/* Authority words (credentials, certifications) */
+.authority-word {
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
+  font-weight: 600;
+  font-size: 0.85em;
+  color: var(--text-secondary);
+  background: var(--background);
+  padding: 0.25em 0.5em;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+
+/* F-PATTERN SCANNING OPTIMIZATION */
+.f-pattern-primary {
+  /* Top horizontal scanning bar */
+  font-size: var(--text-xl);
+  font-weight: 600;
+  padding: var(--space-md) 0;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: var(--space-lg);
+}
+
+.f-pattern-secondary {
+  /* Supporting content */
+  padding-left: var(--space-lg);
+  border-left: 3px solid var(--border);
+  margin: var(--space-md) 0;
+}
+
+.f-pattern-vertical {
+  /* Left vertical stem */
+  max-width: var(--reading-optimal);
+  
+  > * {
+    margin-left: 0;
+    margin-right: auto;
+  }
+}
+
+/* READING RHYTHM OPTIMIZATION */
+.content-block {
+  /* Optimal paragraph spacing */
+  > p + p {
+    margin-top: var(--space-md);
+  }
+  
+  /* Header to content spacing */
+  > h2 + p,
+  > h3 + p {
+    margin-top: var(--space-sm);
+  }
+  
+  /* List spacing */
+  ul, ol {
+    margin: var(--space-md) 0;
+    padding-left: var(--space-lg);
+    
+    li {
+      margin-bottom: var(--space-xs);
+      line-height: var(--lh-normal);
+    }
+  }
+}
+
+/* MOBILE TYPOGRAPHY OPTIMIZATION */
+@media (max-width: 768px) {
+  :root {
+    /* Adjusted for thumb-reach reading */
+    --reading-optimal: 100%;
+    --reading-narrow: 100%;
+  }
+  
+  /* Reduced sticky positioning */
+  h2.sticky-header {
+    position: static;
+    top: auto;
+    background: transparent;
+    backdrop-filter: none;
+    border-bottom: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+  
+  /* Simplified question format */
+  h3.question-format {
+    padding-left: 1em;
+    
+    &::before {
+      font-size: 1em;
+      animation: none;
+    }
+  }
+  
+  /* Adjusted power words */
+  .power-word {
+    &::after {
+      height: 1px;
+    }
+  }
+  
+  /* Simplified number emphasis */
+  .number-emphasis {
+    font-size: 1.1em;
+    
+    &::before {
+      display: none;
+    }
+  }
+}
+
+/* ANIMATIONS */
+@keyframes urgencyPulse {
+  0%, 100% { 
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes questionBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+
+/* ACCESSIBILITY: High contrast mode support */
+@media (prefers-contrast: high) {
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 800;
+  }
+  
+  .power-word {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+  }
+  
+  .number-emphasis {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+}

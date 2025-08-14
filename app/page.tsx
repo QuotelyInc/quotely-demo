@@ -1150,7 +1150,7 @@ function HomePage() {
           <div className="completion-trigger visible">✓</div>
         </div>
 
-        {/* STATS SECTION */
+        {/* STATS SECTION */}
         <section className="stats-section fade-in elevation-section">
           <div className="f-pattern-container">
             <h2>Why <span className="number-emphasis">1000+</span> agencies made the switch</h2>
@@ -1177,16 +1177,10 @@ function HomePage() {
             <div className="stat-card scan-block">
               <div className="stat-icon">⭐</div>
               <div className="stat-value number-emphasis">9.2/10</div>
-              <div className="stat-description authority-word">User satisfaction score</div>
+              <div className="stat-description">User satisfaction score</div>
             </div>
           </div>
         </section>
-
-        <div className="chapter-divider" data-chapter="Chapter II: The Evidence"></div>
-        
-        <div className="section-break state-concern">
-          <div className="completion-trigger visible">📊</div>
-        </div>
 
         <div className="section-break-hard" data-section="2" />
         
@@ -1265,7 +1259,7 @@ function HomePage() {
           <div className="completion-trigger visible">💪</div>
         </div>
 
-        {/* TESTIMONIALS SECTION */
+        {/* TESTIMONIALS SECTION */}
         <section className="testimonials-section fade-in elevation-section">
           <div className="section-header f-pattern-container">
             <h2>Trusted by <span className="number-emphasis">1000+</span> agencies</h2>
@@ -1318,7 +1312,7 @@ function HomePage() {
           <div className="completion-trigger visible">🎯</div>
         </div>
 
-        {/* INSURANCE JOURNAL INSIGHTS */
+        {/* INSURANCE JOURNAL INSIGHTS */}
         <section className="industry-insights-section fade-in elevation-section">
           <div className="section-header f-pattern-container">
             <h2>Industry Intelligence Hub</h2>

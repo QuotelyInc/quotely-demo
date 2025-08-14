@@ -1,0 +1,441 @@
+/* ============================================
+   QUOTELY FORM PSYCHOLOGY FRAMEWORK
+   Strategic CSS for 85%+ Completion Rates
+   ============================================ */
+
+/* FOUNDATION: Decision Fatigue Prevention */
+.quote-form {
+  --form-spacing-micro: var(--space-xs);  /* 8px - Field internal */
+  --form-spacing-small: var(--space-sm);  /* 13px - Label to input */
+  --form-spacing-base: var(--space-md);   /* 21px - Field groups */
+  --form-spacing-section: var(--space-lg); /* 34px - Prevents rushing */
+  --form-spacing-phase: var(--space-xl);   /* 55px - Major transitions */
+  
+  /* Psychological pacing */
+  --form-transition-speed: 0.3s;
+  --form-transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* COGNITIVE CHUNKING: Form Group Psychology */
+.form-group {
+  margin-bottom: var(--form-spacing-section); /* 34px prevents rushing */
+  transition: all var(--form-transition-speed) var(--form-transition-easing);
+  position: relative;
+}
+
+/* Progressive spacing creates momentum */
+.form-group + .form-group {
+  margin-top: var(--form-spacing-base); /* 21px maintains flow */
+}
+
+/* Visual hierarchy through spacing */
+.form-group.primary {
+  padding: var(--form-spacing-section);
+  background: var(--surface);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.form-group.secondary {
+  padding: var(--form-spacing-base);
+  background: rgba(var(--surface), 0.5);
+}
+
+/* MULTI-STEP FORM: Progress Psychology */
+.multi-step-form {
+  --step-indicator-height: 4px;
+  --step-bubble-size: 32px;
+  position: relative;
+}
+
+.multi-step-form .step {
+  padding: var(--form-spacing-section) 0;
+  transition: all var(--form-transition-speed) var(--form-transition-easing);
+  opacity: 0.3;
+  transform: scale(0.98);
+}
+
+/* Compression indicates completion */
+.multi-step-form .step.completed {
+  opacity: 0.7;
+  padding: var(--form-spacing-base) 0; /* 21px - Compression = past */
+  transform: scale(0.96);
+  pointer-events: none;
+}
+
+/* Expansion creates focus */
+.multi-step-form .step.active {
+  opacity: 1;
+  padding: var(--form-spacing-phase) 0; /* 55px - Expansion = focus */
+  transform: scale(1);
+  animation: stepActivate 0.5s ease-out;
+}
+
+/* Future steps appear distant */
+.multi-step-form .step.pending {
+  opacity: 0.4;
+  padding: var(--form-spacing-small) 0;
+  transform: scale(0.94);
+}
+
+@keyframes stepActivate {
+  0% {
+    transform: scale(0.98) translateY(10px);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+/* PROGRESS INDICATOR: Visual Momentum */
+.progress-indicator {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--surface);
+  padding: var(--form-spacing-base) 0;
+  margin-bottom: var(--form-spacing-phase);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar {
+  height: var(--step-indicator-height);
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+  transition: width 0.6s var(--form-transition-easing);
+  position: relative;
+  
+  /* Psychological momentum animation */
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3));
+    animation: shimmer 2s infinite;
+  }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100px); }
+  100% { transform: translateX(100px); }
+}
+
+/* TRUST SIGNALS: Anxiety Reduction */
+.form-group.sensitive {
+  position: relative;
+  
+  /* Trust badge positioning */
+  &::before {
+    content: '🔒 Encrypted';
+    position: absolute;
+    top: -10px;
+    right: 0;
+    font-size: 11px;
+    color: var(--accent);
+    background: var(--surface);
+    padding: 2px 8px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* High-anxiety field indicators */
+.form-input.secure {
+  border-left: 3px solid var(--accent);
+  padding-left: calc(var(--form-spacing-base) - 3px);
+  background: linear-gradient(90deg, rgba(0, 184, 163, 0.05) 0%, transparent 50%);
+}
+
+/* MOBILE OPTIMIZATION: Thumb Psychology */
+@media (max-width: 768px) {
+  .quote-form {
+    /* Compressed Fibonacci for mobile */
+    --form-spacing-micro: 5px;
+    --form-spacing-small: 8px;
+    --form-spacing-base: 13px;
+    --form-spacing-section: 21px;
+    --form-spacing-phase: 34px;
+  }
+  
+  .form-group {
+    /* Thumb-comfortable spacing */
+    margin-bottom: var(--form-spacing-section);
+    padding: var(--form-spacing-base);
+  }
+  
+  .form-input {
+    min-height: 44px; /* iOS touch target */
+    font-size: 16px; /* Prevents zoom on iOS */
+    padding: var(--form-spacing-base) var(--form-spacing-small);
+    width: 100%;
+    
+    /* Visual feedback for touch */
+    &:active {
+      transform: scale(0.98);
+      box-shadow: 0 0 0 3px rgba(0, 87, 255, 0.1);
+    }
+  }
+  
+  /* Single-column layout for mobile */
+  .form-row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--form-spacing-base);
+  }
+  
+  /* Bottom-anchored CTA for thumb reach */
+  .form-submit {
+    position: sticky;
+    bottom: env(safe-area-inset-bottom, 20px);
+    width: calc(100% - 32px);
+    margin: var(--form-spacing-phase) 16px 16px;
+    padding: var(--form-spacing-base) var(--form-spacing-section);
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    box-shadow: 0 4px 20px rgba(0, 87, 255, 0.3);
+    z-index: 101;
+  }
+}
+
+/* ERROR HANDLING: Anxiety Prevention */
+.form-error {
+  color: var(--warning);
+  font-size: 14px;
+  margin-top: var(--form-spacing-micro);
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: all 0.2s ease-out;
+  
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Encouraging validation feedback */
+.form-success {
+  color: var(--accent);
+  font-size: 14px;
+  margin-top: var(--form-spacing-micro);
+  display: flex;
+  align-items: center;
+  gap: var(--form-spacing-micro);
+  
+  &::before {
+    content: '✓';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: var(--accent);
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 16px;
+    font-size: 10px;
+  }
+}
+
+/* FIELD STATES: Visual Psychology */
+.form-input {
+  width: 100%;
+  padding: var(--form-spacing-base) var(--form-spacing-small);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.2s ease-out;
+  background: var(--surface);
+  
+  /* Focus state creates tunnel vision */
+  &:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(0, 87, 255, 0.1);
+    transform: scale(1.01);
+  }
+  
+  /* Disabled state reduces cognitive load */
+  &:disabled {
+    opacity: 0.5;
+    background: var(--background);
+    cursor: not-allowed;
+  }
+  
+  /* Valid state provides positive reinforcement */
+  &.valid {
+    border-color: var(--accent);
+    background: linear-gradient(90deg, rgba(0, 184, 163, 0.03) 0%, transparent 100%);
+  }
+  
+  /* Error state without panic */
+  &.error {
+    border-color: var(--warning);
+    background: linear-gradient(90deg, rgba(255, 107, 53, 0.03) 0%, transparent 100%);
+  }
+}
+
+/* SMART DEFAULTS: Cognitive Assistance */
+.form-input[data-suggested]::placeholder {
+  color: var(--primary);
+  opacity: 0.6;
+}
+
+.suggestion-pill {
+  display: inline-block;
+  padding: var(--form-spacing-micro) var(--form-spacing-base);
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  margin: var(--form-spacing-micro);
+  
+  &:hover {
+    background: var(--primary);
+    color: white;
+    transform: scale(1.05);
+  }
+  
+  &.selected {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 2px 8px rgba(0, 87, 255, 0.3);
+  }
+}
+
+/* DECISION HELPERS: Choice Architecture */
+.coverage-selector {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--form-spacing-base);
+  margin: var(--form-spacing-section) 0;
+}
+
+.coverage-option {
+  padding: var(--form-spacing-section);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+  position: relative;
+  
+  /* Good */
+  &:nth-child(1) {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  
+  /* Better (Recommended) */
+  &:nth-child(2) {
+    transform: scale(1.05);
+    border-color: var(--primary);
+    box-shadow: 0 4px 12px rgba(0, 87, 255, 0.2);
+    
+    &::before {
+      content: 'RECOMMENDED';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--primary);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 10px;
+      font-weight: 600;
+    }
+  }
+  
+  /* Best */
+  &:nth-child(3) {
+    transform: scale(0.95);
+    opacity: 0.9;
+  }
+  
+  &:hover {
+    transform: scale(1.02);
+    border-color: var(--primary);
+    opacity: 1;
+  }
+  
+  &.selected {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    transform: scale(1.05);
+  }
+}
+
+/* PERFORMANCE: Psychological Loading States */
+.form-loading {
+  position: relative;
+  pointer-events: none;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: inherit;
+  }
+}
+
+.calculating-quote {
+  text-align: center;
+  padding: var(--form-spacing-phase);
+  
+  .quote-progress {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: var(--form-spacing-base);
+    
+    /* Counting animation creates anticipation */
+    animation: pulse 1s ease-in-out infinite;
+  }
+  
+  .quote-message {
+    color: var(--text-secondary);
+    font-size: 14px;
+    
+    /* Rotating messages maintain engagement */
+    animation: fadeInOut 3s ease-in-out infinite;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
