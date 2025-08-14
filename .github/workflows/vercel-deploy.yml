@@ -1,0 +1,26 @@
+name: Vercel Production Deployment
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Deploy to Vercel
+        run: |
+          echo "Deployment triggered from master branch"
+          echo "Vercel will automatically deploy via GitHub integration"
+        
+      - name: Verify Branch
+        run: |
+          echo "Current branch: ${{ github.ref_name }}"
+          if [ "${{ github.ref_name }}" != "master" ]; then
+            echo "Error: Not on master branch!"
+            exit 1
+          fi
+          echo "✓ Deploying from master branch"

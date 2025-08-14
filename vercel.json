@@ -1,7 +1,12 @@
 {
   "public": true,
   "github": {
-    "enabled": false
+    "enabled": true
+  },
+  "git": {
+    "deploymentEnabled": {
+      "master": true
+    }
   },
   "headers": [
     {
