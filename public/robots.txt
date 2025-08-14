@@ -1,24 +1,40 @@
 # Robots.txt for tryquotely.com
-# Last updated: 2025
+# Last updated: 2025-01-14
+# Optimized for Google Search Console indexing
 
 User-agent: *
 Allow: /
-Disallow: /app/
+
+# Block only sensitive/admin areas
 Disallow: /api/
 Disallow: /admin/
-Disallow: /_next/
+Disallow: /dashboard/
+Disallow: /login
+Disallow: /logout
+Disallow: /settings/
 Disallow: /private/
-Disallow: /*.json$
+
+# Block URL parameters that create duplicate content
 Disallow: /*?*sort=
 Disallow: /*?*filter=
 Disallow: /*?*page=
 Disallow: /*?*session=
 Disallow: /*?*token=
+Disallow: /*.json$
 
-# Allow search engines to access important assets
+# Explicitly allow important areas
+Allow: /compare/
+Allow: /pricing
+Allow: /demo
+Allow: /get-started
+Allow: /quad/
+Allow: /blog/
+Allow: /features/
+Allow: /industry-insights/
 Allow: /_next/static/
 Allow: /images/
 Allow: /favicon.ico
+Allow: /sitemap.xml
 
 # Specific bot rules
 User-agent: Googlebot
