@@ -16,7 +16,7 @@ function GetStartedPage() {
     agencyType: '',
     monthlyQuotes: '',
     currentSystem: '',
-    painPoints: []
+    painPoints: [] as string[]
   })
 
   useEffect(() => {
