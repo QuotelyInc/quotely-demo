@@ -1,0 +1,82 @@
+# Claude Configuration for Quotely Website
+# Strategic optimization for InsurTech market domination
+
+project:
+  name: "Quotely InsurTech Platform"
+  description: "Revolutionary insurance technology platform with 60% faster quote generation"
+  version: "2.0.0"
+  domain: "https://tryquotely.com"
+
+# Performance targets
+targets:
+  seo:
+    page_speed: 1.2  # seconds
+    mobile_score: 98  # out of 100
+    indexing_rate: 0.92  # 92% of pages indexed
+  conversion:
+    landing_page: 0.15  # 15% conversion rate target
+    demo_requests: 0.25  # 25% demo request rate
+    quad_signups: 0.20  # 20% QUAD tier conversion
+
+# Competitive benchmarks
+competitors:
+  ezlynx:
+    quote_speed: 4.2  # minutes
+    monthly_cost: 1068  # dollars for 12 agents
+    mobile_score: 72
+  applied_systems:
+    quote_speed: 3.8
+    monthly_cost: 1140
+    mobile_score: 68
+  quotely:
+    quote_speed: 1.8  # 60% faster
+    monthly_cost: 679  # QUAD 1.0 pricing
+    mobile_score: 98
+
+# Default agent settings
+defaults:
+  temperature: 0.7
+  max_tokens: 4096
+  model: "claude-3-opus-20240229"
+  
+# Workflow triggers
+triggers:
+  - name: "sitemap_update"
+    on: ["push", "merge"]
+    branches: ["main", "master"]
+    paths: ["public/sitemap.xml", "app/**/*.tsx"]
+    
+  - name: "seo_audit"
+    schedule: "0 2 * * 1"  # Weekly on Mondays at 2 AM
+    
+  - name: "competitor_analysis"
+    schedule: "0 3 * * 5"  # Weekly on Fridays at 3 AM
+
+# Environment variables
+environment:
+  VERCEL_TOKEN: "${VERCEL_TOKEN}"
+  GOOGLE_SEARCH_CONSOLE_KEY: "${GOOGLE_SEARCH_CONSOLE_KEY}"
+  BING_WEBMASTER_KEY: "${BING_WEBMASTER_KEY}"
+  OTTO_TRACKING_ID: "${OTTO_TRACKING_ID}"
+  
+# Monitoring
+monitoring:
+  alerts:
+    - type: "page_speed"
+      threshold: 2.0  # Alert if page load > 2 seconds
+      channels: ["email", "slack"]
+    
+    - type: "indexing_drop"
+      threshold: 0.80  # Alert if < 80% pages indexed
+      channels: ["email"]
+    
+    - type: "competitor_advantage"
+      threshold: 0.40  # Alert if advantage drops below 40%
+      channels: ["slack"]
+
+# Custom commands
+commands:
+  validate_sitemap: "npm run sitemap:validate"
+  deploy_production: "vercel --prod"
+  run_seo_audit: "npm run seo:audit"
+  check_competitors: "npm run competitors:analyze"

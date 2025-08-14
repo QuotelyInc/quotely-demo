@@ -1,0 +1,175 @@
+# SEO Optimization Agent
+# Handles comprehensive SEO strategy and competitive analysis
+
+name: "SEO Dominator"
+description: "Strategic SEO agent for achieving market dominance in InsurTech"
+version: "1.0.0"
+
+capabilities:
+  - technical_seo_audit
+  - competitive_analysis
+  - keyword_research
+  - content_optimization
+  - schema_markup
+  - performance_monitoring
+
+configuration:
+  model: "claude-3-opus-20240229"
+  temperature: 0.5
+  max_tokens: 8192
+
+# SEO Strategy Configuration
+seo_strategy:
+  target_keywords:
+    primary:
+      - "insurance quoting software"
+      - "agency management system"
+      - "insurance CRM"
+      - "quote comparison tool"
+      
+    competitive:
+      - "ezlynx alternative"
+      - "applied rater alternative"
+      - "better than ezlynx"
+      - "faster than applied systems"
+      
+    long_tail:
+      - "fastest insurance quoting software 2025"
+      - "AI-powered insurance platform"
+      - "transparent AI insurance quotes"
+      - "60% faster insurance quotes"
+      
+  content_pillars:
+    - topic: "Speed Advantage"
+      pages: ["/", "/features", "/compare/*"]
+      
+    - topic: "AI Transparency"
+      pages: ["/features/ai-transparency", "/blog/*"]
+      
+    - topic: "Cost Savings"
+      pages: ["/pricing", "/roi-calculator", "/compare/*"]
+      
+    - topic: "Migration Support"
+      pages: ["/switch-from-*", "/resources/migration-guide"]
+
+technical_requirements:
+  core_web_vitals:
+    lcp: 1.2  # Largest Contentful Paint (seconds)
+    fid: 100  # First Input Delay (milliseconds)
+    cls: 0.1  # Cumulative Layout Shift
+    
+  mobile_optimization:
+    score: 98  # Google PageSpeed Insights
+    responsive: true
+    amp: false  # Not required for SaaS
+    
+  structured_data:
+    - type: "Organization"
+      required: true
+      
+    - type: "Product"
+      pages: ["/pricing", "/features"]
+      
+    - type: "FAQ"
+      pages: ["/compare/*", "/resources/*"]
+      
+    - type: "HowTo"
+      pages: ["/guides/*", "/resources/migration-guide"]
+      
+    - type: "Review"
+      pages: ["/case-studies", "/testimonials"]
+
+competitive_analysis:
+  competitors:
+    - name: "EZLynx"
+      monitor:
+        - keywords
+        - backlinks
+        - content_updates
+        - feature_releases
+        
+    - name: "Applied Systems"
+      monitor:
+        - pricing_changes
+        - new_integrations
+        - customer_reviews
+        
+    - name: "Vertafore"
+      monitor:
+        - market_positioning
+        - acquisition_news
+        
+  advantages_to_emphasize:
+    - "60% faster quote generation"
+    - "Transparent AI decisions"
+    - "No per-agent pricing"
+    - "Modern UI/UX"
+    - "Real-time carrier integrations"
+    - "Mobile-first design"
+
+content_optimization:
+  guidelines:
+    - min_word_count: 800
+    - max_word_count: 2500
+    - keyword_density: "2-3%"
+    - readability_score: 60  # Flesch Reading Ease
+    
+  requirements:
+    - unique_title_tags: true
+    - meta_descriptions: true
+    - header_hierarchy: true
+    - internal_linking: "3-5 per page"
+    - external_linking: "1-2 authoritative sources"
+    
+  conversion_elements:
+    - cta_above_fold: true
+    - social_proof: true
+    - urgency_indicators: true
+    - trust_badges: true
+
+monitoring:
+  kpis:
+    - organic_traffic_growth
+    - keyword_rankings
+    - conversion_rate
+    - bounce_rate
+    - average_session_duration
+    
+  tools:
+    - google_search_console
+    - google_analytics_4
+    - otto_tracking
+    - competitive_intelligence
+    
+  reporting:
+    frequency: "weekly"
+    format: "dashboard"
+    stakeholders: ["marketing", "product", "leadership"]
+
+prompts:
+  audit: |
+    Perform a comprehensive SEO audit for Quotely focusing on:
+    1. Technical SEO issues blocking indexation
+    2. Core Web Vitals performance gaps
+    3. Missing schema markup opportunities
+    4. Competitive keyword gaps
+    5. Content optimization opportunities
+    
+  optimize_page: |
+    Optimize this page for maximum SEO impact:
+    1. Target primary keyword with 2-3% density
+    2. Add compelling meta title and description
+    3. Implement proper header hierarchy
+    4. Add internal links to related pages
+    5. Include conversion elements (CTAs, social proof)
+    6. Ensure mobile responsiveness
+    7. Add relevant schema markup
+    
+  competitive_analysis: |
+    Analyze Quotely's competitive position:
+    1. Keyword overlap with EZLynx and Applied
+    2. Backlink gap analysis
+    3. Content gap opportunities
+    4. Feature comparison advantage points
+    5. Pricing advantage messaging
+    6. Speed/performance competitive edge

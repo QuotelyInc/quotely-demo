@@ -1,0 +1,215 @@
+# Sitemap Deployment Workflow
+# Automated workflow for sitemap updates and SEO optimization
+
+name: "Sitemap Deployment Pipeline"
+description: "End-to-end workflow for sitemap generation, validation, and deployment"
+version: "1.0.0"
+
+trigger:
+  - type: "push"
+    branches: ["main", "master"]
+    paths:
+      - "app/**/*.tsx"
+      - "public/sitemap.xml"
+      - ".claude/agents/sitemap-agent.yaml"
+      
+  - type: "schedule"
+    cron: "0 3 * * 1"  # Weekly on Monday at 3 AM
+    
+  - type: "manual"
+    description: "Manual sitemap deployment"
+
+environment:
+  VERCEL_TOKEN: "${{ secrets.VERCEL_TOKEN }}"
+  GOOGLE_API_KEY: "${{ secrets.GOOGLE_API_KEY }}"
+  BING_API_KEY: "${{ secrets.BING_API_KEY }}"
+
+stages:
+  - name: "preparation"
+    agent: "sitemap-agent"
+    steps:
+      - id: "analyze_routes"
+        name: "Analyze application routes"
+        run: |
+          Scan the application for all routable pages
+          Identify dynamic routes and static pages
+          Filter out non-indexable pages
+          
+      - id: "competitive_check"
+        name: "Check competitor sitemaps"
+        run: |
+          Analyze EZLynx sitemap structure
+          Analyze Applied Systems sitemap
+          Identify competitive gaps and opportunities
+          
+  - name: "generation"
+    agent: "sitemap-agent"
+    steps:
+      - id: "generate_sitemap"
+        name: "Generate optimized sitemap"
+        run: |
+          Create sitemap with strategic URL prioritization
+          Set changefreq based on content type
+          Apply 60% faster indexing optimization
+          Include all QUAD tier pages
+          
+      - id: "add_schema"
+        name: "Add structured data references"
+        run: |
+          Include schema markup hints
+          Add image sitemap entries
+          Include video content references
+          
+  - name: "validation"
+    agent: "seo-agent"
+    steps:
+      - id: "validate_structure"
+        name: "Validate XML structure"
+        run: |
+          Check XML syntax validity
+          Verify namespace declarations
+          Validate against sitemap protocol
+          
+      - id: "validate_urls"
+        name: "Validate all URLs"
+        run: |
+          Test all URLs return 200 status
+          Check for redirect chains
+          Verify canonical tag alignment
+          Ensure no noindex pages included
+          
+      - id: "performance_check"
+        name: "Check sitemap performance"
+        run: |
+          Verify sitemap loads in < 500ms
+          Check compression is enabled
+          Ensure size is under 50MB
+          
+  - name: "optimization"
+    agent: "seo-agent"
+    steps:
+      - id: "optimize_priorities"
+        name: "Optimize URL priorities"
+        run: |
+          Prioritize conversion pages (1.0)
+          Set competitive pages high (0.9)
+          Adjust content pages (0.7-0.8)
+          Lower utility pages (0.3-0.5)
+          
+      - id: "competitive_advantage"
+        name: "Apply competitive advantages"
+        run: |
+          Emphasize speed advantage pages
+          Highlight AI transparency features
+          Promote QUAD pricing tiers
+          Feature comparison pages prominently
+          
+  - name: "deployment"
+    agent: "deployment-agent"
+    steps:
+      - id: "pre_deployment_checks"
+        name: "Run pre-deployment validations"
+        run: |
+          npm run build
+          npm run typecheck
+          Check lighthouse scores
+          
+      - id: "deploy_sitemap"
+        name: "Deploy sitemap to production"
+        run: |
+          git add public/sitemap.xml
+          git commit -m "Update sitemap with strategic optimizations"
+          git push origin master
+          vercel --prod
+          
+      - id: "verify_deployment"
+        name: "Verify sitemap accessibility"
+        run: |
+          curl -I https://tryquotely.com/sitemap.xml
+          Verify 200 status code
+          Check content-type is application/xml
+          
+  - name: "submission"
+    agent: "seo-agent"
+    steps:
+      - id: "submit_google"
+        name: "Submit to Google Search Console"
+        run: |
+          curl "https://www.google.com/ping?sitemap=https://tryquotely.com/sitemap.xml"
+          
+      - id: "submit_bing"
+        name: "Submit to Bing Webmaster"
+        run: |
+          curl "https://www.bing.com/ping?sitemap=https://tryquotely.com/sitemap.xml"
+          
+      - id: "submit_others"
+        name: "Submit to other search engines"
+        run: |
+          Submit to Yandex
+          Submit to Baidu (if applicable)
+          Submit to DuckDuckGo
+          
+  - name: "monitoring"
+    agent: "seo-agent"
+    steps:
+      - id: "track_indexing"
+        name: "Monitor indexing progress"
+        run: |
+          Check Google Search Console for indexing status
+          Monitor crawl frequency
+          Track new pages indexed
+          
+      - id: "competitive_monitoring"
+        name: "Monitor competitive position"
+        run: |
+          Track ranking improvements
+          Monitor competitor changes
+          Analyze traffic growth
+          
+      - id: "report_results"
+        name: "Generate performance report"
+        run: |
+          Create indexing report
+          Show competitive advantages
+          Calculate ROI improvements
+          Send to stakeholders
+
+success_criteria:
+  - "sitemap_valid == true"
+  - "all_urls_accessible == true"
+  - "deployment_successful == true"
+  - "google_submission == 200"
+  - "bing_submission == 200"
+  - "indexing_rate > 0.85"
+
+rollback_conditions:
+  - "sitemap_invalid == true"
+  - "deployment_failed == true"
+  - "critical_urls_404 == true"
+  - "indexing_rate < 0.70"
+
+notifications:
+  on_success:
+    channels: ["slack", "email"]
+    message: |
+      ✅ Sitemap Successfully Deployed
+      - URLs: {{ total_urls }}
+      - Indexing advantage: 60% faster
+      - Competitive pages: {{ competitive_count }}
+      - Status: Live at https://tryquotely.com/sitemap.xml
+      
+  on_failure:
+    channels: ["slack", "email", "pagerduty"]
+    message: |
+      ❌ Sitemap Deployment Failed
+      - Stage: {{ failed_stage }}
+      - Error: {{ error_message }}
+      - Action: Initiating rollback
+      
+  on_rollback:
+    channels: ["slack", "email"]
+    message: |
+      ⚠️ Sitemap Rolled Back
+      - Reason: {{ rollback_reason }}
+      - Previous version restored
+      - Manual review required

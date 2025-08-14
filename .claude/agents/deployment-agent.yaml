@@ -1,0 +1,168 @@
+# Deployment Automation Agent
+# Handles production deployments with zero-downtime strategy
+
+name: "Deployment Commander"
+description: "Strategic deployment agent for production releases and rollbacks"
+version: "1.0.0"
+
+capabilities:
+  - automated_deployment
+  - pre_deployment_validation
+  - performance_testing
+  - rollback_management
+  - post_deployment_monitoring
+
+configuration:
+  model: "claude-3-opus-20240229"
+  temperature: 0.2  # Low for consistency
+  max_tokens: 4096
+
+deployment_strategy:
+  platform: "vercel"
+  branch: "master"
+  environment: "production"
+  
+  pre_checks:
+    - name: "build_validation"
+      command: "npm run build"
+      required: true
+      
+    - name: "type_checking"
+      command: "npm run typecheck"
+      required: true
+      
+    - name: "linting"
+      command: "npm run lint"
+      required: false
+      
+    - name: "test_suite"
+      command: "npm test"
+      required: false
+      
+    - name: "lighthouse_score"
+      minimum_score: 90
+      required: true
+      
+  deployment_steps:
+    - step: "commit_changes"
+      command: "git add -A && git commit -m"
+      
+    - step: "push_to_remote"
+      command: "git push origin master"
+      
+    - step: "deploy_production"
+      command: "vercel --prod"
+      
+    - step: "verify_deployment"
+      command: "curl -I https://tryquotely.com"
+      
+    - step: "submit_sitemap"
+      command: "npm run sitemap:submit"
+      
+  rollback_triggers:
+    - condition: "error_rate > 0.05"
+      action: "immediate_rollback"
+      
+    - condition: "response_time > 3000"
+      action: "immediate_rollback"
+      
+    - condition: "availability < 0.99"
+      action: "immediate_rollback"
+
+performance_requirements:
+  build_time: 60  # seconds
+  deployment_time: 120  # seconds
+  first_byte_time: 800  # milliseconds
+  
+  lighthouse_targets:
+    performance: 95
+    accessibility: 100
+    best_practices: 100
+    seo: 100
+    pwa: 80
+
+monitoring:
+  health_checks:
+    - endpoint: "/"
+      expected_status: 200
+      timeout: 5000
+      
+    - endpoint: "/api/health"
+      expected_status: 200
+      timeout: 3000
+      
+    - endpoint: "/sitemap.xml"
+      expected_status: 200
+      timeout: 3000
+      
+  metrics:
+    - name: "response_time"
+      threshold: 2000  # milliseconds
+      
+    - name: "error_rate"
+      threshold: 0.01  # 1%
+      
+    - name: "cpu_usage"
+      threshold: 80  # percent
+      
+    - name: "memory_usage"
+      threshold: 85  # percent
+
+post_deployment:
+  validations:
+    - "verify_sitemap_accessible"
+    - "check_ssl_certificate"
+    - "validate_redirects"
+    - "test_critical_user_flows"
+    - "verify_analytics_tracking"
+    
+  notifications:
+    success:
+      channels: ["slack", "email"]
+      message: "✅ Deployment successful - Quotely is 60% faster than competitors"
+      
+    failure:
+      channels: ["slack", "email", "pagerduty"]
+      message: "❌ Deployment failed - Initiating rollback"
+      
+  seo_tasks:
+    - "ping_google_sitemap"
+    - "ping_bing_sitemap"
+    - "update_search_console"
+    - "trigger_indexing_api"
+
+rollback_strategy:
+  automatic: true
+  max_attempts: 3
+  
+  steps:
+    - "identify_last_stable_deployment"
+    - "revert_to_previous_version"
+    - "verify_rollback_success"
+    - "notify_stakeholders"
+    - "create_incident_report"
+
+prompts:
+  deploy: |
+    Deploy Quotely to production with:
+    1. Pre-deployment validation checks
+    2. Zero-downtime deployment
+    3. Performance verification
+    4. SEO sitemap submission
+    5. Post-deployment monitoring
+    
+  validate: |
+    Validate deployment readiness:
+    1. All tests passing
+    2. Type checking successful
+    3. No critical linting errors
+    4. Lighthouse score > 90
+    5. Build size optimized
+    
+  rollback: |
+    Execute emergency rollback:
+    1. Identify the issue causing failure
+    2. Revert to last stable version
+    3. Verify system stability
+    4. Document incident
+    5. Notify all stakeholders

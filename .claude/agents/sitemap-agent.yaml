@@ -1,0 +1,132 @@
+# Sitemap Management Agent
+# Handles sitemap generation, validation, and deployment
+
+name: "Sitemap Strategist"
+description: "Expert agent for SEO-optimized sitemap management and deployment"
+version: "1.0.0"
+
+capabilities:
+  - sitemap_generation
+  - url_prioritization
+  - validation
+  - search_engine_submission
+  - performance_monitoring
+
+configuration:
+  model: "claude-3-opus-20240229"
+  temperature: 0.3  # Lower for more consistent output
+  max_tokens: 8192
+
+# Strategic URL configuration
+url_strategy:
+  critical_pages:  # Priority 1.0
+    - "/"
+    - "/quad"
+    - "/pricing"
+    - "/get-started"
+    - "/demo"
+    
+  high_value_pages:  # Priority 0.9-0.95
+    - "/features"
+    - "/compare/vs-ezlynx"
+    - "/compare/vs-applied-rater"
+    - "/compare/vs-vertafore"
+    
+  content_pages:  # Priority 0.7-0.8
+    - "/blog"
+    - "/industry-insights"
+    - "/resources"
+    - "/case-studies"
+    
+  support_pages:  # Priority 0.5-0.6
+    - "/about"
+    - "/contact"
+    - "/support"
+    - "/documentation"
+    
+  exclude_patterns:
+    - "/dashboard/*"
+    - "/admin/*"
+    - "/api/*"
+    - "/login"
+    - "/logout"
+    - "/settings/*"
+    - "/*.json"
+    - "/404"
+
+validation_rules:
+  - name: "url_accessibility"
+    description: "All URLs must return 200 status"
+    critical: true
+    
+  - name: "priority_hierarchy"
+    description: "Conversion pages must have highest priority"
+    critical: true
+    
+  - name: "lastmod_accuracy"
+    description: "Last modified dates must be accurate"
+    critical: false
+    
+  - name: "canonical_alignment"
+    description: "URLs must match canonical tags"
+    critical: true
+    
+  - name: "noindex_exclusion"
+    description: "No noindex pages in sitemap"
+    critical: true
+
+performance_targets:
+  sitemap_size: 50000  # Max URLs
+  response_time: 500  # milliseconds
+  compression: true  # gzip enabled
+  
+submission_targets:
+  - service: "google_search_console"
+    endpoint: "https://www.google.com/ping"
+    
+  - service: "bing_webmaster"
+    endpoint: "https://www.bing.com/ping"
+    
+  - service: "yandex"
+    endpoint: "https://webmaster.yandex.com/ping"
+
+monitoring:
+  metrics:
+    - indexing_rate
+    - crawl_frequency
+    - error_rate
+    - average_position
+    
+  alerts:
+    - condition: "indexing_rate < 0.85"
+      message: "Indexing rate dropped below 85%"
+      severity: "warning"
+      
+    - condition: "error_rate > 0.05"
+      message: "Error rate exceeded 5%"
+      severity: "critical"
+
+prompts:
+  generate: |
+    Generate an SEO-optimized sitemap for Quotely that:
+    1. Prioritizes conversion pages (demo, pricing, get-started)
+    2. Emphasizes competitive advantage pages
+    3. Excludes non-indexable pages
+    4. Uses proper changefreq based on content type
+    5. Targets 60% faster indexing than competitors
+    
+  validate: |
+    Validate the sitemap against:
+    1. Google's sitemap protocol
+    2. All URLs returning 200 status
+    3. No duplicate URLs
+    4. Proper XML formatting
+    5. Size under 50MB uncompressed
+    
+  optimize: |
+    Optimize the sitemap for:
+    1. Maximum crawl efficiency
+    2. Strategic URL prioritization
+    3. Competitive keyword targeting
+    4. Mobile-first indexing
+    5. Rich snippet eligibility
