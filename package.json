@@ -9,7 +9,11 @@
     "lint": "next lint",
     "deploy": "vercel --prod",
     "deploy:preview": "vercel",
-    "check-branch": "git branch --show-current | grep -q '^master$' || (echo 'Error: Not on master branch!' && exit 1)"
+    "check-branch": "git branch --show-current | grep -q '^master$' || (echo 'Error: Not on master branch!' && exit 1)",
+    "sitemap": "node scripts/automated-sitemap-deploy.js",
+    "sitemap:generate": "node scripts/automated-sitemap-deploy.js --generate-only",
+    "sitemap:validate": "node scripts/automated-sitemap-deploy.js --validate-only",
+    "sitemap:deploy": "npm run check-branch && node scripts/automated-sitemap-deploy.js"
   },
   "dependencies": {
     "next": "15.4.6",

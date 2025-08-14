@@ -1,0 +1,286 @@
+# Quotely Agent Configuration
+# Automated sitemap deployment and SEO optimization system
+
+project:
+  name: "quotely-sitemap-deployment"
+  version: "2.0.0"
+  description: "Automated sitemap generation and deployment with competitive SEO optimization"
+  domain: "https://tryquotely.com"
+  
+# Agent Definitions
+agents:
+  - name: "sitemap-generator"
+    role: "Generate SEO-optimized sitemaps with competitive advantage"
+    model: "claude-3-opus-20240229"
+    temperature: 0.3
+    capabilities: 
+      - "file-manipulation"
+      - "xml-generation"
+      - "seo-optimization"
+      - "priority-calculation"
+      - "competitor-analysis"
+    config:
+      max_urls: 50000
+      include_images: true
+      compression: true
+      priority_strategy:
+        competitor_pages: 1.0
+        conversion_pages: 1.0
+        feature_pages: 0.9
+        content_pages: 0.8
+        utility_pages: 0.5
+    
+  - name: "deployment-agent" 
+    role: "Deploy changes to Vercel production with zero downtime"
+    model: "claude-3-opus-20240229"
+    temperature: 0.2
+    capabilities: 
+      - "git-operations"
+      - "ci-cd"
+      - "file-upload"
+      - "vercel-deployment"
+      - "rollback-management"
+    config:
+      platform: "vercel"
+      zero_downtime: true
+      rollback_on_error: true
+      health_check_urls:
+        - "/"
+        - "/sitemap.xml"
+        - "/api/health"
+    
+  - name: "validation-agent"
+    role: "Validate sitemap and ensure SEO compliance"
+    model: "claude-3-opus-20240229"
+    temperature: 0.2
+    capabilities: 
+      - "url-testing"
+      - "xml-validation"
+      - "seo-audit"
+      - "schema-validation"
+      - "performance-testing"
+    config:
+      validation_rules:
+        - "all_urls_200_status"
+        - "no_redirect_chains"
+        - "no_noindex_pages"
+        - "valid_xml_syntax"
+        - "size_under_50mb"
+        - "response_time_under_500ms"
+      
+  - name: "seo-optimizer"
+    role: "Optimize for competitive advantage and search dominance"
+    model: "claude-3-opus-20240229"
+    temperature: 0.5
+    capabilities:
+      - "keyword-research"
+      - "competitor-analysis"
+      - "content-optimization"
+      - "schema-markup"
+      - "ranking-prediction"
+    config:
+      competitors:
+        - "ezlynx"
+        - "applied-systems"
+        - "vertafore"
+      target_advantages:
+        - "60% faster quote generation"
+        - "transparent AI decisions"
+        - "no per-agent pricing"
+
+# Workflow Definitions
+workflows:
+  sitemap-update:
+    name: "Sitemap Update Pipeline"
+    trigger: 
+      - "manual"
+      - "schedule: 0 3 * * 1"  # Weekly Monday 3 AM
+      - "on_push: [main, master]"
+    agents: ["sitemap-generator", "validation-agent", "seo-optimizer", "deployment-agent"]
+    auto-deploy: true
+    stages:
+      - name: "generate"
+        agent: "sitemap-generator"
+        tasks:
+          - "analyze_routes"
+          - "prioritize_urls"
+          - "generate_xml"
+          - "add_competitor_pages"
+      - name: "validate"
+        agent: "validation-agent"
+        tasks:
+          - "validate_xml_syntax"
+          - "test_all_urls"
+          - "check_seo_compliance"
+        fail_fast: true
+      - name: "optimize"
+        agent: "seo-optimizer"
+        tasks:
+          - "analyze_competitors"
+          - "optimize_priorities"
+          - "add_schema_hints"
+      - name: "deploy"
+        agent: "deployment-agent"
+        tasks:
+          - "commit_changes"
+          - "push_to_github"
+          - "deploy_to_vercel"
+          - "verify_deployment"
+          
+  competitive-analysis:
+    name: "Competitive SEO Analysis"
+    trigger:
+      - "schedule: 0 2 * * 5"  # Weekly Friday 2 AM
+    agents: ["seo-optimizer", "sitemap-generator"]
+    auto-deploy: false
+    stages:
+      - name: "analyze"
+        agent: "seo-optimizer"
+        tasks:
+          - "scrape_competitor_sitemaps"
+          - "identify_keyword_gaps"
+          - "find_new_opportunities"
+      - name: "recommend"
+        agent: "sitemap-generator"
+        tasks:
+          - "suggest_new_pages"
+          - "recommend_priority_changes"
+          - "generate_report"
+
+# Git Configuration
+git:
+  auto-commit: true
+  auto-push: true
+  branch: "master"  # Quotely uses master not main
+  commit-message-template: "feat(seo): {action} - {summary}\n\n- {details}\n- 60% faster than competitors\n\n🤖 Generated with Claude Code"
+  pre-commit-hooks:
+    - "npm run lint"
+    - "npm run build"
+  
+# Deployment Configuration  
+deployment:
+  method: "vercel"
+  platform_config:
+    vercel:
+      project: "tryquotely"
+      team: "quotelys-projects-93b374b6"
+      token: "${VERCEL_TOKEN}"
+  branch: "master"
+  environment: "production"
+  pre-deploy: 
+    - "npm run build"
+    - "npm run lint"
+  deploy-command: "vercel --prod --yes"
+  post-deploy: 
+    - "curl -s 'https://www.google.com/ping?sitemap=https://tryquotely.com/sitemap.xml'"
+    - "curl -s 'https://www.bing.com/ping?sitemap=https://tryquotely.com/sitemap.xml'"
+    - "node scripts/notify-search-console.js"
+  rollback-on-failure: true
+  health-checks:
+    - url: "https://tryquotely.com"
+      expected-status: 200
+      timeout: 5000
+    - url: "https://tryquotely.com/sitemap.xml"
+      expected-status: 200
+      timeout: 3000
+
+# SEO Configuration
+seo:
+  sitemap:
+    exclude_patterns:
+      - "/dashboard/*"
+      - "/admin/*"
+      - "/api/*"
+      - "/login"
+      - "/logout"
+      - "/settings/*"
+      - "/_next/*"
+      - "/404"
+    priority_rules:
+      - pattern: "/compare/vs-*"
+        priority: 1.0
+        reason: "Competitive advantage pages"
+      - pattern: "/(pricing|demo|get-started|quad)"
+        priority: 1.0
+        reason: "Core conversion pages"
+      - pattern: "/features/*"
+        priority: 0.9
+        reason: "Product features"
+      - pattern: "/blog/*"
+        priority: 0.8
+        reason: "Content marketing"
+      - pattern: "/about|/contact"
+        priority: 0.6
+        reason: "Company information"
+    changefreq:
+      home: "daily"
+      blog: "daily"
+      pricing: "weekly"
+      features: "monthly"
+      about: "monthly"
+      
+  competitive_targets:
+    - keyword: "ezlynx alternative"
+      target_url: "/compare/vs-ezlynx"
+      current_rank: 15
+      target_rank: 3
+    - keyword: "applied systems competitor"
+      target_url: "/compare/vs-applied-systems"
+      current_rank: 22
+      target_rank: 5
+    - keyword: "faster insurance quotes"
+      target_url: "/"
+      current_rank: 8
+      target_rank: 1
+
+# Monitoring & Alerts
+monitoring:
+  metrics:
+    - name: "sitemap_response_time"
+      threshold: 500  # ms
+      alert: "warning"
+    - name: "indexing_rate"
+      threshold: 0.85  # 85%
+      alert: "critical"
+    - name: "404_rate"
+      threshold: 0.05  # 5%
+      alert: "warning"
+  
+  notifications:
+    channels:
+      - type: "slack"
+        webhook: "${SLACK_WEBHOOK_URL}"
+      - type: "email"
+        to: "tech@quotely.com"
+    
+    events:
+      - "deployment_success"
+      - "deployment_failure"
+      - "validation_error"
+      - "seo_improvement"
+      - "competitor_change"
+
+# Performance Targets
+targets:
+  seo:
+    organic_traffic_growth: 0.25  # 25% MoM
+    keyword_rankings_top10: 50    # Number of keywords
+    page_speed_score: 98           # Google PageSpeed
+    mobile_score: 98               # Mobile optimization
+  
+  technical:
+    sitemap_generation_time: 2000  # ms
+    deployment_time: 120           # seconds
+    rollback_time: 30             # seconds
+    
+# Security & Compliance
+security:
+  excluded_from_sitemap:
+    - "Any URL containing 'token'"
+    - "Any URL containing 'key'"
+    - "Any URL containing 'secret'"
+    - "/api/internal/*"
+  
+  require_ssl: true
+  validate_robots_txt: true
+  respect_noindex: true
