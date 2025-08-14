@@ -51,6 +51,37 @@ function HomePage() {
       observer.observe(el)
     })
 
+    // Progressive elevation system
+    const elevationObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const section = entry.target
+          const sections = Array.from(document.querySelectorAll('.elevation-section'))
+          const sectionIndex = sections.indexOf(section)
+          
+          // Apply progressive elevation based on scroll position
+          const elevationLevel = Math.min(5, sectionIndex + 1)
+          section.classList.add(`elevation-${elevationLevel}`)
+          
+          // Trigger completion animations
+          const completionTrigger = section.nextElementSibling?.querySelector('.completion-trigger')
+          if (completionTrigger) {
+            setTimeout(() => {
+              completionTrigger.classList.add('visible')
+              trackUserAction('section_completed', {
+                section: section.className,
+                elevation: elevationLevel
+              })
+            }, 500)
+          }
+        }
+      })
+    }, { threshold: 0.3 })
+    
+    document.querySelectorAll('.elevation-section').forEach(el => {
+      elevationObserver.observe(el)
+    })
+
     // Track scroll depth
     const handleScroll = () => {
       const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100
@@ -105,6 +136,7 @@ function HomePage() {
     return () => {
       window.removeEventListener('scroll', handleScroll)
       window.removeEventListener('load', handleLoad)
+      elevationObserver.disconnect()
     }
   }, [engagementScore])
 
@@ -188,14 +220,169 @@ function HomePage() {
           --border: #E5E7EB;
           --gradient: linear-gradient(135deg, #0057FF 0%, #0041CC 100%);
           --gradient-bg: linear-gradient(135deg, #1B2951 0%, #0F1729 100%);
+          
+          /* FIBONACCI SPACING SYSTEM - Psychological Harmony */
+          --space-xs: 8px;    /* Micro-interactions, button padding */
+          --space-sm: 13px;   /* Text spacing, small gaps */
+          --space-md: 21px;   /* Standard element spacing */
+          --space-lg: 34px;   /* Section internal spacing */
+          --space-xl: 55px;   /* Major section breaks */
+          --space-2xl: 89px;  /* Hero-to-content transitions */
+          --space-3xl: 144px; /* Major section separation */
+          
+          /* GOLDEN RATIO LINE HEIGHTS - Cognitive Comfort */
+          --lh-tight: 1.236;  /* Headlines (1/φ) */
+          --lh-normal: 1.618; /* Body text (φ) */
+          --lh-relaxed: 2.618; /* Spacious text (φ²) */
+          
+          /* COGNITIVE LOAD MANAGEMENT */
+          --content-width: 1140px;    /* Optimal reading line length */
+          --scan-width: 800px;        /* F-pattern focal width */
+          --mobile-comfort: 343px;    /* Thumb-reach optimization */
+          
+          /* PSYCHOLOGICAL PRESSURE ZONES */
+          --urgency-spacing: var(--space-sm); /* Creates subtle pressure */
+          --comfort-spacing: var(--space-xl);  /* Reduces decision anxiety */
+          --premium-spacing: var(--space-2xl); /* Signals high value */
         }
         
         body {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-          line-height: 1.6;
+          line-height: var(--lh-normal); /* Golden ratio for optimal readability */
           color: var(--text-primary);
           background: var(--background);
           overflow-x: hidden;
+        }
+        
+        /* F-PATTERN SCANNING OPTIMIZATION FOR INSURANCE AGENTS */
+        .f-pattern-container {
+          max-width: var(--content-width);
+          margin: 0 auto;
+          padding: 0 var(--space-md);
+        }
+        
+        .f-pattern-primary {
+          /* Top horizontal bar - most important content */
+          margin-bottom: var(--space-lg);
+          padding-right: var(--space-2xl); /* Create right-side white space for scanning */
+        }
+        
+        .f-pattern-secondary {
+          /* Second horizontal bar - supporting content */
+          margin-bottom: var(--space-xl);
+          padding-right: var(--space-3xl); /* Progressive indentation */
+        }
+        
+        .f-pattern-vertical {
+          /* Left vertical stem - scannable content */
+          padding-left: 0;
+          margin-right: var(--space-2xl);
+        }
+        
+        /* SECTION BREAK PSYCHOLOGY SYSTEM */
+        .section-break {
+          position: relative;
+          height: 120px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+          margin: var(--space-2xl) 0;
+        }
+        
+        .section-break::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(90deg, 
+            transparent 0%, 
+            rgba(0, 87, 255, 0.1) 25%, 
+            rgba(0, 87, 255, 0.2) 50%, 
+            rgba(0, 87, 255, 0.1) 75%, 
+            transparent 100%
+          );
+          animation: flowBreak 3s ease-in-out infinite;
+        }
+        
+        @keyframes flowBreak {
+          0%, 100% { opacity: 0.3; transform: scaleX(0.8); }
+          50% { opacity: 0.7; transform: scaleX(1.2); }
+        }
+        
+        .completion-trigger {
+          position: absolute;
+          right: 50px;
+          top: 50%;
+          transform: translateY(-50%);
+          background: var(--accent);
+          color: white;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.2rem;
+          opacity: 0;
+          transform: translateY(-50%) scale(0.5);
+          transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        
+        .completion-trigger.visible {
+          opacity: 1;
+          transform: translateY(-50%) scale(1);
+          animation: completionPulse 2s infinite;
+        }
+        
+        @keyframes completionPulse {
+          0%, 100% { box-shadow: 0 0 0 0 rgba(0, 184, 163, 0.7); }
+          50% { box-shadow: 0 0 0 20px rgba(0, 184, 163, 0); }
+        }
+        
+        /* PASA FRAMEWORK SECTION STATES */
+        .pasa-problem {
+          background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+          color: white;
+        }
+        
+        .pasa-agitation {
+          background: linear-gradient(135deg, #FF8E53 0%, #FF6B6B 100%);
+          color: white;
+        }
+        
+        .pasa-solution {
+          background: linear-gradient(135deg, #4ECDC4 0%, #45B7AF 100%);
+          color: white;
+        }
+        
+        .pasa-action {
+          background: linear-gradient(135deg, #0057FF 0%, #0041CC 100%);
+          color: white;
+        }
+        
+        /* PROGRESSIVE ELEVATION SYSTEM */
+        .elevation-1 { 
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+          transform: translateY(0);
+        }
+        .elevation-2 { 
+          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+          transform: translateY(-2px);
+        }
+        .elevation-3 { 
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+          transform: translateY(-4px);
+        }
+        .elevation-4 { 
+          box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
+          transform: translateY(-8px);
+        }
+        .elevation-5 { 
+          box-shadow: 0 24px 48px rgba(0, 0, 0, 0.24);
+          transform: translateY(-12px);
         }
         
         /* HERO SECTION - Critical above fold */
@@ -230,12 +417,12 @@ function HomePage() {
         .hero-content {
           position: relative;
           z-index: 2;
-          max-width: 1200px;
+          max-width: var(--content-width);
           margin: 0 auto;
-          padding: 2rem;
+          padding: var(--premium-spacing) var(--space-md); /* Premium spacing signals value */
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: 4rem;
+          gap: var(--space-2xl); /* Fibonacci harmony */
           align-items: center;
         }
         
@@ -243,22 +430,25 @@ function HomePage() {
           font-size: clamp(2.5rem, 5vw, 4rem);
           font-weight: 800;
           color: white;
-          line-height: 1.1;
-          margin-bottom: 1.5rem;
+          line-height: var(--lh-tight); /* Fibonacci ratio for headlines */
+          margin-bottom: var(--space-lg); /* F-pattern primary content spacing */
           animation: slideInLeft 1s ease-out;
+          max-width: var(--scan-width); /* Optimal scanning width */
         }
         
         .hero-text .subtitle {
           font-size: 1.25rem;
           color: rgba(255, 255, 255, 0.9);
-          margin-bottom: 2rem;
+          line-height: var(--lh-normal); /* Golden ratio readability */
+          margin-bottom: var(--comfort-spacing); /* Reduce decision anxiety */
           animation: slideInLeft 1s ease-out 0.2s both;
+          max-width: var(--scan-width);
         }
         
         .hero-stats {
           display: flex;
-          gap: 2rem;
-          margin-bottom: 2rem;
+          gap: var(--space-lg); /* Fibonacci spacing for visual hierarchy */
+          margin-bottom: var(--space-xl); /* F-pattern secondary spacing */
           animation: slideInLeft 1s ease-out 0.4s both;
         }
         
@@ -280,13 +470,14 @@ function HomePage() {
         
         .hero-ctas {
           display: flex;
-          gap: 1rem;
+          gap: var(--urgency-spacing); /* Tight spacing creates action urgency */
           flex-wrap: wrap;
           animation: slideInLeft 1s ease-out 0.6s both;
+          margin-top: var(--space-md); /* Breathing room before action */
         }
         
         .btn {
-          padding: 1rem 2rem;
+          padding: var(--space-md) var(--space-lg); /* Fibonacci button sizing */
           border-radius: 0.75rem;
           font-weight: 600;
           text-decoration: none;
@@ -296,7 +487,7 @@ function HomePage() {
           font-size: 1rem;
           display: inline-flex;
           align-items: center;
-          gap: 0.5rem;
+          gap: var(--space-xs); /* Micro-spacing for icon-text harmony */
         }
         
         .btn-primary {
@@ -382,31 +573,46 @@ function HomePage() {
           to { opacity: 1; transform: translateX(0); }
         }
         
-        /* STATS SECTION */
+        /* STATS SECTION - COGNITIVE COMFORT ZONES */
         .stats-section {
-          padding: 4rem 2rem;
-          background: white;
+          padding: var(--premium-spacing) var(--space-md); /* Premium spacing for trust */
+          background: linear-gradient(135deg, #F8FAFC 0%, #FFFFFF 50%, #F1F5F9 100%);
           position: relative;
           z-index: 3;
-          margin-top: -100px;
+          margin-top: -100px; /* Overlapping transition maintains flow */
           border-radius: 2rem 2rem 0 0;
+          /* White space above/below creates cognitive breathing room */
+          margin-bottom: var(--space-3xl); 
+        }
+        
+        .stats-section::before {
+          content: '';
+          position: absolute;
+          top: -2px;
+          left: 10%;
+          right: 10%;
+          height: 3px;
+          background: linear-gradient(90deg, transparent, var(--accent), transparent);
+          border-radius: 2px;
         }
         
         .stats-container {
-          max-width: 1200px;
+          max-width: var(--content-width);
           margin: 0 auto;
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-          gap: 2rem;
+          gap: var(--space-xl); /* Fibonacci spacing for card separation */
         }
         
         .stat-card {
           text-align: center;
-          padding: 2rem;
+          padding: var(--space-lg); /* Internal comfort spacing */
           border-radius: 1rem;
           background: var(--surface);
           box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
           transition: transform 0.3s ease;
+          /* Card internal spacing creates scanning hierarchy */
+          margin-bottom: var(--space-md);
         }
         
         .stat-card:hover {
@@ -438,28 +644,43 @@ function HomePage() {
           font-size: 0.875rem;
         }
         
-        /* COMPARISON TABLE */
+        /* COMPARISON TABLE - F-PATTERN OPTIMIZATION */
         .comparison-section {
-          padding: 4rem 2rem;
-          background: var(--background);
+          padding: var(--space-2xl) var(--space-md);
+          background: linear-gradient(135deg, #FAFBFC 0%, #F1F5F9 50%, #E2E8F0 100%);
+          margin-bottom: var(--space-3xl); /* Major section separation */
+          position: relative;
+        }
+        
+        .comparison-section::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 1px;
+          background: linear-gradient(90deg, transparent, rgba(0, 87, 255, 0.3), transparent);
         }
         
         .section-header {
           text-align: center;
-          max-width: 800px;
-          margin: 0 auto 3rem;
+          max-width: var(--scan-width); /* F-pattern focal width */
+          margin: 0 auto var(--comfort-spacing); /* Reduce decision anxiety before comparison */
         }
         
         .section-title {
           font-size: 2.5rem;
           font-weight: 700;
-          margin-bottom: 1rem;
+          line-height: var(--lh-tight); /* Golden ratio headline spacing */
+          margin-bottom: var(--space-md); /* F-pattern primary spacing */
           color: var(--text-primary);
         }
         
         .section-subtitle {
           font-size: 1.125rem;
+          line-height: var(--lh-normal); /* Optimal readability */
           color: var(--text-secondary);
+          margin-bottom: var(--space-lg); /* Secondary content spacing */
         }
         
         .comparison-table {
@@ -477,15 +698,17 @@ function HomePage() {
           background: var(--gradient);
           color: white;
           font-weight: 600;
-          padding: 1rem;
+          padding: var(--space-md); /* Consistent internal spacing */
         }
         
         .table-row {
           display: grid;
           grid-template-columns: 2fr 1fr 1fr 1fr;
-          padding: 1rem;
+          padding: var(--space-md) var(--space-md); /* Scannable row spacing */
           border-bottom: 1px solid var(--border);
           align-items: center;
+          /* Left-align for F-pattern scanning */
+          text-align: left;
         }
         
         .table-row:nth-child(even) {
@@ -513,39 +736,56 @@ function HomePage() {
           padding-left: calc(1rem - 3px);
         }
         
-        /* TESTIMONIALS */
+        /* TESTIMONIALS - PROGRESSIVE HIERARCHY */
         .testimonials-section {
-          padding: 4rem 2rem;
-          background: white;
+          padding: var(--space-2xl) var(--space-md);
+          background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 50%, #F1F5F9 100%);
+          margin-bottom: var(--space-3xl); /* Progressive section separation */
+          position: relative;
+        }
+        
+        .testimonials-section::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 15%;
+          right: 15%;
+          height: 2px;
+          background: linear-gradient(90deg, transparent, var(--primary) 20%, var(--accent) 80%, transparent);
+          border-radius: 1px;
         }
         
         .testimonials-grid {
-          max-width: 1200px;
+          max-width: var(--content-width);
           margin: 0 auto;
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-          gap: 2rem;
+          gap: var(--space-xl); /* Fibonacci card separation */
         }
         
         .testimonial-card {
           background: var(--surface);
-          padding: 2rem;
+          padding: var(--space-lg); /* Internal comfort spacing */
           border-radius: 1rem;
           box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
           position: relative;
+          /* Progressive spacing hierarchy within cards */
+          display: flex;
+          flex-direction: column;
+          gap: var(--space-md);
         }
         
         .testimonial-quote {
           font-size: 1.125rem;
-          line-height: 1.6;
-          margin-bottom: 1.5rem;
+          line-height: var(--lh-relaxed); /* More spacious for trust/credibility */
+          margin-bottom: var(--space-lg);
           color: var(--text-primary);
         }
         
         .testimonial-author {
           display: flex;
           align-items: center;
-          gap: 1rem;
+          gap: var(--space-md); /* Author info spacing */
         }
         
         .author-avatar {
@@ -570,64 +810,172 @@ function HomePage() {
           font-size: 0.875rem;
         }
         
-        /* CTA SECTION */
+        /* CTA SECTION - CONVERSION OPTIMIZATION */
         .industry-insights-section {
-          padding: 4rem 2rem;
-          background: var(--background);
+          padding: var(--space-2xl) var(--space-md);
+          background: linear-gradient(135deg, #EDF2F7 0%, #E2E8F0 50%, #CBD5E0 100%);
+          margin-bottom: var(--space-2xl);
+          position: relative;
+        }
+        
+        .industry-insights-section::before {
+          content: '';
+          position: absolute;
+          top: -1px;
+          left: 20%;
+          right: 20%;
+          height: 2px;
+          background: linear-gradient(90deg, transparent, var(--secondary) 30%, var(--primary) 70%, transparent);
+          border-radius: 1px;
+        }
+        
+        /* MENTAL COMPARTMENTALIZATION SYSTEM */
+        .chapter-divider {
+          position: relative;
+          height: 80px;
+          background: linear-gradient(90deg, 
+            transparent 0%, 
+            rgba(27, 41, 81, 0.05) 20%, 
+            rgba(27, 41, 81, 0.1) 50%, 
+            rgba(27, 41, 81, 0.05) 80%, 
+            transparent 100%
+          );
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: var(--space-xl) 0;
+        }
+        
+        .chapter-divider::after {
+          content: attr(data-chapter);
+          position: absolute;
+          background: white;
+          padding: var(--space-sm) var(--space-md);
+          border-radius: 20px;
+          font-size: 0.875rem;
+          font-weight: 600;
+          color: var(--text-secondary);
+          border: 1px solid var(--border);
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        }
+        
+        /* PSYCHOLOGICAL STATE TRANSITIONS */
+        .state-curiosity {
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 20%, #667eea 100%);
+        }
+        
+        .state-concern {
+          background: linear-gradient(135deg, #f093fb 0%, #f5576c 20%, #f093fb 100%);
+        }
+        
+        .state-confidence {
+          background: linear-gradient(135deg, #4facfe 0%, #00f2fe 20%, #4facfe 100%);
+        }
+        
+        .state-urgency {
+          background: linear-gradient(135deg, #fa709a 0%, #fee140 20%, #fa709a 100%);
         }
         
         .insights-container {
-          max-width: 1200px;
+          max-width: var(--content-width);
           margin: 0 auto;
         }
         
         .cta-section {
-          padding: 4rem 2rem;
-          background: linear-gradient(135deg, #1B2951 0%, #0F1729 100%);
+          padding: var(--premium-spacing) var(--space-md); /* Premium spacing for final CTA */
+          background: linear-gradient(135deg, #1B2951 0%, #0F1729 50%, #1B2951 100%);
           color: white;
           text-align: center;
+          /* Maximum visual impact through spacing */
+          margin-top: var(--space-3xl);
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .cta-section::before {
+          content: '';
+          position: absolute;
+          top: -50px;
+          left: -50%;
+          right: -50%;
+          height: 100px;
+          background: radial-gradient(ellipse at center, rgba(0, 184, 163, 0.3) 0%, transparent 70%);
+          animation: actionGlow 4s ease-in-out infinite;
+        }
+        
+        @keyframes actionGlow {
+          0%, 100% { opacity: 0.3; transform: scaleX(0.8); }
+          50% { opacity: 0.7; transform: scaleX(1.2); }
         }
         
         .cta-content {
-          max-width: 800px;
+          max-width: var(--scan-width); /* F-pattern focal width for final CTA */
           margin: 0 auto;
         }
         
         .cta-title {
           font-size: 2.5rem;
           font-weight: 700;
-          margin-bottom: 1rem;
+          line-height: var(--lh-tight); /* Tight headlines for urgency */
+          margin-bottom: var(--space-md); /* F-pattern primary spacing */
         }
         
         .cta-subtitle {
           font-size: 1.25rem;
-          margin-bottom: 2rem;
+          line-height: var(--lh-normal);
+          margin-bottom: var(--comfort-spacing); /* Reduce final decision anxiety */
           opacity: 0.9;
         }
         
         .cta-buttons {
           display: flex;
-          gap: 1rem;
+          gap: var(--urgency-spacing); /* Tight spacing for action urgency */
           justify-content: center;
           flex-wrap: wrap;
+          margin-bottom: var(--space-md); /* Space before trust signals */
         }
         
-        /* MOBILE RESPONSIVE */
+        /* MOBILE RESPONSIVE - THUMB-REACH PSYCHOLOGY */
         @media (max-width: 768px) {
+          :root {
+            /* Thumb-optimized spacing zones */
+            --mobile-tap-zone: 44px;    /* Minimum touch target */
+            --mobile-scroll-zone: 60px; /* Comfortable scroll spacing */
+            --thumb-comfort: var(--space-lg); /* 34px - ideal thumb reach */
+          }
+          
           .hero-content {
             grid-template-columns: 1fr;
-            gap: 2rem;
+            gap: var(--space-xl); /* Maintain hierarchy on mobile */
             text-align: center;
+            padding: var(--space-xl) var(--space-md); /* Reduced premium spacing for mobile */
+            max-width: var(--mobile-comfort); /* Thumb-reach optimization */
+            margin: 0 auto;
           }
           
           .hero-stats {
+            justify-content: center;
+            gap: var(--space-md); /* Tighter mobile spacing */
+          }
+          
+          .hero-ctas {
+            flex-direction: column; /* Vertical stacking for thumb navigation */
+            gap: var(--space-md); /* Comfortable tap spacing */
+            align-items: center;
+          }
+          
+          .btn {
+            min-height: var(--mobile-tap-zone); /* Thumb-friendly tap targets */
+            width: 100%;
+            max-width: 280px; /* Thumb span optimization */
             justify-content: center;
           }
           
           .table-header,
           .table-row {
             grid-template-columns: 1fr;
-            gap: 0.5rem;
+            gap: var(--space-sm);
           }
           
           .table-header {
@@ -637,15 +985,68 @@ function HomePage() {
           .table-row {
             border: 1px solid var(--border);
             border-radius: 0.5rem;
-            margin-bottom: 1rem;
-            padding: 1.5rem;
+            margin-bottom: var(--space-md); /* Mobile card spacing */
+            padding: var(--space-lg); /* Internal card comfort */
           }
           
           .feature-name {
             font-size: 1.125rem;
-            margin-bottom: 1rem;
-            padding-bottom: 1rem;
+            margin-bottom: var(--space-md);
+            padding-bottom: var(--space-md);
             border-bottom: 1px solid var(--border);
+          }
+          
+          /* Mobile section spacing */
+          .stats-section,
+          .comparison-section,
+          .testimonials-section,
+          .cta-section {
+            padding: var(--space-xl) var(--space-md);
+            margin-bottom: var(--space-xl);
+          }
+          
+          /* MOBILE SECTION BREAK PSYCHOLOGY */
+          .section-break {
+            height: 60px;
+            margin: var(--space-lg) 0;
+          }
+          
+          .completion-trigger {
+            right: 20px;
+            width: 35px;
+            height: 35px;
+            font-size: 1rem;
+          }
+          
+          .chapter-divider {
+            height: 50px;
+            margin: var(--space-md) 0;
+          }
+          
+          .chapter-divider::after {
+            font-size: 0.75rem;
+            padding: var(--space-xs) var(--space-sm);
+          }
+          
+          /* MOBILE ELEVATION SYSTEM */
+          .elevation-section {
+            margin-bottom: var(--space-lg);
+          }
+          
+          .elevation-1, .elevation-2, .elevation-3, .elevation-4, .elevation-5 {
+            transform: translateY(0); /* Disable elevation movement on mobile */
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1); /* Consistent subtle shadow */
+          }
+          
+          /* MOBILE PSYCHOLOGICAL STATES */
+          .state-curiosity, .state-concern, .state-confidence, .state-urgency {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            opacity: 0.8; /* Subtle on mobile */
+          }
+          
+          /* MOBILE MENTAL BREAKS */
+          .chapter-divider {
+            background: linear-gradient(90deg, transparent 10%, rgba(27, 41, 81, 0.08) 50%, transparent 90%);
           }
         }
         
@@ -697,30 +1098,30 @@ function HomePage() {
         <section className="hero">
           <div className="hero-content">
             <div className="hero-text">
-              <h1>Quote insurance <span style={{color: '#00B8A3'}}>10x faster</span></h1>
-              <p className="subtitle">The modern alternative to EZLynx and Applied Rater. Built for independent agents who demand speed, transparency, and results.</p>
+              <h1>Quote insurance <span className="power-word">10x faster</span></h1>
+              <p className="lead-text">The modern alternative to EZLynx and Applied Rater. Built for independent agents who demand <span className="benefit-word">speed</span>, <span className="benefit-word">transparency</span>, and <span className="power-word">results</span>.</p>
               
               <div className="hero-stats">
                 <div className="stat">
-                  <span className="stat-number">60%</span>
+                  <span className="stat-number number-emphasis">60%</span>
                   <span className="stat-label">Faster quotes</span>
                 </div>
                 <div className="stat">
-                  <span className="stat-number">1000+</span>
-                  <span className="stat-label">Agencies switched</span>
+                  <span className="stat-number number-emphasis">1000+</span>
+                  <span className="stat-label authority-word">Agencies switched</span>
                 </div>
                 <div className="stat">
-                  <span className="stat-number">$2.4M</span>
-                  <span className="stat-label">Avg. revenue boost</span>
+                  <span className="stat-number number-emphasis">$2.4M</span>
+                  <span className="stat-label benefit-word">Avg. revenue boost</span>
                 </div>
               </div>
               
               <div className="hero-ctas">
                 <button onClick={handleWatchDemo} className="btn btn-primary">
-                  ▶️ Watch 30s Demo
+                  ▶️ Get My Demo <span className="urgency-word">Now</span>
                 </button>
                 <button onClick={handleCompare} className="btn btn-secondary">
-                  📊 Compare Platforms
+                  📊 See Why We're <span className="number-emphasis">60%</span> Faster
                 </button>
               </div>
             </div>
@@ -742,37 +1143,65 @@ function HomePage() {
           </div>
         </section>
 
-        {/* STATS SECTION */}
-        <section className="stats-section fade-in">
+        {/* MENTAL CHAPTER: PROBLEM → PROOF */}
+        <div className="chapter-divider" data-chapter="Chapter I: The Problem"></div>
+        
+        {/* SECTION BREAK: PROBLEM → SOLUTION TRANSITION */}
+        <div className="section-break state-curiosity">
+          <div className="completion-trigger visible">✓</div>
+        </div>
+
+        {/* STATS SECTION */
+        <section className="stats-section fade-in elevation-section">
+          <div className="f-pattern-container">
+            <h2>Why <span className="number-emphasis">1000+</span> agencies made the switch</h2>
+            <div className="f-pattern-primary">
+              <p>Insurance agents are seeing <span className="power-word">dramatic improvements</span> in productivity and revenue within their first month using Quotely.</p>
+            </div>
+          </div>
           <div className="stats-container">
-            <div className="stat-card">
+            <div className="stat-card scan-block">
               <div className="stat-icon">⚡</div>
-              <div className="stat-value">1.8 min</div>
-              <div className="stat-description">Average quote time vs 5 min industry standard</div>
+              <div className="stat-value number-emphasis">1.8 min</div>
+              <div className="stat-description">Average quote time vs <span className="number-emphasis">5 min</span> industry standard</div>
             </div>
-            <div className="stat-card">
+            <div className="stat-card scan-block">
               <div className="stat-icon">🎯</div>
-              <div className="stat-value">94%</div>
-              <div className="stat-description">Quote accuracy with AI recommendations</div>
+              <div className="stat-value number-emphasis">94%</div>
+              <div className="stat-description">Quote accuracy with <span className="benefit-word">AI recommendations</span></div>
             </div>
-            <div className="stat-card">
+            <div className="stat-card scan-block">
               <div className="stat-icon">📈</div>
-              <div className="stat-value">31%</div>
-              <div className="stat-description">Average increase in closed deals</div>
+              <div className="stat-value number-emphasis">31%</div>
+              <div className="stat-description">Average increase in <span className="benefit-word">closed deals</span></div>
             </div>
-            <div className="stat-card">
+            <div className="stat-card scan-block">
               <div className="stat-icon">⭐</div>
-              <div className="stat-value">9.2/10</div>
-              <div className="stat-description">User satisfaction score</div>
+              <div className="stat-value number-emphasis">9.2/10</div>
+              <div className="stat-description authority-word">User satisfaction score</div>
             </div>
           </div>
         </section>
 
-        {/* COMPARISON SECTION */}
-        <section className="comparison-section fade-in" id="comparison">
-          <div className="section-header">
-            <h2 className="section-title">Why agencies choose Quotely</h2>
-            <p className="section-subtitle">See how we stack up against legacy platforms</p>
+        {/* MENTAL CHAPTER: PROOF → COMPARISON */}
+        <div className="chapter-divider" data-chapter="Chapter II: The Evidence"></div>
+        
+        {/* SECTION BREAK: PROOF → COMPARISON TRANSITION */}
+        <div className="section-break state-concern">
+          <div className="completion-trigger visible">📊</div>
+        </div>
+
+        {/* Section Break - Solution Discovery */}
+        <div className="section-break-hard" data-section="2" />
+        
+        {/* COMPARISON SECTION - Solution Psychology */}
+        <section className="comparison-section fade-in solution-section elevation-3" id="comparison">
+          <div className="section-header f-pattern-container">
+            <h2>Why agencies choose Quotely</h2>
+            <h3 className="question">How does Quotely compare to legacy platforms?</h3>
+            <div className="f-pattern-primary">
+              <p className="lead-text">Independent agents demand <span className="power-word">modern tools</span> that deliver <span className="benefit-word">faster quotes</span> and <span className="benefit-word">higher close rates</span>. Here's the reality:</p>
+            </div>
           </div>
           
           <div className="comparison-table">
@@ -834,79 +1263,115 @@ function HomePage() {
           </div>
         </section>
 
-        {/* TESTIMONIALS SECTION */}
-        <section className="testimonials-section fade-in">
-          <div className="section-header">
-            <h2 className="section-title">Trusted by 1000+ agencies</h2>
-            <p className="section-subtitle">See what agents are saying about their switch to Quotely</p>
+        {/* MENTAL CHAPTER: LOGIC → EMOTION */}
+        <div className="chapter-divider" data-chapter="Chapter III: The Proof"></div>
+        
+        {/* SECTION BREAK: LOGIC → EMOTION TRANSITION */}
+        <div className="section-break state-confidence">
+          <div className="completion-trigger visible">💪</div>
+        </div>
+
+        {/* TESTIMONIALS SECTION */
+        <section className="testimonials-section fade-in elevation-section">
+          <div className="section-header f-pattern-container">
+            <h2>Trusted by <span className="number-emphasis">1000+</span> agencies</h2>
+            <h3 className="question">What are agents saying about their switch to Quotely?</h3>
+            <div className="f-pattern-primary">
+              <p className="lead-text">Real agents sharing <span className="power-word">real results</span> from switching to our platform:</p>
+            </div>
           </div>
           
           <div className="testimonials-grid">
-            <div className="testimonial-card">
-              <p className="testimonial-quote">"We cut our quote time from 6 minutes to under 2 minutes. Our close rate increased by 40% in the first quarter alone."</p>
+            <div className="testimonial-card scan-block">
+              <blockquote>"We cut our quote time from <span className="number-emphasis">6 minutes</span> to under <span className="number-emphasis">2 minutes</span>. Our close rate increased by <span className="benefit-word">40%</span> in the first quarter alone."</blockquote>
               <div className="testimonial-author">
                 <div className="author-avatar">MJ</div>
                 <div className="author-info">
                   <h4>Mike Johnson</h4>
-                  <p>Owner, Johnson Insurance Group</p>
+                  <p className="authority-word">Owner, Johnson Insurance Group</p>
                 </div>
               </div>
             </div>
             
-            <div className="testimonial-card">
-              <p className="testimonial-quote">"The AI recommendations are spot-on. We're writing better policies and clients love how fast we can get them quotes."</p>
+            <div className="testimonial-card scan-block">
+              <blockquote>"The <span className="power-word">AI recommendations</span> are spot-on. We're writing <span className="benefit-word">better policies</span> and clients love how <span className="power-word">fast</span> we can get them quotes."</blockquote>
               <div className="testimonial-author">
                 <div className="author-avatar">SC</div>
                 <div className="author-info">
                   <h4>Sarah Chen</h4>
-                  <p>Agent, Metro Insurance Partners</p>
+                  <p className="authority-word">Agent, Metro Insurance Partners</p>
                 </div>
               </div>
             </div>
             
-            <div className="testimonial-card">
-              <p className="testimonial-quote">"Finally, a platform that works on mobile. I can quote clients while I'm out in the field. Game changer."</p>
+            <div className="testimonial-card scan-block">
+              <blockquote>"Finally, a platform that works on <span className="benefit-word">mobile</span>. I can quote clients while I'm out in the field. <span className="power-word">Game changer</span>."</blockquote>
               <div className="testimonial-author">
                 <div className="author-avatar">DR</div>
                 <div className="author-info">
                   <h4>David Rodriguez</h4>
-                  <p>Senior Agent, Southwest Insurance Co</p>
+                  <p className="authority-word">Senior Agent, Southwest Insurance Co</p>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* INSURANCE JOURNAL INSIGHTS */}
-        <section className="industry-insights-section fade-in">
-          <div className="section-header">
-            <h2 className="section-title">Industry Intelligence Hub</h2>
-            <p className="section-subtitle">Real-time insights from Insurance Journal with Quotely's expert perspective</p>
+        {/* MENTAL CHAPTER: SOCIAL PROOF → AUTHORITY */}
+        <div className="chapter-divider" data-chapter="Chapter IV: The Social Proof"></div>
+        
+        {/* SECTION BREAK: SOCIAL PROOF → AUTHORITY TRANSITION */}
+        <div className="section-break state-confidence">
+          <div className="completion-trigger visible">🎯</div>
+        </div>
+
+        {/* INSURANCE JOURNAL INSIGHTS */
+        <section className="industry-insights-section fade-in elevation-section">
+          <div className="section-header f-pattern-container">
+            <h2>Industry Intelligence Hub</h2>
+            <h3 className="question">What's happening in the insurance industry right now?</h3>
+            <div className="f-pattern-primary">
+              <p className="lead-text">Stay ahead of industry trends with <span className="power-word">real-time insights</span> from Insurance Journal, enhanced with <span className="authority-word">Quotely's expert analysis</span>:</p>
+            </div>
           </div>
           <div className="insights-container">
             <RotatingNewsCommentary />
           </div>
         </section>
 
+        {/* MENTAL CHAPTER: INSIGHT → ACTION */}
+        <div className="chapter-divider" data-chapter="Chapter V: The Decision"></div>
+        
+        {/* SECTION BREAK: INSIGHT → ACTION TRANSITION */}
+        <div className="section-break state-urgency pasa-action">
+          <div className="completion-trigger visible">🚀</div>
+        </div>
+
         {/* CTA SECTION */}
-        <section className="cta-section">
-          <div className="cta-content">
-            <h2 className="cta-title">Ready to quote 10x faster?</h2>
-            <p className="cta-subtitle">Join 1000+ agencies who've already made the switch. Start your free trial today.</p>
+        <section className="cta-section elevation-section elevation-5">
+          <div className="cta-content f-pattern-container">
+            <h2>Ready to quote <span className="power-word">10x faster</span>?</h2>
+            <h3 className="question" style={{color: 'rgba(255, 255, 255, 0.9)'}}>Why wait when you could be closing more deals tomorrow?</h3>
+            <div className="f-pattern-primary">
+              <p className="lead-text" style={{color: 'rgba(255, 255, 255, 0.9)'}}>Join <span className="number-emphasis" style={{color: 'white', background: 'rgba(0, 184, 163, 0.3)'}}>1000+</span> agencies who've already made the switch. <span className="benefit-word" style={{color: '#00B8A3', background: 'rgba(0, 184, 163, 0.2)'}}>No credit card required</span>.</p>
+            </div>
             <div className="cta-buttons">
               <button onClick={handleStartTrial} className="btn btn-primary" style={{background: 'white', color: 'var(--primary)'}}>
-                🚀 Start Free Trial
+                🚀 Start My <span className="urgency-word" style={{color: 'var(--primary)'}}>Free</span> 14-Day Trial
               </button>
               <button onClick={handleScheduleDemo} className="btn btn-secondary">
-                📞 Schedule Demo Call
+                📞 Book My <span className="benefit-word" style={{color: 'white', background: 'rgba(0, 184, 163, 0.3)'}}>Revenue Strategy</span> Call
               </button>
+            </div>
+            <div className="small-text" style={{marginTop: '1rem', color: 'rgba(255, 255, 255, 0.8)'}}>
+              <span className="benefit-word" style={{color: '#00B8A3'}}>✓ No credit card required</span> &nbsp;&nbsp;&nbsp; <span className="benefit-word" style={{color: '#00B8A3'}}>✓ Cancel anytime</span> &nbsp;&nbsp;&nbsp; <span className="benefit-word" style={{color: '#00B8A3'}}>✓ Full feature access</span>
             </div>
           </div>
         </section>
 
         {/* FLOATING CTA */}
         <button className="floating-cta" onClick={handleStartTrial}>
-          Try Quote Builder 🚀
+          Get My Quote Tool 🚀
         </button>
         
         <Footer />

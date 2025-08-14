@@ -44,6 +44,488 @@ body {
   color: var(--text-primary);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
+  
+  /* TYPOGRAPHY PSYCHOLOGY FOUNDATION */
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================
+   PSYCHOLOGICAL TYPOGRAPHY HIERARCHY SYSTEM
+   Market-Defining Authority Through Type
+   ======================================== */
+
+/* H1: MARKET CATEGORY DEFINER - Maximum Authority */
+h1, .h1 {
+  font-size: clamp(2.5rem, 6vw + 1rem, 5rem);
+  font-weight: 800;
+  line-height: 1.236; /* 1/φ for maximum impact headlines */
+  letter-spacing: -0.02em; /* Confidence signaling through tight tracking */
+  color: var(--text-primary);
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+  max-width: 20ch; /* Cognitive load management */
+  
+  /* GRADIENT EMPHASIS FOR POWER WORDS */
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  
+  /* AUTHORITY SIGNALING */
+  text-shadow: 0 4px 12px rgba(0, 87, 255, 0.2);
+  position: relative;
+}
+
+h1::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  border-radius: 2px;
+  opacity: 0.8;
+}
+
+/* H2: SECTION ANCHORS - F-Pattern Scanning Helpers */
+h2, .h2 {
+  font-size: clamp(1.75rem, 4vw + 0.5rem, 3rem);
+  font-weight: 700;
+  line-height: 1.236; /* Tight for scanning */
+  letter-spacing: -0.01em; /* Professional confidence */
+  color: var(--text-primary);
+  margin: clamp(3rem, 8vw, 5rem) 0 clamp(1.5rem, 3vw, 2rem) 0;
+  
+  /* STICKY SCANNING BEHAVIOR */
+  position: sticky;
+  top: 80px; /* Below navigation */
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  padding: 1rem 0;
+  border-left: 4px solid var(--primary);
+  padding-left: 1.5rem;
+  margin-left: -1.5rem;
+  z-index: 100;
+  
+  /* F-PATTERN ANCHORING */
+  scroll-margin-top: 100px;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 0 2px 20px rgba(0, 87, 255, 0.1);
+}
+
+h2:hover {
+  border-left-color: var(--accent);
+  transform: translateX(4px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* H3: QUESTION-DRIVEN ENGAGEMENT - Curiosity Psychology */
+h3, .h3 {
+  font-size: clamp(1.25rem, 3vw + 0.25rem, 2rem);
+  font-weight: 600;
+  line-height: 1.4; /* Optimized for question readability */
+  letter-spacing: -0.005em;
+  color: var(--secondary);
+  margin: clamp(2rem, 5vw, 3rem) 0 clamp(1rem, 2vw, 1.5rem) 0;
+  
+  /* QUESTION FORMAT PSYCHOLOGY */
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+h3::before {
+  content: '?';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 1.2em;
+  opacity: 0.8;
+}
+
+/* Override for non-question H3s */
+h3:not(.question)::before {
+  content: '▶';
+  color: var(--primary);
+}
+
+/* H4: SUBSECTION ORGANIZERS - Logical Grouping */
+h4, .h4 {
+  font-size: clamp(1.125rem, 2.5vw + 0.125rem, 1.5rem);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: var(--text-primary);
+  margin: clamp(1.5rem, 3vw, 2rem) 0 clamp(0.75rem, 1.5vw, 1rem) 0;
+  
+  /* GROUPING PSYCHOLOGY */
+  border-bottom: 1px solid rgba(0, 87, 255, 0.2);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+/* H5: FEATURE HIGHLIGHTS - Benefit Emphasis */
+h5, .h5 {
+  font-size: clamp(1rem, 2vw + 0.125rem, 1.25rem);
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.01em; /* Slight expansion for clarity */
+  color: var(--text-primary);
+  margin: clamp(1rem, 2vw, 1.5rem) 0 clamp(0.5rem, 1vw, 0.75rem) 0;
+  
+  /* BENEFIT HIGHLIGHTING */
+  background: linear-gradient(135deg, rgba(0, 184, 163, 0.1) 0%, rgba(0, 87, 255, 0.05) 100%);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border-left: 3px solid var(--accent);
+  display: inline-block;
+}
+
+/* H6: MICRO-LABELS - Detail Organization */
+h6, .h6 {
+  font-size: clamp(0.875rem, 1.5vw + 0.125rem, 1rem);
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.05em; /* Expanded for micro-readability */
+  color: var(--text-secondary);
+  margin: clamp(0.75rem, 1.5vw, 1rem) 0 clamp(0.25rem, 0.5vw, 0.5rem) 0;
+  text-transform: uppercase;
+  
+  /* MICRO-ORGANIZATION */
+  opacity: 0.8;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* ========================================
+   POWER WORD EMPHASIS SYSTEM
+   Conversion-Optimized Emphasis Strategy
+   ======================================== */
+
+/* POWER WORD HIGHLIGHTING - Maximum Impact Terms */
+.power-word {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  position: relative;
+  white-space: nowrap;
+}
+
+.power-word::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  opacity: 0.6;
+  border-radius: 1px;
+}
+
+/* URGENCY EMPHASIS - Time-Sensitive Terms */
+.urgency-word {
+  color: var(--warning);
+  font-weight: 700;
+  text-shadow: 0 1px 3px rgba(246, 173, 85, 0.3);
+  animation: urgencyPulse 3s ease-in-out infinite;
+}
+
+@keyframes urgencyPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.02); }
+}
+
+/* BENEFIT EMPHASIS - Value Propositions */
+.benefit-word {
+  color: var(--success);
+  font-weight: 600;
+  background: rgba(56, 217, 169, 0.1);
+  padding: 0.125rem 0.25rem;
+  border-radius: 3px;
+  border-bottom: 2px solid var(--success);
+}
+
+/* AUTHORITY EMPHASIS - Credibility Markers */
+.authority-word {
+  color: var(--secondary);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  opacity: 0.9;
+}
+
+/* NUMBER EMPHASIS - Statistics & Metrics */
+.number-emphasis {
+  font-weight: 800;
+  font-size: 1.2em;
+  color: var(--primary);
+  background: rgba(0, 87, 255, 0.1);
+  padding: 0.125rem 0.375rem;
+  border-radius: 4px;
+  margin: 0 0.125rem;
+  border: 1px solid rgba(0, 87, 255, 0.2);
+}
+
+/* ========================================
+   READING RHYTHM PSYCHOLOGY SYSTEM
+   Cognitive Load & Flow Optimization
+   ======================================== */
+
+/* BODY TEXT - Golden Ratio Optimization */
+p, .body-text {
+  font-size: clamp(1rem, 2vw + 0.125rem, 1.125rem);
+  line-height: 1.618; /* φ for perfect readability */
+  letter-spacing: 0.01em;
+  color: var(--text-primary);
+  margin-bottom: clamp(1rem, 3vw, 1.5rem);
+  max-width: 65ch; /* Optimal reading line length */
+  
+  /* READING FLOW OPTIMIZATION */
+  hyphens: auto;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* LEAD TEXT - Enhanced Hierarchy */
+.lead-text, .subtitle {
+  font-size: clamp(1.125rem, 2.5vw + 0.25rem, 1.375rem);
+  line-height: 1.5; /* Comfortable scanning */
+  letter-spacing: -0.005em;
+  color: var(--text-secondary);
+  margin-bottom: clamp(1.5rem, 4vw, 2rem);
+  max-width: 60ch; /* Focus attention */
+  font-weight: 400;
+}
+
+/* SMALL TEXT - Micro-Information */
+small, .small-text {
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  line-height: 1.5;
+  color: var(--text-secondary);
+  opacity: 0.8;
+  letter-spacing: 0.01em;
+}
+
+/* LIST OPTIMIZATION - Scannable Content */
+ul, ol {
+  margin: clamp(1rem, 2vw, 1.5rem) 0;
+  padding-left: 1.5rem;
+  max-width: 60ch;
+}
+
+li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+/* Enhanced list markers for scanning */
+ul li::marker {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+ol li::marker {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* BLOCKQUOTE - Authority Content */
+blockquote {
+  margin: clamp(2rem, 4vw, 3rem) 0;
+  padding: 1.5rem 2rem;
+  border-left: 4px solid var(--accent);
+  background: linear-gradient(135deg, rgba(0, 184, 163, 0.05) 0%, rgba(0, 87, 255, 0.02) 100%);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+  position: relative;
+}
+
+blockquote::before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  font-size: 4rem;
+  color: var(--accent);
+  opacity: 0.3;
+  font-family: Georgia, serif;
+}
+
+/* ========================================
+   SCANNING PATTERN OPTIMIZATION
+   F-Pattern & Z-Pattern Psychology
+   ======================================== */
+
+/* SCANNABLE CONTENT BLOCKS */
+.scan-block {
+  margin: clamp(1.5rem, 3vw, 2.5rem) 0;
+  padding: 1.5rem;
+  border-radius: 8px;
+  background: rgba(248, 250, 252, 0.8);
+  border: 1px solid rgba(0, 87, 255, 0.1);
+  position: relative;
+}
+
+.scan-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--primary) 0%, var(--accent) 100%);
+  border-radius: 2px 0 0 2px;
+}
+
+/* F-PATTERN CONTENT STRUCTURE */
+.f-pattern-primary {
+  margin-bottom: clamp(1rem, 2vw, 1.5rem);
+  padding-right: clamp(2rem, 5vw, 4rem);
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.f-pattern-secondary {
+  margin-bottom: clamp(1.5rem, 3vw, 2rem);
+  padding-right: clamp(3rem, 6vw, 5rem);
+  color: var(--text-secondary);
+}
+
+.f-pattern-vertical {
+  padding-left: 0;
+  margin-right: clamp(2rem, 4vw, 3rem);
+  border-left: 2px solid rgba(0, 87, 255, 0.2);
+  padding-left: 1rem;
+}
+
+/* QUESTION FORMAT ENGAGEMENT */
+.question-format {
+  font-style: italic;
+  color: var(--secondary);
+  margin: clamp(1.5rem, 3vw, 2rem) 0 clamp(1rem, 2vw, 1.5rem) 0;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.question-format::before {
+  content: '?';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 1.2em;
+  font-style: normal;
+}
+
+/* ========================================
+   MOBILE TYPOGRAPHY PSYCHOLOGY
+   Thumb-Reach & Touch Optimization
+   ======================================== */
+
+@media (max-width: 768px) {
+  /* MOBILE HIERARCHY ADJUSTMENTS */
+  h1, .h1 {
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    line-height: 1.2;
+    margin-bottom: clamp(1rem, 3vw, 1.5rem);
+    max-width: 100%; /* Allow full width on mobile */
+  }
+  
+  h2, .h2 {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+    line-height: 1.3;
+    margin: clamp(2rem, 6vw, 3rem) 0 clamp(1rem, 2vw, 1.5rem) 0;
+    
+    /* MOBILE STICKY BEHAVIOR */
+    position: sticky;
+    top: 60px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    padding: 0.75rem 0;
+    border-left: 3px solid var(--primary);
+    padding-left: 1rem;
+    margin-left: -1rem;
+    border-radius: 0 6px 6px 0;
+  }
+  
+  h3, .h3 {
+    font-size: clamp(1.125rem, 4vw, 1.75rem);
+    line-height: 1.4;
+    margin: clamp(1.5rem, 4vw, 2rem) 0 clamp(0.75rem, 1.5vw, 1rem) 0;
+  }
+  
+  /* MOBILE READING OPTIMIZATION */
+  p, .body-text {
+    font-size: clamp(1rem, 3vw, 1.125rem);
+    line-height: 1.6; /* Slightly tighter for mobile */
+    margin-bottom: clamp(1rem, 2vw, 1.25rem);
+    max-width: 100%; /* Full width for mobile */
+  }
+  
+  .lead-text, .subtitle {
+    font-size: clamp(1.125rem, 4vw, 1.25rem);
+    line-height: 1.5;
+    margin-bottom: clamp(1rem, 3vw, 1.5rem);
+    max-width: 100%;
+  }
+  
+  /* MOBILE TOUCH TARGETS */
+  .scan-block {
+    margin: clamp(1rem, 2vw, 1.5rem) 0;
+    padding: 1rem;
+    border-radius: 6px;
+  }
+  
+  /* MOBILE F-PATTERN ADJUSTMENTS */
+  .f-pattern-primary,
+  .f-pattern-secondary,
+  .f-pattern-vertical {
+    padding-right: 0;
+    margin-right: 0;
+  }
+  
+  /* MOBILE POWER WORDS */
+  .power-word,
+  .number-emphasis {
+    font-size: 0.9em; /* Slightly smaller for mobile */
+  }
+  
+  /* MOBILE LIST OPTIMIZATION */
+  ul, ol {
+    padding-left: 1.25rem;
+    margin: clamp(0.75rem, 1.5vw, 1rem) 0;
+  }
+  
+  li {
+    margin-bottom: 0.375rem;
+    line-height: 1.5;
+  }
+  
+  blockquote {
+    margin: clamp(1.5rem, 3vw, 2rem) 0;
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  blockquote::before {
+    font-size: 3rem;
+    top: -5px;
+    left: 5px;
+  }
 }
 
 /* Professional Theme Classes - Applied by ThemeProvider */
