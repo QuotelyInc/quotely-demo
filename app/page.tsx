@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { useOTTOTracking } from '@/components/OTTOProvider'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
+import RotatingNewsCommentary from '@/components/RotatingNewsCommentary'
 
 function HomePage() {
   const { trackPageView, trackUserAction } = useOTTOTracking()
@@ -570,6 +571,16 @@ function HomePage() {
         }
         
         /* CTA SECTION */
+        .industry-insights-section {
+          padding: 4rem 2rem;
+          background: var(--background);
+        }
+        
+        .insights-container {
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+        
         .cta-section {
           padding: 4rem 2rem;
           background: linear-gradient(135deg, #1B2951 0%, #0F1729 100%);
@@ -863,6 +874,17 @@ function HomePage() {
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* INSURANCE JOURNAL INSIGHTS */}
+        <section className="industry-insights-section fade-in">
+          <div className="section-header">
+            <h2 className="section-title">Industry Intelligence Hub</h2>
+            <p className="section-subtitle">Real-time insights from Insurance Journal with Quotely's expert perspective</p>
+          </div>
+          <div className="insights-container">
+            <RotatingNewsCommentary />
           </div>
         </section>
 
