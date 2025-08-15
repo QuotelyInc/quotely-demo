@@ -1244,10 +1244,24 @@ function HomePage() {
             </div>
             
             <div className="table-row quotely-highlight">
-              <div className="feature-name">💰 Pricing (starting price)</div>
-              <div className="check-mark">$679/mo</div>
-              <div className="x-mark">$1,140/mo</div>
-              <div className="x-mark">$1,295/mo</div>
+              <div className="feature-name">💰 Pricing Model</div>
+              <div className="check-mark">Per Office Only</div>
+              <div className="x-mark">Per Agent</div>
+              <div className="x-mark">Per Agent</div>
+            </div>
+            
+            <div className="table-row quotely-highlight">
+              <div className="feature-name">💵 Monthly Cost</div>
+              <div className="check-mark">$679/office</div>
+              <div className="x-mark">$1,140+/mo</div>
+              <div className="x-mark">$1,295+/mo</div>
+            </div>
+            
+            <div className="table-row quotely-highlight">
+              <div className="feature-name">👥 10-Agent Office Cost</div>
+              <div className="check-mark">$679 total</div>
+              <div className="x-mark">$11,400/mo</div>
+              <div className="x-mark">$12,950/mo</div>
             </div>
           </div>
         </section>
