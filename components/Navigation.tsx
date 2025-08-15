@@ -60,16 +60,17 @@ export default function Navigation({ className = '' }: NavigationProps) {
           top: 0;
           z-index: 9999;
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          background: rgba(255, 255, 255, 0.98);
+          background: rgba(255, 255, 255, 1);
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
-          border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+          border-bottom: 2px solid rgba(0, 0, 0, 0.08);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
         }
 
         .header.scrolled {
           background: rgba(255, 255, 255, 1);
-          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 10px 40px rgba(0, 0, 0, 0.06);
-          border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.06);
+          border-bottom: 2px solid rgba(0, 0, 0, 0.1);
         }
         
         .nav-container {
@@ -174,27 +175,31 @@ export default function Navigation({ className = '' }: NavigationProps) {
         
         .nav-link {
           position: relative;
-          padding: 8px 16px;
+          padding: 10px 18px;
           text-decoration: none;
-          color: #4B5563;
+          color: #1F2937;
           font-size: 15px;
-          font-weight: 500;
+          font-weight: 600;
           border-radius: 8px;
           transition: all 0.2s ease;
           display: flex;
           align-items: center;
           gap: 4px;
+          border: 1px solid transparent;
         }
         
         .nav-link:hover {
           color: #0052CC;
-          background: rgba(0, 82, 204, 0.04);
+          background: rgba(0, 82, 204, 0.08);
+          border-color: rgba(0, 82, 204, 0.15);
+          transform: translateY(-1px);
         }
         
         .nav-link.active {
           color: #0052CC;
-          background: rgba(0, 82, 204, 0.08);
-          font-weight: 600;
+          background: rgba(0, 82, 204, 0.12);
+          border-color: rgba(0, 82, 204, 0.2);
+          font-weight: 700;
         }
 
         /* QUAD Special Badge */
@@ -218,15 +223,15 @@ export default function Navigation({ className = '' }: NavigationProps) {
           gap: 12px;
         }
 
-        /* Login Button - Subtle */
+        /* Login Button - More Visible */
         .btn-login {
-          padding: 10px 20px;
-          background: transparent;
-          color: #4B5563;
-          border: none;
+          padding: 11px 22px;
+          background: white;
+          color: #1F2937;
+          border: 2px solid #E5E7EB;
           border-radius: 8px;
           font-size: 15px;
-          font-weight: 600;
+          font-weight: 700;
           cursor: pointer;
           transition: all 0.2s ease;
           position: relative;
@@ -235,26 +240,28 @@ export default function Navigation({ className = '' }: NavigationProps) {
 
         .btn-login:hover {
           color: #0052CC;
-          background: rgba(0, 82, 204, 0.04);
+          background: rgba(0, 82, 204, 0.05);
+          border-color: #0052CC;
+          transform: translateY(-1px);
         }
 
-        /* Get Started - Premium CTA */
+        /* Get Started - Premium CTA with Enhanced Visibility */
         .btn-get-started {
           position: relative;
-          padding: 11px 24px;
+          padding: 12px 28px;
           background: linear-gradient(135deg, #0052CC 0%, #0747A6 100%);
           color: white;
           border: none;
           border-radius: 8px;
           font-size: 15px;
-          font-weight: 600;
+          font-weight: 700;
           cursor: pointer;
           text-decoration: none;
           display: inline-flex;
           align-items: center;
           gap: 8px;
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          box-shadow: 0 4px 14px rgba(0, 82, 204, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+          box-shadow: 0 4px 14px rgba(0, 82, 204, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2);
           overflow: hidden;
         }
 
