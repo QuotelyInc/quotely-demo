@@ -4,10 +4,10 @@ export default function CompetitorComparisonTable() {
       name: 'Quotely',
       logo: 'Q',
       pricing: {
-        5: '$679',
-        10: '$679',
-        20: '$979',
-        50: '$1,529'
+        '5': '$679',
+        '10': '$679',
+        '20': '$979',
+        '50': '$1,529'
       },
       features: {
         setupFee: '$1,500',
@@ -25,10 +25,10 @@ export default function CompetitorComparisonTable() {
       name: 'EZLynx',
       logo: 'E',
       pricing: {
-        5: '$644',
-        10: '$1,089',
-        20: '$1,979',
-        50: '$4,649'
+        '5': '$644',
+        '10': '$1,089',
+        '20': '$1,979',
+        '50': '$4,649'
       },
       features: {
         setupFee: '$2,500',
@@ -45,10 +45,10 @@ export default function CompetitorComparisonTable() {
       name: 'Applied Systems',
       logo: 'A',
       pricing: {
-        5: '$725',
-        10: '$1,200',
-        20: '$2,150',
-        50: '$5,000'
+        '5': '$725',
+        '10': '$1,200',
+        '20': '$2,150',
+        '50': '$5,000'
       },
       features: {
         setupFee: '$3,000',
@@ -65,10 +65,10 @@ export default function CompetitorComparisonTable() {
       name: 'Vertafore',
       logo: 'V',
       pricing: {
-        5: '$825',
-        10: '$1,375',
-        20: '$2,475',
-        50: '$5,775'
+        '5': '$825',
+        '10': '$1,375',
+        '20': '$2,475',
+        '50': '$5,775'
       },
       features: {
         setupFee: '$3,500',
@@ -138,8 +138,11 @@ export default function CompetitorComparisonTable() {
                   </div>
                 </td>
                 {agentCounts.map(count => {
-                  const companyPrice = parseInt(company.pricing[count as keyof typeof company.pricing].replace(/[^0-9]/g, ''));
-                  const ezlynxPrice = parseInt(competitors[1].pricing[count as keyof typeof competitors[1].pricing].replace(/[^0-9]/g, ''));
+                  const priceKey = count.toString() as '5' | '10' | '20' | '50';
+                  const companyPriceStr = company.pricing[priceKey] || '$0';
+                  const ezlynxPriceStr = competitors[1].pricing[priceKey] || '$0';
+                  const companyPrice = parseInt(companyPriceStr.replace(/[^0-9]/g, ''));
+                  const ezlynxPrice = parseInt(ezlynxPriceStr.replace(/[^0-9]/g, ''));
                   const savings = ezlynxPrice - companyPrice;
                   
                   return (
@@ -147,7 +150,7 @@ export default function CompetitorComparisonTable() {
                       <div className={`text-lg font-semibold ${
                         company.highlighted ? 'text-green-600' : 'text-gray-900'
                       }`}>
-                        {company.pricing[count as keyof typeof company.pricing]}
+                        {company.pricing[priceKey]}
                       </div>
                       {company.highlighted && company.name === 'Quotely' && savings > 0 && (
                         <div className="text-xs text-green-600 mt-1">
