@@ -137,20 +137,26 @@ export default function CompetitorComparisonTable() {
                     </div>
                   </div>
                 </td>
-                {agentCounts.map(count => (
-                  <td key={count} className="px-6 py-4 text-center">
-                    <div className={`text-lg font-semibold ${
-                      company.highlighted ? 'text-green-600' : 'text-gray-900'
-                    }`}>
-                      {company.pricing[count as keyof typeof company.pricing]}
-                    </div>
-                    {company.highlighted && company.name === 'Quotely' && (
-                      <div className="text-xs text-green-600 mt-1">
-                        Save ${parseInt(competitors[1].pricing[count as keyof typeof competitors[1].pricing].replace(/[^0-9]/g, '')) - parseInt(company.pricing[count as keyof typeof company.pricing].replace(/[^0-9]/g, ''))}
+                {agentCounts.map(count => {
+                  const companyPrice = parseInt(company.pricing[count as keyof typeof company.pricing].replace(/[^0-9]/g, ''));
+                  const ezlynxPrice = parseInt(competitors[1].pricing[count as keyof typeof competitors[1].pricing].replace(/[^0-9]/g, ''));
+                  const savings = ezlynxPrice - companyPrice;
+                  
+                  return (
+                    <td key={count} className="px-6 py-4 text-center">
+                      <div className={`text-lg font-semibold ${
+                        company.highlighted ? 'text-green-600' : 'text-gray-900'
+                      }`}>
+                        {company.pricing[count as keyof typeof company.pricing]}
                       </div>
-                    )}
-                  </td>
-                ))}
+                      {company.highlighted && company.name === 'Quotely' && savings > 0 && (
+                        <div className="text-xs text-green-600 mt-1">
+                          Save ${savings}
+                        </div>
+                      )}
+                    </td>
+                  );
+                })}
                 <td className="px-6 py-4 text-center">
                   <span className={`font-medium ${
                     company.highlighted ? 'text-green-600' : 'text-gray-900'

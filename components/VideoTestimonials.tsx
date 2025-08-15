@@ -32,7 +32,7 @@ export default function VideoTestimonials() {
         { metric: 'Revenue Increase', value: '+$45K/mo' },
         { metric: 'Quote Speed', value: '3x Faster' }
       ],
-      quote: 'Quotely transformed our agency. We're now closing 3x more policies with half the effort.'
+      quote: "Quotely transformed our agency. We're now closing 3x more policies with half the effort."
     },
     {
       id: 2,
@@ -60,7 +60,7 @@ export default function VideoTestimonials() {
         { metric: 'Quotes Generated', value: '+450/mo' },
         { metric: 'Close Rate', value: '+35%' }
       ],
-      quote: 'The AI insights alone have increased our close rate by 35%. It's a game-changer.'
+      quote: "The AI insights alone have increased our close rate by 35%. It's a game-changer."
     }
   ];
 
