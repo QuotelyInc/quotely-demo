@@ -1244,10 +1244,10 @@ function HomePage() {
             </div>
             
             <div className="table-row quotely-highlight">
-              <div className="feature-name">💰 Pricing (per agent/month)</div>
-              <div className="check-mark">$49</div>
-              <div className="x-mark">$89</div>
-              <div className="x-mark">$95</div>
+              <div className="feature-name">💰 Pricing (starting price)</div>
+              <div className="check-mark">$679/mo</div>
+              <div className="x-mark">$1,140/mo</div>
+              <div className="x-mark">$1,295/mo</div>
             </div>
           </div>
         </section>
