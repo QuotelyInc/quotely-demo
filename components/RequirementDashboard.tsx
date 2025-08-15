@@ -3,8 +3,7 @@
 import { useEffect, useState } from 'react';
 import { requirementTracker, type Requirement } from '../lib/RequirementTracker';
 import { 
-  initializeQuotelyRequirements, 
-  checkRequirementStatus,
+  initializeQuotelyRequirements,
   getUrgentRequirements,
   markRequirementCompleted 
 } from '../lib/QuotelyRequirements';
@@ -30,10 +29,10 @@ export default function RequirementDashboard() {
   }, []);
 
   const updateDashboard = () => {
-    const allReqs = Array.from((requirementTracker as any).requirements.values());
+    const allReqs = Array.from((requirementTracker as any).requirements.values()) as Requirement[];
     setRequirements(allReqs);
     setReport(requirementTracker.generateReport());
-    setUrgentItems(getUrgentRequirements());
+    setUrgentItems(getUrgentRequirements() as Requirement[]);
   };
 
   const handleMarkComplete = (requirementId: string) => {
