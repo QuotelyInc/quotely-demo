@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useOTTOTracking } from './OTTOProvider'
 import { useState, useEffect } from 'react'
+import SecurityBadges from './SecurityBadges'
 
 interface NavigationProps {
   className?: string
@@ -455,10 +456,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
               <div className="logo-icon">Q</div>
               <span className="logo-text">Quotely</span>
             </Link>
-            <div className="trust-indicator">
-              <span className="trust-dot"></span>
-              <span>SOC 2 Certified</span>
-            </div>
+            <SecurityBadges />
           </div>
           
           <ul className="nav-links">
