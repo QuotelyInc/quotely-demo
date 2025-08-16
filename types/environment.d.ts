@@ -20,6 +20,19 @@ declare global {
       GAIL_API_KEY?: string;
       MOMENTUM_API_KEY?: string;
       
+      // TurboRater Account Configuration - TEST
+      TURBO_RATER_TEST_ACCOUNT_ID?: string;
+      TURBO_RATER_TEST_ACCOUNT_NUMBER?: string;
+      TURBO_RATER_TEST_AGENCY_ID?: string;
+      TURBO_RATER_TEST_ACCESS_ID?: string;
+      
+      // TurboRater Account Configuration - LIVE
+      TURBO_RATER_LIVE_ACCOUNT_ID?: string;
+      TURBO_RATER_LIVE_ACCOUNT_NUMBER?: string;
+      TURBO_RATER_LIVE_AGENCY_ID?: string;
+      TURBO_RATER_LIVE_ACCESS_ID?: string;
+      TURBO_RATER_ACCOUNT_NAME?: string;
+      
       // Google Analytics (Client-safe)
       NEXT_PUBLIC_GA_PROPERTY_ID?: string;
       GOOGLE_ANALYTICS_API_KEY?: string;
