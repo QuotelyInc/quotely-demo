@@ -192,6 +192,31 @@
                         </div>
                     </div>
 
+                    <!-- Demo Video Section -->
+                    <div class="demo-video-container">
+                        <h3>Watch Quotely in Action</h3>
+                        <p>See how agencies are transforming their operations with our platform</p>
+                        <div class="video-wrapper">
+                            <video 
+                                controls 
+                                width="100%" 
+                                height="auto"
+                                poster="/images/video-thumbnail.jpg"
+                                preload="metadata"
+                                style="border-radius: 12px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);"
+                            >
+                                <source src="/videos/Quotely-Video-1.001.mp4" type="video/mp4">
+                                <source src="/videos/Quotely-Video-1.001.webm" type="video/webm">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="video-features">
+                            <span class="video-badge">🎬 2 min demo</span>
+                            <span class="video-badge">✨ Live platform tour</span>
+                            <span class="video-badge">📈 ROI examples</span>
+                        </div>
+                    </div>
+
                     <div class="testimonial-card">
                         <div class="testimonial-content">
                             <p>"The Quotely demo was eye-opening. In 30 minutes, they showed us how we could save $140,000 per year and cut quote times by 85%. We signed up the same day."</p>
@@ -520,6 +545,68 @@
     font-size: 0.875rem;
     color: var(--text-secondary);
     margin-top: 0.25rem;
+}
+
+.demo-video-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+    margin: 2rem 0;
+    border: 1px solid var(--border);
+}
+
+.demo-video-container h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.demo-video-container > p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.video-wrapper video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.video-features {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.video-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.video-badge:hover {
+    background: var(--gradient-primary);
+    color: white;
+    border-color: var(--primary-blue);
+    transition: all 0.2s ease;
 }
 
 .contact-alternatives {

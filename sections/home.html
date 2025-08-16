@@ -29,9 +29,9 @@
                         <span>Get Live Demo</span>
                         <span>→</span>
                     </a>
-                    <a href="#" class="btn btn-secondary btn-large">
+                    <a href="#video-section" class="btn btn-secondary btn-large" onclick="document.getElementById('demo-video').scrollIntoView({behavior: 'smooth'}); return false;">
                         <span>▶</span>
-                        <span>Watch Video</span>
+                        <span>Watch 2-Min Demo</span>
                     </a>
                 </div>
                 
@@ -71,6 +71,45 @@
                         <span>Quotely: 1.8min</span>
                         <span>Industry: 4.2min</span>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Demo Section -->
+    <div id="demo-video" style="padding: 60px 2rem; background: linear-gradient(135deg, #F8FAFC 0%, white 100%);">
+        <div style="max-width: 1000px; margin: 0 auto; text-align: center;">
+            <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; color: var(--text-primary);">
+                See Quotely Transform Insurance Quoting
+            </h2>
+            <p style="font-size: 1.25rem; color: var(--text-secondary); margin-bottom: 2rem;">
+                Watch how agencies save 85% of their time and $140,000+ annually
+            </p>
+            <div style="position: relative; background: #000; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);">
+                <video 
+                    controls 
+                    width="100%" 
+                    height="auto"
+                    poster="/images/video-thumbnail.jpg"
+                    preload="metadata"
+                >
+                    <source src="/videos/Quotely-Video-1.001.mp4" type="video/mp4">
+                    <source src="/videos/Quotely-Video-1.001.webm" type="video/webm">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;">
+                <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary);">
+                    <span style="color: var(--accent-green);">✓</span>
+                    <span>Live Platform Demo</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary);">
+                    <span style="color: var(--accent-green);">✓</span>
+                    <span>Real Customer Results</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary);">
+                    <span style="color: var(--accent-green);">✓</span>
+                    <span>ROI Breakdown</span>
                 </div>
             </div>
         </div>
