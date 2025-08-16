@@ -5,6 +5,7 @@ import { useOTTOTracking } from '@/components/OTTOProvider'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import RotatingNewsCommentary from '@/components/RotatingNewsCommentary'
+import HomepageDemoVideo from '@/components/HomepageDemoVideo'
 
 function HomePage() {
   const { trackPageView, trackUserAction } = useOTTOTracking()
@@ -1127,17 +1128,9 @@ function HomePage() {
             </div>
             
             <div className="hero-visual">
-              <div className="demo-preview">
-                <div className="demo-video" id="demo">
-                  <div className="play-button" onClick={playDemo}>▶</div>
-                  {/* Simulated dashboard preview */}
-                  <div style={{position: 'absolute', top: '10px', left: '10px', right: '10px', bottom: '60px', background: 'linear-gradient(135deg, #1B2951 0%, #0F1729 100%)', borderRadius: '8px', opacity: 0.4}}></div>
-                  <div style={{position: 'absolute', top: '30px', left: '30px', right: '30px', height: '20px', background: 'white', borderRadius: '4px', opacity: 0.3}}></div>
-                  <div style={{position: 'absolute', top: '60px', left: '30px', right: '30px', height: '100px', background: 'white', borderRadius: '8px', opacity: 0.4}}></div>
-                </div>
-                <div style={{textAlign: 'center', marginTop: '1rem', color: 'var(--text-secondary)', fontSize: '0.875rem'}}>
-                  🚀 See how quotes that used to take 5 minutes now take 30 seconds
-                </div>
+              <div className="demo-preview" style={{ padding: '0' }}>
+                {/* 30-Second Auto-Playing Demo with Real TurboRater API */}
+                <HomepageDemoVideo />
               </div>
             </div>
           </div>
