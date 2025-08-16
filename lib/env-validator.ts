@@ -3,7 +3,7 @@
  * Ensures all required environment variables are properly configured
  */
 
-import { getEnvVar, isEnvVarDefined } from '@/types/environment';
+import { getEnvVar, isEnvVarDefined } from './env-utils';
 
 export interface EnvValidationResult {
   isValid: boolean;

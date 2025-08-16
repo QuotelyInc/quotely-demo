@@ -40,8 +40,8 @@ export class GoogleAnalytics {
 
     // Initialize dataLayer
     window.dataLayer = window.dataLayer || [];
-    window.gtag = function() {
-      window.dataLayer.push(arguments);
+    window.gtag = function(...args: any[]) {
+      window.dataLayer.push(args);
     };
     
     window.gtag('js', new Date());

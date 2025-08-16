@@ -3,7 +3,7 @@
  * Manages TurboRater API credentials and environment switching
  */
 
-import { isProduction, isDevelopment } from '@/lib/env-validator';
+import { isProduction, isDevelopment } from '../env-validator';
 
 export interface TurboRaterConfig {
   accountId: string;

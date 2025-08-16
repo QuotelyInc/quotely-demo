@@ -4,12 +4,12 @@ import { ChevronRight, Clock, Zap, Shield, Brain, CheckCircle, AlertCircle, Tren
 const TurboRaterDemo = () => {
   // Demo Form State
   const [currentStep, setCurrentStep] = useState(1);
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState<any>({});
   const [quoteProgress, setQuoteProgress] = useState(0);
-  const [aiSuggestions, setAISuggestions] = useState({});
-  const [quotes, setQuotes] = useState([]);
+  const [aiSuggestions, setAISuggestions] = useState<any>({});
+  const [quotes, setQuotes] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [startTime, setStartTime] = useState(null);
+  const [startTime, setStartTime] = useState<number | null>(null);
   const [elapsedTime, setElapsedTime] = useState(0);
 
   // Integration Hub State
@@ -22,8 +22,8 @@ const TurboRaterDemo = () => {
   const [notificationsEnabled, setNotificationsEnabled] = useState(true);
   const [backupEnabled, setBackupEnabled] = useState(true);
   const [selectedQuotes, setSelectedQuotes] = useState(new Set());
-  const [allQuotes, setAllQuotes] = useState([]);
-  const [filteredQuotes, setFilteredQuotes] = useState([]);
+  const [allQuotes, setAllQuotes] = useState<any[]>([]);
+  const [filteredQuotes, setFilteredQuotes] = useState<any[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('');
   const [syncFilter, setSyncFilter] = useState('');
@@ -65,8 +65,8 @@ const TurboRaterDemo = () => {
     }
   }, [startTime]);
 
-  const getAISuggestions = useCallback((field, value) => {
-    const suggestions = {
+  const getAISuggestions = useCallback((field: string, value: any) => {
+    const suggestions: Record<string, string[]> = {
       vehicleYear: value > '2020' ? ['Higher safety rating detected', 'Potential discount available'] : ['Consider safety features'],
       drivingRecord: value === 'clean' ? ['Excellent! Qualify for preferred rates'] : ['We can still find competitive rates'],
       coverage: value === 'full' ? ['Comprehensive protection recommended'] : ['Consider umbrella policy']
@@ -74,10 +74,10 @@ const TurboRaterDemo = () => {
     return suggestions[field] || [];
   }, []);
 
-  const handleFieldChange = (field, value) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+  const handleFieldChange = (field: string, value: any) => {
+    setFormData((prev: any) => ({ ...prev, [field]: value }));
     const suggestions = getAISuggestions(field, value);
-    setAISuggestions(prev => ({ ...prev, [field]: suggestions }));
+    setAISuggestions((prev: any) => ({ ...prev, [field]: suggestions }));
   };
 
   const generateQuotes = async () => {
@@ -128,16 +128,16 @@ const TurboRaterDemo = () => {
   };
 
   // Integration Hub Functions
-  const addLogEntry = (type, message) => {
+  const addLogEntry = (type: string, message: string) => {
     const newLog = {
       type,
       message,
       timestamp: new Date()
     };
-    setLogs(prev => [...prev.slice(-19), newLog]); // Keep last 20 entries
+    setLogs((prev: any[]) => [...prev.slice(-19), newLog]); // Keep last 20 entries
   };
 
-  const showNotification = (type, message) => {
+  const showNotification = (type: string, message: string) => {
     if (!notificationsEnabled) return;
     // You can implement toast notifications here
     console.log(`${type.toUpperCase()}: ${message}`);
@@ -209,7 +209,7 @@ const TurboRaterDemo = () => {
     showNotification('success', 'All quotes synced successfully!');
 
     // Update all quotes to synced status
-    setAllQuotes(prev => prev.map(quote => ({
+    setAllQuotes((prev: any[]) => prev.map(quote => ({
       ...quote,
       syncStatus: quote.syncStatus !== 'Error' ? 'Synced' : quote.syncStatus,
       lastSync: new Date().toLocaleString()
@@ -234,7 +234,7 @@ const TurboRaterDemo = () => {
   };
 
   const filterQuotes = () => {
-    let filtered = allQuotes.filter(quote => {
+    const filtered = allQuotes.filter(quote => {
       const matchesSearch = quote.customer.toLowerCase().includes(searchTerm.toLowerCase()) || 
                           quote.id.toLowerCase().includes(searchTerm.toLowerCase());
       const matchesStatus = !statusFilter || quote.status === statusFilter;
@@ -250,13 +250,13 @@ const TurboRaterDemo = () => {
     filterQuotes();
   }, [searchTerm, statusFilter, syncFilter, allQuotes]);
 
-  const formatTime = (seconds) => {
+  const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
     return `${mins}:${secs.toString().padStart(2, '0')}`;
   };
 
-  const getStatusColor = (status) => {
+  const getStatusColor = (status: string) => {
     switch(status) {
       case 'Active': return 'text-green-500';
       case 'Pending': return 'text-yellow-500';
@@ -265,7 +265,7 @@ const TurboRaterDemo = () => {
     }
   };
 
-  const getSyncStatusColor = (status) => {
+  const getSyncStatusColor = (status: string) => {
     switch(status) {
       case 'Synced': return 'text-green-500';
       case 'Pending': return 'text-yellow-500';
@@ -275,7 +275,7 @@ const TurboRaterDemo = () => {
     }
   };
 
-  const toggleQuoteSelection = (quoteId) => {
+  const toggleQuoteSelection = (quoteId: string) => {
     const newSelected = new Set(selectedQuotes);
     if (newSelected.has(quoteId)) {
       newSelected.delete(quoteId);
@@ -286,7 +286,7 @@ const TurboRaterDemo = () => {
   };
 
   const selectAllQuotes = () => {
-    setSelectedQuotes(new Set(filteredQuotes.map(q => q.id)));
+    setSelectedQuotes(new Set(filteredQuotes.map((q: any) => q.id)));
   };
 
   const deselectAllQuotes = () => {
@@ -302,7 +302,7 @@ const TurboRaterDemo = () => {
     addLogEntry('info', `Syncing ${selectedQuotes.size} selected quotes...`);
     await new Promise(resolve => setTimeout(resolve, 2000));
 
-    setAllQuotes(prev => prev.map(quote => 
+    setAllQuotes((prev: any[]) => prev.map(quote => 
       selectedQuotes.has(quote.id) 
         ? { ...quote, syncStatus: 'Synced', lastSync: new Date().toLocaleString() }
         : quote
@@ -594,12 +594,12 @@ const TurboRaterDemo = () => {
           <tbody>
             {filteredQuotes.length === 0 ? (
               <tr>
-                <td colSpan="7" className="text-center p-8 text-slate-400">
+                <td colSpan={7} className="text-center p-8 text-slate-400">
                   {isConnected ? 'No quotes match your filters' : 'Connect to TurboRater to view data'}
                 </td>
               </tr>
             ) : (
-              filteredQuotes.map(quote => (
+              filteredQuotes.map((quote: any) => (
                 <tr key={quote.id} className="border-b border-slate-700 hover:bg-slate-700">
                   <td className="p-3">
                     <input
@@ -639,7 +639,7 @@ const TurboRaterDemo = () => {
       <div className="mt-6">
         <h4 className="font-semibold mb-3">Activity Log</h4>
         <div className="bg-slate-900 p-4 rounded-lg h-48 overflow-y-auto font-mono text-sm">
-          {logs.map((log, index) => (
+          {logs.map((log: any, index: number) => (
             <div
               key={index}
               className={`mb-1 ${
@@ -681,7 +681,7 @@ const TurboRaterDemo = () => {
     </div>
   );
 
-  const AITransparencyPanel = ({ decision }) => (
+  const AITransparencyPanel = ({ decision }: { decision: any }) => (
     <div className="bg-white border border-gray-200 rounded-lg p-4 mb-4">
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center">
@@ -730,7 +730,7 @@ const TurboRaterDemo = () => {
     </div>
   );
 
-  const SmartField = ({ label, name, type = "text", value, onChange, suggestions = [], required = false }) => (
+  const SmartField = ({ label, name, type = "text", value, onChange, suggestions = [], required = false }: { label: string; name: string; type?: string; value: any; onChange: any; suggestions?: string[]; required?: boolean }) => (
     <div className="mb-4">
       <label className="block text-sm font-medium text-gray-700 mb-1">
         {label} {required && <span className="text-red-500">*</span>}
@@ -744,7 +744,7 @@ const TurboRaterDemo = () => {
       />
       {suggestions.length > 0 && (
         <div className="mt-1">
-          {suggestions.map((suggestion, index) => (
+          {suggestions.map((suggestion: string, index: number) => (
             <div key={index} className="text-xs text-green-600 flex items-center">
               <CheckCircle size={12} className="mr-1" />
               {suggestion}
@@ -755,7 +755,7 @@ const TurboRaterDemo = () => {
     </div>
   );
 
-  const QuoteCard = ({ quote }) => (
+  const QuoteCard = ({ quote }: { quote: any }) => (
     <div className={`border rounded-lg p-4 ${quote.recommended ? 'border-blue-500 bg-blue-50' : 'border-gray-200 bg-white'}`}>
       {quote.recommended && (
         <div className="bg-blue-500 text-white px-2 py-1 rounded text-xs font-medium mb-3 inline-block">
@@ -897,7 +897,7 @@ const TurboRaterDemo = () => {
                 </select>
                 {aiSuggestions.drivingRecord && (
                   <div className="mt-1">
-                    {aiSuggestions.drivingRecord.map((suggestion, index) => (
+                    {aiSuggestions.drivingRecord.map((suggestion: string, index: number) => (
                       <div key={index} className="text-xs text-green-600 flex items-center">
                         <CheckCircle size={12} className="mr-1" />
                         {suggestion}
@@ -931,7 +931,7 @@ const TurboRaterDemo = () => {
                 </select>
                 {aiSuggestions.coverage && (
                   <div className="mt-1">
-                    {aiSuggestions.coverage.map((suggestion, index) => (
+                    {aiSuggestions.coverage.map((suggestion: string, index: number) => (
                       <div key={index} className="text-xs text-green-600 flex items-center">
                         <CheckCircle size={12} className="mr-1" />
                         {suggestion}
@@ -982,7 +982,7 @@ const TurboRaterDemo = () => {
             )}
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-              {quotes.map(quote => (
+              {quotes.map((quote: any) => (
                 <QuoteCard key={quote.id} quote={quote} />
               ))}
             </div>

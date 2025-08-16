@@ -137,48 +137,6 @@ export type OptionalEnvVars = {
  */
 export type EnvironmentConfig = RequiredEnvVars & OptionalEnvVars;
 
-/**
- * Type guard to check if a variable is defined
- */
-export function isEnvVarDefined(key: keyof NodeJS.ProcessEnv): boolean {
-  return process.env[key] !== undefined && process.env[key] !== '';
-}
-
-/**
- * Type guard to check if all required variables are defined
- */
-export function hasRequiredEnvVars(): boolean {
-  const required: Array<keyof RequiredEnvVars> = [
-    'TURBO_RATER_API_KEY',
-    'GAIL_API_KEY',
-    'MOMENTUM_API_KEY',
-    'NEXT_PUBLIC_GA_PROPERTY_ID',
-    'NEXT_PUBLIC_OTTO_UUID'
-  ];
-  
-  return required.every(key => isEnvVarDefined(key));
-}
-
-/**
- * Get environment variable with type safety
- */
-export function getEnvVar<K extends keyof NodeJS.ProcessEnv>(
-  key: K,
-  defaultValue?: string
-): string {
-  return process.env[key] || defaultValue || '';
-}
-
-/**
- * Get required environment variable (throws if missing)
- */
-export function getRequiredEnvVar<K extends keyof RequiredEnvVars>(key: K): string {
-  const value = process.env[key];
-  if (!value) {
-    throw new Error(`Missing required environment variable: ${key}`);
-  }
-  return value;
-}
 
 // Ensure file is treated as a module
 export {};
