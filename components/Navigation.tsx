@@ -515,6 +515,16 @@ export default function Navigation({ className = '' }: NavigationProps) {
             </li>
             <li>
               <Link 
+                href="/turborater-demo"
+                className={`nav-link ${isActive('/turborater-demo') ? 'active' : ''}`}
+                onClick={() => handleNavClick('turborater-demo')}
+              >
+                TurboRater
+                <span className="quad-badge">DEMO</span>
+              </Link>
+            </li>
+            <li>
+              <Link 
                 href="/blog" 
                 className={`nav-link ${isActive('/blog') ? 'active' : ''}`}
                 onClick={() => handleNavClick('blog')}
