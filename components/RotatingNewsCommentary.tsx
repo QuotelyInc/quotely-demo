@@ -39,7 +39,8 @@ export const RotatingNewsCommentary = () => {
   useEffect(() => {
     // Simulate fetching articles - in production, this would call the API
     const loadAndRotateContent = async () => {
-      setIsLoading(true);
+      // Remove loading state to prevent indefinite loading display
+      setIsLoading(false);
       
       // Mock data for demonstration
       const mockArticles: Article[] = [
@@ -99,7 +100,7 @@ export const RotatingNewsCommentary = () => {
       setCurrentArticles(mockArticles);
       setQuotelyCommentary(commentary);
       setLastUpdate(new Date());
-      setIsLoading(false);
+      // Already set to false at the beginning
     };
     
     // Initial load
