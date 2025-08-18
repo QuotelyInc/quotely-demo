@@ -2,15 +2,33 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { ChevronRight, Clock, Zap, Shield, Brain, CheckCircle, AlertCircle, TrendingUp, Users, FileText, Calculator, Wifi, WifiOff, RefreshCw, Download, Upload, Database } from 'lucide-react';
 
 const TurboRaterDemo = () => {
-  // Demo Form State
+  // Demo Form State with proper initialization
   const [currentStep, setCurrentStep] = useState(1);
-  const [formData, setFormData] = useState<any>({});
+  const [formData, setFormData] = useState<any>({
+    // Step 1 - Client Information
+    firstName: '',
+    lastName: '',
+    dateOfBirth: '',
+    phone: '',
+    address: '',
+    // Step 2 - Vehicle Details
+    vehicleYear: '',
+    vehicleMake: '',
+    vehicleModel: '',
+    vin: '',
+    drivingRecord: '',
+    // Step 3 - Coverage Options
+    coverage: '',
+    deductible: '',
+    annualMileage: ''
+  });
   const [quoteProgress, setQuoteProgress] = useState(0);
   const [aiSuggestions, setAISuggestions] = useState<any>({});
   const [quotes, setQuotes] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [startTime, setStartTime] = useState<number | null>(null);
   const [elapsedTime, setElapsedTime] = useState(0);
+  const [formErrors, setFormErrors] = useState<any>({});
 
   // Integration Hub State
   const [activeTab, setActiveTab] = useState('demo'); // 'demo' or 'integration'
@@ -75,9 +93,83 @@ const TurboRaterDemo = () => {
   }, []);
 
   const handleFieldChange = (field: string, value: any) => {
+    // Update form data
     setFormData((prev: any) => ({ ...prev, [field]: value }));
+    
+    // Clear error for this field
+    setFormErrors((prev: any) => ({ ...prev, [field]: '' }));
+    
+    // Get AI suggestions
     const suggestions = getAISuggestions(field, value);
     setAISuggestions((prev: any) => ({ ...prev, [field]: suggestions }));
+    
+    // Log for debugging
+    console.log(`Field ${field} updated to:`, value);
+  };
+
+  const validateStep = (step: number): boolean => {
+    const errors: any = {};
+    let isValid = true;
+
+    switch (step) {
+      case 1:
+        if (!formData.firstName) {
+          errors.firstName = 'First name is required';
+          isValid = false;
+        }
+        if (!formData.lastName) {
+          errors.lastName = 'Last name is required';
+          isValid = false;
+        }
+        if (!formData.dateOfBirth) {
+          errors.dateOfBirth = 'Date of birth is required';
+          isValid = false;
+        }
+        if (!formData.phone) {
+          errors.phone = 'Phone number is required';
+          isValid = false;
+        }
+        if (!formData.address) {
+          errors.address = 'Address is required';
+          isValid = false;
+        }
+        break;
+      case 2:
+        if (!formData.vehicleYear) {
+          errors.vehicleYear = 'Vehicle year is required';
+          isValid = false;
+        }
+        if (!formData.vehicleMake) {
+          errors.vehicleMake = 'Vehicle make is required';
+          isValid = false;
+        }
+        if (!formData.vehicleModel) {
+          errors.vehicleModel = 'Vehicle model is required';
+          isValid = false;
+        }
+        if (!formData.drivingRecord) {
+          errors.drivingRecord = 'Driving record is required';
+          isValid = false;
+        }
+        break;
+      case 3:
+        if (!formData.coverage) {
+          errors.coverage = 'Coverage type is required';
+          isValid = false;
+        }
+        break;
+    }
+
+    setFormErrors(errors);
+    return isValid;
+  };
+
+  const handleNextStep = () => {
+    if (validateStep(currentStep)) {
+      setCurrentStep(currentStep + 1);
+    } else {
+      showNotification('error', 'Please fill in all required fields');
+    }
   };
 
   const generateQuotes = async () => {
@@ -739,10 +831,18 @@ const TurboRaterDemo = () => {
         type={type}
         value={value || ''}
         onChange={(e) => onChange(name, e.target.value)}
-        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+          formErrors[name] ? 'border-red-500' : 'border-gray-300'
+        }`}
         placeholder={`Enter ${label.toLowerCase()}`}
       />
-      {suggestions.length > 0 && (
+      {formErrors[name] && (
+        <div className="text-xs text-red-600 mt-1 flex items-center">
+          <AlertCircle size={12} className="mr-1" />
+          {formErrors[name]}
+        </div>
+      )}
+      {suggestions && suggestions.length > 0 && (
         <div className="mt-1">
           {suggestions.map((suggestion: string, index: number) => (
             <div key={index} className="text-xs text-green-600 flex items-center">
@@ -1091,7 +1191,7 @@ const TurboRaterDemo = () => {
                   </button>
                 ) : (
                   <button
-                    onClick={() => setCurrentStep(currentStep + 1)}
+                    onClick={handleNextStep}
                     className="bg-blue-600 text-white px-6 py-2 rounded-md font-medium hover:bg-blue-700 transition-colors flex items-center"
                   >
                     Continue
