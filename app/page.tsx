@@ -7,6 +7,7 @@ import Footer from '@/components/Footer'
 import RotatingNewsCommentary from '@/components/RotatingNewsCommentary'
 import HomepageDemoVideo from '@/components/HomepageDemoVideo'
 import ProfessionalHero from '@/components/ProfessionalHero'
+import StatisticsSection from '@/components/StatisticsSection'
 
 function HomePage() {
   const { trackPageView, trackUserAction } = useOTTOTracking()
@@ -1098,6 +1099,9 @@ function HomePage() {
         
         {/* HERO SECTION - Professional Modern Design */}
         <ProfessionalHero />
+        
+        {/* STATISTICS SECTION - Trust & Social Proof */}
+        <StatisticsSection />
         
         {/* Demo Video Section for smooth scroll */}
         <div id="demo-video" className="py-16 bg-gray-50">
