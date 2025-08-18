@@ -9,6 +9,7 @@ import HomepageDemoVideo from '@/components/HomepageDemoVideo'
 import ProfessionalHero from '@/components/ProfessionalHero'
 import StatisticsSection from '@/components/StatisticsSection'
 import ComparisonSection from '@/components/ComparisonSection'
+import TestimonialsSection from '@/components/TestimonialsSection'
 
 function HomePage() {
   const { trackPageView, trackUserAction } = useOTTOTracking()
@@ -1153,6 +1154,9 @@ function HomePage() {
 
         {/* COMPARISON SECTION - Modern Platform Comparison */}
         <ComparisonSection />
+        
+        {/* TESTIMONIALS SECTION - Social Proof from Agents */}
+        <TestimonialsSection />
         
         {/* OLD COMPARISON SECTION - Keeping for reference, can be removed later */}
         <section className="comparison-section fade-in solution-section elevation-3 hidden" id="old-comparison">
