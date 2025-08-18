@@ -525,6 +525,16 @@ export default function Navigation({ className = '' }: NavigationProps) {
             </li>
             <li>
               <Link 
+                href="/turborater-hub"
+                className={`nav-link ${isActive('/turborater-hub') ? 'active' : ''}`}
+                onClick={() => handleNavClick('turborater-hub')}
+              >
+                Hub
+                <span className="quad-badge">LIVE</span>
+              </Link>
+            </li>
+            <li>
+              <Link 
                 href="/blog" 
                 className={`nav-link ${isActive('/blog') ? 'active' : ''}`}
                 onClick={() => handleNavClick('blog')}
