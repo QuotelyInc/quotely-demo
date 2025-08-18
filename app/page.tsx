@@ -6,6 +6,7 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import RotatingNewsCommentary from '@/components/RotatingNewsCommentary'
 import HomepageDemoVideo from '@/components/HomepageDemoVideo'
+import ProfessionalHero from '@/components/ProfessionalHero'
 
 function HomePage() {
   const { trackPageView, trackUserAction } = useOTTOTracking()
@@ -1095,46 +1096,16 @@ function HomePage() {
       <div>
         <Navigation />
         
-        {/* HERO SECTION */}
-        <section className="hero">
-          <div className="hero-content">
-            <div className="hero-text">
-              <h1>Quote insurance <span className="power-word">10x faster</span></h1>
-              <p className="lead-text">The modern alternative to EZLynx and Applied Rater. Built for independent agents who demand <span className="benefit-word">speed</span>, <span className="benefit-word">transparency</span>, and <span className="power-word">results</span>.</p>
-              
-              <div className="hero-stats">
-                <div className="stat">
-                  <span className="stat-number number-emphasis">60%</span>
-                  <span className="stat-label">Faster quotes</span>
-                </div>
-                <div className="stat">
-                  <span className="stat-number number-emphasis">1000+</span>
-                  <span className="stat-label authority-word">Agencies switched</span>
-                </div>
-                <div className="stat">
-                  <span className="stat-number number-emphasis">$2.4M</span>
-                  <span className="stat-label benefit-word">Avg. revenue boost</span>
-                </div>
-              </div>
-              
-              <div className="hero-ctas">
-                <button onClick={handleWatchDemo} className="btn btn-primary">
-                  ▶️ Get My Demo <span className="urgency-word">Now</span>
-                </button>
-                <button onClick={handleCompare} className="btn btn-secondary">
-                  📊 See Why We're <span className="number-emphasis">60%</span> Faster
-                </button>
-              </div>
-            </div>
-            
-            <div className="hero-visual">
-              <div className="demo-preview" style={{ padding: '0' }}>
-                {/* 30-Second Auto-Playing Demo with Real TurboRater API */}
-                <HomepageDemoVideo />
-              </div>
-            </div>
+        {/* HERO SECTION - Professional Modern Design */}
+        <ProfessionalHero />
+        
+        {/* Demo Video Section for smooth scroll */}
+        <div id="demo-video" className="py-16 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center mb-8">See Quotely in Action</h2>
+            <HomepageDemoVideo />
           </div>
-        </section>
+        </div>
 
         {/* MENTAL CHAPTER: PROBLEM → PROOF */}
         <div className="chapter-divider" data-chapter="Chapter I: The Problem"></div>
