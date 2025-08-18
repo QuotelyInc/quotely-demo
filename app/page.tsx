@@ -8,6 +8,7 @@ import RotatingNewsCommentary from '@/components/RotatingNewsCommentary'
 import HomepageDemoVideo from '@/components/HomepageDemoVideo'
 import ProfessionalHero from '@/components/ProfessionalHero'
 import StatisticsSection from '@/components/StatisticsSection'
+import ComparisonSection from '@/components/ComparisonSection'
 
 function HomePage() {
   const { trackPageView, trackUserAction } = useOTTOTracking()
@@ -1150,9 +1151,11 @@ function HomePage() {
           </div>
         </section>
 
-        <div className="section-break-hard" data-section="2" />
+        {/* COMPARISON SECTION - Modern Platform Comparison */}
+        <ComparisonSection />
         
-        <section className="comparison-section fade-in solution-section elevation-3" id="comparison">
+        {/* OLD COMPARISON SECTION - Keeping for reference, can be removed later */}
+        <section className="comparison-section fade-in solution-section elevation-3 hidden" id="old-comparison">
           <div className="section-header f-pattern-container">
             <h2>Why agencies choose Quotely</h2>
             <h3 className="question">How does Quotely compare to legacy platforms?</h3>
