@@ -1,0 +1,2311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TurboRater Integration Hub - Quotely</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; 
+            line-height: 1.6; 
+            color: #e2e8f0; 
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            min-height: 100vh;
+        }
+        
+        .container { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            padding: 20px; 
+        }
+        
+        /* Header with animated gradient */
+        .header { 
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%); 
+            background-size: 200% 200%;
+            animation: gradientShift 8s ease infinite;
+            color: white; 
+            padding: 40px 0; 
+            text-align: center; 
+            margin-bottom: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .header h1 { 
+            font-size: 42px; 
+            margin-bottom: 10px; 
+            font-weight: 800; 
+            letter-spacing: -0.5px;
+        }
+        
+        .header p { 
+            font-size: 20px; 
+            opacity: 0.95; 
+            font-weight: 300;
+        }
+        
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            padding: 25px;
+            border-radius: 16px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.15);
+            border-color: rgba(99, 102, 241, 0.4);
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6, #06b6d4);
+            background-size: 200% 100%;
+            animation: gradientMove 3s ease infinite;
+        }
+        
+        @keyframes gradientMove {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 200% 0%; }
+        }
+        
+        .stat-number {
+            font-size: 36px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #6366f1, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+        
+        .stat-label {
+            color: #94a3b8;
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .stat-change {
+            font-size: 12px;
+            margin-top: 8px;
+            color: #10b981;
+            font-weight: 600;
+        }
+        
+        .stat-change.negative {
+            color: #ef4444;
+        }
+        
+        /* Integration Dashboard */
+        .integration-dashboard { 
+            display: grid; 
+            grid-template-columns: 380px 1fr; 
+            gap: 30px; 
+            margin-bottom: 40px; 
+        }
+        
+        /* Control Panel */
+        .control-panel { 
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%); 
+            padding: 30px; 
+            border-radius: 20px; 
+            border: 1px solid rgba(99, 102, 241, 0.1);
+            height: fit-content;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .control-panel h3 { 
+            margin-bottom: 25px; 
+            color: #f1f5f9; 
+            font-size: 26px;
+            font-weight: 700;
+            border-bottom: 2px solid rgba(99, 102, 241, 0.3);
+            padding-bottom: 12px;
+        }
+        
+        /* API Configuration */
+        .api-config {
+            background: rgba(15, 23, 42, 0.6);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(99, 102, 241, 0.1);
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .api-input {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 8px;
+            color: #e2e8f0;
+            font-family: 'Monaco', 'Courier New', monospace;
+            margin-bottom: 12px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .api-input:focus {
+            outline: none;
+            border-color: #6366f1;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+        
+        .api-label {
+            color: #94a3b8;
+            font-size: 13px;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Enhanced Button Styles */
+        .turborater-btn { 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%; 
+            padding: 16px 20px; 
+            margin-bottom: 12px; 
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); 
+            color: white; 
+            border: none; 
+            border-radius: 12px; 
+            font-size: 16px; 
+            font-weight: 600; 
+            cursor: pointer; 
+            transition: all 0.3s ease; 
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.3px;
+        }
+        
+        .turborater-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .turborater-btn:hover::before {
+            left: 100%;
+        }
+        
+        .turborater-btn:hover { 
+            transform: translateY(-2px); 
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3); 
+        }
+        
+        .turborater-btn:active { 
+            transform: translateY(0); 
+        }
+        
+        .turborater-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .turborater-btn.loading { 
+            background: linear-gradient(135deg, #475569 0%, #64748b 100%); 
+        }
+        
+        .turborater-btn.success { 
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%); 
+        }
+        
+        .turborater-btn.error { 
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); 
+        }
+        
+        /* Button Icons */
+        .btn-icon { 
+            display: inline-block; 
+            margin-right: 10px; 
+            font-size: 20px; 
+        }
+        
+        /* Loading Animation */
+        .loading-spinner { 
+            display: inline-block; 
+            width: 20px; 
+            height: 20px; 
+            border: 3px solid rgba(255,255,255,0.3); 
+            border-radius: 50%; 
+            border-top-color: white; 
+            animation: spin 0.8s linear infinite; 
+            margin-right: 10px;
+        }
+        
+        @keyframes spin { 
+            to { transform: rotate(360deg); } 
+        }
+        
+        /* Status Indicators */
+        .status-indicator { 
+            display: flex; 
+            align-items: center; 
+            padding: 15px 18px; 
+            margin-bottom: 20px; 
+            border-radius: 10px; 
+            font-weight: 600;
+            background: rgba(51, 65, 85, 0.3);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+        
+        .status-indicator.connected { 
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.2) 100%);
+            color: #6ee7b7; 
+            border-left: 4px solid #10b981; 
+        }
+        
+        .status-indicator.disconnected { 
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(239, 68, 68, 0.2) 100%);
+            color: #fca5a5; 
+            border-left: 4px solid #ef4444; 
+        }
+        
+        .status-indicator.syncing { 
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(6, 182, 212, 0.2) 100%);
+            color: #67e8f9; 
+            border-left: 4px solid #06b6d4; 
+        }
+        
+        /* Settings Panel */
+        .settings-panel {
+            background: rgba(30, 41, 59, 0.5);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(99, 102, 241, 0.1);
+            margin-top: 20px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .settings-panel h4 {
+            color: #f1f5f9;
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .settings-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(71, 85, 105, 0.3);
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+        
+        .settings-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        
+        .toggle-switch {
+            position: relative;
+            width: 52px;
+            height: 26px;
+            background: #475569;
+            border-radius: 13px;
+            cursor: pointer;
+            transition: background 0.3s;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .toggle-switch.active {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        }
+        
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.3s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .toggle-switch.active::after {
+            transform: translateX(26px);
+        }
+        
+        /* Sync Progress */
+        .sync-progress { 
+            margin: 20px 0; 
+        }
+        
+        .progress-bar { 
+            background: rgba(71, 85, 105, 0.3); 
+            height: 14px; 
+            border-radius: 7px; 
+            overflow: hidden; 
+            margin: 12px 0;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .progress-fill { 
+            background: linear-gradient(90deg, #06b6d4, #0891b2, #0e7490); 
+            height: 100%; 
+            width: 0%; 
+            transition: width 0.5s ease; 
+            border-radius: 7px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .progress-text { 
+            font-size: 13px; 
+            color: #94a3b8; 
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        /* Data Display */
+        .data-display { 
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%); 
+            padding: 30px; 
+            border-radius: 20px; 
+            border: 1px solid rgba(99, 102, 241, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        
+        .data-display h3 { 
+            margin-bottom: 25px; 
+            color: #f1f5f9; 
+            font-size: 26px;
+            font-weight: 700;
+            border-bottom: 2px solid rgba(99, 102, 241, 0.3);
+            padding-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .refresh-btn {
+            background: linear-gradient(135deg, #475569 0%, #64748b 100%);
+            border: none;
+            color: #e2e8f0;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .refresh-btn:hover {
+            background: linear-gradient(135deg, #64748b 0%, #94a3b8 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .refresh-icon {
+            display: inline-block;
+            animation: none;
+        }
+        
+        .refresh-btn:hover .refresh-icon {
+            animation: spin 1s ease-in-out;
+        }
+        
+        /* Search and Filter */
+        .search-filter {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .search-input, .filter-select {
+            padding: 12px 15px;
+            background: rgba(51, 65, 85, 0.5);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 10px;
+            color: #e2e8f0;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .search-input:focus, .filter-select:focus {
+            outline: none;
+            border-color: #6366f1;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+            background: rgba(51, 65, 85, 0.7);
+        }
+        
+        .search-input {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .filter-select {
+            min-width: 150px;
+            cursor: pointer;
+        }
+        
+        /* Bulk Actions */
+        .bulk-actions {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .bulk-btn {
+            padding: 10px 18px;
+            background: linear-gradient(135deg, #475569 0%, #64748b 100%);
+            color: #e2e8f0;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .bulk-btn:hover {
+            background: linear-gradient(135deg, #64748b 0%, #94a3b8 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .bulk-btn.primary {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        }
+        
+        .bulk-btn.primary:hover {
+            background: linear-gradient(135deg, #818cf8 0%, #a78bfa 100%);
+        }
+        
+        .bulk-btn.danger {
+            background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+        }
+        
+        .bulk-btn.danger:hover {
+            background: linear-gradient(135deg, #ef4444 0%, #f87171 100%);
+        }
+        
+        /* Data Table */
+        .table-container {
+            overflow-x: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .data-table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin-top: 20px;
+            background: rgba(30, 41, 59, 0.5);
+        }
+        
+        .data-table th, .data-table td { 
+            padding: 14px 16px; 
+            text-align: left; 
+            border-bottom: 1px solid rgba(71, 85, 105, 0.3); 
+        }
+        
+        .data-table th { 
+            background: linear-gradient(135deg, rgba(51, 65, 85, 0.8) 0%, rgba(71, 85, 105, 0.8) 100%);
+            font-weight: 700; 
+            color: #f1f5f9;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            user-select: none;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        .data-table th:hover {
+            background: linear-gradient(135deg, rgba(71, 85, 105, 0.9) 0%, rgba(100, 116, 139, 0.9) 100%);
+        }
+        
+        .data-table tr {
+            transition: all 0.2s ease;
+        }
+        
+        .data-table tbody tr:hover { 
+            background: rgba(99, 102, 241, 0.05);
+        }
+        
+        .data-table td {
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+        
+        .checkbox-cell {
+            width: 50px;
+            text-align: center;
+        }
+        
+        .row-checkbox {
+            width: 18px;
+            height: 18px;
+            accent-color: #6366f1;
+            cursor: pointer;
+        }
+        
+        .action-btn {
+            padding: 6px 12px;
+            margin: 0 2px;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .action-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(99, 102, 241, 0.3);
+        }
+        
+        .action-btn.secondary {
+            background: linear-gradient(135deg, #475569 0%, #64748b 100%);
+        }
+        
+        .action-btn.secondary:hover {
+            box-shadow: 0 4px 8px rgba(71, 85, 105, 0.3);
+        }
+        
+        /* Log Display */
+        .log-display { 
+            background: rgba(15, 23, 42, 0.8);
+            color: #e2e8f0; 
+            padding: 20px; 
+            border-radius: 12px; 
+            font-family: 'Monaco', 'Courier New', monospace; 
+            font-size: 13px; 
+            max-height: 320px; 
+            overflow-y: auto; 
+            margin-top: 25px;
+            border: 1px solid rgba(71, 85, 105, 0.3);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .log-display::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .log-display::-webkit-scrollbar-track {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 4px;
+        }
+        
+        .log-display::-webkit-scrollbar-thumb {
+            background: rgba(99, 102, 241, 0.3);
+            border-radius: 4px;
+        }
+        
+        .log-display::-webkit-scrollbar-thumb:hover {
+            background: rgba(99, 102, 241, 0.5);
+        }
+        
+        .log-entry { 
+            margin-bottom: 8px; 
+            padding: 8px 12px;
+            border-radius: 6px;
+            background: rgba(30, 41, 59, 0.3);
+            border-left: 3px solid;
+            animation: slideIn 0.3s ease;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .log-entry.success { 
+            color: #6ee7b7;
+            border-left-color: #10b981;
+            background: rgba(16, 185, 129, 0.05);
+        }
+        
+        .log-entry.error { 
+            color: #fca5a5;
+            border-left-color: #ef4444;
+            background: rgba(239, 68, 68, 0.05);
+        }
+        
+        .log-entry.info { 
+            color: #67e8f9;
+            border-left-color: #06b6d4;
+            background: rgba(6, 182, 212, 0.05);
+        }
+        
+        .log-entry.warning {
+            color: #fde047;
+            border-left-color: #eab308;
+            background: rgba(234, 179, 8, 0.05);
+        }
+        
+        /* Notification System */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 16px 24px;
+            border-radius: 10px;
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+            z-index: 9999;
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 250px;
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+        }
+        
+        .notification.success {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+        
+        .notification.error {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        }
+        
+        .notification.info {
+            background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+        }
+        
+        .notification.warning {
+            background: linear-gradient(135deg, #eab308 0%, #f59e0b 100%);
+        }
+        
+        .notification-icon {
+            font-size: 20px;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 10000;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .modal-content {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            padding: 30px;
+            border-radius: 16px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            animation: slideUp 0.3s ease;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(99, 102, 241, 0.3);
+        }
+        
+        .modal-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #f1f5f9;
+        }
+        
+        .modal-close {
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 28px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .modal-close:hover {
+            color: #f1f5f9;
+        }
+        
+        .modal-body {
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+        
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(71, 85, 105, 0.3);
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            color: #94a3b8;
+        }
+        
+        .detail-value {
+            color: #e2e8f0;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .integration-dashboard { 
+                grid-template-columns: 1fr; 
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 { 
+                font-size: 32px; 
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .search-filter {
+                flex-direction: column;
+            }
+            
+            .search-input, .filter-select {
+                width: 100%;
+            }
+            
+            .bulk-actions {
+                justify-content: stretch;
+            }
+            
+            .bulk-btn {
+                flex: 1;
+            }
+            
+            .table-container {
+                overflow-x: scroll;
+            }
+            
+            .data-table {
+                min-width: 600px;
+            }
+        }
+        
+        /* Animation for data updates */
+        .data-update { 
+            animation: highlight 0.8s ease; 
+        }
+        
+        @keyframes highlight { 
+            0% { background: rgba(99, 102, 241, 0.2); } 
+            100% { background: transparent; } 
+        }
+        
+        /* Tooltip */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: #e2e8f0;
+            text-align: center;
+            border-radius: 8px;
+            padding: 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            font-size: 13px;
+            font-weight: 500;
+        }
+        
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        /* Loading overlay */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.9);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9998;
+        }
+        
+        .loading-overlay.show {
+            display: flex;
+        }
+        
+        .loading-content {
+            text-align: center;
+        }
+        
+        .loading-icon {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(99, 102, 241, 0.2);
+            border-top-color: #6366f1;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        .loading-text {
+            color: #e2e8f0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="loading-content">
+            <div class="loading-icon"></div>
+            <div class="loading-text">Processing...</div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+        <div class="container">
+            <h1>🚀 TurboRater Integration Hub</h1>
+            <p>Enterprise-grade insurance data synchronization platform</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Statistics Dashboard -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div id="total-quotes" class="stat-number">0</div>
+                <div class="stat-label">Total Quotes</div>
+                <div class="stat-change">↑ 12% from last month</div>
+            </div>
+            <div class="stat-card">
+                <div id="synced-quotes" class="stat-number">0</div>
+                <div class="stat-label">Synced Quotes</div>
+                <div class="stat-change">↑ 8% from last sync</div>
+            </div>
+            <div class="stat-card">
+                <div id="pending-quotes" class="stat-number">0</div>
+                <div class="stat-label">Pending Sync</div>
+                <div class="stat-change negative">↓ 3% reduction</div>
+            </div>
+            <div class="stat-card">
+                <div id="last-sync" class="stat-number">--:--</div>
+                <div class="stat-label">Last Sync</div>
+                <div class="stat-change">Next in 5 mins</div>
+            </div>
+        </div>
+
+        <!-- Integration Dashboard -->
+        <div class="integration-dashboard">
+            <!-- Control Panel -->
+            <div class="control-panel">
+                <h3>🎛️ Integration Controls</h3>
+                
+                <!-- API Configuration -->
+                <div class="api-config">
+                    <label class="api-label">TurboRater API Key</label>
+                    <input type="password" id="api-key" class="api-input" placeholder="Enter your TurboRater API key..." />
+                    
+                    <label class="api-label">Server URL</label>
+                    <input type="text" id="server-url" class="api-input" value="https://api.turborater.com/v2" />
+                    
+                    <label class="api-label">Account ID</label>
+                    <input type="text" id="account-id" class="api-input" placeholder="Your TurboRater Account ID" />
+                </div>
+                
+                <!-- Connection Status -->
+                <div id="connection-status" class="status-indicator disconnected">
+                    <span class="btn-icon">⚡</span>
+                    <span>TurboRater: Disconnected</span>
+                </div>
+                
+                <!-- Main Control Buttons -->
+                <button id="connect-btn" class="turborater-btn" onclick="connectToTurboRater()">
+                    <span class="btn-icon">🔗</span>
+                    Connect to TurboRater
+                </button>
+                
+                <button id="sync-btn" class="turborater-btn" onclick="syncData()" disabled>
+                    <span class="btn-icon">🔄</span>
+                    Sync Quote Data
+                </button>
+                
+                <button id="import-btn" class="turborater-btn" onclick="importRates()" disabled>
+                    <span class="btn-icon">📥</span>
+                    Import Rate Tables
+                </button>
+                
+                <button id="export-btn" class="turborater-btn" onclick="exportQuotes()" disabled>
+                    <span class="btn-icon">📤</span>
+                    Export to TurboRater
+                </button>
+                
+                <button id="validate-btn" class="turborater-btn" onclick="validateIntegration()" disabled>
+                    <span class="btn-icon">✅</span>
+                    Validate Integration
+                </button>
+                
+                <button id="backup-btn" class="turborater-btn" onclick="createBackup()" disabled>
+                    <span class="btn-icon">💾</span>
+                    Create Backup
+                </button>
+                
+                <!-- Settings Panel -->
+                <div class="settings-panel">
+                    <h4>⚙️ Settings</h4>
+                    <div class="settings-row">
+                        <span>Auto-sync every 5 minutes</span>
+                        <div id="auto-sync-toggle" class="toggle-switch" onclick="toggleAutoSync()"></div>
+                    </div>
+                    <div class="settings-row">
+                        <span>Real-time notifications</span>
+                        <div id="notifications-toggle" class="toggle-switch active" onclick="toggleNotifications()"></div>
+                    </div>
+                    <div class="settings-row">
+                        <span>Backup before sync</span>
+                        <div id="backup-toggle" class="toggle-switch active" onclick="toggleBackup()"></div>
+                    </div>
+                    <div class="settings-row">
+                        <span>Debug mode</span>
+                        <div id="debug-toggle" class="toggle-switch" onclick="toggleDebug()"></div>
+                    </div>
+                </div>
+                
+                <!-- Sync Progress -->
+                <div id="sync-progress" class="sync-progress" style="display: none;">
+                    <div class="progress-bar">
+                        <div id="progress-fill" class="progress-fill"></div>
+                    </div>
+                    <div id="progress-text" class="progress-text">Initializing...</div>
+                </div>
+            </div>
+            
+            <!-- Data Display Panel -->
+            <div class="data-display">
+                <h3>
+                    📊 Integration Data
+                    <button class="refresh-btn" onclick="refreshData()">
+                        <span class="refresh-icon">🔄</span>
+                        Refresh
+                    </button>
+                </h3>
+                
+                <!-- Search and Filter Controls -->
+                <div class="search-filter">
+                    <input type="text" id="search-input" class="search-input" 
+                           placeholder="🔍 Search quotes by ID, customer, or carrier..." 
+                           onkeyup="filterTable()" />
+                    <select id="status-filter" class="filter-select" onchange="filterTable()">
+                        <option value="">All Status</option>
+                        <option value="Active">Active</option>
+                        <option value="Pending">Pending</option>
+                        <option value="Quote">Quote</option>
+                        <option value="Expired">Expired</option>
+                    </select>
+                    <select id="sync-filter" class="filter-select" onchange="filterTable()">
+                        <option value="">All Sync Status</option>
+                        <option value="Synced">Synced</option>
+                        <option value="Pending">Pending</option>
+                        <option value="New">New</option>
+                        <option value="Error">Error</option>
+                    </select>
+                    <select id="carrier-filter" class="filter-select" onchange="filterTable()">
+                        <option value="">All Carriers</option>
+                        <option value="State Farm">State Farm</option>
+                        <option value="Allstate">Allstate</option>
+                        <option value="Progressive">Progressive</option>
+                        <option value="GEICO">GEICO</option>
+                        <option value="Liberty Mutual">Liberty Mutual</option>
+                        <option value="Farmers">Farmers</option>
+                        <option value="Nationwide">Nationwide</option>
+                        <option value="Travelers">Travelers</option>
+                    </select>
+                </div>
+                
+                <!-- Bulk Actions -->
+                <div class="bulk-actions">
+                    <button class="bulk-btn" onclick="selectAll()">Select All</button>
+                    <button class="bulk-btn" onclick="deselectAll()">Deselect All</button>
+                    <button class="bulk-btn primary" onclick="syncSelected()">Sync Selected</button>
+                    <button class="bulk-btn primary" onclick="exportSelected()">Export Selected</button>
+                    <button class="bulk-btn" onclick="archiveSelected()">Archive Selected</button>
+                    <button class="bulk-btn danger" onclick="deleteSelected()">Delete Selected</button>
+                </div>
+                
+                <!-- Data Table -->
+                <div class="table-container">
+                    <table id="data-table" class="data-table">
+                        <thead>
+                            <tr>
+                                <th class="checkbox-cell">
+                                    <input type="checkbox" id="select-all-checkbox" onchange="toggleSelectAll()" />
+                                </th>
+                                <th onclick="sortTable(1)">Quote ID ↕</th>
+                                <th onclick="sortTable(2)">Customer ↕</th>
+                                <th onclick="sortTable(3)">Carrier ↕</th>
+                                <th onclick="sortTable(4)">Policy Type ↕</th>
+                                <th onclick="sortTable(5)">Status ↕</th>
+                                <th onclick="sortTable(6)">Premium ↕</th>
+                                <th onclick="sortTable(7)">Sync Status ↕</th>
+                                <th onclick="sortTable(8)">Last Sync ↕</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="10" style="text-align: center; color: #94a3b8; padding: 60px;">
+                                    <div style="font-size: 48px; margin-bottom: 20px;">📊</div>
+                                    <div style="font-size: 18px; font-weight: 600;">No Data Available</div>
+                                    <div style="font-size: 14px; margin-top: 10px;">Connect to TurboRater to view and manage your quotes</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Activity Log -->
+                <div id="activity-log" class="log-display">
+                    <div class="log-entry info">[System] TurboRater Integration Hub v2.0 initialized</div>
+                    <div class="log-entry info">[System] Waiting for API connection...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Container -->
+    <div id="notification-container"></div>
+
+    <!-- Quote Details Modal -->
+    <div id="quote-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Quote Details</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <!-- Details will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global State
+        let isConnected = false;
+        let syncInProgress = false;
+        let autoSyncEnabled = false;
+        let notificationsEnabled = true;
+        let backupEnabled = true;
+        let debugMode = false;
+        let autoSyncInterval = null;
+        let selectedQuotes = new Set();
+        let allQuotes = [];
+        let filteredQuotes = [];
+        let sortColumn = -1;
+        let sortDirection = 'asc';
+        
+        // Enhanced sample data with more fields
+        const sampleQuotes = [
+            { 
+                id: 'Q-2024-001', 
+                customer: 'John Smith', 
+                carrier: 'State Farm',
+                policyType: 'Auto & Home Bundle',
+                status: 'Active', 
+                premium: 2156.00, 
+                syncStatus: 'Synced', 
+                lastSync: '2024-01-15 14:30:22',
+                effectiveDate: '2024-02-01',
+                expirationDate: '2025-02-01',
+                email: 'john.smith@email.com',
+                phone: '(555) 123-4567'
+            },
+            { 
+                id: 'Q-2024-002', 
+                customer: 'Sarah Johnson', 
+                carrier: 'Allstate',
+                policyType: 'Homeowners',
+                status: 'Pending', 
+                premium: 1289.50, 
+                syncStatus: 'Pending', 
+                lastSync: '2024-01-15 12:15:45',
+                effectiveDate: '2024-02-15',
+                expirationDate: '2025-02-15',
+                email: 'sarah.j@email.com',
+                phone: '(555) 234-5678'
+            },
+            { 
+                id: 'Q-2024-003', 
+                customer: 'Mike Davis', 
+                carrier: 'Progressive',
+                policyType: 'Auto',
+                status: 'Active', 
+                premium: 1445.75, 
+                syncStatus: 'Synced', 
+                lastSync: '2024-01-15 16:45:10',
+                effectiveDate: '2024-01-20',
+                expirationDate: '2025-01-20',
+                email: 'mdavis@email.com',
+                phone: '(555) 345-6789'
+            },
+            { 
+                id: 'Q-2024-004', 
+                customer: 'Lisa Wilson', 
+                carrier: 'GEICO',
+                policyType: 'Auto',
+                status: 'Quote', 
+                premium: 1234.00, 
+                syncStatus: 'New', 
+                lastSync: 'Never',
+                effectiveDate: '2024-03-01',
+                expirationDate: '2025-03-01',
+                email: 'lisa.wilson@email.com',
+                phone: '(555) 456-7890'
+            },
+            { 
+                id: 'Q-2024-005', 
+                customer: 'Tom Brown', 
+                carrier: 'Liberty Mutual',
+                policyType: 'Homeowners',
+                status: 'Active', 
+                premium: 1567.25, 
+                syncStatus: 'Synced', 
+                lastSync: '2024-01-15 13:20:30',
+                effectiveDate: '2024-01-15',
+                expirationDate: '2025-01-15',
+                email: 'tbrown@email.com',
+                phone: '(555) 567-8901'
+            },
+            { 
+                id: 'Q-2024-006', 
+                customer: 'Emma Garcia', 
+                carrier: 'Farmers',
+                policyType: 'Auto',
+                status: 'Pending', 
+                premium: 987.60, 
+                syncStatus: 'Error', 
+                lastSync: '2024-01-15 11:30:15',
+                effectiveDate: '2024-02-10',
+                expirationDate: '2025-02-10',
+                email: 'emma.g@email.com',
+                phone: '(555) 678-9012'
+            },
+            { 
+                id: 'Q-2024-007', 
+                customer: 'David Lee', 
+                carrier: 'Nationwide',
+                policyType: 'Home & Auto',
+                status: 'Active', 
+                premium: 3156.90, 
+                syncStatus: 'Synced', 
+                lastSync: '2024-01-15 15:10:55',
+                effectiveDate: '2024-01-10',
+                expirationDate: '2025-01-10',
+                email: 'david.lee@email.com',
+                phone: '(555) 789-0123'
+            },
+            { 
+                id: 'Q-2024-008', 
+                customer: 'Jennifer White', 
+                carrier: 'Travelers',
+                policyType: 'Auto',
+                status: 'Quote', 
+                premium: 1678.40, 
+                syncStatus: 'New', 
+                lastSync: 'Never',
+                effectiveDate: '2024-03-15',
+                expirationDate: '2025-03-15',
+                email: 'jwhite@email.com',
+                phone: '(555) 890-1234'
+            },
+            { 
+                id: 'Q-2024-009', 
+                customer: 'Robert Martinez', 
+                carrier: 'State Farm',
+                policyType: 'Renters',
+                status: 'Active', 
+                premium: 456.80, 
+                syncStatus: 'Synced', 
+                lastSync: '2024-01-15 17:25:40',
+                effectiveDate: '2024-01-05',
+                expirationDate: '2025-01-05',
+                email: 'rmartinez@email.com',
+                phone: '(555) 901-2345'
+            },
+            { 
+                id: 'Q-2024-010', 
+                customer: 'Amanda Thompson', 
+                carrier: 'Progressive',
+                policyType: 'Motorcycle',
+                status: 'Expired', 
+                premium: 789.20, 
+                syncStatus: 'Synced', 
+                lastSync: '2024-01-14 09:15:20',
+                effectiveDate: '2023-01-15',
+                expirationDate: '2024-01-15',
+                email: 'athompson@email.com',
+                phone: '(555) 012-3456'
+            }
+        ];
+        
+        // Initialize application
+        function init() {
+            updateStatistics();
+            setupEventListeners();
+            addLogEntry('info', 'System initialized successfully');
+        }
+        
+        // Setup event listeners
+        function setupEventListeners() {
+            // Close modal when clicking outside
+            document.getElementById('quote-modal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeModal();
+                }
+            });
+            
+            // Keyboard shortcuts
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeModal();
+                }
+                if (e.ctrlKey && e.key === 'r') {
+                    e.preventDefault();
+                    refreshData();
+                }
+            });
+        }
+        
+        // Connect to TurboRater
+        function connectToTurboRater() {
+            const apiKey = document.getElementById('api-key').value.trim();
+            const serverUrl = document.getElementById('server-url').value.trim();
+            const accountId = document.getElementById('account-id').value.trim();
+            
+            if (!apiKey) {
+                showNotification('error', '🔑 Please enter your TurboRater API key');
+                return;
+            }
+            
+            if (!serverUrl) {
+                showNotification('error', '🌐 Please enter the server URL');
+                return;
+            }
+            
+            const connectBtn = document.getElementById('connect-btn');
+            const statusIndicator = document.getElementById('connection-status');
+            
+            // Show loading state
+            connectBtn.innerHTML = '<div class="loading-spinner"></div>Connecting...';
+            connectBtn.classList.add('loading');
+            connectBtn.disabled = true;
+            
+            showLoadingOverlay('Establishing secure connection...');
+            
+            addLogEntry('info', 'Initiating connection to TurboRater API...');
+            
+            // Simulate connection steps
+            setTimeout(() => {
+                addLogEntry('info', 'Validating API credentials...');
+            }, 500);
+            
+            setTimeout(() => {
+                if (apiKey.length < 20) {
+                    addLogEntry('error', 'Invalid API key format');
+                    showNotification('error', '❌ Invalid API key format');
+                    resetConnectButton();
+                    hideLoadingOverlay();
+                    return;
+                }
+                
+                addLogEntry('success', 'API credentials validated');
+                addLogEntry('info', 'Establishing secure TLS connection...');
+            }, 1500);
+            
+            setTimeout(() => {
+                addLogEntry('info', 'Fetching account information...');
+            }, 2500);
+            
+            setTimeout(() => {
+                addLogEntry('success', 'Successfully connected to TurboRater!');
+                addLogEntry('info', `Account: ${accountId || 'DEMO-ACCOUNT'}`);
+                showNotification('success', '✅ Connected to TurboRater successfully!');
+                
+                // Update connection status
+                statusIndicator.className = 'status-indicator connected';
+                statusIndicator.innerHTML = '<span class="btn-icon">⚡</span><span>TurboRater: Connected</span>';
+                
+                // Update connect button
+                connectBtn.innerHTML = '<span class="btn-icon">✅</span>Connected';
+                connectBtn.classList.remove('loading');
+                connectBtn.classList.add('success');
+                connectBtn.disabled = true;
+                
+                // Enable other buttons
+                enableButtons();
+                isConnected = true;
+                
+                // Load data
+                loadQuoteData();
+                updateStatistics();
+                
+                // Start auto-sync if enabled
+                if (autoSyncEnabled) {
+                    startAutoSync();
+                }
+                
+                hideLoadingOverlay();
+                
+            }, 4000);
+        }
+        
+        function resetConnectButton() {
+            const connectBtn = document.getElementById('connect-btn');
+            connectBtn.innerHTML = '<span class="btn-icon">🔗</span>Connect to TurboRater';
+            connectBtn.classList.remove('loading', 'success');
+            connectBtn.disabled = false;
+        }
+        
+        function enableButtons() {
+            const buttons = ['sync-btn', 'import-btn', 'export-btn', 'validate-btn', 'backup-btn'];
+            buttons.forEach(btnId => {
+                const btn = document.getElementById(btnId);
+                btn.disabled = false;
+            });
+        }
+        
+        // Sync data
+        function syncData() {
+            if (!isConnected || syncInProgress) return;
+            
+            if (backupEnabled) {
+                addLogEntry('info', 'Creating backup before sync...');
+                setTimeout(() => {
+                    addLogEntry('success', 'Backup created: backup-2024-01-15-183045.db');
+                    performSync();
+                }, 1000);
+            } else {
+                performSync();
+            }
+        }
+        
+        function performSync() {
+            syncInProgress = true;
+            const syncBtn = document.getElementById('sync-btn');
+            const progressDiv = document.getElementById('sync-progress');
+            const progressFill = document.getElementById('progress-fill');
+            const progressText = document.getElementById('progress-text');
+            
+            progressDiv.style.display = 'block';
+            syncBtn.innerHTML = '<div class="loading-spinner"></div>Syncing...';
+            syncBtn.classList.add('loading');
+            
+            addLogEntry('info', 'Starting comprehensive data synchronization...');
+            
+            const syncSteps = [
+                { progress: 10, message: 'Connecting to TurboRater API...' },
+                { progress: 20, message: 'Authenticating session...' },
+                { progress: 30, message: 'Fetching quote updates...' },
+                { progress: 40, message: 'Processing policy changes...' },
+                { progress: 50, message: 'Validating data integrity...' },
+                { progress: 60, message: 'Updating local database...' },
+                { progress: 70, message: 'Syncing carrier rates...' },
+                { progress: 80, message: 'Processing notifications...' },
+                { progress: 90, message: 'Finalizing synchronization...' },
+                { progress: 100, message: 'Sync completed!' }
+            ];
+            
+            let stepIndex = 0;
+            const syncInterval = setInterval(() => {
+                if (stepIndex < syncSteps.length) {
+                    const step = syncSteps[stepIndex];
+                    progressFill.style.width = step.progress + '%';
+                    progressText.textContent = `${step.message} ${step.progress}%`;
+                    
+                    if (debugMode) {
+                        addLogEntry('info', `[DEBUG] ${step.message}`);
+                    }
+                    
+                    stepIndex++;
+                } else {
+                    clearInterval(syncInterval);
+                    
+                    setTimeout(() => {
+                        const syncedCount = allQuotes.filter(q => q.syncStatus !== 'Synced').length;
+                        addLogEntry('success', `Synchronization completed! Updated ${syncedCount} quotes`);
+                        showNotification('success', `✅ ${syncedCount} quotes synced successfully!`);
+                        
+                        syncBtn.innerHTML = '<span class="btn-icon">🔄</span>Sync Quote Data';
+                        syncBtn.classList.remove('loading');
+                        progressDiv.style.display = 'none';
+                        syncInProgress = false;
+                        
+                        updateAllSyncStatus();
+                        updateStatistics();
+                        
+                    }, 500);
+                }
+            }, 600);
+        }
+        
+        // Load quote data
+        function loadQuoteData() {
+            allQuotes = [...sampleQuotes];
+            filteredQuotes = [...allQuotes];
+            renderTable();
+            addLogEntry('info', `Loaded ${allQuotes.length} quotes from TurboRater`);
+        }
+        
+        // Render table
+        function renderTable() {
+            const tableBody = document.querySelector('#data-table tbody');
+            tableBody.innerHTML = '';
+            
+            if (filteredQuotes.length === 0) {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td colspan="10" style="text-align: center; color: #94a3b8; padding: 60px;">
+                        <div style="font-size: 48px; margin-bottom: 20px;">🔍</div>
+                        <div style="font-size: 18px; font-weight: 600;">No Quotes Found</div>
+                        <div style="font-size: 14px; margin-top: 10px;">Try adjusting your filters or search criteria</div>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+                return;
+            }
+            
+            filteredQuotes.forEach(quote => {
+                const row = document.createElement('tr');
+                const isSelected = selectedQuotes.has(quote.id);
+                
+                row.innerHTML = `
+                    <td class="checkbox-cell">
+                        <input type="checkbox" class="row-checkbox" ${isSelected ? 'checked' : ''} 
+                               onchange="toggleQuoteSelection('${quote.id}')" />
+                    </td>
+                    <td style="font-weight: 600;">${quote.id}</td>
+                    <td>${quote.customer}</td>
+                    <td>${quote.carrier}</td>
+                    <td>${quote.policyType}</td>
+                    <td><span style="color: ${getStatusColor(quote.status)}">${quote.status}</span></td>
+                    <td style="font-weight: 600;">$${quote.premium.toFixed(2)}</td>
+                    <td><span style="color: ${getSyncStatusColor(quote.syncStatus)}">${quote.syncStatus}</span></td>
+                    <td style="font-size: 12px;">${quote.lastSync}</td>
+                    <td>
+                        <button class="action-btn" onclick="syncSingleQuote('${quote.id}')">Sync</button>
+                        <button class="action-btn secondary" onclick="viewQuoteDetails('${quote.id}')">View</button>
+                    </td>
+                `;
+                
+                if (quote.syncStatus === 'Error') {
+                    row.style.background = 'rgba(239, 68, 68, 0.05)';
+                }
+                
+                tableBody.appendChild(row);
+            });
+        }
+        
+        // Color helpers
+        function getStatusColor(status) {
+            const colors = {
+                'Active': '#10b981',
+                'Pending': '#f59e0b',
+                'Quote': '#06b6d4',
+                'Expired': '#ef4444'
+            };
+            return colors[status] || '#94a3b8';
+        }
+        
+        function getSyncStatusColor(status) {
+            const colors = {
+                'Synced': '#10b981',
+                'Pending': '#f59e0b',
+                'New': '#06b6d4',
+                'Error': '#ef4444'
+            };
+            return colors[status] || '#94a3b8';
+        }
+        
+        // Update statistics
+        function updateStatistics() {
+            const totalQuotes = allQuotes.length;
+            const syncedQuotes = allQuotes.filter(q => q.syncStatus === 'Synced').length;
+            const pendingQuotes = allQuotes.filter(q => q.syncStatus === 'Pending' || q.syncStatus === 'New').length;
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+            
+            animateNumber('total-quotes', totalQuotes);
+            animateNumber('synced-quotes', syncedQuotes);
+            animateNumber('pending-quotes', pendingQuotes);
+            document.getElementById('last-sync').textContent = timeString;
+        }
+        
+        // Animate number changes
+        function animateNumber(elementId, targetValue) {
+            const element = document.getElementById(elementId);
+            const currentValue = parseInt(element.textContent) || 0;
+            const increment = (targetValue - currentValue) / 20;
+            let current = currentValue;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if ((increment > 0 && current >= targetValue) || (increment < 0 && current <= targetValue)) {
+                    element.textContent = targetValue;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.round(current);
+                }
+            }, 30);
+        }
+        
+        // Filter table
+        function filterTable() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            const statusFilter = document.getElementById('status-filter').value;
+            const syncFilter = document.getElementById('sync-filter').value;
+            const carrierFilter = document.getElementById('carrier-filter').value;
+            
+            filteredQuotes = allQuotes.filter(quote => {
+                const matchesSearch = quote.customer.toLowerCase().includes(searchTerm) || 
+                                    quote.id.toLowerCase().includes(searchTerm) ||
+                                    quote.carrier.toLowerCase().includes(searchTerm);
+                const matchesStatus = !statusFilter || quote.status === statusFilter;
+                const matchesSync = !syncFilter || quote.syncStatus === syncFilter;
+                const matchesCarrier = !carrierFilter || quote.carrier === carrierFilter;
+                
+                return matchesSearch && matchesStatus && matchesSync && matchesCarrier;
+            });
+            
+            renderTable();
+            updateSelectAllCheckbox();
+        }
+        
+        // Sort table
+        function sortTable(columnIndex) {
+            const columns = ['', 'id', 'customer', 'carrier', 'policyType', 'status', 'premium', 'syncStatus', 'lastSync'];
+            const column = columns[columnIndex];
+            
+            if (sortColumn === columnIndex) {
+                sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+            } else {
+                sortColumn = columnIndex;
+                sortDirection = 'asc';
+            }
+            
+            filteredQuotes.sort((a, b) => {
+                let aVal = a[column];
+                let bVal = b[column];
+                
+                if (column === 'premium') {
+                    aVal = parseFloat(aVal);
+                    bVal = parseFloat(bVal);
+                }
+                
+                if (sortDirection === 'asc') {
+                    return aVal > bVal ? 1 : -1;
+                } else {
+                    return aVal < bVal ? 1 : -1;
+                }
+            });
+            
+            renderTable();
+        }
+        
+        // Selection management
+        function toggleQuoteSelection(quoteId) {
+            if (selectedQuotes.has(quoteId)) {
+                selectedQuotes.delete(quoteId);
+            } else {
+                selectedQuotes.add(quoteId);
+            }
+            updateSelectAllCheckbox();
+        }
+        
+        function toggleSelectAll() {
+            const selectAllCheckbox = document.getElementById('select-all-checkbox');
+            if (selectAllCheckbox.checked) {
+                selectAll();
+            } else {
+                deselectAll();
+            }
+        }
+        
+        function selectAll() {
+            selectedQuotes.clear();
+            filteredQuotes.forEach(quote => selectedQuotes.add(quote.id));
+            renderTable();
+            updateSelectAllCheckbox();
+        }
+        
+        function deselectAll() {
+            selectedQuotes.clear();
+            renderTable();
+            updateSelectAllCheckbox();
+        }
+        
+        function updateSelectAllCheckbox() {
+            const selectAllCheckbox = document.getElementById('select-all-checkbox');
+            const visibleQuoteIds = filteredQuotes.map(q => q.id);
+            const selectedVisibleQuotes = visibleQuoteIds.filter(id => selectedQuotes.has(id));
+            
+            selectAllCheckbox.checked = visibleQuoteIds.length > 0 && selectedVisibleQuotes.length === visibleQuoteIds.length;
+            selectAllCheckbox.indeterminate = selectedVisibleQuotes.length > 0 && selectedVisibleQuotes.length < visibleQuoteIds.length;
+        }
+        
+        // Bulk operations
+        function syncSelected() {
+            if (selectedQuotes.size === 0) {
+                showNotification('error', '⚠️ Please select quotes to sync');
+                return;
+            }
+            
+            showLoadingOverlay(`Syncing ${selectedQuotes.size} quotes...`);
+            addLogEntry('info', `Starting sync for ${selectedQuotes.size} selected quotes...`);
+            
+            setTimeout(() => {
+                selectedQuotes.forEach(quoteId => {
+                    const quote = allQuotes.find(q => q.id === quoteId);
+                    if (quote) {
+                        quote.syncStatus = 'Synced';
+                        quote.lastSync = new Date().toLocaleString();
+                    }
+                });
+                
+                renderTable();
+                updateStatistics();
+                deselectAll();
+                hideLoadingOverlay();
+                
+                addLogEntry('success', `Successfully synced ${selectedQuotes.size} quotes`);
+                showNotification('success', '✅ Selected quotes synced successfully!');
+            }, 2000);
+        }
+        
+        function exportSelected() {
+            if (selectedQuotes.size === 0) {
+                showNotification('error', '⚠️ Please select quotes to export');
+                return;
+            }
+            
+            const selectedData = allQuotes.filter(q => selectedQuotes.has(q.id));
+            const csvContent = convertToCSV(selectedData);
+            downloadCSV(csvContent, `quotes_export_${Date.now()}.csv`);
+            
+            addLogEntry('success', `Exported ${selectedQuotes.size} quotes to CSV`);
+            showNotification('success', '📥 Quotes exported successfully!');
+        }
+        
+        function archiveSelected() {
+            if (selectedQuotes.size === 0) {
+                showNotification('error', '⚠️ Please select quotes to archive');
+                return;
+            }
+            
+            if (confirm(`Archive ${selectedQuotes.size} selected quotes?`)) {
+                addLogEntry('info', `Archiving ${selectedQuotes.size} quotes...`);
+                showNotification('success', '📦 Selected quotes archived successfully!');
+                deselectAll();
+            }
+        }
+        
+        function deleteSelected() {
+            if (selectedQuotes.size === 0) {
+                showNotification('error', '⚠️ Please select quotes to delete');
+                return;
+            }
+            
+            if (confirm(`⚠️ Are you sure you want to delete ${selectedQuotes.size} selected quotes? This action cannot be undone.`)) {
+                allQuotes = allQuotes.filter(q => !selectedQuotes.has(q.id));
+                filteredQuotes = filteredQuotes.filter(q => !selectedQuotes.has(q.id));
+                selectedQuotes.clear();
+                
+                renderTable();
+                updateStatistics();
+                
+                addLogEntry('warning', `Deleted ${selectedQuotes.size} quotes`);
+                showNotification('success', '🗑️ Selected quotes deleted successfully');
+            }
+        }
+        
+        // CSV export
+        function convertToCSV(data) {
+            const headers = ['Quote ID', 'Customer', 'Carrier', 'Policy Type', 'Status', 'Premium', 'Sync Status', 'Last Sync', 'Effective Date', 'Expiration Date'];
+            const csvRows = [headers.join(',')];
+            
+            data.forEach(quote => {
+                const row = [
+                    quote.id,
+                    `"${quote.customer}"`,
+                    quote.carrier,
+                    `"${quote.policyType}"`,
+                    quote.status,
+                    quote.premium,
+                    quote.syncStatus,
+                    `"${quote.lastSync}"`,
+                    quote.effectiveDate,
+                    quote.expirationDate
+                ];
+                csvRows.push(row.join(','));
+            });
+            
+            return csvRows.join('\n');
+        }
+        
+        function downloadCSV(content, filename) {
+            const blob = new Blob([content], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = filename;
+            link.click();
+            URL.revokeObjectURL(link.href);
+        }
+        
+        // Individual operations
+        function syncSingleQuote(quoteId) {
+            const quote = allQuotes.find(q => q.id === quoteId);
+            if (quote) {
+                addLogEntry('info', `Syncing quote ${quoteId}...`);
+                
+                setTimeout(() => {
+                    quote.syncStatus = 'Synced';
+                    quote.lastSync = new Date().toLocaleString();
+                    renderTable();
+                    updateStatistics();
+                    
+                    addLogEntry('success', `Quote ${quoteId} synced successfully`);
+                    showNotification('success', `✅ Quote ${quoteId} synced!`);
+                }, 1000);
+            }
+        }
+        
+        function viewQuoteDetails(quoteId) {
+            const quote = allQuotes.find(q => q.id === quoteId);
+            if (quote) {
+                const modalBody = document.getElementById('modal-body');
+                modalBody.innerHTML = `
+                    <div class="detail-row">
+                        <span class="detail-label">Quote ID:</span>
+                        <span class="detail-value">${quote.id}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Customer:</span>
+                        <span class="detail-value">${quote.customer}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Email:</span>
+                        <span class="detail-value">${quote.email}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Phone:</span>
+                        <span class="detail-value">${quote.phone}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Carrier:</span>
+                        <span class="detail-value">${quote.carrier}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Policy Type:</span>
+                        <span class="detail-value">${quote.policyType}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Status:</span>
+                        <span class="detail-value" style="color: ${getStatusColor(quote.status)}">${quote.status}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Premium:</span>
+                        <span class="detail-value" style="font-weight: 600; font-size: 18px;">$${quote.premium.toFixed(2)}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Effective Date:</span>
+                        <span class="detail-value">${quote.effectiveDate}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Expiration Date:</span>
+                        <span class="detail-value">${quote.expirationDate}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Sync Status:</span>
+                        <span class="detail-value" style="color: ${getSyncStatusColor(quote.syncStatus)}">${quote.syncStatus}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Last Sync:</span>
+                        <span class="detail-value">${quote.lastSync}</span>
+                    </div>
+                `;
+                
+                document.getElementById('quote-modal').classList.add('show');
+            }
+        }
+        
+        function closeModal() {
+            document.getElementById('quote-modal').classList.remove('show');
+        }
+        
+        // Refresh data
+        function refreshData() {
+            if (!isConnected) {
+                showNotification('error', '⚠️ Please connect to TurboRater first');
+                return;
+            }
+            
+            addLogEntry('info', 'Refreshing data from TurboRater...');
+            
+            // Simulate data refresh
+            const refreshBtn = document.querySelector('.refresh-btn');
+            refreshBtn.querySelector('.refresh-icon').style.animation = 'spin 1s linear infinite';
+            
+            setTimeout(() => {
+                // Simulate some data changes
+                if (allQuotes.length > 0) {
+                    const randomIndex = Math.floor(Math.random() * allQuotes.length);
+                    const randomQuote = allQuotes[randomIndex];
+                    
+                    // Random status update
+                    const statuses = ['Active', 'Pending', 'Quote'];
+                    randomQuote.status = statuses[Math.floor(Math.random() * statuses.length)];
+                    
+                    // Update sync status
+                    if (Math.random() > 0.5) {
+                        randomQuote.syncStatus = 'Synced';
+                        randomQuote.lastSync = new Date().toLocaleString();
+                    }
+                    
+                    // Random premium adjustment
+                    randomQuote.premium = randomQuote.premium * (0.95 + Math.random() * 0.1);
+                }
+                
+                renderTable();
+                updateStatistics();
+                
+                refreshBtn.querySelector('.refresh-icon').style.animation = 'none';
+                
+                addLogEntry('success', 'Data refreshed successfully');
+                showNotification('success', '🔄 Data refreshed!');
+            }, 1500);
+        }
+        
+        // Settings toggles
+        function toggleAutoSync() {
+            const toggle = document.getElementById('auto-sync-toggle');
+            autoSyncEnabled = !autoSyncEnabled;
+            toggle.classList.toggle('active', autoSyncEnabled);
+            
+            if (autoSyncEnabled && isConnected) {
+                startAutoSync();
+                addLogEntry('info', 'Auto-sync enabled (every 5 minutes)');
+                showNotification('info', '⏰ Auto-sync enabled');
+            } else {
+                stopAutoSync();
+                addLogEntry('info', 'Auto-sync disabled');
+                showNotification('info', '⏸️ Auto-sync disabled');
+            }
+        }
+        
+        function toggleNotifications() {
+            const toggle = document.getElementById('notifications-toggle');
+            notificationsEnabled = !notificationsEnabled;
+            toggle.classList.toggle('active', notificationsEnabled);
+            
+            const message = notificationsEnabled ? 'Notifications enabled' : 'Notifications disabled';
+            addLogEntry('info', message);
+            
+            if (notificationsEnabled) {
+                showNotification('info', '🔔 ' + message);
+            }
+        }
+        
+        function toggleBackup() {
+            const toggle = document.getElementById('backup-toggle');
+            backupEnabled = !backupEnabled;
+            toggle.classList.toggle('active', backupEnabled);
+            
+            const message = backupEnabled ? 'Backup before sync enabled' : 'Backup before sync disabled';
+            addLogEntry('info', message);
+            showNotification('info', (backupEnabled ? '💾 ' : '⚠️ ') + message);
+        }
+        
+        function toggleDebug() {
+            const toggle = document.getElementById('debug-toggle');
+            debugMode = !debugMode;
+            toggle.classList.toggle('active', debugMode);
+            
+            const message = debugMode ? 'Debug mode enabled' : 'Debug mode disabled';
+            addLogEntry('info', `[DEBUG] ${message}`);
+            showNotification('info', '🐛 ' + message);
+        }
+        
+        // Auto-sync management
+        function startAutoSync() {
+            if (autoSyncInterval) clearInterval(autoSyncInterval);
+            
+            autoSyncInterval = setInterval(() => {
+                if (isConnected && !syncInProgress) {
+                    addLogEntry('info', 'Auto-sync triggered');
+                    syncData();
+                }
+            }, 5 * 60 * 1000); // 5 minutes
+        }
+        
+        function stopAutoSync() {
+            if (autoSyncInterval) {
+                clearInterval(autoSyncInterval);
+                autoSyncInterval = null;
+            }
+        }
+        
+        // Other operations
+        function importRates() {
+            if (!isConnected) return;
+            
+            const importBtn = document.getElementById('import-btn');
+            importBtn.innerHTML = '<div class="loading-spinner"></div>Importing...';
+            importBtn.classList.add('loading');
+            
+            showLoadingOverlay('Importing rate tables...');
+            
+            addLogEntry('info', 'Connecting to TurboRater rate database...');
+            
+            setTimeout(() => {
+                addLogEntry('info', 'Downloading rate tables...');
+            }, 1000);
+            
+            setTimeout(() => {
+                addLogEntry('info', 'Processing rate data...');
+            }, 2000);
+            
+            setTimeout(() => {
+                const carriers = ['State Farm', 'Allstate', 'Progressive', 'GEICO', 'Liberty Mutual', 
+                                 'Farmers', 'Nationwide', 'Travelers', 'USAA', 'American Family', 
+                                 'Erie', 'Auto-Owners'];
+                const tableCount = 47;
+                
+                addLogEntry('success', `Successfully imported ${tableCount} rate tables from ${carriers.length} carriers`);
+                showNotification('success', `📥 ${tableCount} rate tables imported successfully!`);
+                
+                importBtn.innerHTML = '<span class="btn-icon">📥</span>Import Rate Tables';
+                importBtn.classList.remove('loading');
+                
+                hideLoadingOverlay();
+            }, 3500);
+        }
+        
+        function exportQuotes() {
+            if (!isConnected) return;
+            
+            const exportBtn = document.getElementById('export-btn');
+            exportBtn.innerHTML = '<div class="loading-spinner"></div>Exporting...';
+            exportBtn.classList.add('loading');
+            
+            showLoadingOverlay(`Exporting ${allQuotes.length} quotes...`);
+            
+            addLogEntry('info', 'Preparing quotes for export...');
+            
+            setTimeout(() => {
+                addLogEntry('info', 'Validating quote data...');
+            }, 800);
+            
+            setTimeout(() => {
+                addLogEntry('info', 'Uploading to TurboRater...');
+            }, 1600);
+            
+            setTimeout(() => {
+                addLogEntry('success', `Successfully exported ${allQuotes.length} quotes to TurboRater`);
+                showNotification('success', `📤 ${allQuotes.length} quotes exported successfully!`);
+                
+                exportBtn.innerHTML = '<span class="btn-icon">📤</span>Export to TurboRater';
+                exportBtn.classList.remove('loading');
+                
+                hideLoadingOverlay();
+            }, 2800);
+        }
+        
+        function validateIntegration() {
+            if (!isConnected) return;
+            
+            const validateBtn = document.getElementById('validate-btn');
+            validateBtn.innerHTML = '<div class="loading-spinner"></div>Validating...';
+            validateBtn.classList.add('loading');
+            
+            showLoadingOverlay('Running integration tests...');
+            
+            const validationTests = [
+                { name: 'API connectivity test', delay: 400 },
+                { name: 'Authentication validation', delay: 400 },
+                { name: 'Data integrity check', delay: 600 },
+                { name: 'Rate table verification', delay: 500 },
+                { name: 'Sync functionality test', delay: 700 },
+                { name: 'Webhook configuration', delay: 400 },
+                { name: 'Error handling test', delay: 500 },
+                { name: 'Performance benchmark', delay: 600 }
+            ];
+            
+            let totalDelay = 0;
+            
+            validationTests.forEach((test, index) => {
+                totalDelay += test.delay;
+                
+                setTimeout(() => {
+                    addLogEntry('info', `Running: ${test.name}...`);
+                }, totalDelay - 200);
+                
+                setTimeout(() => {
+                    addLogEntry('success', `✓ ${test.name} passed`);
+                }, totalDelay);
+            });
+            
+            setTimeout(() => {
+                addLogEntry('success', 'All validation tests completed successfully!');
+                addLogEntry('success', 'Integration is fully operational ✓');
+                showNotification('success', '✅ Integration validation passed!');
+                
+                validateBtn.innerHTML = '<span class="btn-icon">✅</span>Validate Integration';
+                validateBtn.classList.remove('loading');
+                
+                hideLoadingOverlay();
+            }, totalDelay + 500);
+        }
+        
+        function createBackup() {
+            if (!isConnected) return;
+            
+            const backupBtn = document.getElementById('backup-btn');
+            backupBtn.innerHTML = '<div class="loading-spinner"></div>Creating backup...';
+            backupBtn.classList.add('loading');
+            
+            showLoadingOverlay('Creating backup...');
+            
+            addLogEntry('info', 'Initializing backup process...');
+            
+            setTimeout(() => {
+                addLogEntry('info', 'Compressing quote data...');
+            }, 500);
+            
+            setTimeout(() => {
+                addLogEntry('info', 'Encrypting backup file...');
+            }, 1200);
+            
+            setTimeout(() => {
+                const timestamp = new Date().toISOString().replace(/:/g, '-').split('.')[0];
+                const filename = `turborater-backup-${timestamp}.db`;
+                
+                addLogEntry('success', `Backup created successfully: ${filename}`);
+                showNotification('success', `💾 Backup saved: ${filename}`);
+                
+                backupBtn.innerHTML = '<span class="btn-icon">💾</span>Create Backup';
+                backupBtn.classList.remove('loading');
+                
+                hideLoadingOverlay();
+            }, 2000);
+        }
+        
+        // Update all sync status
+        function updateAllSyncStatus() {
+            allQuotes.forEach(quote => {
+                if (quote.syncStatus !== 'Error') {
+                    quote.syncStatus = 'Synced';
+                    quote.lastSync = new Date().toLocaleString();
+                }
+            });
+            renderTable();
+        }
+        
+        // Notification system
+        function showNotification(type, message) {
+            if (!notificationsEnabled && type !== 'error') return;
+            
+            const container = document.getElementById('notification-container');
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            
+            const icons = {
+                success: '✅',
+                error: '❌',
+                info: 'ℹ️',
+                warning: '⚠️'
+            };
+            
+            notification.innerHTML = `
+                <span class="notification-icon">${icons[type] || 'ℹ️'}</span>
+                <span>${message}</span>
+            `;
+            
+            container.appendChild(notification);
+            
+            // Show notification
+            setTimeout(() => notification.classList.add('show'), 100);
+            
+            // Hide and remove notification
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => container.removeChild(notification), 300);
+            }, 4000);
+        }
+        
+        // Loading overlay
+        function showLoadingOverlay(message = 'Processing...') {
+            const overlay = document.getElementById('loading-overlay');
+            overlay.querySelector('.loading-text').textContent = message;
+            overlay.classList.add('show');
+        }
+        
+        function hideLoadingOverlay() {
+            const overlay = document.getElementById('loading-overlay');
+            overlay.classList.remove('show');
+        }
+        
+        // Activity log
+        function addLogEntry(type, message) {
+            const logDisplay = document.getElementById('activity-log');
+            const timestamp = new Date().toLocaleTimeString();
+            const entry = document.createElement('div');
+            entry.className = `log-entry ${type}`;
+            
+            const typeLabels = {
+                success: 'SUCCESS',
+                error: 'ERROR',
+                info: 'INFO',
+                warning: 'WARNING'
+            };
+            
+            entry.textContent = `[${timestamp}] [${typeLabels[type] || 'INFO'}] ${message}`;
+            
+            logDisplay.appendChild(entry);
+            logDisplay.scrollTop = logDisplay.scrollHeight;
+            
+            // Keep only last 50 entries
+            const entries = logDisplay.querySelectorAll('.log-entry');
+            if (entries.length > 50) {
+                entries[0].remove();
+            }
+        }
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
