@@ -356,7 +356,7 @@ export default function ModernHero() {
           <div className="hero-metrics">
             <div className="metrics-grid">
               <div className="metric-item">
-                <div className="metric-value">< 2min</div>
+                <div className="metric-value">&lt; 2min</div>
                 <div className="metric-label">Quote Generation</div>
               </div>
               <div className="metric-item">
