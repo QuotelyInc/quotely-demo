@@ -129,6 +129,51 @@ export default function HulyHero() {
           margin-bottom: 3rem;
         }
 
+        .glow-button {
+          padding: 1.25rem 3rem;
+          background: linear-gradient(135deg, #5B3FFF 0%, #FF3F7E 100%);
+          color: white;
+          border: none;
+          border-radius: 100px;
+          font-size: 1.125rem;
+          font-weight: 600;
+          cursor: pointer;
+          position: relative;
+          overflow: hidden;
+          transition: all 0.3s ease;
+          box-shadow: 0 0 30px rgba(91, 63, 255, 0.5);
+          animation: glowPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes glowPulse {
+          0%, 100% {
+            box-shadow: 0 0 30px rgba(91, 63, 255, 0.5);
+          }
+          50% {
+            box-shadow: 0 0 50px rgba(91, 63, 255, 0.8), 0 0 80px rgba(255, 63, 126, 0.5);
+          }
+        }
+
+        .glow-button::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+          transition: left 0.5s;
+        }
+
+        .glow-button:hover {
+          transform: translateY(-2px) scale(1.05);
+          box-shadow: 0 0 50px rgba(91, 63, 255, 0.8), 0 0 80px rgba(255, 63, 126, 0.5);
+        }
+
+        .glow-button:hover::before {
+          left: 100%;
+        }
+
         .btn-huly-primary {
           padding: 1rem 2rem;
           background: #0057FF;
@@ -230,6 +275,19 @@ export default function HulyHero() {
           box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
           position: relative;
           overflow: hidden;
+          animation: floating 6s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+          0%, 100% { 
+            transform: translateY(0) rotateX(0) rotateY(0);
+          }
+          25% {
+            transform: translateY(-20px) rotateX(2deg) rotateY(-2deg);
+          }
+          75% {
+            transform: translateY(10px) rotateX(-2deg) rotateY(2deg);
+          }
         }
 
         .dashboard-header {
@@ -430,6 +488,25 @@ export default function HulyHero() {
       `}</style>
 
       <section className="huly-hero">
+        <video 
+          autoPlay 
+          muted 
+          loop 
+          playsInline
+          className="hero-bg-video"
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            zIndex: 0,
+            opacity: 0.3
+          }}
+        >
+          <source src="/hero-bg.mp4" type="video/mp4" />
+        </video>
         <div className="hero-container">
           <div className="hero-grid">
             <div className="hero-content">
@@ -438,33 +515,21 @@ export default function HulyHero() {
               </div>
 
               <h1 className="hero-title">
-                Modern Insurance Platform
-                <br />
-                <span className="gradient-text">Built for Speed</span>
+                <span className="gradient-text">Everything Your Team Needs</span>
               </h1>
 
               <p className="hero-subtitle">
-                Quote in under 2 minutes. AI-powered recommendations. 
-                Real-time carrier integrations. The future of insurance is here.
+                All-in-one platform replacement for EZLynx, Applied, and legacy systems. 
+                Built for modern insurance agencies.
               </p>
 
               <div className="hero-buttons">
-                <Link 
-                  href="/get-started"
-                  className="btn-huly-primary"
-                  onClick={() => handleCTAClick('start_free_trial')}
+                <button 
+                  className="glow-button"
+                  onClick={() => handleCTAClick('see_in_action')}
                 >
-                  Start Free Trial
-                  <span>→</span>
-                </Link>
-                <Link 
-                  href="#demo"
-                  className="btn-huly-secondary"
-                  onClick={() => handleCTAClick('watch_demo')}
-                >
-                  Watch Demo
-                  <span>▶</span>
-                </Link>
+                  See in Action
+                </button>
               </div>
 
               <div className="hero-stats">
