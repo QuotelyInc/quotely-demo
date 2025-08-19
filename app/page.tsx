@@ -8,6 +8,7 @@ import RotatingNewsCommentary from '@/components/RotatingNewsCommentary'
 import HomepageDemoVideo from '@/components/HomepageDemoVideo'
 import HulyHero from '@/components/HulyHero'
 import LiveQuoteDemo from '@/components/LiveQuoteDemo'
+import AsymmetricFeatureGrid from '@/components/AsymmetricFeatureGrid'
 import StatisticsSection from '@/components/StatisticsSection'
 import ComparisonSection from '@/components/ComparisonSection'
 import TestimonialsSection from '@/components/TestimonialsSection'
@@ -1119,6 +1120,9 @@ function HomePage() {
             <LiveQuoteDemo />
           </div>
         </section>
+        
+        {/* ASYMMETRIC FEATURE GRID - Modern Feature Display */}
+        <AsymmetricFeatureGrid />
         
         {/* STATISTICS SECTION - Trust & Social Proof */}
         <StatisticsSection />
