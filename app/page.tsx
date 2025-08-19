@@ -7,6 +7,7 @@ import Footer from '@/components/Footer'
 import RotatingNewsCommentary from '@/components/RotatingNewsCommentary'
 import HomepageDemoVideo from '@/components/HomepageDemoVideo'
 import HulyHero from '@/components/HulyHero'
+import ModernSaasHero from '@/components/ModernSaasHero'
 import LiveQuoteDemo from '@/components/LiveQuoteDemo'
 import AsymmetricFeatureGrid from '@/components/AsymmetricFeatureGrid'
 import StatisticsSection from '@/components/StatisticsSection'
@@ -1103,8 +1104,8 @@ function HomePage() {
       <div style={{background: '#090A0C', minHeight: '100vh'}}>
         <HulyNavigation />
         
-        {/* HERO SECTION - Huly.io Dark Design */}
-        <HulyHero />
+        {/* HERO SECTION - Modern SaaS Design */}
+        <ModernSaasHero />
         
         {/* LIVE QUOTE DEMO - Interactive Speed Demonstration */}
         <section style={{background: '#111111', padding: '5rem 1rem'}}>
