@@ -6,7 +6,7 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import RotatingNewsCommentary from '@/components/RotatingNewsCommentary'
 import HomepageDemoVideo from '@/components/HomepageDemoVideo'
-import ProfessionalHero from '@/components/ProfessionalHero'
+import ModernHero from '@/components/ModernHero'
 import StatisticsSection from '@/components/StatisticsSection'
 import ComparisonSection from '@/components/ComparisonSection'
 import TestimonialsSection from '@/components/TestimonialsSection'
@@ -1101,8 +1101,8 @@ function HomePage() {
       <div>
         <Navigation />
         
-        {/* HERO SECTION - Professional Modern Design */}
-        <ProfessionalHero />
+        {/* HERO SECTION - Modern SaaS Design with Gradients */}
+        <ModernHero />
         
         {/* STATISTICS SECTION - Trust & Social Proof */}
         <StatisticsSection />

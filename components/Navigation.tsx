@@ -53,24 +53,24 @@ export default function Navigation({ className = '' }: NavigationProps) {
   return (
     <>
       <style jsx>{`
-        /* Premium Navigation System */
+        /* Modern Glass Morphism Navigation */
         .header {
           position: fixed;
           width: 100%;
           top: 0;
           z-index: 9999;
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          background: rgba(255, 255, 255, 1);
+          background: rgba(10, 11, 13, 0.7);
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
-          border-bottom: 2px solid rgba(0, 0, 0, 0.08);
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         .header.scrolled {
-          background: rgba(255, 255, 255, 1);
-          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.06);
-          border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+          background: rgba(10, 11, 13, 0.95);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .nav-container {
