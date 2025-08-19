@@ -471,7 +471,7 @@ export default function AsymmetricFeatureGrid() {
           {features.map((feature, index) => (
             <div
               key={feature.id}
-              ref={el => cardsRef.current[index] = el}
+              ref={el => { cardsRef.current[index] = el }}
               className={`feature-card ${feature.size} animate`}
               style={{ '--gradient': feature.gradient } as any}
               onClick={() => handleFeatureClick(feature.id)}
