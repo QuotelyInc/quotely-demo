@@ -228,24 +228,24 @@ function HomePage() {
           --gradient: linear-gradient(135deg, #0057FF 0%, #0041CC 100%);
           --gradient-bg: linear-gradient(135deg, #1B2951 0%, #0F1729 100%);
           
-          /* FIBONACCI SPACING SYSTEM - Psychological Harmony */
-          --space-xs: 8px;    /* Micro-interactions, button padding */
-          --space-sm: 13px;   /* Text spacing, small gaps */
-          --space-md: 21px;   /* Standard element spacing */
-          --space-lg: 34px;   /* Section internal spacing */
-          --space-xl: 55px;   /* Major section breaks */
-          --space-2xl: 89px;  /* Hero-to-content transitions */
-          --space-3xl: 144px; /* Major section separation */
+          /* RESPONSIVE SPACING SYSTEM */
+          --space-xs: 0.5rem;
+          --space-sm: 0.75rem;
+          --space-md: 1.25rem;
+          --space-lg: 2rem;
+          --space-xl: 3rem;
+          --space-2xl: 4rem;
+          --space-3xl: 5rem;
           
-          /* GOLDEN RATIO LINE HEIGHTS - Cognitive Comfort */
-          --lh-tight: 1.236;  /* Headlines (1/φ) */
-          --lh-normal: 1.618; /* Body text (φ) */
-          --lh-relaxed: 2.618; /* Spacious text (φ²) */
+          /* OPTIMIZED LINE HEIGHTS */
+          --lh-tight: 1.25;
+          --lh-normal: 1.6;
+          --lh-relaxed: 1.8;
           
-          /* COGNITIVE LOAD MANAGEMENT */
-          --content-width: 1140px;    /* Optimal reading line length */
-          --scan-width: 800px;        /* F-pattern focal width */
-          --mobile-comfort: 343px;    /* Thumb-reach optimization */
+          /* RESPONSIVE CONTENT WIDTHS */
+          --content-width: min(1400px, 95vw);
+          --scan-width: min(65ch, 100%);
+          --mobile-comfort: 100%;
           
           /* PSYCHOLOGICAL PRESSURE ZONES */
           --urgency-spacing: var(--space-sm); /* Creates subtle pressure */
@@ -426,11 +426,11 @@ function HomePage() {
           z-index: 2;
           max-width: var(--content-width);
           margin: 0 auto;
-          padding: var(--premium-spacing) var(--space-md); /* Premium spacing signals value */
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: var(--space-2xl); /* Fibonacci harmony */
+          padding: var(--premium-spacing) var(--space-md);
+          display: flex;
+          flex-direction: column;
           align-items: center;
+          text-align: center;
         }
         
         .hero-text h1 {
