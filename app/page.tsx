@@ -7,6 +7,7 @@ import Footer from '@/components/Footer'
 import RotatingNewsCommentary from '@/components/RotatingNewsCommentary'
 import HomepageDemoVideo from '@/components/HomepageDemoVideo'
 import ModernHero from '@/components/ModernHero'
+import LiveQuoteDemo from '@/components/LiveQuoteDemo'
 import StatisticsSection from '@/components/StatisticsSection'
 import ComparisonSection from '@/components/ComparisonSection'
 import TestimonialsSection from '@/components/TestimonialsSection'
@@ -1103,6 +1104,21 @@ function HomePage() {
         
         {/* HERO SECTION - Modern SaaS Design with Gradients */}
         <ModernHero />
+        
+        {/* LIVE QUOTE DEMO - Interactive Speed Demonstration */}
+        <section className="py-20 px-4 bg-gradient-to-br from-gray-900 to-gray-800">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-white mb-4">
+                Experience the Speed Difference
+              </h2>
+              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+                Watch how Quotely generates accurate quotes in under 2 minutes
+              </p>
+            </div>
+            <LiveQuoteDemo />
+          </div>
+        </section>
         
         {/* STATISTICS SECTION - Trust & Social Proof */}
         <StatisticsSection />

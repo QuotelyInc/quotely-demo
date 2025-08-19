@@ -321,17 +321,17 @@ export default function ModernHero() {
 
         <div className="hero-content">
           <div className="hero-badge">
-            🚀 AI-Powered Insurance Platform
+            ⚡ 60% Faster Than EZLynx
           </div>
 
           <h1 className="hero-title">
-            Quote Insurance in <br />
-            <span className="gradient-text">30 Seconds</span> Not 30 Minutes
+            The <span className="gradient-text">Fastest Insurance Platform</span> <br />
+            for Modern Agencies
           </h1>
 
           <p className="hero-subtitle">
-            Join 1,000+ insurance agencies using AI to generate accurate quotes 10x faster,
-            close more deals, and deliver exceptional customer experiences.
+            Quote in under 2 minutes. Compare rates instantly. Close deals faster.
+            Quotely outperforms Applied Rater and EZLynx with transparent AI-powered insights.
           </p>
 
           <div className="hero-cta">
@@ -356,20 +356,20 @@ export default function ModernHero() {
           <div className="hero-metrics">
             <div className="metrics-grid">
               <div className="metric-item">
-                <div className="metric-value">1.8min</div>
-                <div className="metric-label">Average Quote Time</div>
+                <div className="metric-value">< 2min</div>
+                <div className="metric-label">Quote Generation</div>
               </div>
               <div className="metric-item">
-                <div className="metric-value">94%</div>
-                <div className="metric-label">Accuracy Rate</div>
+                <div className="metric-value">1.2s</div>
+                <div className="metric-label">Page Load Speed</div>
               </div>
               <div className="metric-item">
-                <div className="metric-value">10,000+</div>
-                <div className="metric-label">Quotes Daily</div>
+                <div className="metric-value">500+</div>
+                <div className="metric-label">Agencies Trust Us</div>
               </div>
               <div className="metric-item">
-                <div className="metric-value">31%</div>
-                <div className="metric-label">Revenue Increase</div>
+                <div className="metric-value">45%</div>
+                <div className="metric-label">Better Conversions</div>
               </div>
             </div>
           </div>
