@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from 'react'
 import { useOTTOTracking } from '@/components/OTTOProvider'
-import Navigation from '@/components/Navigation'
+import HulyNavigation from '@/components/HulyNavigation'
 import Footer from '@/components/Footer'
 import RotatingNewsCommentary from '@/components/RotatingNewsCommentary'
 import HomepageDemoVideo from '@/components/HomepageDemoVideo'
-import ModernHero from '@/components/ModernHero'
+import HulyHero from '@/components/HulyHero'
 import LiveQuoteDemo from '@/components/LiveQuoteDemo'
 import StatisticsSection from '@/components/StatisticsSection'
 import ComparisonSection from '@/components/ComparisonSection'
@@ -1099,20 +1099,20 @@ function HomePage() {
         }
       `}</style>
 
-      <div>
-        <Navigation />
+      <div style={{background: '#090A0C', minHeight: '100vh'}}>
+        <HulyNavigation />
         
-        {/* HERO SECTION - Modern SaaS Design with Gradients */}
-        <ModernHero />
+        {/* HERO SECTION - Huly.io Dark Design */}
+        <HulyHero />
         
         {/* LIVE QUOTE DEMO - Interactive Speed Demonstration */}
-        <section className="py-20 px-4 bg-gradient-to-br from-gray-900 to-gray-800">
+        <section style={{background: '#111111', padding: '5rem 1rem'}}>
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-white mb-4">
-                Experience the Speed Difference
+              <h2 style={{fontSize: '3rem', fontWeight: 700, color: '#FFFFFF', marginBottom: '1rem'}}>
+                Experience the <span style={{background: 'linear-gradient(135deg, #5B3FFF, #00D4FF)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>Speed Difference</span>
               </h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              <p style={{fontSize: '1.25rem', color: '#9CA3AF', maxWidth: '48rem', margin: '0 auto'}}>
                 Watch how Quotely generates accurate quotes in under 2 minutes
               </p>
             </div>
