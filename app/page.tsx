@@ -11,6 +11,7 @@ import StatisticsSection from '@/components/StatisticsSection'
 import ComparisonSection from '@/components/ComparisonSection'
 import TestimonialsSection from '@/components/TestimonialsSection'
 import TrustSection from '@/components/TrustSection'
+import AITransparencyDashboard from '@/components/AITransparencyDashboard'
 
 function HomePage() {
   const { trackPageView, trackUserAction } = useOTTOTracking()
@@ -1156,6 +1157,21 @@ function HomePage() {
         {/* COMPARISON SECTION - Modern Platform Comparison */}
         <ComparisonSection />
         
+        {/* AI TRANSPARENCY DASHBOARD - Real-time AI Metrics */}
+        <section className="py-20 px-4 bg-gradient-to-br from-gray-50 to-white">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">
+                Real-Time AI Intelligence
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Full transparency into our neural networks processing 10,000+ decisions per second
+              </p>
+            </div>
+            <AITransparencyDashboard />
+          </div>
+        </section>
+
         {/* TESTIMONIALS SECTION - Social Proof from Agents */}
         <TestimonialsSection />
         

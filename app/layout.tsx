@@ -3,7 +3,6 @@ import { OTTOProvider } from "../components/OTTOProvider"
 import OTTOScript from "../components/OTTOScript"
 import { ThemeProvider } from "../components/ThemeProvider"
 import ClientThemeSwitcher from "../components/ClientThemeSwitcher"
-import UrgencyTimer from "../components/UrgencyTimer"
 import PreLaunchNotice from "../components/PreLaunchNotice"
 import { AnalyticsProvider } from "../lib/analytics/analytics-provider"
 import "./globals.css"
@@ -84,7 +83,6 @@ export default function RootLayout({
         <ThemeProvider>
           <AnalyticsProvider>
             <OTTOProvider>
-              <UrgencyTimer />
               {children}
               <ClientThemeSwitcher />
             </OTTOProvider>

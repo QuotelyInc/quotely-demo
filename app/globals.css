@@ -34,26 +34,29 @@
 }
 
 :root {
-  /* High-Converting Conversion King Theme */
-  --primary: #FF4655;        /* High-energy red-orange for urgency & action */
-  --primary-dark: #E63946;   /* Darker shade for hover states */
-  --secondary: #1A365D;      /* Deep navy for trust & authority */
-  --accent: #38D9A9;         /* Success green for positive reinforcement */
-  --accent-secondary: #4299E1; /* Confident blue for secondary CTAs */
-  --warning: #F6AD55;        /* Attention-grabbing orange */
-  --error: #FC8181;          /* Non-threatening red */
-  --success: #38D9A9;        /* Dopamine-triggering green */
-  --premium: #6B46C1;        /* Purple for luxury/premium features */
-  --surface: #FFFFFF;        /* Pure white for clarity */
-  --background: #F7FAFC;     /* Clean, premium white-blue */
-  --text-primary: #2D3748;   /* Strong contrast for readability */
-  --text-secondary: #4A5568; /* Softer for hierarchy */
+  /* Clean, Minimal Professional Theme */
+  --primary: #2A4365;        /* Deep blue for trust & professionalism */
+  --primary-dark: #1A365D;   /* Darker shade for hover states */
+  --primary-light: #3A5883;  /* Lighter shade for gradients */
+  --secondary: #2A4365;      /* Deep blue consistency */
+  --accent: #38B2AC;         /* Teal accent for highlights */
+  --accent-secondary: #319795; /* Darker teal for hover */
+  --warning: #F6AD55;        /* Soft warning orange */
+  --error: #FC8181;          /* Soft error red */
+  --success: #38B2AC;        /* Teal for success states */
+  --premium: #2A4365;        /* Deep blue for premium */
+  --surface: #FFFFFF;        /* Pure white for cards */
+  --background: #F7FAFC;     /* Very light gray background */
+  --text-primary: #2D3748;   /* Dark gray for text */
+  --text-secondary: #718096; /* Medium gray for secondary text */
+  --text-light: #718096;     /* Light gray text */
   --border: #E5E7EB;
-  --gradient: linear-gradient(135deg, #FF4655 0%, #E63946 100%);
-  --gradient-bg: linear-gradient(135deg, #1A365D 0%, #0F172A 100%);
-  --gradient-cta: linear-gradient(135deg, #FF4655 0%, #38D9A9 100%);
-  --gradient-premium: linear-gradient(135deg, #6B46C1 0%, #FF4655 100%);
-  --card-bg: #FFFFFF;
+  --card-bg: #EBF4FF;        /* Light blue card background */
+  --gradient: linear-gradient(135deg, #2A4365 0%, #3A5883 100%);
+  --gradient-bg: linear-gradient(135deg, #2A4365 0%, #1A365D 100%);
+  --gradient-cta: linear-gradient(135deg, #2A4365 0%, #38B2AC 100%);
+  --gradient-premium: linear-gradient(135deg, #2A4365 0%, #3A5883 100%);
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   
   /* Legacy support */
   --foreground: #2D3748;

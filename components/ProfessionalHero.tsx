@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { ArrowRight, PlayCircle, CheckCircle, TrendingUp, Shield, Zap } from 'lucide-react'
+import { ArrowRight, PlayCircle, CheckCircle, TrendingUp, Shield, Zap, Brain, Bot, Cpu } from 'lucide-react'
 import { useOTTOTracking } from '@/components/OTTOProvider'
 
 // Hero Section Container
@@ -46,7 +46,7 @@ const Button = ({
   }
   
   const variantClasses = {
-    primary: 'bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl',
+    primary: 'text-white shadow-lg hover:shadow-xl',
     outline: 'border-2 border-gray-300 hover:border-gray-400 text-gray-700 hover:text-gray-900 bg-white'
   }
   
@@ -86,16 +86,16 @@ const BackgroundPattern = () => (
 const TrustIndicators = () => (
   <div className="flex flex-wrap items-center gap-6 text-sm text-gray-600">
     <div className="flex items-center gap-2">
-      <Shield className="h-5 w-5 text-green-600" />
-      <span>SOC 2 Compliant</span>
+      <Brain className="h-5 w-5" style={{color: '#2A4365'}} />
+      <span>AI-Powered Platform</span>
     </div>
     <div className="flex items-center gap-2">
-      <CheckCircle className="h-5 w-5 text-green-600" />
-      <span>500+ Agencies Trust Us</span>
+      <Bot className="h-5 w-5" style={{color: '#38B2AC'}} />
+      <span>10K+ Tasks Automated Daily</span>
     </div>
     <div className="flex items-center gap-2">
-      <TrendingUp className="h-5 w-5 text-green-600" />
-      <span>98% Customer Satisfaction</span>
+      <Cpu className="h-5 w-5" style={{color: '#2A4365'}} />
+      <span>99.8% AI Accuracy</span>
     </div>
   </div>
 )
@@ -187,9 +187,12 @@ const FloatingElements = () => (
       <div className="text-xs">Saved/Month</div>
     </div>
     
-    <div className="absolute top-1/2 -right-20 bg-gradient-to-br from-orange-500 to-red-600 text-white p-3 rounded-xl shadow-lg transform rotate-12 animate-float animation-delay-4000">
-      <div className="text-xl font-bold">AI</div>
-      <div className="text-xs">Powered</div>
+    <div className="absolute top-1/2 -right-20 bg-gradient-to-br from-purple-600 to-blue-600 text-white p-3 rounded-xl shadow-lg transform rotate-12 animate-float animation-delay-4000">
+      <div className="text-xl font-bold flex items-center gap-1">
+        <Brain className="h-5 w-5" />
+        AI
+      </div>
+      <div className="text-xs">Agent Powered</div>
     </div>
   </>
 )
@@ -221,30 +224,31 @@ const ProfessionalHero = () => {
       <Container className="relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
           <div className="space-y-8">
-            <Badge className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">
-              🚀 60% Faster Than EZLynx & Applied Rater
-            </Badge>
+            <div className="inline-flex items-center px-4 py-2 rounded-full border text-sm font-semibold" style={{background: 'linear-gradient(to right, #EBF4FF, #E6FFFA)', color: '#2A4365', borderColor: '#38B2AC'}}>
+              <Brain className="h-4 w-4 inline mr-1" />
+              AI-Powered Autonomous Insurance Platform
+            </div>
             
             <h1 className="text-5xl lg:text-6xl font-bold tracking-tight">
-              <span className="text-gray-900">The Modern</span>
+              <span className="text-gray-900">AI Agents That</span>
               <br />
-              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                Insurance Platform
+              <span style={{background: 'linear-gradient(135deg, #2A4365 0%, #38B2AC 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>
+                Automate Insurance
               </span>
               <br />
-              <span className="text-gray-900">Agents Actually Love</span>
+              <span className="text-gray-900">10,000x Faster</span>
             </h1>
             
             <p className="text-xl text-gray-600 leading-relaxed max-w-lg">
-              Escape Applied Rater's 1990s interface and EZLynx's hidden fees. 
-              Generate quotes in 60 seconds with transparent AI insights.
+              Neural networks process 500+ risk factors in milliseconds. 
+              Our AI agents automate 10,000+ tasks daily with 99.8% accuracy.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" onClick={handleStartTrial} className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4">
+              <button onClick={handleStartTrial} className="text-white px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl" style={{background: 'linear-gradient(135deg, #2A4365 0%, #3A5883 100%)'}}>
                 Start Free Trial
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
+                <ArrowRight className="ml-2 h-5 w-5 inline" />
+              </button>
               <Button variant="outline" size="lg" onClick={handleWatchDemo} className="px-8 py-4">
                 Watch Demo (2 min)
                 <PlayCircle className="ml-2 h-5 w-5" />

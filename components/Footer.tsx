@@ -258,6 +258,18 @@ export default function Footer({ className = '' }: FooterProps) {
                     Help Center
                   </a>
                 </li>
+                <li>
+                  <a 
+                    href="https://www.xcelsolutions.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => handleFooterLinkClick('resources', 'ce-credits')}
+                    style={{display: 'flex', alignItems: 'center', gap: '0.25rem'}}
+                  >
+                    CE Education Credits
+                    <span style={{fontSize: '0.875rem'}}>↗</span>
+                  </a>
+                </li>
               </ul>
             </div>
             

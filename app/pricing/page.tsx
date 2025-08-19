@@ -501,6 +501,99 @@ function PricingPage() {
         </div>
       </section>
 
+      {/* AI Automation Metrics */}
+      <section className="section" style={{background: 'linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)', color: 'white', padding: '4rem 0'}}>
+        <div className="container">
+          <div className="section-header" style={{marginBottom: '3rem'}}>
+            <h2 style={{color: 'white', fontSize: '2.5rem', marginBottom: '1rem'}}>AI-Powered Automation Metrics</h2>
+            <p style={{color: 'rgba(255,255,255,0.9)', fontSize: '1.2rem'}}>See how our neural networks transform your agency's efficiency</p>
+          </div>
+          
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+            gap: '2rem',
+            marginBottom: '3rem'
+          }}>
+            <div style={{
+              background: 'rgba(255,255,255,0.1)',
+              backdropFilter: 'blur(10px)',
+              padding: '2rem',
+              borderRadius: '1rem',
+              textAlign: 'center',
+              border: '1px solid rgba(255,255,255,0.2)'
+            }}>
+              <div style={{fontSize: '3rem', fontWeight: 'bold', color: '#FFD700', marginBottom: '0.5rem'}}>10,247</div>
+              <div style={{fontSize: '1rem', opacity: 0.9}}>AI Decisions/Second</div>
+              <div style={{fontSize: '0.875rem', marginTop: '0.5rem', color: '#90EE90'}}>↑ 45% vs Traditional</div>
+            </div>
+            
+            <div style={{
+              background: 'rgba(255,255,255,0.1)',
+              backdropFilter: 'blur(10px)',
+              padding: '2rem',
+              borderRadius: '1rem',
+              textAlign: 'center',
+              border: '1px solid rgba(255,255,255,0.2)'
+            }}>
+              <div style={{fontSize: '3rem', fontWeight: 'bold', color: '#FFD700', marginBottom: '0.5rem'}}>99.8%</div>
+              <div style={{fontSize: '1rem', opacity: 0.9}}>Model Accuracy</div>
+              <div style={{fontSize: '0.875rem', marginTop: '0.5rem', color: '#90EE90'}}>Industry Leading</div>
+            </div>
+            
+            <div style={{
+              background: 'rgba(255,255,255,0.1)',
+              backdropFilter: 'blur(10px)',
+              padding: '2rem',
+              borderRadius: '1rem',
+              textAlign: 'center',
+              border: '1px solid rgba(255,255,255,0.2)'
+            }}>
+              <div style={{fontSize: '3rem', fontWeight: 'bold', color: '#FFD700', marginBottom: '0.5rem'}}>0.3s</div>
+              <div style={{fontSize: '1rem', opacity: 0.9}}>Quote Generation</div>
+              <div style={{fontSize: '0.875rem', marginTop: '0.5rem', color: '#90EE90'}}>Real-time Processing</div>
+            </div>
+            
+            <div style={{
+              background: 'rgba(255,255,255,0.1)',
+              backdropFilter: 'blur(10px)',
+              padding: '2rem',
+              borderRadius: '1rem',
+              textAlign: 'center',
+              border: '1px solid rgba(255,255,255,0.2)'
+            }}>
+              <div style={{fontSize: '3rem', fontWeight: 'bold', color: '#FFD700', marginBottom: '0.5rem'}}>$47K</div>
+              <div style={{fontSize: '1rem', opacity: 0.9}}>Saved Per Agent/Year</div>
+              <div style={{fontSize: '0.875rem', marginTop: '0.5rem', color: '#90EE90'}}>From Automation</div>
+            </div>
+          </div>
+          
+          <div style={{
+            background: 'rgba(255,255,255,0.15)',
+            borderRadius: '1rem',
+            padding: '2rem',
+            textAlign: 'center'
+          }}>
+            <h3 style={{fontSize: '1.5rem', marginBottom: '1rem', color: 'white'}}>AI Features Included in All QUAD Tiers</h3>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+              gap: '1rem',
+              fontSize: '0.95rem'
+            }}>
+              <div>✓ Neural Quote Engine</div>
+              <div>✓ Predictive Analytics</div>
+              <div>✓ Risk Assessment AI</div>
+              <div>✓ Document Processing NLP</div>
+              <div>✓ Fraud Detection</div>
+              <div>✓ Carrier Matching AI</div>
+              <div>✓ Real-time Learning</div>
+              <div>✓ AI Transparency Dashboard</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Featured QUAD Tiers */}
       <section className="pricing-section">
         <div className="container">

@@ -106,7 +106,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
         .logo-icon {
           width: 36px;
           height: 36px;
-          background: linear-gradient(135deg, #0052CC 0%, #0747A6 100%);
+          background: linear-gradient(135deg, #2A4365 0%, #3A5883 100%);
           border-radius: 10px;
           display: flex;
           align-items: center;
@@ -114,19 +114,19 @@ export default function Navigation({ className = '' }: NavigationProps) {
           font-weight: 800;
           font-size: 20px;
           color: white;
-          box-shadow: 0 2px 8px rgba(0, 82, 204, 0.15);
+          box-shadow: 0 2px 8px rgba(42, 67, 101, 0.15);
           transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
         .logo:hover .logo-icon {
           transform: rotate(-5deg) scale(1.05);
-          box-shadow: 0 4px 12px rgba(0, 82, 204, 0.25);
+          box-shadow: 0 4px 12px rgba(42, 67, 101, 0.25);
         }
 
         .logo-text {
           font-size: 22px;
           font-weight: 700;
-          color: #0A0E27;
+          color: #2A4365;
           letter-spacing: -0.02em;
         }
 
@@ -136,12 +136,12 @@ export default function Navigation({ className = '' }: NavigationProps) {
           align-items: center;
           gap: 6px;
           padding: 4px 10px;
-          background: #F0F9FF;
-          border: 1px solid #BAE6FD;
+          background: #EBF4FF;
+          border: 1px solid #38B2AC;
           border-radius: 100px;
           font-size: 11px;
           font-weight: 600;
-          color: #0369A1;
+          color: #2A4365;
           text-transform: uppercase;
           letter-spacing: 0.02em;
         }
@@ -189,16 +189,16 @@ export default function Navigation({ className = '' }: NavigationProps) {
         }
         
         .nav-link:hover {
-          color: #0052CC;
-          background: rgba(0, 82, 204, 0.08);
-          border-color: rgba(0, 82, 204, 0.15);
+          color: #2A4365;
+          background: rgba(42, 67, 101, 0.08);
+          border-color: rgba(42, 67, 101, 0.15);
           transform: translateY(-1px);
         }
         
         .nav-link.active {
-          color: #0052CC;
-          background: rgba(0, 82, 204, 0.12);
-          border-color: rgba(0, 82, 204, 0.2);
+          color: #2A4365;
+          background: rgba(42, 67, 101, 0.12);
+          border-color: #38B2AC;
           font-weight: 700;
         }
 
@@ -239,9 +239,9 @@ export default function Navigation({ className = '' }: NavigationProps) {
         }
 
         .btn-login:hover {
-          color: #0052CC;
-          background: rgba(0, 82, 204, 0.05);
-          border-color: #0052CC;
+          color: #2A4365;
+          background: rgba(42, 67, 101, 0.05);
+          border-color: #2A4365;
           transform: translateY(-1px);
         }
 
@@ -249,7 +249,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
         .btn-get-started {
           position: relative;
           padding: 12px 28px;
-          background: linear-gradient(135deg, #0052CC 0%, #0747A6 100%);
+          background: linear-gradient(135deg, #2A4365 0%, #3A5883 100%);
           color: white;
           border: none;
           border-radius: 8px;
@@ -261,7 +261,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
           align-items: center;
           gap: 8px;
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          box-shadow: 0 4px 14px rgba(0, 82, 204, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+          box-shadow: 0 4px 14px rgba(42, 67, 101, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2);
           overflow: hidden;
         }
 
@@ -278,7 +278,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
 
         .btn-get-started:hover {
           transform: translateY(-1px);
-          box-shadow: 0 6px 20px rgba(0, 82, 204, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+          box-shadow: 0 6px 20px rgba(42, 67, 101, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2);
         }
 
         .btn-get-started:hover::before {
@@ -312,8 +312,8 @@ export default function Navigation({ className = '' }: NavigationProps) {
         }
 
         .mobile-menu-button:hover {
-          background: rgba(0, 82, 204, 0.04);
-          border-color: rgba(0, 82, 204, 0.2);
+          background: rgba(42, 67, 101, 0.04);
+          border-color: rgba(42, 67, 101, 0.2);
         }
 
         .hamburger {
@@ -543,6 +543,19 @@ export default function Navigation({ className = '' }: NavigationProps) {
               </Link>
             </li>
             <li>
+              <a 
+                href="https://www.xcelsolutions.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="nav-link"
+                onClick={() => handleNavClick('ce-credits')}
+                style={{display: 'flex', alignItems: 'center', gap: '4px'}}
+              >
+                CE Credits
+                <span style={{fontSize: '12px', opacity: 0.8}}>↗</span>
+              </a>
+            </li>
+            <li>
               <Link 
                 href="/about" 
                 className={`nav-link ${isActive('/about') ? 'active' : ''}`}
@@ -639,6 +652,19 @@ export default function Navigation({ className = '' }: NavigationProps) {
               >
                 Blog
               </Link>
+            </li>
+            <li>
+              <a 
+                href="https://www.xcelsolutions.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mobile-nav-link"
+                onClick={() => handleNavClick('ce-credits')}
+                style={{display: 'flex', alignItems: 'center', gap: '4px'}}
+              >
+                CE Credits
+                <span style={{fontSize: '12px', opacity: 0.8}}>↗</span>
+              </a>
             </li>
             <li>
               <Link 
