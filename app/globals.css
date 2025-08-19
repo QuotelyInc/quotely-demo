@@ -1,26 +1,66 @@
 @import "tailwindcss";
+@import "./modern-design-system.css";
+@import "./huly-dark-theme.css";
+@import "./modern-saas-style.css";
+@import "./desktop-fixes.css";
+
+/* Demo Video Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 10s ease infinite;
+}
 
 :root {
-  /* High-Converting Conversion King Theme */
-  --primary: #FF4655;        /* High-energy red-orange for urgency & action */
-  --primary-dark: #E63946;   /* Darker shade for hover states */
-  --secondary: #1A365D;      /* Deep navy for trust & authority */
-  --accent: #38D9A9;         /* Success green for positive reinforcement */
-  --accent-secondary: #4299E1; /* Confident blue for secondary CTAs */
-  --warning: #F6AD55;        /* Attention-grabbing orange */
-  --error: #FC8181;          /* Non-threatening red */
-  --success: #38D9A9;        /* Dopamine-triggering green */
-  --premium: #6B46C1;        /* Purple for luxury/premium features */
-  --surface: #FFFFFF;        /* Pure white for clarity */
-  --background: #F7FAFC;     /* Clean, premium white-blue */
-  --text-primary: #2D3748;   /* Strong contrast for readability */
-  --text-secondary: #4A5568; /* Softer for hierarchy */
+  /* Clean, Minimal Professional Theme */
+  --primary: #2A4365;        /* Deep blue for trust & professionalism */
+  --primary-dark: #1A365D;   /* Darker shade for hover states */
+  --primary-light: #3A5883;  /* Lighter shade for gradients */
+  --secondary: #2A4365;      /* Deep blue consistency */
+  --accent: #38B2AC;         /* Teal accent for highlights */
+  --accent-secondary: #319795; /* Darker teal for hover */
+  --warning: #F6AD55;        /* Soft warning orange */
+  --error: #FC8181;          /* Soft error red */
+  --success: #38B2AC;        /* Teal for success states */
+  --premium: #2A4365;        /* Deep blue for premium */
+  --surface: #FFFFFF;        /* Pure white for cards */
+  --background: #F7FAFC;     /* Very light gray background */
+  --text-primary: #2D3748;   /* Dark gray for text */
+  --text-secondary: #718096; /* Medium gray for secondary text */
+  --text-light: #718096;     /* Light gray text */
   --border: #E5E7EB;
-  --gradient: linear-gradient(135deg, #FF4655 0%, #E63946 100%);
-  --gradient-bg: linear-gradient(135deg, #1A365D 0%, #0F172A 100%);
-  --gradient-cta: linear-gradient(135deg, #FF4655 0%, #38D9A9 100%);
-  --gradient-premium: linear-gradient(135deg, #6B46C1 0%, #FF4655 100%);
-  --card-bg: #FFFFFF;
+  --card-bg: #EBF4FF;        /* Light blue card background */
+  --gradient: linear-gradient(135deg, #2A4365 0%, #3A5883 100%);
+  --gradient-bg: linear-gradient(135deg, #2A4365 0%, #1A365D 100%);
+  --gradient-cta: linear-gradient(135deg, #2A4365 0%, #38B2AC 100%);
+  --gradient-premium: linear-gradient(135deg, #2A4365 0%, #3A5883 100%);
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   
   /* Legacy support */
   --foreground: #2D3748;
@@ -39,10 +79,15 @@
   box-sizing: border-box;
 }
 
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--text-primary);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #090A0C;
+  color: white;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
   
   /* TYPOGRAPHY PSYCHOLOGY FOUNDATION */
@@ -50,6 +95,23 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Global Section Styles */
+section {
+  padding: 100px 5%;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Dark theme with subtle gradients */
+.dark-section {
+  background: linear-gradient(180deg, #090A0C 0%, #111111 100%);
 }
 
 /* ========================================
@@ -63,18 +125,9 @@ h1, .h1 {
   font-weight: 800;
   line-height: 1.236; /* 1/φ for maximum impact headlines */
   letter-spacing: -0.02em; /* Confidence signaling through tight tracking */
-  color: var(--text-primary);
+  color: #FFFFFF;
   margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
   max-width: 20ch; /* Cognitive load management */
-  
-  /* GRADIENT EMPHASIS FOR POWER WORDS */
-  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  
-  /* AUTHORITY SIGNALING */
-  text-shadow: 0 4px 12px rgba(0, 87, 255, 0.2);
   position: relative;
 }
 
@@ -96,31 +149,13 @@ h2, .h2 {
   font-weight: 700;
   line-height: 1.236; /* Tight for scanning */
   letter-spacing: -0.01em; /* Professional confidence */
-  color: var(--text-primary);
+  color: #FFFFFF;
   margin: clamp(3rem, 8vw, 5rem) 0 clamp(1.5rem, 3vw, 2rem) 0;
-  
-  /* STICKY SCANNING BEHAVIOR */
-  position: sticky;
-  top: 80px; /* Below navigation */
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(8px);
-  padding: 1rem 0;
-  border-left: 4px solid var(--primary);
-  padding-left: 1.5rem;
-  margin-left: -1.5rem;
-  z-index: 100;
   
   /* F-PATTERN ANCHORING */
   scroll-margin-top: 100px;
-  border-radius: 0 8px 8px 0;
-  box-shadow: 0 2px 20px rgba(0, 87, 255, 0.1);
 }
 
-h2:hover {
-  border-left-color: var(--accent);
-  transform: translateX(4px);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
 
 /* H3: QUESTION-DRIVEN ENGAGEMENT - Curiosity Psychology */
 h3, .h3 {
@@ -128,7 +163,7 @@ h3, .h3 {
   font-weight: 600;
   line-height: 1.4; /* Optimized for question readability */
   letter-spacing: -0.005em;
-  color: var(--secondary);
+  color: #F3F4F6;
   margin: clamp(2rem, 5vw, 3rem) 0 clamp(1rem, 2vw, 1.5rem) 0;
   
   /* QUESTION FORMAT PSYCHOLOGY */
@@ -159,11 +194,11 @@ h4, .h4 {
   font-weight: 600;
   line-height: 1.4;
   letter-spacing: 0;
-  color: var(--text-primary);
+  color: #E5E7EB;
   margin: clamp(1.5rem, 3vw, 2rem) 0 clamp(0.75rem, 1.5vw, 1rem) 0;
   
   /* GROUPING PSYCHOLOGY */
-  border-bottom: 1px solid rgba(0, 87, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding-bottom: 0.5rem;
   display: inline-block;
 }
@@ -174,14 +209,14 @@ h5, .h5 {
   font-weight: 600;
   line-height: 1.5;
   letter-spacing: 0.01em; /* Slight expansion for clarity */
-  color: var(--text-primary);
+  color: #D1D5DB;
   margin: clamp(1rem, 2vw, 1.5rem) 0 clamp(0.5rem, 1vw, 0.75rem) 0;
   
   /* BENEFIT HIGHLIGHTING */
-  background: linear-gradient(135deg, rgba(0, 184, 163, 0.1) 0%, rgba(0, 87, 255, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(91, 63, 255, 0.1) 0%, rgba(0, 212, 255, 0.05) 100%);
   padding: 0.5rem 1rem;
   border-radius: 6px;
-  border-left: 3px solid var(--accent);
+  border-left: 3px solid #00D4FF;
   display: inline-block;
 }
 
@@ -191,7 +226,7 @@ h6, .h6 {
   font-weight: 600;
   line-height: 1.5;
   letter-spacing: 0.05em; /* Expanded for micro-readability */
-  color: var(--text-secondary);
+  color: #9CA3AF;
   margin: clamp(0.75rem, 1.5vw, 1rem) 0 clamp(0.25rem, 0.5vw, 0.5rem) 0;
   text-transform: uppercase;
   
@@ -284,7 +319,7 @@ p, .body-text {
   font-size: clamp(1rem, 2vw + 0.125rem, 1.125rem);
   line-height: 1.618; /* φ for perfect readability */
   letter-spacing: 0.01em;
-  color: var(--text-primary);
+  color: #D1D5DB;
   margin-bottom: clamp(1rem, 3vw, 1.5rem);
   max-width: 65ch; /* Optimal reading line length */
   
@@ -299,7 +334,7 @@ p, .body-text {
   font-size: clamp(1.125rem, 2.5vw + 0.25rem, 1.375rem);
   line-height: 1.5; /* Comfortable scanning */
   letter-spacing: -0.005em;
-  color: var(--text-secondary);
+  color: #9CA3AF;
   margin-bottom: clamp(1.5rem, 4vw, 2rem);
   max-width: 60ch; /* Focus attention */
   font-weight: 400;
@@ -309,7 +344,7 @@ p, .body-text {
 small, .small-text {
   font-size: clamp(0.875rem, 1.5vw, 1rem);
   line-height: 1.5;
-  color: var(--text-secondary);
+  color: #9CA3AF;
   opacity: 0.8;
   letter-spacing: 0.01em;
 }
@@ -324,7 +359,7 @@ ul, ol {
 li {
   margin-bottom: 0.5rem;
   line-height: 1.6;
-  color: var(--text-primary);
+  color: #D1D5DB;
 }
 
 /* Enhanced list markers for scanning */
@@ -373,8 +408,8 @@ blockquote::before {
   margin: clamp(1.5rem, 3vw, 2.5rem) 0;
   padding: 1.5rem;
   border-radius: 8px;
-  background: rgba(248, 250, 252, 0.8);
-  border: 1px solid rgba(0, 87, 255, 0.1);
+  background: rgba(17, 17, 17, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   position: relative;
 }
 

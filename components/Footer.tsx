@@ -152,7 +152,7 @@ export default function Footer({ className = '' }: FooterProps) {
                 </li>
                 <li>
                   <a 
-                    href="#security"
+                    href="/features#security"
                     onClick={() => handleFooterLinkClick('product', 'security')}
                   >
                     Security
@@ -160,7 +160,7 @@ export default function Footer({ className = '' }: FooterProps) {
                 </li>
                 <li>
                   <a 
-                    href="#api"
+                    href="/features#api"
                     onClick={() => handleFooterLinkClick('product', 'api')}
                   >
                     API Documentation
@@ -258,6 +258,18 @@ export default function Footer({ className = '' }: FooterProps) {
                     Help Center
                   </a>
                 </li>
+                <li>
+                  <a 
+                    href="https://www.xcelsolutions.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => handleFooterLinkClick('resources', 'ce-credits')}
+                    style={{display: 'flex', alignItems: 'center', gap: '0.25rem'}}
+                  >
+                    CE Education Credits
+                    <span style={{fontSize: '0.875rem'}}>↗</span>
+                  </a>
+                </li>
               </ul>
             </div>
             
@@ -345,21 +357,27 @@ export default function Footer({ className = '' }: FooterProps) {
             
             <div className="footer-social">
               <a 
-                href="#twitter" 
+                href="https://twitter.com/quotely" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="social-link"
                 onClick={() => handleFooterLinkClick('social', 'twitter')}
               >
                 📱
               </a>
               <a 
-                href="#linkedin" 
+                href="https://www.linkedin.com/company/quotely" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="social-link"
                 onClick={() => handleFooterLinkClick('social', 'linkedin')}
               >
                 💼
               </a>
               <a 
-                href="#youtube" 
+                href="https://www.youtube.com/@quotely" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="social-link"
                 onClick={() => handleFooterLinkClick('social', 'youtube')}
               >

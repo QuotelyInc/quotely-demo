@@ -891,7 +891,7 @@ function QUADPage() {
                 <td>Competitive advantage in agent retention</td>
               </tr>
               <tr className="tier-row">
-                <td><strong>White-Label Options</strong></td>
+                <td><strong>Custom Branding</strong></td>
                 <td>Higher tiers available</td>
                 <td>Brand the platform for your organization</td>
               </tr>
@@ -920,38 +920,38 @@ function QUADPage() {
         </div>
       </section>
 
-      {/* State Exclusivity Program */}
+      {/* Enterprise Features */}
       <section className="section section-alt">
         <div className="container">
           <div className="section-header">
-            <h2>🗺️ State Exclusivity Program</h2>
-            <h3>Lock Out Your Competition Forever</h3>
+            <h2>🚀 Enterprise Features</h2>
+            <h3>Advanced Capabilities for Power Users</h3>
           </div>
           
           <div className="warning-box">
-            <h3>⚠️ ONE AGGREGATOR PER STATE</h3>
+            <h3>⚡ UNLIMITED POWER WITH QUAD 7.0</h3>
             <p style={{fontSize: '1.1rem'}}>
-              Once your state is claimed, no other aggregator will receive discount pricing. Ever.
+              Get unlimited quotes, custom features, and dedicated support with our enterprise tier.
             </p>
           </div>
           
           <div className="stats-grid">
             <div className="stat-box" style={{background: 'var(--surface)'}}>
-              <div className="stat-number" style={{color: 'var(--primary)'}}>$7,500</div>
+              <div className="stat-number" style={{color: 'var(--primary)'}}>625+</div>
               <div className="stat-label" style={{color: 'var(--text-primary)'}}>
-                <strong>State Exclusivity Fee</strong><br />Locks out all competitors
+                <strong>Monthly Quotes</strong><br />Unlimited with QUAD 7.0
               </div>
             </div>
             <div className="stat-box" style={{background: 'var(--surface)'}}>
-              <div className="stat-number" style={{color: 'var(--primary)'}}>25</div>
+              <div className="stat-number" style={{color: 'var(--primary)'}}>24/7</div>
               <div className="stat-label" style={{color: 'var(--text-primary)'}}>
-                <strong>Agent Minimum</strong><br />@ $1,500 buy-in each
+                <strong>Dedicated Support</strong><br />Priority assistance anytime
               </div>
             </div>
             <div className="stat-box" style={{background: 'var(--surface)'}}>
-              <div className="stat-number" style={{color: 'var(--primary)'}}>$200</div>
+              <div className="stat-number" style={{color: 'var(--primary)'}}>100%</div>
               <div className="stat-label" style={{color: 'var(--text-primary)'}}>
-                <strong>Monthly Advantage</strong><br />Your agents save vs others
+                <strong>Custom Features</strong><br />Tailored to your needs
               </div>
             </div>
           </div>
@@ -959,59 +959,59 @@ function QUADPage() {
           <div className="step-boxes">
             <div className="step-box">
               <div className="step-number">1</div>
-              <h3>Claim Your State</h3>
-              <p>Pay $7,500 exclusivity fee + bring 25 agents minimum at discounted rates</p>
+              <h3>Choose Your Tier</h3>
+              <p>Select from QUAD 1.0 to 7.0 based on your agency's needs and volume</p>
             </div>
             <div className="step-box">
               <div className="step-number">2</div>
-              <h3>Lock Lifetime Advantage</h3>
-              <p>Your agents (current and future) get $679/month while competitors pay $879+</p>
+              <h3>Pay Setup Fee</h3>
+              <p>One-time setup fee to configure your account and onboard your team</p>
             </div>
             <div className="step-box">
               <div className="step-number">3</div>
-              <h3>Dominate Your Market</h3>
-              <p>Recruit agents with exclusive access to the best QUAD pricing in your state</p>
+              <h3>Scale Your Business</h3>
+              <p>Upgrade anytime with 100% of your setup fee credited toward the higher tier</p>
             </div>
           </div>
           
           <div className="features-grid">
             <div className="feature-card">
-              <h3>🛡️ What Exclusivity Guarantees</h3>
+              <h3>🛡️ What Enterprise Includes</h3>
               <ul className="feature-list">
-                <li>No other aggregator in your state gets discount pricing</li>
-                <li>All future agents you recruit get the same low rate</li>
-                <li>Permanent competitive advantage in your territory</li>
-                <li>Protected investment in your agent network</li>
+                <li>Custom development and feature requests</li>
+                <li>Dedicated account management team</li>
+                <li>Custom branding and personalization</li>
+                <li>Advanced analytics and reporting</li>
               </ul>
             </div>
             <div className="feature-card">
               <h3>📈 ROI Breakdown</h3>
               <ul className="feature-list">
-                <li><strong>25 agents:</strong> $5,000/month collective savings</li>
-                <li><strong>50 agents:</strong> $10,000/month collective savings</li>
-                <li><strong>Payback:</strong> 9 months on initial investment</li>
-                <li><strong>Years 2+:</strong> Pure profit advantage</li>
+                <li><strong>QUAD 1.0:</strong> $200/month savings, 7.5 month payback</li>
+                <li><strong>QUAD 3.0:</strong> $270/month savings, 11.1 month payback</li>
+                <li><strong>QUAD 7.0:</strong> $470/month savings, 12.8 month payback</li>
+                <li><strong>Years 2+:</strong> Pure savings every month</li>
               </ul>
             </div>
           </div>
           
           <div className="state-status">
-            <h3>Your State Status: AVAILABLE</h3>
-            <p>This window closes the moment another aggregator claims your state.</p>
+            <h3>Ready to Scale?</h3>
+            <p>Start with any tier and upgrade anytime. Your setup fee is always credited.</p>
             
             <button 
               onClick={() => {
-                handleCTAClick('claim_state', 'state_exclusivity')
-                window.location.href = 'mailto:exclusivity@quotely.com?subject=State Exclusivity - [YOUR STATE]'
+                handleCTAClick('get_started', 'enterprise_features')
+                window.location.href = 'mailto:sales@quotely.com?subject=QUAD Enterprise Inquiry'
               }}
               className="btn btn-primary"
               style={{fontSize: '1.3rem', padding: '1.5rem 3rem'}}
             >
-              CLAIM MY STATE NOW
+              GET STARTED TODAY
             </button>
             
             <p style={{marginTop: '1.5rem', fontSize: '0.9rem', opacity: 0.7}}>
-              Email us immediately to begin the exclusivity process
+              Contact our sales team to discuss your needs
             </p>
           </div>
         </div>
@@ -1088,7 +1088,7 @@ function QUADPage() {
               <div className="step-number" style={{background: 'white', color: 'var(--primary)'}}>1</div>
               <h3 style={{color: 'white'}}>Individual Agents</h3>
               <p style={{color: 'white'}}>
-                Lock in early access pricing starting at $679/month with $1,500 buy-in
+                Lock in early access pricing starting at $679/month with $1,500 setup fee
               </p>
               <button 
                 onClick={() => {
@@ -1120,19 +1120,19 @@ function QUADPage() {
             </div>
             <div className="step-box" style={{background: 'rgba(255,255,255,0.1)', borderTopColor: 'white'}}>
               <div className="step-number" style={{background: 'white', color: 'var(--primary)'}}>3</div>
-              <h3 style={{color: 'white'}}>State Exclusivity</h3>
+              <h3 style={{color: 'white'}}>Enterprise</h3>
               <p style={{color: 'white'}}>
-                Lock out competitors forever with territorial exclusivity rights
+                Unlimited quotes and custom features with our enterprise tiers
               </p>
               <button 
                 onClick={() => {
-                  handleCTAClick('claim_your_state', 'cta_section')
-                  window.location.href = 'mailto:exclusivity@quotely.com?subject=State Exclusivity'
+                  handleCTAClick('contact_enterprise', 'cta_section')
+                  window.location.href = 'mailto:enterprise@quotely.com?subject=Enterprise Inquiry'
                 }}
                 className="btn btn-primary"
                 style={{marginTop: '1rem'}}
               >
-                Claim Your State
+                Contact Enterprise
               </button>
             </div>
           </div>
@@ -1140,7 +1140,7 @@ function QUADPage() {
           <div style={{marginTop: '4rem'}}>
             <h3>Don't Wait - Limited Time Offers</h3>
             <p>
-              Early access pricing ends when we launch publicly. State exclusivity is first-come, first-served.
+              Early access pricing ends when we launch publicly. Lock in your savings today.
             </p>
           </div>
         </div>

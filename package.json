@@ -13,9 +13,15 @@
     "sitemap": "node scripts/automated-sitemap-deploy.js",
     "sitemap:generate": "node scripts/automated-sitemap-deploy.js --generate-only",
     "sitemap:validate": "node scripts/automated-sitemap-deploy.js --validate-only",
-    "sitemap:deploy": "npm run check-branch && node scripts/automated-sitemap-deploy.js"
+    "sitemap:deploy": "npm run check-branch && node scripts/automated-sitemap-deploy.js",
+    "env:check": "node -e \"const keys=['CLAUDE_API_KEY','GROK_API_KEY','OPENAI_API_KEY','TURBO_RATER_API_KEY','GAIL_API_KEY','MOMENTUM_API_KEY'];keys.forEach(k=>console.log(k+':',(process.env[k]?'✅ Set':'❌ Missing')))\"",
+    "env:setup": "cp .env.local.example .env.local && echo '✅ Created .env.local from template. Now add your API keys!'",
+    "env:validate": "node -e \"require('./lib/env-validator').logEnvironmentReport()\"",
+    "env:health": "curl -s http://localhost:3000/api/health | json_pp",
+    "predev": "node -e \"if(!require('fs').existsSync('.env.local')){console.log('⚠️  No .env.local found! Run: npm run env:setup');process.exit(1)}\""
   },
   "dependencies": {
+    "lucide-react": "^0.539.0",
     "next": "15.4.6",
     "react": "19.1.0",
     "react-dom": "19.1.0",

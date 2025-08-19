@@ -1,0 +1,22 @@
+HOW TO ADD YOUR API KEYS SAFELY:
+
+1. Open .env.local in a text editor (NOT in this chat)
+   - Use Notepad, VS Code, or any text editor
+   - DO NOT share the contents in chat
+
+2. Find this line:
+   OPENAI_API_KEY=your_chatgpt_pro_key_here
+
+3. Replace it with:
+   OPENAI_API_KEY=sk-proj-YOUR_ACTUAL_KEY_HERE
+
+4. Save the file
+
+5. Test with: npm run env:check
+
+REMEMBER:
+- NEVER share API keys in chat, email, or commits
+- Each key should only be in your local .env.local file
+- If a key is exposed, revoke it immediately
+
+After revoking the exposed key and getting a new one, add it to .env.local directly.

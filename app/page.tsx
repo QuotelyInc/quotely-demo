@@ -2,9 +2,19 @@
 
 import { useEffect, useState } from 'react'
 import { useOTTOTracking } from '@/components/OTTOProvider'
-import Navigation from '@/components/Navigation'
+import HulyNavigation from '@/components/HulyNavigation'
 import Footer from '@/components/Footer'
 import RotatingNewsCommentary from '@/components/RotatingNewsCommentary'
+import HomepageDemoVideo from '@/components/HomepageDemoVideo'
+import HulyHero from '@/components/HulyHero'
+import ModernSaasHero from '@/components/ModernSaasHero'
+import LiveQuoteDemo from '@/components/LiveQuoteDemo'
+import AsymmetricFeatureGrid from '@/components/AsymmetricFeatureGrid'
+import StatisticsSection from '@/components/StatisticsSection'
+import ComparisonSection from '@/components/ComparisonSection'
+import TestimonialsSection from '@/components/TestimonialsSection'
+import TrustSection from '@/components/TrustSection'
+import AITransparencyDashboard from '@/components/AITransparencyDashboard'
 
 function HomePage() {
   const { trackPageView, trackUserAction } = useOTTOTracking()
@@ -221,24 +231,24 @@ function HomePage() {
           --gradient: linear-gradient(135deg, #0057FF 0%, #0041CC 100%);
           --gradient-bg: linear-gradient(135deg, #1B2951 0%, #0F1729 100%);
           
-          /* FIBONACCI SPACING SYSTEM - Psychological Harmony */
-          --space-xs: 8px;    /* Micro-interactions, button padding */
-          --space-sm: 13px;   /* Text spacing, small gaps */
-          --space-md: 21px;   /* Standard element spacing */
-          --space-lg: 34px;   /* Section internal spacing */
-          --space-xl: 55px;   /* Major section breaks */
-          --space-2xl: 89px;  /* Hero-to-content transitions */
-          --space-3xl: 144px; /* Major section separation */
+          /* RESPONSIVE SPACING SYSTEM */
+          --space-xs: 0.5rem;
+          --space-sm: 0.75rem;
+          --space-md: 1.25rem;
+          --space-lg: 2rem;
+          --space-xl: 3rem;
+          --space-2xl: 4rem;
+          --space-3xl: 5rem;
           
-          /* GOLDEN RATIO LINE HEIGHTS - Cognitive Comfort */
-          --lh-tight: 1.236;  /* Headlines (1/φ) */
-          --lh-normal: 1.618; /* Body text (φ) */
-          --lh-relaxed: 2.618; /* Spacious text (φ²) */
+          /* OPTIMIZED LINE HEIGHTS */
+          --lh-tight: 1.25;
+          --lh-normal: 1.6;
+          --lh-relaxed: 1.8;
           
-          /* COGNITIVE LOAD MANAGEMENT */
-          --content-width: 1140px;    /* Optimal reading line length */
-          --scan-width: 800px;        /* F-pattern focal width */
-          --mobile-comfort: 343px;    /* Thumb-reach optimization */
+          /* RESPONSIVE CONTENT WIDTHS */
+          --content-width: min(1400px, 95vw);
+          --scan-width: min(65ch, 100%);
+          --mobile-comfort: 100%;
           
           /* PSYCHOLOGICAL PRESSURE ZONES */
           --urgency-spacing: var(--space-sm); /* Creates subtle pressure */
@@ -419,11 +429,11 @@ function HomePage() {
           z-index: 2;
           max-width: var(--content-width);
           margin: 0 auto;
-          padding: var(--premium-spacing) var(--space-md); /* Premium spacing signals value */
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: var(--space-2xl); /* Fibonacci harmony */
+          padding: var(--premium-spacing) var(--space-md);
+          display: flex;
+          flex-direction: column;
           align-items: center;
+          text-align: center;
         }
         
         .hero-text h1 {
@@ -1091,57 +1101,40 @@ function HomePage() {
         }
       `}</style>
 
-      <div>
-        <Navigation />
+      <div style={{background: '#090A0C', minHeight: '100vh'}}>
+        <HulyNavigation />
         
-        {/* HERO SECTION */}
-        <section className="hero">
-          <div className="hero-content">
-            <div className="hero-text">
-              <h1>Quote insurance <span className="power-word">10x faster</span></h1>
-              <p className="lead-text">The modern alternative to EZLynx and Applied Rater. Built for independent agents who demand <span className="benefit-word">speed</span>, <span className="benefit-word">transparency</span>, and <span className="power-word">results</span>.</p>
-              
-              <div className="hero-stats">
-                <div className="stat">
-                  <span className="stat-number number-emphasis">60%</span>
-                  <span className="stat-label">Faster quotes</span>
-                </div>
-                <div className="stat">
-                  <span className="stat-number number-emphasis">1000+</span>
-                  <span className="stat-label authority-word">Agencies switched</span>
-                </div>
-                <div className="stat">
-                  <span className="stat-number number-emphasis">$2.4M</span>
-                  <span className="stat-label benefit-word">Avg. revenue boost</span>
-                </div>
-              </div>
-              
-              <div className="hero-ctas">
-                <button onClick={handleWatchDemo} className="btn btn-primary">
-                  ▶️ Get My Demo <span className="urgency-word">Now</span>
-                </button>
-                <button onClick={handleCompare} className="btn btn-secondary">
-                  📊 See Why We're <span className="number-emphasis">60%</span> Faster
-                </button>
-              </div>
+        {/* HERO SECTION - Modern SaaS Design */}
+        <ModernSaasHero />
+        
+        {/* LIVE QUOTE DEMO - Interactive Speed Demonstration */}
+        <section style={{background: '#111111', padding: '5rem 1rem'}}>
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 style={{fontSize: '3rem', fontWeight: 700, color: '#FFFFFF', marginBottom: '1rem'}}>
+                Experience the <span style={{background: 'linear-gradient(135deg, #5B3FFF, #00D4FF)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>Speed Difference</span>
+              </h2>
+              <p style={{fontSize: '1.25rem', color: '#9CA3AF', maxWidth: '48rem', margin: '0 auto'}}>
+                Watch how Quotely generates accurate quotes in under 2 minutes
+              </p>
             </div>
-            
-            <div className="hero-visual">
-              <div className="demo-preview">
-                <div className="demo-video" id="demo">
-                  <div className="play-button" onClick={playDemo}>▶</div>
-                  {/* Simulated dashboard preview */}
-                  <div style={{position: 'absolute', top: '10px', left: '10px', right: '10px', bottom: '60px', background: 'linear-gradient(135deg, #1B2951 0%, #0F1729 100%)', borderRadius: '8px', opacity: 0.4}}></div>
-                  <div style={{position: 'absolute', top: '30px', left: '30px', right: '30px', height: '20px', background: 'white', borderRadius: '4px', opacity: 0.3}}></div>
-                  <div style={{position: 'absolute', top: '60px', left: '30px', right: '30px', height: '100px', background: 'white', borderRadius: '8px', opacity: 0.4}}></div>
-                </div>
-                <div style={{textAlign: 'center', marginTop: '1rem', color: 'var(--text-secondary)', fontSize: '0.875rem'}}>
-                  🚀 See how quotes that used to take 5 minutes now take 30 seconds
-                </div>
-              </div>
-            </div>
+            <LiveQuoteDemo />
           </div>
         </section>
+        
+        {/* ASYMMETRIC FEATURE GRID - Modern Feature Display */}
+        <AsymmetricFeatureGrid />
+        
+        {/* STATISTICS SECTION - Trust & Social Proof */}
+        <StatisticsSection />
+        
+        {/* Demo Video Section for smooth scroll */}
+        <div id="demo-video" className="py-16 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center mb-8">See Quotely in Action</h2>
+            <HomepageDemoVideo />
+          </div>
+        </div>
 
         {/* MENTAL CHAPTER: PROBLEM → PROOF */}
         <div className="chapter-divider" data-chapter="Chapter I: The Problem"></div>
@@ -1182,9 +1175,32 @@ function HomePage() {
           </div>
         </section>
 
-        <div className="section-break-hard" data-section="2" />
+        {/* COMPARISON SECTION - Modern Platform Comparison */}
+        <ComparisonSection />
         
-        <section className="comparison-section fade-in solution-section elevation-3" id="comparison">
+        {/* AI TRANSPARENCY DASHBOARD - Real-time AI Metrics */}
+        <section className="py-20 px-4 bg-gradient-to-br from-gray-50 to-white">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">
+                Real-Time AI Intelligence
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Full transparency into our neural networks processing 10,000+ decisions per second
+              </p>
+            </div>
+            <AITransparencyDashboard />
+          </div>
+        </section>
+
+        {/* TESTIMONIALS SECTION - Social Proof from Agents */}
+        <TestimonialsSection />
+        
+        {/* TRUST SECTION - Security & Compliance */}
+        <TrustSection />
+        
+        {/* OLD COMPARISON SECTION - Keeping for reference, can be removed later */}
+        <section className="comparison-section fade-in solution-section elevation-3 hidden" id="old-comparison">
           <div className="section-header f-pattern-container">
             <h2>Why agencies choose Quotely</h2>
             <h3 className="question">How does Quotely compare to legacy platforms?</h3>
