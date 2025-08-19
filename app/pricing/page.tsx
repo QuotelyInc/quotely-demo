@@ -506,7 +506,7 @@ function PricingPage() {
         <div className="container">
           <div className="section-header">
             <h2>Featured QUAD Tiers</h2>
-            <p>Start anywhere, upgrade anytime - your buy-in is 100% credited</p>
+            <p>Start anywhere, upgrade anytime - your setup fee is 100% credited</p>
           </div>
           
           <div className="pricing-grid">
@@ -521,7 +521,7 @@ function PricingPage() {
               <div className="pricing-main">
                 <div className="retail-price">Retail: $879/month</div>
                 <div className="monthly-price">$679<span>/month</span></div>
-                <div className="buy-in-price">$1,500 Buy-In Required</div>
+                <div className="buy-in-price">$1,500 Setup Fee</div>
               </div>
               
               <div className="roi-highlight">
@@ -585,7 +585,7 @@ function PricingPage() {
               <div className="pricing-main">
                 <div className="retail-price">Retail: $1,199/month</div>
                 <div className="monthly-price">$929<span>/month</span></div>
-                <div className="buy-in-price">$3,000 Buy-In Required</div>
+                <div className="buy-in-price">$3,000 Setup Fee</div>
               </div>
               
               <div className="roi-highlight">
@@ -649,7 +649,7 @@ function PricingPage() {
               <div className="pricing-main">
                 <div className="retail-price">Retail: $1,999/month</div>
                 <div className="monthly-price">$1,529<span>/month</span></div>
-                <div className="buy-in-price">$6,000 Buy-In Required</div>
+                <div className="buy-in-price">$6,000 Setup Fee</div>
               </div>
               
               <div className="roi-highlight">
@@ -680,7 +680,7 @@ function PricingPage() {
                 <li>Full API Access & Control</li>
                 <li>24/7 Dedicated Support Team</li>
                 <li>Custom Development Team</li>
-                <li>White-Label Platform</li>
+                <li>Custom Branding Options</li>
                 <li>Priority Development Queue</li>
                 <li>Custom Feature Development</li>
               </ul>
@@ -714,7 +714,7 @@ function PricingPage() {
             <thead>
               <tr>
                 <th>Tier</th>
-                <th>Buy-In</th>
+                <th>Setup Fee</th>
                 <th>Monthly Rate</th>
                 <th>Retail Rate</th>
                 <th>Monthly Savings</th>
