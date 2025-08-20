@@ -1,98 +1,87 @@
-'use client'
+"use client";
 
-import { useState, useEffect, useRef } from 'react'
-import { useOTTOTracking } from './OTTOProvider'
+import { useState, useEffect, useRef } from "react";
+import { useOTTOTracking } from "./OTTOProvider";
 
 interface Feature {
-  id: string
-  title: string
-  description: string
-  videoUrl?: string
-  imageUrl?: string
-  size: 'large' | 'small'
-  icon?: string
-  gradient?: string
+  id: string;
+  title: string;
+  description: string;
+  videoUrl?: string;
+  imageUrl?: string;
+  size: "large" | "small";
+  icon?: string;
+  gradient?: string;
 }
 
 export default function AsymmetricFeatureGrid() {
-  const { trackUserAction } = useOTTOTracking()
-  const [hoveredCard, setHoveredCard] = useState<string | null>(null)
-  const gridRef = useRef<HTMLDivElement>(null)
-  const cardsRef = useRef<(HTMLDivElement | null)[]>([])
+  const { trackUserAction } = useOTTOTracking();
+  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     // Intersection Observer for scroll animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-          // Add staggered animation delay
-          setTimeout(() => {
-            entry.target.classList.add('animate-in')
-          }, index * 100)
-        }
-      })
-    }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    })
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            // Add staggered animation delay
+            setTimeout(() => {
+              entry.target.classList.add("animate-in");
+            }, index * 100);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      }
+    );
 
     // Observe all feature cards
-    cardsRef.current.forEach(card => {
-      if (card) observer.observe(card)
-    })
+    cardsRef.current.forEach((card) => {
+      if (card) observer.observe(card);
+    });
 
     // Observe the section header
-    const header = gridRef.current?.querySelector('.section-header')
-    if (header) observer.observe(header)
+    const header = gridRef.current?.querySelector(".section-header");
+    if (header) observer.observe(header);
 
     return () => {
-      observer.disconnect()
-    }
-  }, [])
+      observer.disconnect();
+    };
+  }, []);
 
   const features: Feature[] = [
     {
-      id: 'instant-quotes',
-      title: 'Instant Quote Generation',
-      description: 'Generate accurate quotes in under 2 minutes with our AI-powered engine. 60% faster than traditional platforms.',
-      videoUrl: '/demos/instant-quote.mp4',
-      size: 'large',
-      icon: '⚡',
-      gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+      id: "instant-quotes",
+      title: "Instant Quote Generation",
+      description:
+        "Generate accurate quotes in under 2 minutes with our AI-powered engine. 60% faster than traditional platforms.",
+      videoUrl: "/demos/instant-quote.mp4",
+      size: "large",
+      icon: "⚡",
+      gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
     },
     {
-      id: 'ai-recommendations',
-      title: 'AI-Powered Recommendations',
-      description: 'Get intelligent coverage suggestions based on real-time risk analysis and historical data patterns.',
-      imageUrl: '/images/ai-dashboard.png',
-      size: 'large',
-      icon: '🤖',
-      gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'
+      id: "ai-recommendations",
+      title: "AI-Powered Recommendations",
+      description:
+        "Get intelligent coverage suggestions based on real-time risk analysis and historical data patterns.",
+      imageUrl: "/images/ai-dashboard.png",
+      size: "large",
+      icon: "🤖",
+      gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
     },
-    {
-      id: 'carrier-integration',
-      title: 'Multi-Carrier Integration',
-      description: 'Connect with 50+ top carriers instantly.',
-      size: 'small',
-      icon: '🔗',
-      gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)'
-    },
-    {
-      id: 'mobile-first',
-      title: 'Mobile-First Design',
-      description: 'Full functionality on any device, anywhere.',
-      size: 'small',
-      icon: '📱',
-      gradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)'
-    }
-  ]
+  ];
 
   const handleFeatureClick = (featureId: string) => {
-    trackUserAction('feature_clicked', {
+    trackUserAction("feature_clicked", {
       feature_id: featureId,
-      location: 'asymmetric_grid'
-    })
-  }
+      location: "asymmetric_grid",
+    });
+  };
 
   return (
     <>
@@ -119,21 +108,21 @@ export default function AsymmetricFeatureGrid() {
         .section-title {
           font-size: 3.5rem;
           font-weight: 700;
-          color: #FFFFFF;
+          color: #ffffff;
           margin-bottom: 1rem;
           letter-spacing: -0.02em;
         }
 
         .section-subtitle {
           font-size: 1.25rem;
-          color: #9CA3AF;
+          color: #9ca3af;
           max-width: 600px;
           margin: 0 auto;
           line-height: 1.6;
         }
 
         .gradient-text {
-          background: linear-gradient(135deg, #5B3FFF 0%, #00D4FF 100%);
+          background: linear-gradient(135deg, #5b3fff 0%, #00d4ff 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -143,7 +132,8 @@ export default function AsymmetricFeatureGrid() {
         }
 
         @keyframes gradientShift {
-          0%, 100% {
+          0%,
+          100% {
             filter: hue-rotate(0deg) brightness(1);
           }
           50% {
@@ -154,7 +144,7 @@ export default function AsymmetricFeatureGrid() {
         .feature-grid {
           display: grid;
           grid-template-columns: repeat(12, 1fr);
-          grid-auto-rows: 320px;
+          grid-auto-rows: 450px;
           gap: 1.5rem;
           margin-bottom: 2rem;
         }
@@ -224,7 +214,7 @@ export default function AsymmetricFeatureGrid() {
         }
 
         .feature-card::before {
-          content: '';
+          content: "";
           position: absolute;
           top: 0;
           left: 0;
@@ -270,7 +260,7 @@ export default function AsymmetricFeatureGrid() {
         .feature-title {
           font-size: 1.5rem;
           font-weight: 600;
-          color: #FFFFFF;
+          color: #ffffff;
           line-height: 1.3;
           flex: 1;
         }
@@ -280,7 +270,7 @@ export default function AsymmetricFeatureGrid() {
         }
 
         .feature-description {
-          color: #9CA3AF;
+          color: #9ca3af;
           line-height: 1.6;
           margin-bottom: 1.5rem;
           flex: 1;
@@ -292,7 +282,7 @@ export default function AsymmetricFeatureGrid() {
 
         .feature-media {
           width: 100%;
-          height: 180px;
+          height: 100%;
           background: rgba(0, 0, 0, 0.3);
           border-radius: 12px;
           overflow: hidden;
@@ -317,7 +307,11 @@ export default function AsymmetricFeatureGrid() {
           left: 0;
           right: 0;
           bottom: 0;
-          background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+          background: linear-gradient(
+            180deg,
+            transparent 0%,
+            rgba(0, 0, 0, 0.4) 100%
+          );
           display: flex;
           align-items: center;
           justify-content: center;
@@ -348,7 +342,7 @@ export default function AsymmetricFeatureGrid() {
         .play-icon {
           width: 0;
           height: 0;
-          border-left: 20px solid #090A0C;
+          border-left: 20px solid #090a0c;
           border-top: 12px solid transparent;
           border-bottom: 12px solid transparent;
           margin-left: 4px;
@@ -359,7 +353,7 @@ export default function AsymmetricFeatureGrid() {
           top: 1.5rem;
           right: 1.5rem;
           background: rgba(91, 63, 255, 0.2);
-          color: #FFFFFF;
+          color: #ffffff;
           padding: 0.375rem 0.875rem;
           border-radius: 100px;
           font-size: 0.75rem;
@@ -373,10 +367,11 @@ export default function AsymmetricFeatureGrid() {
         }
 
         @keyframes floatBadge {
-          0%, 100% { 
+          0%,
+          100% {
             transform: translateY(0) rotate(-2deg);
           }
-          50% { 
+          50% {
             transform: translateY(-8px) rotate(2deg);
           }
         }
@@ -399,7 +394,7 @@ export default function AsymmetricFeatureGrid() {
         @media (max-width: 1024px) {
           .feature-grid {
             grid-template-columns: repeat(6, 1fr);
-            grid-auto-rows: 280px;
+            grid-auto-rows: 400px;
           }
 
           .feature-card:nth-child(1),
@@ -440,15 +435,16 @@ export default function AsymmetricFeatureGrid() {
           .feature-card:nth-child(3),
           .feature-card:nth-child(4) {
             grid-column: span 1;
-            min-height: 250px;
+            min-height: 350px;
           }
 
           .feature-card {
             padding: 1.5rem;
+            border-radius: 16px;
           }
 
           .feature-media {
-            height: 150px;
+            height: 200px;
           }
 
           .feature-title {
@@ -460,10 +456,12 @@ export default function AsymmetricFeatureGrid() {
       <section className="feature-grid-container" ref={gridRef}>
         <div className="section-header animate">
           <h2 className="section-title">
-            Powerful Features, <span className="gradient-text">Simply Delivered</span>
+            Powerful Features,{" "}
+            <span className="gradient-text">Simply Delivered</span>
           </h2>
           <p className="section-subtitle">
-            Everything you need to modernize your insurance operations in one unified platform
+            Everything you need to modernize your insurance operations in one
+            unified platform
           </p>
         </div>
 
@@ -471,16 +469,18 @@ export default function AsymmetricFeatureGrid() {
           {features.map((feature, index) => (
             <div
               key={feature.id}
-              ref={el => { cardsRef.current[index] = el }}
+              ref={(el) => {
+                cardsRef.current[index] = el;
+              }}
               className={`feature-card ${feature.size} animate`}
-              style={{ '--gradient': feature.gradient } as any}
+              style={{ "--gradient": feature.gradient } as any}
               onClick={() => handleFeatureClick(feature.id)}
               onMouseEnter={() => setHoveredCard(feature.id)}
               onMouseLeave={() => setHoveredCard(null)}
             >
               <div className="gradient-border"></div>
-              
-              {feature.size === 'large' && (
+
+              {feature.size === "large" && (
                 <div className="feature-badge">New</div>
               )}
 
@@ -489,49 +489,50 @@ export default function AsymmetricFeatureGrid() {
                   <span className="feature-icon">{feature.icon}</span>
                   <h3 className="feature-title">{feature.title}</h3>
                 </div>
-                
+
                 <p className="feature-description">{feature.description}</p>
 
-                {feature.size === 'large' && (feature.videoUrl || feature.imageUrl) && (
-                  <div className="feature-media">
-                    {feature.videoUrl ? (
-                      <>
-                        <video
-                          className="feature-video"
-                          src={feature.videoUrl}
-                          muted
-                          loop
-                          autoPlay={hoveredCard === feature.id}
-                          playsInline
-                        />
-                        <div className="media-overlay">
-                          <div className="play-button">
-                            <div className="play-icon"></div>
+                {feature.size === "large" &&
+                  (feature.videoUrl || feature.imageUrl) && (
+                    <div className="feature-media">
+                      {feature.videoUrl ? (
+                        <>
+                          <video
+                            className="feature-video"
+                            src={feature.videoUrl}
+                            muted
+                            loop
+                            autoPlay={hoveredCard === feature.id}
+                            playsInline
+                          />
+                          <div className="media-overlay">
+                            <div className="play-button">
+                              <div className="play-icon"></div>
+                            </div>
                           </div>
+                        </>
+                      ) : (
+                        <div
+                          className="feature-image"
+                          style={{
+                            background: feature.gradient,
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            fontSize: "3rem",
+                            opacity: 0.8,
+                          }}
+                        >
+                          {feature.icon}
                         </div>
-                      </>
-                    ) : (
-                      <div 
-                        className="feature-image"
-                        style={{
-                          background: feature.gradient,
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          fontSize: '3rem',
-                          opacity: 0.8
-                        }}
-                      >
-                        {feature.icon}
-                      </div>
-                    )}
-                  </div>
-                )}
+                      )}
+                    </div>
+                  )}
               </div>
             </div>
           ))}
         </div>
       </section>
     </>
-  )
+  );
 }

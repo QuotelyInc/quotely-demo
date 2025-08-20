@@ -1293,6 +1293,7 @@ function HomePage() {
             <LiveQuoteDemo />
           </div>
         </section>
+        
         {/* ASYMMETRIC FEATURE GRID - Modern Feature Display */}
         <AsymmetricFeatureGrid />
 
