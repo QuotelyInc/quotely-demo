@@ -103,31 +103,20 @@ export default function Navigation({ className = '' }: NavigationProps) {
           transition: all 0.2s ease;
         }
 
-        .logo-icon {
-          width: 36px;
-          height: 36px;
-          background: linear-gradient(135deg, #2A4365 0%, #3A5883 100%);
-          border-radius: 10px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-weight: 800;
-          font-size: 20px;
-          color: white;
-          box-shadow: 0 2px 8px rgba(42, 67, 101, 0.15);
+        .logo-image {
+          height: 40px;
+          width: auto;
+          object-fit: contain;
           transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
-        .logo:hover .logo-icon {
-          transform: rotate(-5deg) scale(1.05);
-          box-shadow: 0 4px 12px rgba(42, 67, 101, 0.25);
+        .logo:hover .logo-image {
+          transform: scale(1.05);
+          filter: brightness(1.1);
         }
 
-        .logo-text {
-          font-size: 22px;
-          font-weight: 700;
-          color: #2A4365;
-          letter-spacing: -0.02em;
+        .scrolled .logo-image {
+          height: 36px;
         }
 
         /* Trust Badge Next to Logo */
@@ -141,7 +130,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
           border-radius: 100px;
           font-size: 11px;
           font-weight: 600;
-          color: #2A4365;
+          color: #003DB8; /* WCAG AA compliant */
           text-transform: uppercase;
           letter-spacing: 0.02em;
         }
@@ -177,7 +166,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
           position: relative;
           padding: 10px 18px;
           text-decoration: none;
-          color: #1F2937;
+          color: #1A1A1A; /* WCAG AA compliant */
           font-size: 15px;
           font-weight: 600;
           border-radius: 8px;
@@ -189,15 +178,15 @@ export default function Navigation({ className = '' }: NavigationProps) {
         }
         
         .nav-link:hover {
-          color: #2A4365;
-          background: rgba(42, 67, 101, 0.08);
+          color: #003DB8; /* WCAG AA compliant */
+          background: rgba(0, 61, 184, 0.08);
           border-color: rgba(42, 67, 101, 0.15);
           transform: translateY(-1px);
         }
         
         .nav-link.active {
-          color: #2A4365;
-          background: rgba(42, 67, 101, 0.12);
+          color: #003DB8; /* WCAG AA compliant */
+          background: rgba(0, 61, 184, 0.12);
           border-color: #38B2AC;
           font-weight: 700;
         }
@@ -227,7 +216,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
         .btn-login {
           padding: 11px 22px;
           background: white;
-          color: #1F2937;
+          color: #1A1A1A; /* WCAG AA compliant */
           border: 2px solid #E5E7EB;
           border-radius: 8px;
           font-size: 15px;
@@ -239,9 +228,9 @@ export default function Navigation({ className = '' }: NavigationProps) {
         }
 
         .btn-login:hover {
-          color: #2A4365;
-          background: rgba(42, 67, 101, 0.05);
-          border-color: #2A4365;
+          color: #003DB8; /* WCAG AA compliant */
+          background: rgba(0, 61, 184, 0.05);
+          border-color: #003DB8; /* WCAG AA compliant */
           transform: translateY(-1px);
         }
 
@@ -249,7 +238,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
         .btn-get-started {
           position: relative;
           padding: 12px 28px;
-          background: linear-gradient(135deg, #2A4365 0%, #3A5883 100%);
+          background: linear-gradient(135deg, #003DB8 0%, #0050E6 100%); /* WCAG AA compliant */
           color: white;
           border: none;
           border-radius: 8px;
@@ -261,7 +250,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
           align-items: center;
           gap: 8px;
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          box-shadow: 0 4px 14px rgba(42, 67, 101, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+          box-shadow: 0 4px 14px rgba(0, 61, 184, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2);
           overflow: hidden;
         }
 
@@ -278,7 +267,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
 
         .btn-get-started:hover {
           transform: translateY(-1px);
-          box-shadow: 0 6px 20px rgba(42, 67, 101, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+          box-shadow: 0 6px 20px rgba(0, 61, 184, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2);
         }
 
         .btn-get-started:hover::before {
@@ -312,7 +301,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
         }
 
         .mobile-menu-button:hover {
-          background: rgba(42, 67, 101, 0.04);
+          background: rgba(0, 61, 184, 0.04);
           border-color: rgba(42, 67, 101, 0.2);
         }
 
@@ -396,7 +385,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
           justify-content: space-between;
           padding: 16px 20px;
           text-decoration: none;
-          color: #4B5563;
+          color: #4A4A4A; /* WCAG AA compliant */
           font-size: 16px;
           font-weight: 500;
           border-radius: 12px;
@@ -460,8 +449,13 @@ export default function Navigation({ className = '' }: NavigationProps) {
               className="logo"
               onClick={() => handleNavClick('home')}
             >
-              <div className="logo-icon">Q</div>
-              <span className="logo-text">Quotely</span>
+              <img 
+                src="/images/quotely-logos/logo-variant-40.jpg" 
+                alt="Quotely Logo" 
+                className="logo-image"
+                width="120"
+                height="40"
+              />
             </Link>
             <SecurityBadges />
           </div>

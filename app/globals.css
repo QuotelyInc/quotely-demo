@@ -3,6 +3,7 @@
 @import "./huly-dark-theme.css";
 @import "./modern-saas-style.css";
 @import "./desktop-fixes.css";
+@import "./wcag-accessibility.css";
 
 /* Demo Video Animations */
 @keyframes fadeIn {

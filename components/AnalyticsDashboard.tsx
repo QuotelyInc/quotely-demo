@@ -56,7 +56,7 @@ export default function AnalyticsDashboard() {
         <div className="controls">
           <select 
             value={viewType} 
-            onChange={(e) => setViewType(e.target.value as any)}
+            onChange={(e) => setViewType(e.target.value as 'recent' | 'mechanism' | 'frequency')}
             className="view-selector"
           >
             <option value="recent">Most Recent Access</option>
