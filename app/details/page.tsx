@@ -4,7 +4,7 @@ import TrustSection from '@/components/TrustSection'
 import StatisticsSection from '@/components/StatisticsSection'
 import AITransparencyDashboard from '@/components/AITransparencyDashboard'
 import Footer from '@/components/Footer'
-import HulyNavigation from '@/components/HulyNavigation'
+import MinimalNav from '@/components/MinimalNav'
 
 export const metadata = {
   title: 'Detailed Platform Comparison - Quotely vs EZLynx & Applied',
@@ -14,7 +14,7 @@ export const metadata = {
 export default function DetailsPage() {
   return (
     <div style={{ background: '#090A0C', minHeight: '100vh' }}>
-      <HulyNavigation />
+      <MinimalNav />
       
       <div style={{ paddingTop: '80px' }}>
         {/* Page Header */}

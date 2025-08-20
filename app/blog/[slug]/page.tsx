@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import { useOTTOTracking } from '@/components/OTTOProvider'
-import Navigation from '@/components/Navigation'
+import MinimalNav from '@/components/MinimalNav'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 import { getPostBySlug, getRecentPosts, type BlogPost } from '@/lib/blog'
@@ -76,7 +76,7 @@ function BlogPostPage() {
   if (loading) {
     return (
       <>
-        <Navigation />
+        <MinimalNav />
         <div style={{ padding: '200px 20px', textAlign: 'center', minHeight: '60vh' }}>
           <h2>Loading post...</h2>
         </div>
@@ -467,7 +467,7 @@ function BlogPostPage() {
         }
       `}</style>
 
-      <Navigation />
+      <MinimalNav />
 
       {/* Hero Section */}
       <section className="hero-section">

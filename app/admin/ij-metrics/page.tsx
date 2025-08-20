@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Navigation from '@/components/Navigation'
+import MinimalNav from '@/components/MinimalNav'
 import Footer from '@/components/Footer'
 import { useOTTOTracking } from '@/components/OTTOProvider'
 
@@ -454,7 +454,7 @@ export default function IJMetricsDashboard() {
         }
       `}</style>
 
-      <Navigation />
+      <MinimalNav />
 
       <div className="dashboard-container">
         <div className="dashboard-header">

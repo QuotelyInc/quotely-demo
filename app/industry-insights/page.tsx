@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react'
 import { useOTTOTracking } from '@/components/OTTOProvider'
-import Navigation from '@/components/Navigation'
+import MinimalNav from '@/components/MinimalNav'
 import Footer from '@/components/Footer'
 import RotatingNewsCommentary from '@/components/RotatingNewsCommentary'
 import Link from 'next/link'
@@ -298,7 +298,7 @@ function IndustryInsightsPage() {
         }
       `}</style>
 
-      <Navigation />
+      <MinimalNav />
 
       {/* Hero Section */}
       <section className="hero-section">

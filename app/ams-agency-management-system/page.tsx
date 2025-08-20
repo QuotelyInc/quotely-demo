@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import Navigation from '@/components/Navigation'
+import MinimalNav from '@/components/MinimalNav'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 import { useOTTOTracking } from '@/components/OTTOProvider'
@@ -566,7 +566,7 @@ export default function AMSAgencyManagementSystem() {
         <div className="progress-fill" style={{ width: `${readProgress}%` }} />
       </div>
 
-      <Navigation />
+      <MinimalNav />
 
       {/* Hero Section */}
       <section className="hero-section">

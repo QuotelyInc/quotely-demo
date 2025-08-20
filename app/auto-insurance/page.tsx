@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect, useRef } from 'react'
-import Navigation from '@/components/Navigation'
+import MinimalNav from '@/components/MinimalNav'
 import Footer from '@/components/Footer'
 
 export default function AutoInsurancePage() {
@@ -77,7 +77,7 @@ export default function AutoInsurancePage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Navigation />
+      <MinimalNav />
       
       {/* Hero Section */}
       <section className="relative mt-20 min-h-[90vh] bg-gradient-to-br from-purple-600 via-purple-700 to-indigo-800 flex items-center overflow-hidden">

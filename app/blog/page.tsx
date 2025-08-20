@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { useOTTOTracking } from '@/components/OTTOProvider'
-import Navigation from '@/components/Navigation'
+import MinimalNav from '@/components/MinimalNav'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 import { getAllPosts, getAllCategories, type BlogPost } from '@/lib/blog'
@@ -371,7 +371,7 @@ function BlogPage() {
         }
       `}</style>
 
-      <Navigation />
+      <MinimalNav />
 
       {/* Hero Section */}
       <section className="hero-section">

@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react'
 import { useOTTOTracking } from '@/components/OTTOProvider'
-import Navigation from '@/components/Navigation'
+import MinimalNav from '@/components/MinimalNav'
 import Footer from '@/components/Footer'
 
 function QUADPage() {
@@ -546,7 +546,7 @@ function QUADPage() {
         }
       `}</style>
 
-      <Navigation />
+      <MinimalNav />
 
       {/* Hero Section */}
       <section className="quad-hero">
