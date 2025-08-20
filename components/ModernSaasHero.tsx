@@ -1,36 +1,36 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import { useOTTOTracking } from './OTTOProvider'
+import { useState, useEffect } from "react";
+import { useOTTOTracking } from "./OTTOProvider";
 
 export default function ModernSaasHero() {
-  const { trackUserAction } = useOTTOTracking()
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const { trackUserAction } = useOTTOTracking();
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({
         x: (e.clientX / window.innerWidth - 0.5) * 20,
-        y: (e.clientY / window.innerHeight - 0.5) * 20
-      })
-    }
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
-  }, [])
+        y: (e.clientY / window.innerHeight - 0.5) * 20,
+      });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
   const handleCTAClick = (action: string) => {
-    trackUserAction('hero_cta_clicked', {
+    trackUserAction("hero_cta_clicked", {
       action: action,
-      location: 'modern_saas_hero'
-    })
-  }
+      location: "modern_saas_hero",
+    });
+  };
 
   return (
     <>
       <style jsx>{`
         .modern-hero {
           min-height: 100vh;
-          background: linear-gradient(135deg, #090A0C 0%, #1A1B1F 100%);
+          background: linear-gradient(135deg, #090a0c 0%, #1a1b1f 100%);
           position: relative;
           overflow: hidden;
           display: flex;
@@ -58,7 +58,7 @@ export default function ModernSaasHero() {
         .orb-1 {
           width: 600px;
           height: 600px;
-          background: radial-gradient(circle, #5B3FFF 0%, transparent 70%);
+          background: radial-gradient(circle, #5b3fff 0%, transparent 70%);
           top: -200px;
           left: -200px;
           animation-delay: 0s;
@@ -67,7 +67,7 @@ export default function ModernSaasHero() {
         .orb-2 {
           width: 500px;
           height: 500px;
-          background: radial-gradient(circle, #00D4FF 0%, transparent 70%);
+          background: radial-gradient(circle, #00d4ff 0%, transparent 70%);
           bottom: -150px;
           right: -150px;
           animation-delay: 5s;
@@ -76,7 +76,7 @@ export default function ModernSaasHero() {
         .orb-3 {
           width: 400px;
           height: 400px;
-          background: radial-gradient(circle, #FF3F7E 0%, transparent 70%);
+          background: radial-gradient(circle, #ff3f7e 0%, transparent 70%);
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
@@ -84,7 +84,8 @@ export default function ModernSaasHero() {
         }
 
         @keyframes float {
-          0%, 100% {
+          0%,
+          100% {
             transform: translate(0, 0) scale(1);
           }
           33% {
@@ -113,7 +114,7 @@ export default function ModernSaasHero() {
           padding: 0.5rem 1rem;
           border-radius: 100px;
           font-size: 0.875rem;
-          color: #00D4FF;
+          color: #00d4ff;
           margin-bottom: 2rem;
           animation: slideDown 0.8s ease-out;
         }
@@ -121,13 +122,14 @@ export default function ModernSaasHero() {
         .hero-badge .badge-icon {
           width: 16px;
           height: 16px;
-          background: #00D4FF;
+          background: #00d4ff;
           border-radius: 50%;
           animation: pulse 2s ease-in-out infinite;
         }
 
         @keyframes pulse {
-          0%, 100% {
+          0%,
+          100% {
             transform: scale(1);
             opacity: 1;
           }
@@ -146,7 +148,12 @@ export default function ModernSaasHero() {
         }
 
         .gradient-text {
-          background: linear-gradient(135deg, #5B3FFF 0%, #00D4FF 50%, #FF3F7E 100%);
+          background: linear-gradient(
+            135deg,
+            #5b3fff 0%,
+            #00d4ff 50%,
+            #ff3f7e 100%
+          );
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -155,7 +162,8 @@ export default function ModernSaasHero() {
         }
 
         @keyframes gradientShift {
-          0%, 100% {
+          0%,
+          100% {
             background-position: 0% 50%;
           }
           50% {
@@ -165,7 +173,7 @@ export default function ModernSaasHero() {
 
         .hero-subtitle {
           font-size: 1.5rem;
-          color: #9CA3AF;
+          color: #9ca3af;
           margin-bottom: 3rem;
           max-width: 600px;
           margin-left: auto;
@@ -184,7 +192,7 @@ export default function ModernSaasHero() {
 
         .btn-primary {
           padding: 1rem 2.5rem;
-          background: linear-gradient(135deg, #5B3FFF 0%, #00D4FF 100%);
+          background: linear-gradient(135deg, #5b3fff 0%, #00d4ff 100%);
           color: white;
           border: none;
           border-radius: 100px;
@@ -197,13 +205,18 @@ export default function ModernSaasHero() {
         }
 
         .btn-primary::before {
-          content: '';
+          content: "";
           position: absolute;
           top: 0;
           left: -100%;
           width: 100%;
           height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.3),
+            transparent
+          );
           transition: left 0.5s;
         }
 
@@ -245,13 +258,13 @@ export default function ModernSaasHero() {
           display: flex;
           align-items: center;
           gap: 0.75rem;
-          color: #9CA3AF;
+          color: #9ca3af;
         }
 
         .feature-icon {
           width: 24px;
           height: 24px;
-          background: linear-gradient(135deg, #5B3FFF, #00D4FF);
+          background: linear-gradient(135deg, #5b3fff, #00d4ff);
           border-radius: 50%;
           display: flex;
           align-items: center;
@@ -259,7 +272,7 @@ export default function ModernSaasHero() {
         }
 
         .feature-icon::after {
-          content: '✓';
+          content: "✓";
           color: white;
           font-size: 14px;
           font-weight: bold;
@@ -294,24 +307,28 @@ export default function ModernSaasHero() {
           width: 12px;
           height: 12px;
           border-radius: 50%;
-          background: #6B7280;
+          background: #6b7280;
         }
 
         .window-dot.red {
-          background: #EF4444;
+          background: #ef4444;
         }
 
         .window-dot.yellow {
-          background: #F59E0B;
+          background: #f59e0b;
         }
 
         .window-dot.green {
-          background: #10B981;
+          background: #10b981;
         }
 
         .dashboard-content {
           padding: 2rem;
-          background: linear-gradient(135deg, rgba(91, 63, 255, 0.05) 0%, rgba(0, 212, 255, 0.05) 100%);
+          background: linear-gradient(
+            135deg,
+            rgba(91, 63, 255, 0.05) 0%,
+            rgba(0, 212, 255, 0.05) 100%
+          );
         }
 
         .dashboard-grid {
@@ -336,13 +353,13 @@ export default function ModernSaasHero() {
         .card-value {
           font-size: 2rem;
           font-weight: 700;
-          color: #FFFFFF;
+          color: #ffffff;
           margin-bottom: 0.5rem;
         }
 
         .card-label {
           font-size: 0.875rem;
-          color: #9CA3AF;
+          color: #9ca3af;
           text-transform: uppercase;
           letter-spacing: 0.05em;
         }
@@ -409,7 +426,7 @@ export default function ModernSaasHero() {
         }
       `}</style>
 
-      <section className="modern-hero">
+      <section>
         <div className="hero-background">
           <div className="gradient-orb orb-1"></div>
           <div className="gradient-orb orb-2"></div>
@@ -429,19 +446,20 @@ export default function ModernSaasHero() {
           </h1>
 
           <p className="hero-subtitle">
-            The modern insurance platform that replaces EZLynx, Applied, and legacy systems with AI-powered efficiency.
+            The modern insurance platform that replaces EZLynx, Applied, and
+            legacy systems with AI-powered efficiency.
           </p>
 
           <div className="hero-buttons">
-            <button 
+            <button
               className="btn-primary"
-              onClick={() => handleCTAClick('start_free_trial')}
+              onClick={() => handleCTAClick("start_free_trial")}
             >
               Start Free Trial
             </button>
-            <button 
+            <button
               className="btn-secondary"
-              onClick={() => handleCTAClick('watch_demo')}
+              onClick={() => handleCTAClick("watch_demo")}
             >
               Watch Demo
             </button>
@@ -462,42 +480,66 @@ export default function ModernSaasHero() {
             </div>
           </div>
 
-          <div 
-            className="dashboard-preview"
+          {/* card */}
+          <div
+            className=" mt-4 relative max-w-7xl mx-auto animate-[slideUp_1s_ease-out_1s_both]"
             style={{
-              transform: `perspective(1000px) rotateX(${mousePosition.y * 0.1}deg) rotateY(${mousePosition.x * 0.1}deg)`
+              transform: `perspective(1000px) rotateX(${
+                mousePosition.y * 0.1
+              }deg) rotateY(${mousePosition.x * 0.1}deg)`,
             }}
           >
-            <div className="dashboard-window">
-              <div className="window-header">
-                <div className="window-dot red"></div>
-                <div className="window-dot yellow"></div>
-                <div className="window-dot green"></div>
+            <div className="bg-gray-900/80 border border-white/10 rounded-2xl overflow-hidden shadow-[0_40px_80px_rgba(0,0,0,0.5)] backdrop-blur-xl">
+              {/* circle*/}
+              <div className="bg-gray-900/90 border-b border-white/10 p-2 flex items-center gap-2">
+                <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div className="w-3 h-3 rounded-full bg-green-500"></div>
               </div>
-              <div className="dashboard-content">
-                <div className="dashboard-grid">
-                  <div className="dashboard-card">
-                    <div className="card-value">1.8min</div>
-                    <div className="card-label">Avg Quote Time</div>
+              {/* end circle */}
+
+              <div className="p-16 bg-gradient-to-br from-purple-500/5 to-cyan-500/5 ">
+                <div className="grid grid-cols-4 gap-4 mt-1 mb-1">
+                  <div className="bg-white/5 border border-white/10 rounded-xl p-8 transition-all duration-300 hover:bg-white/8 hover:-translate-y-0.5">
+                    <div className="text-3xl font-bold text-white mb-2">
+                      1.8min
+                    </div>
+                    <div className="text-base text-gray-400 uppercase tracking-wider">
+                      Avg Quote Time
+                    </div>
                   </div>
-                  <div className="dashboard-card">
-                    <div className="card-value">94%</div>
-                    <div className="card-label">Accuracy Rate</div>
+                  <div className="bg-white/5 border border-white/10 rounded-xl p-8 transition-all duration-300 hover:bg-white/8 hover:-translate-y-0.5">
+                    <div className="text-3xl font-bold text-white mb-2">
+                      94%
+                    </div>
+                    <div className="text-base text-gray-400 uppercase tracking-wider">
+                      Accuracy Rate
+                    </div>
                   </div>
-                  <div className="dashboard-card">
-                    <div className="card-value">50+</div>
-                    <div className="card-label">Carriers</div>
+
+                  <div className="bg-white/5 border border-white/10 rounded-xl sition-all duration-300 hover:bg-white/8 hover:-translate-y-0.5">
+                    <div className="text-3xl font-bold text-white mb-2">
+                      50+
+                    </div>
+                    <div className="text-base text-gray-400 uppercase tracking-wider">
+                      Carriers
+                    </div>
                   </div>
-                  <div className="dashboard-card">
-                    <div className="card-value">$679</div>
-                    <div className="card-label">Per Office</div>
+                  <div className="bg-white/5 border border-white/10 rounded-xl p-8 transition-all duration-300 hover:bg-white/8 hover:-translate-y-0.5">
+                    <div className="text-3xl font-bold text-white mb-2">
+                      $679
+                    </div>
+                    <div className="text-base text-gray-400 uppercase tracking-wider">
+                      Per Office
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          {/* end */}
         </div>
       </section>
     </>
-  )
+  );
 }

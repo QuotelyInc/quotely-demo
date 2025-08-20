@@ -130,18 +130,6 @@ export default function CalmHero() {
             Trusted by 500+ agencies
           </div>
           
-          <img 
-            src="/images/quotely-logos/logo-hero.jpg" 
-            alt="Quotely" 
-            style={{
-              maxWidth: '200px',
-              height: 'auto',
-              margin: '0 auto 2rem',
-              display: 'block',
-              opacity: 0.95
-            }}
-          />
-          
           <h1>Insurance quoting, simplified</h1>
           
           <p className="hero-subtitle">

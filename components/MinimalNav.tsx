@@ -40,16 +40,24 @@ export default function MinimalNav() {
         }
 
         .logo {
+          font-size: 1.5rem;
+          font-weight: 700;
+          background: linear-gradient(135deg, #0057FF 0%, #00C851 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
           text-decoration: none;
+          letter-spacing: -0.02em;
           display: flex;
           align-items: center;
           gap: 0.5rem;
         }
 
-        .logo img {
-          height: 36px;
-          width: auto;
-          object-fit: contain;
+        .logo::before {
+          content: '⚡';
+          font-size: 1.25rem;
+          filter: none;
+          -webkit-text-fill-color: initial;
         }
 
         .nav-links {
@@ -158,10 +166,7 @@ export default function MinimalNav() {
       <nav>
         <div className="nav-container">
           <Link href="/" className="logo">
-            <img 
-              src="/images/quotely-logos/logo-variant-40.jpg" 
-              alt="Quotely"
-            />
+            Quotely
           </Link>
           
           <ul className="nav-links">

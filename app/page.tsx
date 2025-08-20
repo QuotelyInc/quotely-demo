@@ -4,7 +4,6 @@ import { useEffect } from 'react'
 import { useOTTOTracking } from '@/components/OTTOProvider'
 import MinimalNav from '@/components/MinimalNav'
 import CalmHero from '@/components/CalmHero'
-import LogoShowcase from '@/components/LogoShowcase'
 import MinimalFooter from '@/components/MinimalFooter'
 import './globals-calm.css'
 
@@ -40,7 +39,6 @@ export default function HomePage() {
       <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
         <MinimalNav />
         <CalmHero />
-        <LogoShowcase />
         <MinimalFooter />
       </div>
     </>

@@ -103,20 +103,31 @@ export default function Navigation({ className = '' }: NavigationProps) {
           transition: all 0.2s ease;
         }
 
-        .logo-image {
-          height: 40px;
-          width: auto;
-          object-fit: contain;
+        .logo-icon {
+          width: 36px;
+          height: 36px;
+          background: linear-gradient(135deg, #003DB8 0%, #0050E6 100%); /* WCAG AA compliant */
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 800;
+          font-size: 20px;
+          color: white;
+          box-shadow: 0 2px 8px rgba(0, 61, 184, 0.15);
           transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
-        .logo:hover .logo-image {
-          transform: scale(1.05);
-          filter: brightness(1.1);
+        .logo:hover .logo-icon {
+          transform: rotate(-5deg) scale(1.05);
+          box-shadow: 0 4px 12px rgba(0, 61, 184, 0.25);
         }
 
-        .scrolled .logo-image {
-          height: 36px;
+        .logo-text {
+          font-size: 22px;
+          font-weight: 700;
+          color: #003DB8; /* WCAG AA compliant */
+          letter-spacing: -0.02em;
         }
 
         /* Trust Badge Next to Logo */
@@ -449,13 +460,8 @@ export default function Navigation({ className = '' }: NavigationProps) {
               className="logo"
               onClick={() => handleNavClick('home')}
             >
-              <img 
-                src="/images/quotely-logos/logo-variant-40.jpg" 
-                alt="Quotely Logo" 
-                className="logo-image"
-                width="120"
-                height="40"
-              />
+              <div className="logo-icon">Q</div>
+              <span className="logo-text">Quotely</span>
             </Link>
             <SecurityBadges />
           </div>

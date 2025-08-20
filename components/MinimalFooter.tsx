@@ -78,12 +78,8 @@ export default function MinimalFooter() {
       <footer>
         <div className="footer-container">
           <div className="footer-brand">
-            <Link href="/" className="footer-logo" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <img 
-                src="/images/quotely-logos/logo-variant-41.jpg" 
-                alt="Quotely" 
-                style={{ height: '32px', width: 'auto' }}
-              />
+            <Link href="/" className="footer-logo">
+              Quotely
             </Link>
             <span className="footer-tagline">Insurance simplified</span>
           </div>
