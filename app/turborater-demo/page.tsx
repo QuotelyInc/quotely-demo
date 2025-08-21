@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic';
 
 // Dynamic import to avoid SSR issues with client-side state
-const TurboRaterDemo = dynamic(() => import('@/components/TurboRaterDemo'), {
+const TurboRaterDemo = dynamic(() => import('@/components/demos/TurboRaterDemo'), {
   ssr: false,
   loading: () => (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
