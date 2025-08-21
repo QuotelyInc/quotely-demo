@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { useOTTOTracking } from "./OTTOProvider";
+import { useOTTOTracking } from "../OTTOProvider";
 
 interface Feature {
   id: string;

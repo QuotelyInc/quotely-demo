@@ -2,14 +2,14 @@
 
 import { useEffect, useState } from "react";
 import { useOTTOTracking } from "@/components/OTTOProvider";
-import HulyNavigation from "@/components/HulyNavigation";
+import HulyNavigation from "@/components/layout/HulyNavigation";
 import Footer from "@/components/Footer";
 import RotatingNewsCommentary from "@/components/RotatingNewsCommentary";
 import HomepageDemoVideo from "@/components/HomepageDemoVideo";
 import HulyHero from "@/components/HulyHero";
-import ModernSaasHero from "@/components/ModernSaasHero";
+import ModernSaasHero from "@/components/home/ModernSaasHero";
 import LiveQuoteDemo from "@/components/LiveQuoteDemo";
-import AsymmetricFeatureGrid from "@/components/AsymmetricFeatureGrid";
+import AsymmetricFeatureGrid from "@/components/home/AsymmetricFeatureGrid";
 import StatisticsSection from "@/components/StatisticsSection";
 import ComparisonSection from "@/components/ComparisonSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
@@ -1293,7 +1293,7 @@ function HomePage() {
             <LiveQuoteDemo />
           </div>
         </section>
-        
+
         {/* ASYMMETRIC FEATURE GRID - Modern Feature Display */}
         <AsymmetricFeatureGrid />
 

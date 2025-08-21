@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useOTTOTracking } from "./OTTOProvider";
+import { useOTTOTracking } from "../OTTOProvider";
 
 export default function ModernSaasHero() {
   const { trackUserAction } = useOTTOTracking();
