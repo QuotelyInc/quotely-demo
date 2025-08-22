@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useOTTOTracking } from "./OTTOProvider";
+import { Linkedin, Twitter, Youtube } from "lucide-react";
 
 interface FooterProps {
   className?: string;
@@ -20,35 +21,36 @@ export default function Footer({ className = "" }: FooterProps) {
   return (
     <footer className={`bg-gray-800 text-white py-12 px-5 ${className}`}>
       <div className="max-w-screen-xl mx-auto">
-        {/* Primary Section - Company & CTAs */}
-        <div className="mb-8">
-          <h4 className="mb-6 text-amber-400 text-lg font-semibold">Quotely</h4>
-          <p className="text-gray-400 text-sm mb-6 leading-relaxed max-w-md">
-            Transforming insurance technology, one agency at a time. Streamline
-            quotes, automate workflows, and grow your business with our
-            AI-powered platform.
-          </p>
-
-          <div className="flex flex-col gap-3 max-w-xs">
-            <Link
-              href="/demo"
-              className="bg-amber-400 text-gray-800 py-3 px-6 rounded-md text-sm font-semibold text-center transition-all duration-300 hover:bg-amber-500 hover:-translate-y-0.5"
-              onClick={() => handleFooterLinkClick("primary-cta", "demo")}
-            >
-              Schedule Demo
-            </Link>
-            <Link
-              href="/pricing"
-              className="bg-transparent text-amber-400 py-3 px-6 rounded-md text-sm font-semibold text-center transition-all duration-300 border-2 border-amber-400 hover:bg-amber-400 hover:text-gray-800"
-              onClick={() => handleFooterLinkClick("primary-cta", "pricing")}
-            >
-              View Pricing
-            </Link>
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8 lg:gap-12">
+          {/* Brand & CTA */}
+          <div>
+            <h4 className="mb-6 text-amber-400 text-lg font-semibold">
+              Quotely
+            </h4>
+            <p className="text-gray-400 text-sm mb-6 leading-relaxed max-w-md">
+              <span className="text-amber-400">  "Transforming insurance technology, one agency at a time." </span>
+              {/* Streamline quotes, automate workflows, and grow your business with
+              our AI-powered platform. */}
+            </p>
+            <div className="flex flex-row gap-4 max-w-xs mb-4 items-center">
+              <Link
+                href="/demo"
+                className="bg-gray-800 text-amber-400 px-6 h-14 flex items-center justify-center rounded-full text-base font-semibold text-center transition-all duration-300 border-2 border-amber-400 hover:bg-amber-500 hover:text-yellow-50"
+                onClick={() => handleFooterLinkClick("primary-cta", "demo")}
+              >
+                Schedule Demo
+              </Link>
+              <Link
+                href="/pricing"
+                className="bg-gray-800 text-amber-400 px-6 h-14 flex items-center justify-center rounded-full text-base font-semibold text-center transition-all duration-300 border-2 border-amber-400 hover:bg-amber-500 hover:text-yellow-50"
+                onClick={() => handleFooterLinkClick("primary-cta", "pricing")}
+              >
+                View Pricing
+              </Link>
+            </div>
           </div>
-        </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8 lg:gap-12">
-          {/* Core Product Links */}
+          {/* Product */}
           <div>
             <h4 className="mb-6 text-amber-400 text-lg font-semibold">
               Product
@@ -57,7 +59,7 @@ export default function Footer({ className = "" }: FooterProps) {
               <li>
                 <Link
                   href="/#features"
-                  className="text-gray-300 text-sm leading-6 inline-block py-1 transition-colors duration-300 hover:text-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-gray-800 rounded"
+                  className="footer-link"
                   onClick={() => handleFooterLinkClick("product", "features")}
                 >
                   Features
@@ -66,7 +68,7 @@ export default function Footer({ className = "" }: FooterProps) {
               <li>
                 <Link
                   href="/#integrations"
-                  className="text-gray-300 text-sm leading-6 inline-block py-1 transition-colors duration-300 hover:text-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-gray-800 rounded"
+                  className="footer-link"
                   onClick={() =>
                     handleFooterLinkClick("product", "integrations")
                   }
@@ -77,7 +79,7 @@ export default function Footer({ className = "" }: FooterProps) {
               <li>
                 <a
                   href="/features#security"
-                  className="text-gray-300 text-sm leading-6 inline-block py-1 transition-colors duration-300 hover:text-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-gray-800 rounded"
+                  className="footer-link"
                   onClick={() => handleFooterLinkClick("product", "security")}
                 >
                   Security
@@ -86,7 +88,7 @@ export default function Footer({ className = "" }: FooterProps) {
               <li>
                 <a
                   href="/features#api"
-                  className="text-gray-300 text-sm leading-6 inline-block py-1 transition-colors duration-300 hover:text-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-gray-800 rounded"
+                  className="footer-link"
                   onClick={() => handleFooterLinkClick("product", "api")}
                 >
                   API Docs
@@ -95,7 +97,7 @@ export default function Footer({ className = "" }: FooterProps) {
             </ul>
           </div>
 
-          {/* User-Focused Solutions */}
+          {/* Solutions */}
           <div>
             <h4 className="mb-6 text-amber-400 text-lg font-semibold">
               Solutions
@@ -104,7 +106,7 @@ export default function Footer({ className = "" }: FooterProps) {
               <li>
                 <a
                   href="#agencies"
-                  className="text-gray-300 text-sm leading-6 inline-block py-1 transition-colors duration-300 hover:text-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-gray-800 rounded"
+                  className="footer-link"
                   onClick={() => handleFooterLinkClick("solutions", "agencies")}
                 >
                   For Agencies
@@ -113,7 +115,7 @@ export default function Footer({ className = "" }: FooterProps) {
               <li>
                 <a
                   href="#brokers"
-                  className="text-gray-300 text-sm leading-6 inline-block py-1 transition-colors duration-300 hover:text-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-gray-800 rounded"
+                  className="footer-link"
                   onClick={() => handleFooterLinkClick("solutions", "brokers")}
                 >
                   For Brokers
@@ -122,7 +124,7 @@ export default function Footer({ className = "" }: FooterProps) {
               <li>
                 <a
                   href="#auto-insurance"
-                  className="text-gray-300 text-sm leading-6 inline-block py-1 transition-colors duration-300 hover:text-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-gray-800 rounded"
+                  className="footer-link"
                   onClick={() =>
                     handleFooterLinkClick("solutions", "auto-insurance")
                   }
@@ -133,7 +135,7 @@ export default function Footer({ className = "" }: FooterProps) {
               <li>
                 <a
                   href="#commercial"
-                  className="text-gray-300 text-sm leading-6 inline-block py-1 transition-colors duration-300 hover:text-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-gray-800 rounded"
+                  className="footer-link"
                   onClick={() =>
                     handleFooterLinkClick("solutions", "commercial")
                   }
@@ -144,7 +146,7 @@ export default function Footer({ className = "" }: FooterProps) {
             </ul>
           </div>
 
-          {/* Support & Learning */}
+          {/* Support */}
           <div>
             <h4 className="mb-6 text-amber-400 text-lg font-semibold">
               Support
@@ -153,7 +155,7 @@ export default function Footer({ className = "" }: FooterProps) {
               <li>
                 <a
                   href="#support"
-                  className="text-gray-300 text-sm leading-6 inline-block py-1 transition-colors duration-300 hover:text-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-gray-800 rounded"
+                  className="footer-link"
                   onClick={() =>
                     handleFooterLinkClick("support", "help-center")
                   }
@@ -164,7 +166,7 @@ export default function Footer({ className = "" }: FooterProps) {
               <li>
                 <a
                   href="#training"
-                  className="text-gray-300 text-sm leading-6 inline-block py-1 transition-colors duration-300 hover:text-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-gray-800 rounded"
+                  className="footer-link"
                   onClick={() => handleFooterLinkClick("support", "training")}
                 >
                   Training
@@ -173,7 +175,7 @@ export default function Footer({ className = "" }: FooterProps) {
               <li>
                 <Link
                   href="/blog"
-                  className="text-gray-300 text-sm leading-6 inline-block py-1 transition-colors duration-300 hover:text-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-gray-800 rounded"
+                  className="footer-link"
                   onClick={() => handleFooterLinkClick("support", "blog")}
                 >
                   Blog
@@ -184,7 +186,7 @@ export default function Footer({ className = "" }: FooterProps) {
                   href="https://www.xcelsolutions.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-300 text-sm leading-6 inline-block py-1 transition-colors duration-300 hover:text-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-gray-800 rounded"
+                  className="footer-link"
                   onClick={() => handleFooterLinkClick("support", "ce-credits")}
                 >
                   CE Credits ↗
@@ -193,7 +195,7 @@ export default function Footer({ className = "" }: FooterProps) {
             </ul>
           </div>
 
-          {/* Company & Legal */}
+          {/* Company */}
           <div>
             <h4 className="mb-6 text-amber-400 text-lg font-semibold">
               Company
@@ -202,7 +204,7 @@ export default function Footer({ className = "" }: FooterProps) {
               <li>
                 <Link
                   href="/about"
-                  className="text-gray-300 text-sm leading-6 inline-block py-1 transition-colors duration-300 hover:text-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-gray-800 rounded"
+                  className="footer-link"
                   onClick={() => handleFooterLinkClick("company", "about")}
                 >
                   About Us
@@ -211,7 +213,7 @@ export default function Footer({ className = "" }: FooterProps) {
               <li>
                 <a
                   href="#contact"
-                  className="text-gray-300 text-sm leading-6 inline-block py-1 transition-colors duration-300 hover:text-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-gray-800 rounded"
+                  className="footer-link"
                   onClick={() => handleFooterLinkClick("company", "contact")}
                 >
                   Contact
@@ -220,7 +222,7 @@ export default function Footer({ className = "" }: FooterProps) {
               <li>
                 <a
                   href="#careers"
-                  className="text-gray-300 text-sm leading-6 inline-block py-1 transition-colors duration-300 hover:text-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-gray-800 rounded"
+                  className="footer-link"
                   onClick={() => handleFooterLinkClick("company", "careers")}
                 >
                   Careers
@@ -229,7 +231,7 @@ export default function Footer({ className = "" }: FooterProps) {
               <li>
                 <a
                   href="#partners"
-                  className="text-gray-300 text-sm leading-6 inline-block py-1 transition-colors duration-300 hover:text-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-gray-800 rounded"
+                  className="footer-link"
                   onClick={() => handleFooterLinkClick("company", "partners")}
                 >
                   Partners
@@ -244,11 +246,10 @@ export default function Footer({ className = "" }: FooterProps) {
             <p className="text-gray-300 mb-1">
               © 2025 Quotely, Inc. All rights reserved.
             </p>
-            <p className="text-gray-400 text-sm opacity-80">
+            <p className="text-gray-400 opacity-80 text-sm">
               Privacy Policy • Terms of Service • Cookie Policy
             </p>
           </div>
-
           <div className="flex items-center gap-4">
             <span className="text-gray-400 text-sm mr-2">Follow us:</span>
             <a
@@ -259,7 +260,7 @@ export default function Footer({ className = "" }: FooterProps) {
               onClick={() => handleFooterLinkClick("social", "linkedin")}
               aria-label="Follow us on LinkedIn"
             >
-              💼
+              <Linkedin />
             </a>
             <a
               href="https://twitter.com/quotely"
@@ -269,7 +270,7 @@ export default function Footer({ className = "" }: FooterProps) {
               onClick={() => handleFooterLinkClick("social", "twitter")}
               aria-label="Follow us on Twitter"
             >
-              📱
+              <Twitter />
             </a>
             <a
               href="https://www.youtube.com/@quotely"
@@ -279,11 +280,16 @@ export default function Footer({ className = "" }: FooterProps) {
               onClick={() => handleFooterLinkClick("social", "youtube")}
               aria-label="Subscribe to our YouTube channel"
             >
-              📺
+              <Youtube />
             </a>
           </div>
         </div>
       </div>
+      <style jsx>{`
+        .footer-link {
+          @apply text-gray-300 text-sm leading-6 inline-block py-1 transition-colors duration-300 hover:text-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-gray-800 rounded;
+        }
+      `}</style>
     </footer>
   );
 }
