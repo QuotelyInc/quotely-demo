@@ -3,14 +3,14 @@
 import { useEffect, useState } from "react";
 import { useOTTOTracking } from "@/components/OTTOProvider";
 import HulyNavigation from "@/components/layout/HulyNavigation";
-import Footer from "@/components/Footer";
+import Footer from "@/components/layout/Footer";
 import RotatingNewsCommentary from "@/components/RotatingNewsCommentary";
 import HomepageDemoVideo from "@/components/demos/HomepageDemoVideo";
 import HulyHero from "@/components/HulyHero";
 import ModernSaasHero from "@/components/home/ModernSaasHero";
 import LiveQuoteDemo from "@/components/demos/LiveQuoteDemo";
 import AsymmetricFeatureGrid from "@/components/home/AsymmetricFeatureGrid";
-import StatisticsSection from "@/components/StatisticsSection";
+import StatisticsSection from "@/components/home/StatisticsSection";
 import ComparisonSection from "@/components/ComparisonSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import TrustSection from "@/components/TrustSection";

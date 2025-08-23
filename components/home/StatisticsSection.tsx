@@ -134,13 +134,7 @@ const StatisticsSection = () => {
   }, [trackUserAction])
   
   return (
-    <Section className="bg-gray-900 text-white py-20 relative overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-4000"></div>
-      </div>
-      
+    <Section className="bg-gray-900 text-white py-20 relative overflow-hidden">      
       <Container>
         <div className="relative z-10">
           <div className="text-center mb-16">
@@ -184,18 +178,19 @@ const StatisticsSection = () => {
           </div>
           
           {/* Additional Trust Indicators */}
-          <div className="mt-16 pt-12 border-t border-gray-800">
+          <div>
+            <hr className='border-gray-800 mt-4' />
             <div className="grid md:grid-cols-3 gap-8 text-center">
               <div className="group">
-                <div className="text-2xl font-bold text-blue-400 mb-2">$2.4M</div>
+                <div className="mt-2 text-2xl font-bold text-blue-400 mb-2">$2.4M</div>
                 <div className="text-gray-400 text-sm">Average Agency Revenue Increase</div>
               </div>
               <div className="group">
-                <div className="text-2xl font-bold text-green-400 mb-2">15 States</div>
+                <div className="mt-2 text-2xl font-bold text-green-400 mb-2">15 States</div>
                 <div className="text-gray-400 text-sm">Licensed & Operating</div>
               </div>
               <div className="group">
-                <div className="text-2xl font-bold text-purple-400 mb-2">500K+</div>
+                <div className="mt-2 text-2xl font-bold text-purple-400 mb-2">500K+</div>
                 <div className="text-gray-400 text-sm">Quotes Generated Monthly</div>
               </div>
             </div>

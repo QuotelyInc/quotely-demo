@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useOTTOTracking } from "./OTTOProvider";
+import { useOTTOTracking } from "../OTTOProvider";
 import { Linkedin, Twitter, Youtube } from "lucide-react";
 
 interface FooterProps {
@@ -28,7 +28,10 @@ export default function Footer({ className = "" }: FooterProps) {
               Quotely
             </h4>
             <p className="text-gray-400 text-sm mb-6 leading-relaxed max-w-md">
-              <span className="text-amber-400">  "Transforming insurance technology, one agency at a time." </span>
+              <span className="text-amber-400">
+                {" "}
+                "Transforming insurance technology, one agency at a time."{" "}
+              </span>
               {/* Streamline quotes, automate workflows, and grow your business with
               our AI-powered platform. */}
             </p>

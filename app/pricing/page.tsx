@@ -1,40 +1,41 @@
-'use client'
+"use client";
 
-import { useEffect } from 'react'
-import { useOTTOTracking } from '@/components/OTTOProvider'
-import Navigation from '@/components/Navigation'
-import Footer from '@/components/Footer'
+import { useEffect } from "react";
+import { useOTTOTracking } from "@/components/OTTOProvider";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/layout/Footer";
 
 function PricingPage() {
-  const { trackPageView, trackUserAction } = useOTTOTracking()
+  const { trackPageView, trackUserAction } = useOTTOTracking();
 
   useEffect(() => {
-    trackPageView('pricing', {
-      section: 'pricing',
-      content_type: 'pricing_plans'
-    })
-  }, [trackPageView])
+    trackPageView("pricing", {
+      section: "pricing",
+      content_type: "pricing_plans",
+    });
+  }, [trackPageView]);
 
   const handlePlanClick = (plan: string, price: string) => {
-    trackUserAction('pricing_plan_clicked', {
+    trackUserAction("pricing_plan_clicked", {
       plan: plan,
       monthly_price: price,
-      location: 'pricing_page'
-    })
-  }
+      location: "pricing_page",
+    });
+  };
 
   const handleContactClick = () => {
-    trackUserAction('cta_clicked', {
-      button: 'contact_sales',
-      location: 'pricing_page'
-    })
-  }
+    trackUserAction("cta_clicked", {
+      button: "contact_sales",
+      location: "pricing_page",
+    });
+  };
 
   return (
     <div>
       <style jsx>{`
         body {
-          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+            sans-serif;
           line-height: 1.6;
           color: var(--text-primary);
           background: var(--background);
@@ -42,13 +43,13 @@ function PricingPage() {
           margin: 0;
           padding: 0;
         }
-        
+
         .container {
           max-width: 1400px;
           margin: 0 auto;
           padding: 0 20px;
         }
-        
+
         .btn {
           padding: 1rem 2rem;
           border-radius: 0.75rem;
@@ -62,30 +63,30 @@ function PricingPage() {
           align-items: center;
           gap: 0.5rem;
         }
-        
+
         .btn-primary {
           background: var(--gradient);
           color: white;
           box-shadow: 0 4px 20px rgba(0, 87, 255, 0.3);
         }
-        
+
         .btn-primary:hover {
           transform: translateY(-2px);
           box-shadow: 0 8px 30px rgba(0, 87, 255, 0.5);
         }
-        
+
         .btn-secondary {
           background: transparent;
           color: var(--primary);
           border: 2px solid var(--primary);
         }
-        
+
         .btn-secondary:hover {
           background: var(--primary);
           color: white;
           transform: translateY(-2px);
         }
-        
+
         /* Hero Section */
         .pricing-hero {
           background: var(--gradient-bg);
@@ -93,22 +94,22 @@ function PricingPage() {
           text-align: center;
           color: white;
         }
-        
+
         .pricing-hero h1 {
           font-size: 3.5rem;
           margin-bottom: 1rem;
           font-weight: 700;
         }
-        
+
         .pricing-hero p {
           font-size: 1.3rem;
           opacity: 0.95;
           max-width: 700px;
           margin: 0 auto 2rem;
         }
-        
+
         .early-access-badge {
-          background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+          background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
           color: white;
           padding: 0.75rem 1.5rem;
           border-radius: 25px;
@@ -118,41 +119,46 @@ function PricingPage() {
           display: inline-block;
           animation: pulse 2s infinite;
         }
-        
+
         @keyframes pulse {
-          0%, 100% { transform: scale(1); }
-          50% { transform: scale(1.05); }
+          0%,
+          100% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.05);
+          }
         }
-        
+
         /* QUAD Tiers Grid */
         .pricing-section {
           padding: 5rem 2rem;
           background: var(--background);
         }
-        
+
         .section-header {
           text-align: center;
           margin-bottom: 4rem;
         }
-        
+
         .section-header h2 {
           font-size: 2.5rem;
           color: var(--text-primary);
           margin-bottom: 1rem;
         }
-        
+
         .section-header p {
           font-size: 1.2rem;
           color: var(--text-secondary);
         }
-        
+
         .pricing-grid {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
           gap: 2rem;
           margin-bottom: 4rem;
         }
-        
+
         .pricing-card {
           background: var(--surface);
           border-radius: 1rem;
@@ -162,28 +168,28 @@ function PricingPage() {
           transition: all 0.3s ease;
           border: 2px solid var(--border);
         }
-        
+
         .pricing-card:hover {
           transform: translateY(-5px);
           box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
         }
-        
+
         .pricing-card.recommended {
-          border-color: #10B981;
-          background: linear-gradient(135deg, #F0FDF4 0%, #FFFFFF 100%);
+          border-color: #10b981;
+          background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
         }
-        
+
         .pricing-card.popular {
           border-color: var(--primary);
-          background: linear-gradient(135deg, #EFF6FF 0%, #FFFFFF 100%);
+          background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
           transform: scale(1.03);
         }
-        
+
         .pricing-card.enterprise {
-          border-color: #8B5CF6;
-          background: linear-gradient(135deg, #F5F3FF 0%, #FFFFFF 100%);
+          border-color: #8b5cf6;
+          background: linear-gradient(135deg, #f5f3ff 0%, #ffffff 100%);
         }
-        
+
         .pricing-badge {
           position: absolute;
           top: -12px;
@@ -195,106 +201,106 @@ function PricingPage() {
           font-weight: 600;
           color: white;
         }
-        
+
         .badge-recommended {
-          background: #10B981;
+          background: #10b981;
         }
-        
+
         .badge-popular {
           background: var(--primary);
         }
-        
+
         .badge-enterprise {
-          background: #8B5CF6;
+          background: #8b5cf6;
         }
-        
+
         .pricing-header {
           text-align: center;
           margin-bottom: 2rem;
         }
-        
+
         .pricing-name {
           font-size: 2rem;
           font-weight: 700;
           color: var(--text-primary);
           margin-bottom: 0.5rem;
         }
-        
+
         .pricing-description {
           font-size: 1rem;
           color: var(--text-secondary);
         }
-        
+
         .pricing-main {
           text-align: center;
           margin-bottom: 1.5rem;
         }
-        
+
         .retail-price {
           font-size: 1.2rem;
-          color: #EF4444;
+          color: #ef4444;
           text-decoration: line-through;
           opacity: 0.7;
           margin-bottom: 0.5rem;
         }
-        
+
         .monthly-price {
           font-size: 3rem;
           font-weight: 700;
           color: var(--primary);
           margin-bottom: 0.5rem;
         }
-        
+
         .monthly-price span {
           font-size: 1.2rem;
           color: var(--text-secondary);
         }
-        
+
         .buy-in-price {
-          background: #FEF3C7;
-          color: #92400E;
+          background: #fef3c7;
+          color: #92400e;
           padding: 0.75rem;
           border-radius: 0.5rem;
           font-weight: 600;
           font-size: 1.1rem;
         }
-        
+
         .roi-highlight {
-          background: linear-gradient(135deg, #D1FAE5 0%, #A7F3D0 100%);
-          border: 1px solid #10B981;
+          background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+          border: 1px solid #10b981;
           padding: 1rem;
           border-radius: 0.75rem;
           margin: 1.5rem 0;
         }
-        
+
         .roi-metrics {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
           gap: 0.75rem;
         }
-        
+
         .roi-item {
           text-align: center;
         }
-        
+
         .roi-label {
           font-size: 0.875rem;
-          color: #065F46;
+          color: #065f46;
           margin-bottom: 0.25rem;
         }
-        
+
         .roi-value {
           font-size: 1.25rem;
           font-weight: 700;
           color: #059669;
         }
-        
+
         .feature-list {
           list-style: none;
           margin: 1.5rem 0;
           padding: 0;
         }
-        
+
         .feature-list li {
           padding: 0.75rem 0;
           color: var(--text-primary);
@@ -303,133 +309,133 @@ function PricingPage() {
           gap: 0.75rem;
           font-size: 1rem;
         }
-        
+
         .feature-list li:before {
           content: "✓";
-          color: #10B981;
+          color: #10b981;
           font-weight: bold;
           font-size: 1.25rem;
         }
-        
+
         .upgrade-info {
-          background: #EFF6FF;
+          background: #eff6ff;
           border: 1px solid var(--primary);
           padding: 1rem;
           border-radius: 0.75rem;
           margin: 1.5rem 0;
           text-align: center;
         }
-        
+
         .upgrade-info h4 {
           color: var(--primary);
           margin-bottom: 0.5rem;
           font-size: 1rem;
         }
-        
+
         .upgrade-info p {
           color: var(--text-primary);
           font-size: 0.9rem;
         }
-        
+
         /* Comparison Table */
         .comparison-section {
           max-width: 1400px;
           margin: 4rem auto;
           padding: 0 2rem;
         }
-        
+
         .comparison-section h2 {
           text-align: center;
           font-size: 2.5rem;
           color: var(--text-primary);
           margin-bottom: 3rem;
         }
-        
+
         .comparison-table {
           width: 100%;
           border-collapse: collapse;
           background: var(--surface);
           border-radius: 1rem;
           overflow: hidden;
-          box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+          box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
         }
-        
+
         .comparison-table th,
         .comparison-table td {
           padding: 1rem;
           text-align: center;
           border-bottom: 1px solid var(--border);
         }
-        
+
         .comparison-table th {
           background: var(--gradient-bg);
           color: white;
           font-weight: 600;
           font-size: 0.9rem;
         }
-        
+
         .comparison-table tbody tr:hover {
-          background: #F8FAFC;
+          background: #f8fafc;
         }
-        
+
         .comparison-table .highlight-row {
-          background: linear-gradient(90deg, #EFF6FF 0%, #F0F9FF 100%);
+          background: linear-gradient(90deg, #eff6ff 0%, #f0f9ff 100%);
         }
-        
+
         .comparison-table .enterprise-row {
-          background: linear-gradient(90deg, #F5F3FF 0%, #FAF5FF 100%);
+          background: linear-gradient(90deg, #f5f3ff 0%, #faf5ff 100%);
         }
-        
+
         /* Add-ons Section */
         .addons-section {
-          background: #F8FAFC;
+          background: #f8fafc;
           padding: 4rem 2rem;
           margin-top: 4rem;
         }
-        
+
         .addons-container {
           max-width: 1200px;
           margin: 0 auto;
         }
-        
+
         .addons-section h2 {
           text-align: center;
           font-size: 2.5rem;
           color: var(--text-primary);
           margin-bottom: 3rem;
         }
-        
+
         .addons-grid {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
           gap: 2rem;
         }
-        
+
         .addon-card {
           background: var(--surface);
           padding: 2rem;
           border-radius: 1rem;
-          box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         }
-        
+
         .addon-card h3 {
           color: var(--text-primary);
           margin-bottom: 1rem;
           font-size: 1.5rem;
         }
-        
+
         .addon-price {
           color: var(--primary);
           font-size: 1.75rem;
           font-weight: 700;
           margin-bottom: 1rem;
         }
-        
+
         .addon-description {
           color: var(--text-secondary);
           line-height: 1.6;
         }
-        
+
         /* CTA Section */
         .cta-section {
           background: var(--gradient-bg);
@@ -437,12 +443,12 @@ function PricingPage() {
           padding: 5rem 2rem;
           text-align: center;
         }
-        
+
         .cta-section h2 {
           font-size: 2.5rem;
           margin-bottom: 1.5rem;
         }
-        
+
         .cta-section p {
           font-size: 1.2rem;
           opacity: 0.95;
@@ -451,37 +457,37 @@ function PricingPage() {
           margin-left: auto;
           margin-right: auto;
         }
-        
+
         .cta-buttons {
           display: flex;
           gap: 1rem;
           justify-content: center;
           flex-wrap: wrap;
         }
-        
+
         /* Responsive */
         @media (max-width: 768px) {
           .pricing-hero h1 {
             font-size: 2.5rem;
           }
-          
+
           .pricing-grid {
             grid-template-columns: 1fr;
           }
-          
+
           .pricing-card.popular {
             transform: none;
           }
-          
+
           .comparison-table {
             font-size: 0.875rem;
           }
-          
+
           .comparison-table th,
           .comparison-table td {
             padding: 0.75rem 0.5rem;
           }
-          
+
           .roi-metrics {
             grid-template-columns: 1fr;
           }
@@ -497,90 +503,208 @@ function PricingPage() {
             🔥 Early Access Pricing - Lock in Lifetime Savings
           </div>
           <h1>Complete QUAD Pricing Structure</h1>
-          <p>Choose your perfect tier with flexible upgrade paths and guaranteed lifetime discount pricing</p>
+          <p>
+            Choose your perfect tier with flexible upgrade paths and guaranteed
+            lifetime discount pricing
+          </p>
         </div>
       </section>
 
       {/* AI Automation Metrics */}
-      <section className="section" style={{background: 'linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)', color: 'white', padding: '4rem 0'}}>
+      <section
+        className="section"
+        style={{
+          background: "linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)",
+          color: "white",
+          padding: "4rem 0",
+        }}
+      >
         <div className="container">
-          <div className="section-header" style={{marginBottom: '3rem'}}>
-            <h2 style={{color: 'white', fontSize: '2.5rem', marginBottom: '1rem'}}>AI-Powered Automation Metrics</h2>
-            <p style={{color: 'rgba(255,255,255,0.9)', fontSize: '1.2rem'}}>See how our neural networks transform your agency's efficiency</p>
+          <div className="section-header" style={{ marginBottom: "3rem" }}>
+            <h2
+              style={{
+                color: "white",
+                fontSize: "2.5rem",
+                marginBottom: "1rem",
+              }}
+            >
+              AI-Powered Automation Metrics
+            </h2>
+            <p style={{ color: "rgba(255,255,255,0.9)", fontSize: "1.2rem" }}>
+              See how our neural networks transform your agency's efficiency
+            </p>
           </div>
-          
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-            gap: '2rem',
-            marginBottom: '3rem'
-          }}>
-            <div style={{
-              background: 'rgba(255,255,255,0.1)',
-              backdropFilter: 'blur(10px)',
-              padding: '2rem',
-              borderRadius: '1rem',
-              textAlign: 'center',
-              border: '1px solid rgba(255,255,255,0.2)'
-            }}>
-              <div style={{fontSize: '3rem', fontWeight: 'bold', color: '#FFD700', marginBottom: '0.5rem'}}>10,247</div>
-              <div style={{fontSize: '1rem', opacity: 0.9}}>AI Decisions/Second</div>
-              <div style={{fontSize: '0.875rem', marginTop: '0.5rem', color: '#90EE90'}}>↑ 45% vs Traditional</div>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+              gap: "2rem",
+              marginBottom: "3rem",
+            }}
+          >
+            <div
+              style={{
+                background: "rgba(255,255,255,0.1)",
+                backdropFilter: "blur(10px)",
+                padding: "2rem",
+                borderRadius: "1rem",
+                textAlign: "center",
+                border: "1px solid rgba(255,255,255,0.2)",
+              }}
+            >
+              <div
+                style={{
+                  fontSize: "3rem",
+                  fontWeight: "bold",
+                  color: "#FFD700",
+                  marginBottom: "0.5rem",
+                }}
+              >
+                10,247
+              </div>
+              <div style={{ fontSize: "1rem", opacity: 0.9 }}>
+                AI Decisions/Second
+              </div>
+              <div
+                style={{
+                  fontSize: "0.875rem",
+                  marginTop: "0.5rem",
+                  color: "#90EE90",
+                }}
+              >
+                ↑ 45% vs Traditional
+              </div>
             </div>
-            
-            <div style={{
-              background: 'rgba(255,255,255,0.1)',
-              backdropFilter: 'blur(10px)',
-              padding: '2rem',
-              borderRadius: '1rem',
-              textAlign: 'center',
-              border: '1px solid rgba(255,255,255,0.2)'
-            }}>
-              <div style={{fontSize: '3rem', fontWeight: 'bold', color: '#FFD700', marginBottom: '0.5rem'}}>99.8%</div>
-              <div style={{fontSize: '1rem', opacity: 0.9}}>Model Accuracy</div>
-              <div style={{fontSize: '0.875rem', marginTop: '0.5rem', color: '#90EE90'}}>Industry Leading</div>
+
+            <div
+              style={{
+                background: "rgba(255,255,255,0.1)",
+                backdropFilter: "blur(10px)",
+                padding: "2rem",
+                borderRadius: "1rem",
+                textAlign: "center",
+                border: "1px solid rgba(255,255,255,0.2)",
+              }}
+            >
+              <div
+                style={{
+                  fontSize: "3rem",
+                  fontWeight: "bold",
+                  color: "#FFD700",
+                  marginBottom: "0.5rem",
+                }}
+              >
+                99.8%
+              </div>
+              <div style={{ fontSize: "1rem", opacity: 0.9 }}>
+                Model Accuracy
+              </div>
+              <div
+                style={{
+                  fontSize: "0.875rem",
+                  marginTop: "0.5rem",
+                  color: "#90EE90",
+                }}
+              >
+                Industry Leading
+              </div>
             </div>
-            
-            <div style={{
-              background: 'rgba(255,255,255,0.1)',
-              backdropFilter: 'blur(10px)',
-              padding: '2rem',
-              borderRadius: '1rem',
-              textAlign: 'center',
-              border: '1px solid rgba(255,255,255,0.2)'
-            }}>
-              <div style={{fontSize: '3rem', fontWeight: 'bold', color: '#FFD700', marginBottom: '0.5rem'}}>0.3s</div>
-              <div style={{fontSize: '1rem', opacity: 0.9}}>Quote Generation</div>
-              <div style={{fontSize: '0.875rem', marginTop: '0.5rem', color: '#90EE90'}}>Real-time Processing</div>
+
+            <div
+              style={{
+                background: "rgba(255,255,255,0.1)",
+                backdropFilter: "blur(10px)",
+                padding: "2rem",
+                borderRadius: "1rem",
+                textAlign: "center",
+                border: "1px solid rgba(255,255,255,0.2)",
+              }}
+            >
+              <div
+                style={{
+                  fontSize: "3rem",
+                  fontWeight: "bold",
+                  color: "#FFD700",
+                  marginBottom: "0.5rem",
+                }}
+              >
+                0.3s
+              </div>
+              <div style={{ fontSize: "1rem", opacity: 0.9 }}>
+                Quote Generation
+              </div>
+              <div
+                style={{
+                  fontSize: "0.875rem",
+                  marginTop: "0.5rem",
+                  color: "#90EE90",
+                }}
+              >
+                Real-time Processing
+              </div>
             </div>
-            
-            <div style={{
-              background: 'rgba(255,255,255,0.1)',
-              backdropFilter: 'blur(10px)',
-              padding: '2rem',
-              borderRadius: '1rem',
-              textAlign: 'center',
-              border: '1px solid rgba(255,255,255,0.2)'
-            }}>
-              <div style={{fontSize: '3rem', fontWeight: 'bold', color: '#FFD700', marginBottom: '0.5rem'}}>$47K</div>
-              <div style={{fontSize: '1rem', opacity: 0.9}}>Saved Per Agent/Year</div>
-              <div style={{fontSize: '0.875rem', marginTop: '0.5rem', color: '#90EE90'}}>From Automation</div>
+
+            <div
+              style={{
+                background: "rgba(255,255,255,0.1)",
+                backdropFilter: "blur(10px)",
+                padding: "2rem",
+                borderRadius: "1rem",
+                textAlign: "center",
+                border: "1px solid rgba(255,255,255,0.2)",
+              }}
+            >
+              <div
+                style={{
+                  fontSize: "3rem",
+                  fontWeight: "bold",
+                  color: "#FFD700",
+                  marginBottom: "0.5rem",
+                }}
+              >
+                $47K
+              </div>
+              <div style={{ fontSize: "1rem", opacity: 0.9 }}>
+                Saved Per Agent/Year
+              </div>
+              <div
+                style={{
+                  fontSize: "0.875rem",
+                  marginTop: "0.5rem",
+                  color: "#90EE90",
+                }}
+              >
+                From Automation
+              </div>
             </div>
           </div>
-          
-          <div style={{
-            background: 'rgba(255,255,255,0.15)',
-            borderRadius: '1rem',
-            padding: '2rem',
-            textAlign: 'center'
-          }}>
-            <h3 style={{fontSize: '1.5rem', marginBottom: '1rem', color: 'white'}}>AI Features Included in All QUAD Tiers</h3>
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-              gap: '1rem',
-              fontSize: '0.95rem'
-            }}>
+
+          <div
+            style={{
+              background: "rgba(255,255,255,0.15)",
+              borderRadius: "1rem",
+              padding: "2rem",
+              textAlign: "center",
+            }}
+          >
+            <h3
+              style={{
+                fontSize: "1.5rem",
+                marginBottom: "1rem",
+                color: "white",
+              }}
+            >
+              AI Features Included in All QUAD Tiers
+            </h3>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+                gap: "1rem",
+                fontSize: "0.95rem",
+              }}
+            >
               <div>✓ Neural Quote Engine</div>
               <div>✓ Predictive Analytics</div>
               <div>✓ Risk Assessment AI</div>
@@ -599,24 +723,32 @@ function PricingPage() {
         <div className="container">
           <div className="section-header">
             <h2>Featured QUAD Tiers</h2>
-            <p>Start anywhere, upgrade anytime - your setup fee is 100% credited</p>
+            <p>
+              Start anywhere, upgrade anytime - your setup fee is 100% credited
+            </p>
           </div>
-          
+
           <div className="pricing-grid">
             {/* QUAD 1.0 */}
             <div className="pricing-card recommended">
-              <div className="pricing-badge badge-recommended">BEST ENTRY POINT</div>
+              <div className="pricing-badge badge-recommended">
+                BEST ENTRY POINT
+              </div>
               <div className="pricing-header">
                 <div className="pricing-name">QUAD 1.0</div>
-                <div className="pricing-description">Perfect for getting started</div>
+                <div className="pricing-description">
+                  Perfect for getting started
+                </div>
               </div>
-              
+
               <div className="pricing-main">
                 <div className="retail-price">Retail: $879/month</div>
-                <div className="monthly-price">$679<span>/month</span></div>
+                <div className="monthly-price">
+                  $679<span>/month</span>
+                </div>
                 <div className="buy-in-price">$1,500 Setup Fee</div>
               </div>
-              
+
               <div className="roi-highlight">
                 <div className="roi-metrics">
                   <div className="roi-item">
@@ -637,7 +769,7 @@ function PricingPage() {
                   </div>
                 </div>
               </div>
-              
+
               <ul className="feature-list">
                 <li>65 Monthly Quotes</li>
                 <li>Complete Analytics Dashboard</li>
@@ -649,19 +781,23 @@ function PricingPage() {
                 <li>QuickBooks Integration</li>
                 <li>Basic Support</li>
               </ul>
-              
+
               <div className="upgrade-info">
                 <h4>💡 Upgrade Path</h4>
-                <p>$1,500 credit applies to any higher tier. Start here to test the platform risk-free.</p>
+                <p>
+                  $1,500 credit applies to any higher tier. Start here to test
+                  the platform risk-free.
+                </p>
               </div>
-              
-              <button 
+
+              <button
                 onClick={() => {
-                  handlePlanClick('QUAD 1.0', '$679')
-                  window.location.href = 'mailto:sales@quotely.com?subject=QUAD 1.0 Early Access'
-                }} 
-                className="btn btn-primary" 
-                style={{width: '100%'}}
+                  handlePlanClick("QUAD 1.0", "$679");
+                  window.location.href =
+                    "mailto:sales@quotely.com?subject=QUAD 1.0 Early Access";
+                }}
+                className="btn btn-primary"
+                style={{ width: "100%" }}
               >
                 Start with QUAD 1.0
               </button>
@@ -674,13 +810,15 @@ function PricingPage() {
                 <div className="pricing-name">QUAD 3.0</div>
                 <div className="pricing-description">Growing agencies</div>
               </div>
-              
+
               <div className="pricing-main">
                 <div className="retail-price">Retail: $1,199/month</div>
-                <div className="monthly-price">$929<span>/month</span></div>
+                <div className="monthly-price">
+                  $929<span>/month</span>
+                </div>
                 <div className="buy-in-price">$3,000 Setup Fee</div>
               </div>
-              
+
               <div className="roi-highlight">
                 <div className="roi-metrics">
                   <div className="roi-item">
@@ -701,7 +839,7 @@ function PricingPage() {
                   </div>
                 </div>
               </div>
-              
+
               <ul className="feature-list">
                 <li>225 Monthly Quotes</li>
                 <li>Premium Analytics Suite</li>
@@ -713,19 +851,23 @@ function PricingPage() {
                 <li>API Integration Access</li>
                 <li>Performance Optimization</li>
               </ul>
-              
+
               <div className="upgrade-info">
                 <h4>💡 Upgrade Paths</h4>
-                <p>From QUAD 1.0: Pay $1,500 more | From QUAD 2.0: Pay $1,000 more</p>
+                <p>
+                  From QUAD 1.0: Pay $1,500 more | From QUAD 2.0: Pay $1,000
+                  more
+                </p>
               </div>
-              
-              <button 
+
+              <button
                 onClick={() => {
-                  handlePlanClick('QUAD 3.0', '$929')
-                  window.location.href = 'mailto:sales@quotely.com?subject=QUAD 3.0 Early Access'
-                }} 
-                className="btn btn-primary" 
-                style={{width: '100%'}}
+                  handlePlanClick("QUAD 3.0", "$929");
+                  window.location.href =
+                    "mailto:sales@quotely.com?subject=QUAD 3.0 Early Access";
+                }}
+                className="btn btn-primary"
+                style={{ width: "100%" }}
               >
                 Choose QUAD 3.0
               </button>
@@ -736,15 +878,19 @@ function PricingPage() {
               <div className="pricing-badge badge-enterprise">UNLIMITED</div>
               <div className="pricing-header">
                 <div className="pricing-name">QUAD 7.0</div>
-                <div className="pricing-description">Ultimate enterprise solution</div>
+                <div className="pricing-description">
+                  Ultimate enterprise solution
+                </div>
               </div>
-              
+
               <div className="pricing-main">
                 <div className="retail-price">Retail: $1,999/month</div>
-                <div className="monthly-price">$1,529<span>/month</span></div>
+                <div className="monthly-price">
+                  $1,529<span>/month</span>
+                </div>
                 <div className="buy-in-price">$6,000 Setup Fee</div>
               </div>
-              
+
               <div className="roi-highlight">
                 <div className="roi-metrics">
                   <div className="roi-item">
@@ -765,7 +911,7 @@ function PricingPage() {
                   </div>
                 </div>
               </div>
-              
+
               <ul className="feature-list">
                 <li>625+ Monthly Quotes (Unlimited)</li>
                 <li>Unlimited Everything</li>
@@ -777,19 +923,20 @@ function PricingPage() {
                 <li>Priority Development Queue</li>
                 <li>Custom Feature Development</li>
               </ul>
-              
+
               <div className="upgrade-info">
                 <h4>💡 Maximum Power</h4>
                 <p>Enterprise level - maximum savings for power users</p>
               </div>
-              
-              <button 
+
+              <button
                 onClick={() => {
-                  handlePlanClick('QUAD 7.0', '$1529')
-                  window.location.href = 'mailto:enterprise@quotely.com?subject=QUAD 7.0 Ultimate'
-                }} 
-                className="btn btn-primary" 
-                style={{width: '100%'}}
+                  handlePlanClick("QUAD 7.0", "$1529");
+                  window.location.href =
+                    "mailto:enterprise@quotely.com?subject=QUAD 7.0 Ultimate";
+                }}
+                className="btn btn-primary"
+                style={{ width: "100%" }}
               >
                 Choose QUAD 7.0
               </button>
@@ -801,8 +948,8 @@ function PricingPage() {
       {/* Complete Comparison Table */}
       <section className="comparison-section">
         <h2>📊 Complete QUAD Comparison - All 7 Levels</h2>
-        
-        <div style={{overflowX: 'auto'}}>
+
+        <div style={{ overflowX: "auto" }}>
           <table className="comparison-table">
             <thead>
               <tr>
@@ -818,9 +965,13 @@ function PricingPage() {
             </thead>
             <tbody>
               <tr className="highlight-row">
-                <td><strong>QUAD 1.0</strong></td>
+                <td>
+                  <strong>QUAD 1.0</strong>
+                </td>
                 <td>$1,500</td>
-                <td><strong>$679</strong></td>
+                <td>
+                  <strong>$679</strong>
+                </td>
                 <td>$879</td>
                 <td>$200</td>
                 <td>65</td>
@@ -828,9 +979,13 @@ function PricingPage() {
                 <td>New agencies, testing platform</td>
               </tr>
               <tr>
-                <td><strong>QUAD 2.0</strong></td>
+                <td>
+                  <strong>QUAD 2.0</strong>
+                </td>
                 <td>$2,000</td>
-                <td><strong>$779</strong></td>
+                <td>
+                  <strong>$779</strong>
+                </td>
                 <td>$949</td>
                 <td>$170</td>
                 <td>150</td>
@@ -838,9 +993,13 @@ function PricingPage() {
                 <td>Small agencies</td>
               </tr>
               <tr className="highlight-row">
-                <td><strong>QUAD 3.0</strong></td>
+                <td>
+                  <strong>QUAD 3.0</strong>
+                </td>
                 <td>$3,000</td>
-                <td><strong>$929</strong></td>
+                <td>
+                  <strong>$929</strong>
+                </td>
                 <td>$1,199</td>
                 <td>$270</td>
                 <td>225</td>
@@ -848,9 +1007,13 @@ function PricingPage() {
                 <td>Growing agencies</td>
               </tr>
               <tr>
-                <td><strong>QUAD 4.0</strong></td>
+                <td>
+                  <strong>QUAD 4.0</strong>
+                </td>
                 <td>$3,500</td>
-                <td><strong>$1,079</strong></td>
+                <td>
+                  <strong>$1,079</strong>
+                </td>
                 <td>$1,399</td>
                 <td>$320</td>
                 <td>300</td>
@@ -858,9 +1021,13 @@ function PricingPage() {
                 <td>Established agencies</td>
               </tr>
               <tr>
-                <td><strong>QUAD 5.0</strong></td>
+                <td>
+                  <strong>QUAD 5.0</strong>
+                </td>
                 <td>$4,500</td>
-                <td><strong>$1,229</strong></td>
+                <td>
+                  <strong>$1,229</strong>
+                </td>
                 <td>$1,599</td>
                 <td>$370</td>
                 <td>400</td>
@@ -868,9 +1035,13 @@ function PricingPage() {
                 <td>High-volume agencies</td>
               </tr>
               <tr className="enterprise-row">
-                <td><strong>QUAD 6.0</strong></td>
+                <td>
+                  <strong>QUAD 6.0</strong>
+                </td>
                 <td>$5,500</td>
-                <td><strong>$1,379</strong></td>
+                <td>
+                  <strong>$1,379</strong>
+                </td>
                 <td>$1,799</td>
                 <td>$420</td>
                 <td>500</td>
@@ -878,9 +1049,13 @@ function PricingPage() {
                 <td>Enterprise agencies</td>
               </tr>
               <tr className="enterprise-row">
-                <td><strong>QUAD 7.0</strong></td>
+                <td>
+                  <strong>QUAD 7.0</strong>
+                </td>
                 <td>$6,000</td>
-                <td><strong>$1,529</strong></td>
+                <td>
+                  <strong>$1,529</strong>
+                </td>
                 <td>$1,999</td>
                 <td>$470</td>
                 <td>625+</td>
@@ -896,17 +1071,18 @@ function PricingPage() {
       <section className="addons-section">
         <div className="addons-container">
           <h2>🔧 Optional Add-Ons (Available for All Tiers)</h2>
-          
+
           <div className="addons-grid">
             <div className="addon-card">
               <h3>CRM Integration</h3>
               <div className="addon-price">+$150/month</div>
               <div className="addon-description">
-                Full CRM functionality with lead management, pipeline tracking, and automated follow-ups. 
-                Seamlessly integrated with QUAD platform for complete client lifecycle management.
+                Full CRM functionality with lead management, pipeline tracking,
+                and automated follow-ups. Seamlessly integrated with QUAD
+                platform for complete client lifecycle management.
               </div>
             </div>
-            
+
             <div className="addon-card">
               <h3>SEO Package</h3>
               <div className="addon-price">$200-$600/month</div>
@@ -917,13 +1093,14 @@ function PricingPage() {
                 <br />• QUAD 5.0+: $500/mo
               </div>
             </div>
-            
+
             <div className="addon-card">
               <h3>RingCentral VOIP</h3>
               <div className="addon-price">$20-$35/user/month</div>
               <div className="addon-description">
-                Professional phone system with full QUAD integration, call recording, analytics, 
-                and automatic client data population from calls.
+                Professional phone system with full QUAD integration, call
+                recording, analytics, and automatic client data population from
+                calls.
               </div>
             </div>
           </div>
@@ -935,25 +1112,27 @@ function PricingPage() {
         <div className="container">
           <h2>🎯 Lock in Your Lifetime Savings Today</h2>
           <p>
-            Early access pricing ends soon. These rates will never be available again once we launch publicly.
+            Early access pricing ends soon. These rates will never be available
+            again once we launch publicly.
           </p>
           <div className="cta-buttons">
-            <button 
+            <button
               onClick={() => {
-                handleContactClick()
-                window.location.href = 'mailto:sales@quotely.com?subject=QUAD Early Access Inquiry'
+                handleContactClick();
+                window.location.href =
+                  "mailto:sales@quotely.com?subject=QUAD Early Access Inquiry";
               }}
               className="btn btn-primary"
             >
               Get Started Now
             </button>
-            <button 
+            <button
               onClick={() => {
-                handleContactClick()
-                window.location.href = 'https://calendly.com/quotely/demo'
+                handleContactClick();
+                window.location.href = "https://calendly.com/quotely/demo";
               }}
-              className="btn btn-secondary" 
-              style={{background: 'white', color: 'var(--primary)'}}
+              className="btn btn-secondary"
+              style={{ background: "white", color: "var(--primary)" }}
             >
               Schedule Demo
             </button>
@@ -963,9 +1142,9 @@ function PricingPage() {
 
       <Footer />
     </div>
-  )
+  );
 }
 
 export default function Pricing() {
-  return <PricingPage />
+  return <PricingPage />;
 }
