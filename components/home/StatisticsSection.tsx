@@ -113,7 +113,7 @@ const AnimatedStat = ({
       ref={statRef}
       className="text-center group hover:transform hover:scale-105 transition-all duration-300"
     >
-      <div className="text-5xl mb-4 animate-bounce-once">{icon}</div>
+      <div className="text-5xl mb-2 animate-bounce-once">{icon}</div>
       <div className="text-4xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
         {prefix}{displayNumber}{suffix}
       </div>
@@ -134,7 +134,7 @@ const StatisticsSection = () => {
   }, [trackUserAction])
   
   return (
-    <Section className="bg-gray-900 text-white py-20 relative overflow-hidden">      
+    <Section className="bg-gray-900 text-white py-14 relative overflow-hidden">      
       <Container>
         <div className="relative z-10">
           <div className="text-center mb-16">

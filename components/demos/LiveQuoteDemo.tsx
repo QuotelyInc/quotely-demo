@@ -292,7 +292,7 @@ export default function LiveQuoteDemo() {
         }
       `}</style>
 
-      <div className="quote-demo-container">
+      <div className="quote-demo-container ">
         <div className="demo-header">
           <h3 className="demo-title">Live Speed Demo</h3>
           <div className={`demo-timer ${!isRunning ? "stopped" : ""}`}>

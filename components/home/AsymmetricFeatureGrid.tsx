@@ -453,7 +453,7 @@ export default function AsymmetricFeatureGrid() {
         }
       `}</style>
 
-      <section className="feature-grid-container" ref={gridRef}>
+      <section className="feature-grid-container border-b-1 border-gray-800" ref={gridRef}>
         <div className="section-header animate">
           <h2 className="section-title">
             Powerful Features,{" "}
