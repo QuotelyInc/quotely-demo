@@ -1,52 +1,52 @@
-'use client'
+"use client";
 
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { useOTTOTracking } from './OTTOProvider'
-import { useState, useEffect } from 'react'
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useOTTOTracking } from "../OTTOProvider";
+import { useState, useEffect } from "react";
 
 export default function HulyNavigation() {
-  const pathname = usePathname()
-  const { trackUserAction } = useOTTOTracking()
-  const [scrolled, setScrolled] = useState(false)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
+  const pathname = usePathname();
+  const { trackUserAction } = useOTTOTracking();
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as HTMLElement
-      if (!target.closest('.nav-dropdown')) {
-        setActiveDropdown(null)
+      const target = event.target as HTMLElement;
+      if (!target.closest(".nav-dropdown")) {
+        setActiveDropdown(null);
       }
-    }
+    };
 
     if (activeDropdown) {
-      document.addEventListener('click', handleClickOutside)
-      return () => document.removeEventListener('click', handleClickOutside)
+      document.addEventListener("click", handleClickOutside);
+      return () => document.removeEventListener("click", handleClickOutside);
     }
-  }, [activeDropdown])
+  }, [activeDropdown]);
 
   const handleNavClick = (page: string) => {
-    trackUserAction('navigation_clicked', {
+    trackUserAction("navigation_clicked", {
       destination: page,
-      source: 'huly_navigation'
-    })
-    setMobileMenuOpen(false)
-  }
+      source: "huly_navigation",
+    });
+    setMobileMenuOpen(false);
+  };
 
   const isActive = (path: string) => {
-    if (path === '/' && pathname === '/') return true
-    if (path !== '/' && pathname.startsWith(path)) return true
-    return false
-  }
+    if (path === "/" && pathname === "/") return true;
+    if (path !== "/" && pathname.startsWith(path)) return true;
+    return false;
+  };
 
   return (
     <>
@@ -99,7 +99,7 @@ export default function HulyNavigation() {
         .logo-icon {
           width: 32px;
           height: 32px;
-          background: linear-gradient(135deg, #5B3FFF 0%, #00D4FF 100%);
+          background: linear-gradient(135deg, #5b3fff 0%, #00d4ff 100%);
           border-radius: 8px;
           display: flex;
           align-items: center;
@@ -112,7 +112,7 @@ export default function HulyNavigation() {
         .logo-text {
           font-size: 1.25rem;
           font-weight: 700;
-          color: #FFFFFF;
+          color: #ffffff;
           letter-spacing: -0.02em;
         }
 
@@ -127,7 +127,7 @@ export default function HulyNavigation() {
 
         .nav-link {
           padding: 0.5rem 1rem;
-          color: #9CA3AF;
+          color: #9ca3af;
           text-decoration: none;
           font-size: 0.9rem;
           font-weight: 500;
@@ -137,23 +137,23 @@ export default function HulyNavigation() {
         }
 
         .nav-link:hover {
-          color: #FFFFFF;
+          color: #ffffff;
           background: rgba(255, 255, 255, 0.05);
         }
 
         .nav-link.active {
-          color: #FFFFFF;
+          color: #ffffff;
           background: rgba(255, 255, 255, 0.08);
         }
 
         .nav-link.active::after {
-          content: '';
+          content: "";
           position: absolute;
           bottom: -1px;
           left: 1rem;
           right: 1rem;
           height: 2px;
-          background: #0057FF;
+          background: #0057ff;
           border-radius: 2px;
         }
 
@@ -164,7 +164,7 @@ export default function HulyNavigation() {
 
         .nav-dropdown-toggle {
           padding: 0.5rem 1rem;
-          color: #9CA3AF;
+          color: #9ca3af;
           background: transparent;
           border: none;
           font-size: 0.9rem;
@@ -178,12 +178,12 @@ export default function HulyNavigation() {
         }
 
         .nav-dropdown-toggle:hover {
-          color: #FFFFFF;
+          color: #ffffff;
           background: rgba(255, 255, 255, 0.05);
         }
 
         .nav-dropdown-toggle.active {
-          color: #FFFFFF;
+          color: #ffffff;
           background: rgba(255, 255, 255, 0.08);
         }
 
@@ -222,7 +222,7 @@ export default function HulyNavigation() {
         .dropdown-item {
           display: block;
           padding: 0.75rem 1rem;
-          color: #9CA3AF;
+          color: #9ca3af;
           text-decoration: none;
           font-size: 0.875rem;
           border-radius: 8px;
@@ -230,7 +230,7 @@ export default function HulyNavigation() {
         }
 
         .dropdown-item:hover {
-          color: #FFFFFF;
+          color: #ffffff;
           background: rgba(255, 255, 255, 0.08);
           transform: translateX(4px);
         }
@@ -250,7 +250,7 @@ export default function HulyNavigation() {
         .btn-nav-ghost {
           padding: 0.5rem 1.25rem;
           background: transparent;
-          color: #9CA3AF;
+          color: #9ca3af;
           border: none;
           border-radius: 6px;
           font-size: 0.9rem;
@@ -261,13 +261,13 @@ export default function HulyNavigation() {
         }
 
         .btn-nav-ghost:hover {
-          color: #FFFFFF;
+          color: #ffffff;
           background: rgba(255, 255, 255, 0.05);
         }
 
         .btn-nav-primary {
           padding: 0.5rem 1.5rem;
-          background: #0057FF;
+          background: #0057ff;
           color: white;
           border: none;
           border-radius: 6px;
@@ -282,7 +282,7 @@ export default function HulyNavigation() {
         }
 
         .btn-nav-primary:hover {
-          background: #0048DD;
+          background: #0048dd;
           transform: translateY(-1px);
           box-shadow: 0 4px 12px rgba(0, 87, 255, 0.3);
         }
@@ -317,7 +317,7 @@ export default function HulyNavigation() {
           position: absolute;
           height: 2px;
           width: 100%;
-          background: #9CA3AF;
+          background: #9ca3af;
           border-radius: 2px;
           transition: all 0.3s ease;
         }
@@ -379,7 +379,7 @@ export default function HulyNavigation() {
         .mobile-nav-link {
           display: block;
           padding: 1rem;
-          color: #9CA3AF;
+          color: #9ca3af;
           text-decoration: none;
           font-size: 1rem;
           font-weight: 500;
@@ -389,7 +389,7 @@ export default function HulyNavigation() {
 
         .mobile-nav-link:hover,
         .mobile-nav-link.active {
-          color: #FFFFFF;
+          color: #ffffff;
           background: rgba(255, 255, 255, 0.05);
         }
 
@@ -444,13 +444,13 @@ export default function HulyNavigation() {
         }
       `}</style>
 
-      <header className={`nav-huly ${scrolled ? 'scrolled' : ''}`}>
+      <header className={`nav-huly ${scrolled ? "scrolled" : ""}`}>
         <div className="nav-container">
           <div className="nav-left">
-            <Link 
-              href="/" 
+            <Link
+              href="/"
               className="logo"
-              onClick={() => handleNavClick('home')}
+              onClick={() => handleNavClick("home")}
             >
               <div className="logo-icon">Q</div>
               <span className="logo-text">Quotely</span>
@@ -458,73 +458,161 @@ export default function HulyNavigation() {
 
             <ul className="nav-links">
               <li>
-                <Link 
-                  href="/features" 
-                  className={`nav-link ${isActive('/features') ? 'active' : ''}`}
-                  onClick={() => handleNavClick('features')}
+                <Link
+                  href="/features"
+                  className={`nav-link ${
+                    isActive("/features") ? "active" : ""
+                  }`}
+                  onClick={() => handleNavClick("features")}
                 >
                   Product
                 </Link>
               </li>
               <li>
-                <Link 
-                  href="/pricing" 
-                  className={`nav-link ${isActive('/pricing') ? 'active' : ''}`}
-                  onClick={() => handleNavClick('pricing')}
+                <Link
+                  href="/pricing"
+                  className={`nav-link ${isActive("/pricing") ? "active" : ""}`}
+                  onClick={() => handleNavClick("pricing")}
                 >
                   Pricing
                 </Link>
               </li>
               <li className="nav-dropdown">
-                <button 
-                  className={`nav-dropdown-toggle ${activeDropdown === 'resources' ? 'active' : ''}`}
-                  onClick={() => setActiveDropdown(activeDropdown === 'resources' ? null : 'resources')}
+                <button
+                  className={`nav-dropdown-toggle ${
+                    activeDropdown === "resources" ? "active" : ""
+                  }`}
+                  onClick={() =>
+                    setActiveDropdown(
+                      activeDropdown === "resources" ? null : "resources"
+                    )
+                  }
                 >
                   Resources
                   <span className="dropdown-arrow">▼</span>
                 </button>
-                <div className={`dropdown-menu ${activeDropdown === 'resources' ? 'open' : ''}`}>
-                  <Link href="/blog" className="dropdown-item" onClick={() => {handleNavClick('blog'); setActiveDropdown(null)}}>
+                <div
+                  className={`dropdown-menu ${
+                    activeDropdown === "resources" ? "open" : ""
+                  }`}
+                >
+                  <Link
+                    href="/blog"
+                    className="dropdown-item"
+                    onClick={() => {
+                      handleNavClick("blog");
+                      setActiveDropdown(null);
+                    }}
+                  >
                     Blog
                   </Link>
-                  <Link href="/industry-insights" className="dropdown-item" onClick={() => {handleNavClick('insights'); setActiveDropdown(null)}}>
+                  <Link
+                    href="/industry-insights"
+                    className="dropdown-item"
+                    onClick={() => {
+                      handleNavClick("insights");
+                      setActiveDropdown(null);
+                    }}
+                  >
                     Industry Insights
                   </Link>
-                  <Link href="/compare/vs-ezlynx" className="dropdown-item" onClick={() => {handleNavClick('compare'); setActiveDropdown(null)}}>
+                  <Link
+                    href="/compare/vs-ezlynx"
+                    className="dropdown-item"
+                    onClick={() => {
+                      handleNavClick("compare");
+                      setActiveDropdown(null);
+                    }}
+                  >
                     Comparisons
                   </Link>
                   <div className="dropdown-divider"></div>
-                  <Link href="/turborater-demo" className="dropdown-item" onClick={() => {handleNavClick('turborater'); setActiveDropdown(null)}}>
+                  <Link
+                    href="/turborater-demo"
+                    className="dropdown-item"
+                    onClick={() => {
+                      handleNavClick("turborater");
+                      setActiveDropdown(null);
+                    }}
+                  >
                     TurboRater Demo
                   </Link>
-                  <Link href="/ai-agents" className="dropdown-item" onClick={() => {handleNavClick('ai-agents'); setActiveDropdown(null)}}>
+                  <Link
+                    href="/ai-agents"
+                    className="dropdown-item"
+                    onClick={() => {
+                      handleNavClick("ai-agents");
+                      setActiveDropdown(null);
+                    }}
+                  >
                     AI Agents
                   </Link>
                 </div>
               </li>
               <li className="nav-dropdown">
-                <button 
-                  className={`nav-dropdown-toggle ${activeDropdown === 'community' ? 'active' : ''}`}
-                  onClick={() => setActiveDropdown(activeDropdown === 'community' ? null : 'community')}
+                <button
+                  className={`nav-dropdown-toggle ${
+                    activeDropdown === "community" ? "active" : ""
+                  }`}
+                  onClick={() =>
+                    setActiveDropdown(
+                      activeDropdown === "community" ? null : "community"
+                    )
+                  }
                 >
                   Community
                   <span className="dropdown-arrow">▼</span>
                 </button>
-                <div className={`dropdown-menu ${activeDropdown === 'community' ? 'open' : ''}`}>
-                  <Link href="/about" className="dropdown-item" onClick={() => {handleNavClick('about'); setActiveDropdown(null)}}>
+                <div
+                  className={`dropdown-menu ${
+                    activeDropdown === "community" ? "open" : ""
+                  }`}
+                >
+                  <Link
+                    href="/about"
+                    className="dropdown-item"
+                    onClick={() => {
+                      handleNavClick("about");
+                      setActiveDropdown(null);
+                    }}
+                  >
                     About Us
                   </Link>
-                  <Link href="/quad" className="dropdown-item" onClick={() => {handleNavClick('quad'); setActiveDropdown(null)}}>
+                  <Link
+                    href="/quad"
+                    className="dropdown-item"
+                    onClick={() => {
+                      handleNavClick("quad");
+                      setActiveDropdown(null);
+                    }}
+                  >
                     QUAD Program
                   </Link>
-                  <a href="https://github.com/QuotelyInc" target="_blank" rel="noopener noreferrer" className="dropdown-item">
+                  <a
+                    href="https://github.com/QuotelyInc"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="dropdown-item"
+                  >
                     GitHub
                   </a>
                   <div className="dropdown-divider"></div>
-                  <a href="https://www.xcelsolutions.com/" target="_blank" rel="noopener noreferrer" className="dropdown-item">
+                  <a
+                    href="https://www.xcelsolutions.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="dropdown-item"
+                  >
                     CE Credits
                   </a>
-                  <Link href="/get-started" className="dropdown-item" onClick={() => {handleNavClick('contact'); setActiveDropdown(null)}}>
+                  <Link
+                    href="/get-started"
+                    className="dropdown-item"
+                    onClick={() => {
+                      handleNavClick("contact");
+                      setActiveDropdown(null);
+                    }}
+                  >
                     Contact Sales
                   </Link>
                 </div>
@@ -533,24 +621,24 @@ export default function HulyNavigation() {
           </div>
 
           <div className="nav-right">
-            <Link 
+            <Link
               href="/login"
               className="btn-nav-ghost"
-              onClick={() => handleNavClick('login')}
+              onClick={() => handleNavClick("login")}
             >
               Sign In
             </Link>
-            <Link 
-              href="/get-started" 
+            <Link
+              href="/get-started"
               className="btn-nav-primary cta-button"
-              onClick={() => handleNavClick('sign_up')}
+              onClick={() => handleNavClick("sign_up")}
             >
               Sign Up
             </Link>
           </div>
 
-          <button 
-            className={`mobile-menu-button ${mobileMenuOpen ? 'open' : ''}`}
+          <button
+            className={`mobile-menu-button ${mobileMenuOpen ? "open" : ""}`}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -562,49 +650,57 @@ export default function HulyNavigation() {
           </button>
         </div>
 
-        <div className={`mobile-menu ${mobileMenuOpen ? 'open' : ''}`}>
+        <div className={`mobile-menu ${mobileMenuOpen ? "open" : ""}`}>
           <ul className="mobile-nav-links">
             <li>
-              <Link 
-                href="/" 
-                className={`mobile-nav-link ${isActive('/') ? 'active' : ''}`}
-                onClick={() => handleNavClick('home')}
+              <Link
+                href="/"
+                className={`mobile-nav-link ${isActive("/") ? "active" : ""}`}
+                onClick={() => handleNavClick("home")}
               >
                 Home
               </Link>
             </li>
             <li>
-              <Link 
-                href="/features" 
-                className={`mobile-nav-link ${isActive('/features') ? 'active' : ''}`}
-                onClick={() => handleNavClick('features')}
+              <Link
+                href="/features"
+                className={`mobile-nav-link ${
+                  isActive("/features") ? "active" : ""
+                }`}
+                onClick={() => handleNavClick("features")}
               >
                 Features
               </Link>
             </li>
             <li>
-              <Link 
-                href="/pricing" 
-                className={`mobile-nav-link ${isActive('/pricing') ? 'active' : ''}`}
-                onClick={() => handleNavClick('pricing')}
+              <Link
+                href="/pricing"
+                className={`mobile-nav-link ${
+                  isActive("/pricing") ? "active" : ""
+                }`}
+                onClick={() => handleNavClick("pricing")}
               >
                 Pricing
               </Link>
             </li>
             <li>
-              <Link 
-                href="/compare/vs-ezlynx" 
-                className={`mobile-nav-link ${isActive('/compare') ? 'active' : ''}`}
-                onClick={() => handleNavClick('compare')}
+              <Link
+                href="/compare/vs-ezlynx"
+                className={`mobile-nav-link ${
+                  isActive("/compare") ? "active" : ""
+                }`}
+                onClick={() => handleNavClick("compare")}
               >
                 Compare
               </Link>
             </li>
             <li>
-              <Link 
-                href="/blog" 
-                className={`mobile-nav-link ${isActive('/blog') ? 'active' : ''}`}
-                onClick={() => handleNavClick('blog')}
+              <Link
+                href="/blog"
+                className={`mobile-nav-link ${
+                  isActive("/blog") ? "active" : ""
+                }`}
+                onClick={() => handleNavClick("blog")}
               >
                 Blog
               </Link>
@@ -612,17 +708,17 @@ export default function HulyNavigation() {
           </ul>
 
           <div className="mobile-actions">
-            <Link 
+            <Link
               href="/login"
               className="btn-nav-ghost"
-              onClick={() => handleNavClick('login')}
+              onClick={() => handleNavClick("login")}
             >
               Sign In
             </Link>
-            <Link 
-              href="/get-started" 
+            <Link
+              href="/get-started"
               className="btn-nav-primary"
-              onClick={() => handleNavClick('get_started')}
+              onClick={() => handleNavClick("get_started")}
             >
               Get Started
               <span>→</span>
@@ -631,5 +727,5 @@ export default function HulyNavigation() {
         </div>
       </header>
     </>
-  )
+  );
 }
