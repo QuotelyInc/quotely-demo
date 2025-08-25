@@ -2,10 +2,10 @@
 
 import { useEffect, useState } from 'react'
 import { useOTTOTracking } from '@/components/OTTOProvider'
-import HulyNavigation from '@/components/HulyNavigation'
+import HulyNavigation from '@/components/layout/HulyNavigation'
 import Footer from '@/components/layout/Footer'
 import RotatingNewsCommentary from '@/components/RotatingNewsCommentary'
-import HomepageDemoVideo from '@/components/HomepageDemoVideo'
+import HomepageDemoVideo from '@/components/demos/HomepageDemoVideo'
 import HulyHero from '@/components/HulyHero'
 import ModernSaasHero from '@/components/ModernSaasHero'
 import LiveQuoteDemo from '@/components/LiveQuoteDemo'
