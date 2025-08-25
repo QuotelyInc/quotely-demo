@@ -2,13 +2,10 @@
 
 import { useEffect } from 'react'
 import { useOTTOTracking } from '@/components/OTTOProvider'
-import { ResponsiveHero, ResponsiveComparisonTable, ResponsiveQuoteForm } from '@/components'
-
-const comparisonData = [
-  { feature: 'User Interface', appliedRater: '❌ Outdated', competitor: '⚠️ Average', quotely: '✅ Modern & Intuitive' },
-  { feature: 'Mobile Support', appliedRater: false, competitor: false, quotely: true },
-  { feature: 'Quote Speed', appliedRater: '2-4 minutes', competitor: '3-5 minutes', quotely: '30-60 seconds' },
-];
+import { BrandHero } from '@/components/BrandHero'
+import { ProductSpecs } from '@/components/ProductSpecs'
+import { FeatureComparison } from '@/components/FeatureComparison'
+import { ResponsiveQuoteForm } from '@/components'
 
 const formFields = [
   { name: 'businessName', label: 'Business Name', type: 'text', required: true },
@@ -22,25 +19,15 @@ export default function HomePage() {
   useEffect(() => {
     trackPageView('home', {
       section: 'landing',
-      variant: 'responsive_v2'
+      variant: 'brand_rebuild_v3'
     })
   }, [trackPageView])
 
   return (
     <>
-      <ResponsiveHero
-        title="Say Goodbye to legacy rater's 1990s Interface"
-        subtitle="The modern insurance quoting platform built for independent agents who want to escape legacy rater and competitor platforms limitations"
-        ctaText="Start Free Trial"
-        ctaHref="/signup"
-        features={['60% Faster Quotes', 'Modern Interface', 'Full API Access', 'No Hidden Fees']}
-      />
-      
-      <ResponsiveComparisonTable
-        title="Why Agents Choose Quotely"
-        data={comparisonData}
-      />
-      
+      <BrandHero />
+      <ProductSpecs />
+      <FeatureComparison />
       <ResponsiveQuoteForm
         fields={formFields}
         onSubmit={(data) => console.log('Form submitted:', data)}
