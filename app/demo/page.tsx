@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useOTTOTracking } from '@/components/OTTOProvider'
 import MinimalNav from '@/components/MinimalNav'
-import Footer from '@/components/Footer'
+import Footer from '@/components/layout/Footer'
 
 function DemoPage() {
   const { trackPageView, trackUserAction } = useOTTOTracking()

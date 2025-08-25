@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import MinimalNav from '@/components/MinimalNav'
-import Footer from '@/components/Footer'
+import Footer from '@/components/layout/Footer'
 import { useOTTOTracking } from '@/components/OTTOProvider'
 
 interface MetricData {

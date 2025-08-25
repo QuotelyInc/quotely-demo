@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useOTTOTracking } from '@/components/OTTOProvider'
 import HulyNavigation from '@/components/HulyNavigation'
-import Footer from '@/components/Footer'
+import Footer from '@/components/layout/Footer'
 import RotatingNewsCommentary from '@/components/RotatingNewsCommentary'
 import HomepageDemoVideo from '@/components/HomepageDemoVideo'
 import HulyHero from '@/components/HulyHero'

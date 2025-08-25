@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import MinimalNav from '@/components/MinimalNav'
-import Footer from '@/components/Footer'
+import Footer from '@/components/layout/Footer'
 import { 
   Brain, Cpu, Zap, Shield, Activity, TrendingUp, 
   CheckCircle, ArrowRight, Bot, Sparkles, Network,

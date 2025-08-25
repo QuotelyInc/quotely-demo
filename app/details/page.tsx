@@ -3,7 +3,7 @@ import TestimonialsSection from '@/components/TestimonialsSection'
 import TrustSection from '@/components/TrustSection'
 import StatisticsSection from '@/components/StatisticsSection'
 import AITransparencyDashboard from '@/components/AITransparencyDashboard'
-import Footer from '@/components/Footer'
+import Footer from '@/components/layout/Footer'
 import MinimalNav from '@/components/MinimalNav'
 
 export const metadata = {

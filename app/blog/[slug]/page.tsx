@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import { useOTTOTracking } from '@/components/OTTOProvider'
 import MinimalNav from '@/components/MinimalNav'
-import Footer from '@/components/Footer'
+import Footer from '@/components/layout/Footer'
 import Link from 'next/link'
 import { getPostBySlug, getRecentPosts, type BlogPost } from '@/lib/blog'
 

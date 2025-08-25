@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react'
 import MinimalNav from '@/components/MinimalNav'
-import Footer from '@/components/Footer'
+import Footer from '@/components/layout/Footer'
 
 export default function AutoInsurancePage() {
   const [isAnnual, setIsAnnual] = useState(false)
