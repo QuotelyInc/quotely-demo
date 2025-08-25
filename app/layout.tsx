@@ -60,8 +60,25 @@ export default function RootLayout({
       <head>
         <OTTOScript />
         <link rel="canonical" href="https://tryquotely.com" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="theme-color" content="#0057FF" />
+        
+        {/* Initialize responsive error tracking */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if (typeof window !== 'undefined') {
+                import('/utils/errorTracking.js').then(module => {
+                  module.trackResponsiveErrors();
+                }).catch(console.error);
+              }
+            `,
+          }}
+        />
         
         {/* Google Analytics */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-28RBK32B5C"></script>

@@ -6,8 +6,43 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  
+  // Enable responsive image optimization
   images: {
-    formats: ['image/avif', 'image/webp'], // Enable modern image formats
+    deviceSizes: [320, 480, 768, 1024, 1200, 1440],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    formats: ['image/webp', 'image/avif'],
+  },
+  
+  // Optimize for Core Web Vitals
+  experimental: {
+    scrollRestoration: true,
+    optimizePackageImports: ['@heroicons/react', 'date-fns', 'lodash'],
+  },
+  
+  // Compress responses
+  compress: true,
+  
+  // Bundle optimization
+  webpack: (config, { dev, isServer }) => {
+    if (!dev && !isServer) {
+      config.optimization.splitChunks = {
+        chunks: 'all',
+        cacheGroups: {
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+            priority: 10,
+          },
+          common: {
+            minChunks: 2,
+            priority: 5,
+            reuseExistingChunk: true,
+          },
+        },
+      };
+    }
+    return config;
   },
 };
 

@@ -2,10 +2,19 @@
 
 import { useEffect } from 'react'
 import { useOTTOTracking } from '@/components/OTTOProvider'
-import MinimalNav from '@/components/MinimalNav'
-import CalmHero from '@/components/CalmHero'
-import MinimalFooter from '@/components/MinimalFooter'
-import './globals-calm.css'
+import { ResponsiveHero, ResponsiveComparisonTable, ResponsiveQuoteForm } from '@/components'
+
+const comparisonData = [
+  { feature: 'User Interface', appliedRater: '❌ Outdated', ezlynx: '⚠️ Average', quotely: '✅ Modern & Intuitive' },
+  { feature: 'Mobile Support', appliedRater: false, ezlynx: false, quotely: true },
+  { feature: 'Quote Speed', appliedRater: '2-4 minutes', ezlynx: '3-5 minutes', quotely: '30-60 seconds' },
+];
+
+const formFields = [
+  { name: 'businessName', label: 'Business Name', type: 'text', required: true },
+  { name: 'industry', label: 'Industry', type: 'select', options: ['Retail', 'Restaurant', 'Construction', 'Professional Services'] },
+  { name: 'revenue', label: 'Annual Revenue', type: 'select', options: ['< $500K', '$500K - $1M', '$1M - $5M', '> $5M'] },
+];
 
 export default function HomePage() {
   const { trackPageView } = useOTTOTracking()
@@ -13,34 +22,29 @@ export default function HomePage() {
   useEffect(() => {
     trackPageView('home', {
       section: 'landing',
-      variant: 'calm_design_v1'
+      variant: 'responsive_v2'
     })
-
-    // Simple navbar scroll effect
-    const handleScroll = () => {
-      const navbar = document.querySelector('nav')
-      if (navbar) {
-        if (window.scrollY > 50) {
-          navbar.classList.add('scrolled')
-        } else {
-          navbar.classList.remove('scrolled')
-        }
-      }
-    }
-    window.addEventListener('scroll', handleScroll)
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
   }, [trackPageView])
 
   return (
     <>
-      <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-        <MinimalNav />
-        <CalmHero />
-        <MinimalFooter />
-      </div>
+      <ResponsiveHero
+        title="Say Goodbye to Applied Rater's 1990s Interface"
+        subtitle="The modern insurance quoting platform built for independent agents who want to escape Applied Rater and EZLynx limitations"
+        ctaText="Start Free Trial"
+        ctaHref="/signup"
+        features={['60% Faster Quotes', 'Modern Interface', 'Full API Access', 'No Hidden Fees']}
+      />
+      
+      <ResponsiveComparisonTable
+        title="Why Agents Choose Quotely"
+        data={comparisonData}
+      />
+      
+      <ResponsiveQuoteForm
+        fields={formFields}
+        onSubmit={(data) => console.log('Form submitted:', data)}
+      />
     </>
   )
 }
