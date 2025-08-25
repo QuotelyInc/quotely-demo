@@ -251,7 +251,7 @@ const SmartQuoteGenerator = () => {
           <div className="flex items-center justify-between mb-2">
             <span className="text-2xl font-bold text-gray-900">${quoteResult.monthly}/mo</span>
             <span className="bg-green-100 text-green-800 px-2 py-1 rounded text-sm font-medium">
-              Save ${quoteResult.savings}
+              Optimized Quote
             </span>
           </div>
           <div className="text-sm text-gray-600">
@@ -266,7 +266,7 @@ const SmartQuoteGenerator = () => {
 // AI Transparency Panel Component
 const AITransparencyPanel = () => {
   const [recommendations, setRecommendations] = useState([
-    { id: 1, type: 'cost', message: 'Lower deductible could save $23/mo', confidence: 92 },
+    { id: 1, type: 'cost', message: 'Lower deductible available for better value', confidence: 92 },
     { id: 2, type: 'coverage', message: 'Gap coverage recommended for new vehicle', confidence: 88 },
     { id: 3, type: 'discount', message: '3 additional discounts available', confidence: 95 }
   ])

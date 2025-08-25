@@ -521,7 +521,7 @@ function VsEZLynxPage() {
             faster, more transparent, and affordable platform
           </p>
           <div className="switch-badge">
-            💰 Save $400+/month when you switch
+            💰 Flexible plans available - contact for details
           </div>
         </div>
       </section>
@@ -558,9 +558,9 @@ function VsEZLynxPage() {
                   <td><span className="cross">✗</span> Black Box</td>
                 </tr>
                 <tr>
-                  <td className="feature-name">Monthly Pricing</td>
-                  <td className="quotely-col"><span className="check">✓</span> From $679</td>
-                  <td><span className="cross">✗</span> From $1,099</td>
+                  <td className="feature-name">Pricing Model</td>
+                  <td className="quotely-col"><span className="check">✓</span> Competitive rates</td>
+                  <td><span className="cross">✗</span> Contact for comparison</td>
                 </tr>
                 <tr>
                   <td className="feature-name">Setup Time</td>
@@ -619,7 +619,7 @@ function VsEZLynxPage() {
               <ul className="difference-list">
                 <li>See exactly how every quote is calculated with full AI transparency</li>
                 <li>Generate quotes 60% faster with intelligent data prefill</li>
-                <li>Pay only for what you use with flexible, transparent pricing</li>
+                <li>Flexible plans designed to fit your agency's needs</li>
                 <li>Get started in minutes, not weeks - no IT team required</li>
                 <li>Access your full data anytime through our open API</li>
                 <li>Work seamlessly on any device with true mobile parity</li>
@@ -633,7 +633,7 @@ function VsEZLynxPage() {
               <ul className="difference-list">
                 <li>Black box algorithms with no visibility into calculations</li>
                 <li>Slower quote generation with manual data entry</li>
-                <li>Hidden fees and expensive add-ons increase costs</li>
+                <li>Complex pricing structure with multiple add-ons</li>
                 <li>Complex setup requiring weeks of configuration</li>
                 <li>Limited API access restricts your data freedom</li>
                 <li>Desktop-focused with limited mobile functionality</li>
@@ -677,14 +677,14 @@ function VsEZLynxPage() {
             </div>
             
             <div className="pain-point-card">
-              <h3>💸 "Hidden costs everywhere"</h3>
+              <h3>💸 "Complex pricing structure"</h3>
               <p>
-                What starts at $1,099/month quickly balloons with add-ons, setup fees, 
-                and surprise charges.
+                Multiple add-ons and fees can make it difficult to predict 
+                total investment.
               </p>
               <div className="solution">
-                <strong>Quotely Solution:</strong> Transparent pricing starting at $679/month. 
-                No hidden fees, ever.
+                <strong>Quotely Solution:</strong> Simple, transparent plans tailored to your needs. 
+                Contact for details.
               </div>
             </div>
           </div>
@@ -716,8 +716,8 @@ function VsEZLynxPage() {
             
             <div className="testimonial-card">
               <p className="testimonial-quote">
-                "EZLynx was costing us $1,400/month with all the add-ons. Quotely gives us 
-                more features for $929. That's $5,600 saved annually."
+                "EZLynx had so many add-ons to track. Quotely gives us 
+                more features at a competitive rate with significant annual savings."
               </p>
               <div className="testimonial-author">
                 <div className="author-avatar">RT</div>
@@ -801,7 +801,7 @@ function VsEZLynxPage() {
           <div className="special-offer">
             <h3>🎁 EZLynx Switcher Special</h3>
             <p>
-              Get 3 months free when you switch from EZLynx. 
+              Special offers available for agencies switching from EZLynx. 
               Plus free data migration and dedicated onboarding support.
             </p>
           </div>

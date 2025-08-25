@@ -68,9 +68,9 @@ export default function AutoInsurancePage() {
 
   const getPricing = (plan: string) => {
     const prices = {
-      'QUAD 0.0': { monthly: 549, annual: 439, original: 699, tokens: 45 },
-      'QUAD 3.0': { monthly: 1149, annual: 919, original: 1399, tokens: 225 },
-      'QUAD 7.0': { monthly: 1949, annual: 1559, original: 2199, tokens: 650 }
+      'QUAD 0.0': { monthly: 'Contact', annual: 'Contact', original: 'Contact', tokens: 45 },
+      'QUAD 3.0': { monthly: 'Contact', annual: 'Contact', original: 'Contact', tokens: 225 },
+      'QUAD 7.0': { monthly: 'Contact', annual: 'Contact', original: 'Contact', tokens: 650 }
     }
     return prices[plan as keyof typeof prices]
   }
@@ -301,12 +301,11 @@ export default function AutoInsurancePage() {
             {/* QUAD 0.0 */}
             <div className="bg-white border-2 border-gray-200 rounded-3xl p-8 hover:shadow-xl transition-shadow">
               <h3 className="text-2xl font-bold mb-4">QUAD 0.0</h3>
-              <div className="text-gray-500 line-through text-lg">${getPricing('QUAD 0.0').original}/month</div>
+              <div className="text-gray-500 text-lg">Competitive pricing available</div>
               <div className="flex items-baseline gap-1 mb-6">
-                <span className="text-5xl font-black text-gray-900">
-                  ${isAnnual ? getPricing('QUAD 0.0').annual : getPricing('QUAD 0.0').monthly}
+                <span className="text-4xl font-black text-gray-900">
+                  Contact for pricing
                 </span>
-                <span className="text-gray-600">/month</span>
               </div>
               
               <div className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white p-4 rounded-xl mb-6">
@@ -340,10 +339,11 @@ export default function AutoInsurancePage() {
 
               <div className="bg-gray-50 rounded-xl p-4 mb-6">
                 <p className="font-semibold mb-2">Available Add-ons:</p>
-                <p className="text-sm text-gray-600">• CRM Integration (+$99/mo)</p>
-                <p className="text-sm text-gray-600">• SEO Package (+$99/mo)</p>
-                <p className="text-sm text-gray-600">• QuickBooks (+$149/mo)</p>
-                <p className="text-sm text-gray-600">• RingCentral VOIP (Custom pricing)</p>
+                <p className="text-sm text-gray-600">• CRM Integration</p>
+                <p className="text-sm text-gray-600">• SEO Package</p>
+                <p className="text-sm text-gray-600">• QuickBooks Integration</p>
+                <p className="text-sm text-gray-600">• RingCentral VOIP</p>
+                <p className="text-xs text-gray-500 mt-2">Contact for add-on pricing</p>
               </div>
 
               <button className="w-full bg-purple-600 text-white py-3 rounded-xl font-bold hover:bg-purple-700 transition">
@@ -357,12 +357,11 @@ export default function AutoInsurancePage() {
                 MOST POPULAR
               </span>
               <h3 className="text-2xl font-bold mb-4">QUAD 3.0</h3>
-              <div className="text-gray-500 line-through text-lg">${getPricing('QUAD 3.0').original}/month</div>
+              <div className="text-gray-500 text-lg">Most popular tier</div>
               <div className="flex items-baseline gap-1 mb-6">
-                <span className="text-5xl font-black text-gray-900">
-                  ${isAnnual ? getPricing('QUAD 3.0').annual : getPricing('QUAD 3.0').monthly}
+                <span className="text-4xl font-black text-gray-900">
+                  Contact for pricing
                 </span>
-                <span className="text-gray-600">/month</span>
               </div>
               
               <div className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white p-4 rounded-xl mb-6">
@@ -396,10 +395,11 @@ export default function AutoInsurancePage() {
 
               <div className="bg-gray-50 rounded-xl p-4 mb-6">
                 <p className="font-semibold mb-2">Available Add-ons:</p>
-                <p className="text-sm text-gray-600">• CRM Integration (+$149/mo)</p>
-                <p className="text-sm text-gray-600">• SEO Package (+$349/mo)</p>
-                <p className="text-sm text-gray-600">• QuickBooks (+$149/mo)</p>
-                <p className="text-sm text-gray-600">• RingCentral VOIP (Custom pricing)</p>
+                <p className="text-sm text-gray-600">• CRM Integration</p>
+                <p className="text-sm text-gray-600">• SEO Package</p>
+                <p className="text-sm text-gray-600">• QuickBooks Integration</p>
+                <p className="text-sm text-gray-600">• RingCentral VOIP</p>
+                <p className="text-xs text-gray-500 mt-2">Contact for add-on pricing</p>
               </div>
 
               <button className="w-full bg-purple-600 text-white py-3 rounded-xl font-bold hover:bg-purple-700 transition">
@@ -410,12 +410,11 @@ export default function AutoInsurancePage() {
             {/* QUAD 7.0 */}
             <div className="bg-white border-2 border-gray-200 rounded-3xl p-8 hover:shadow-xl transition-shadow">
               <h3 className="text-2xl font-bold mb-4">QUAD 7.0</h3>
-              <div className="text-gray-500 line-through text-lg">${getPricing('QUAD 7.0').original}/month</div>
+              <div className="text-gray-500 text-lg">Enterprise solution</div>
               <div className="flex items-baseline gap-1 mb-6">
-                <span className="text-5xl font-black text-gray-900">
-                  ${isAnnual ? getPricing('QUAD 7.0').annual : getPricing('QUAD 7.0').monthly}
+                <span className="text-4xl font-black text-gray-900">
+                  Contact for pricing
                 </span>
-                <span className="text-gray-600">/month</span>
               </div>
               
               <div className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white p-4 rounded-xl mb-6">
@@ -449,10 +448,11 @@ export default function AutoInsurancePage() {
 
               <div className="bg-gray-50 rounded-xl p-4 mb-6">
                 <p className="font-semibold mb-2">Available Add-ons:</p>
-                <p className="text-sm text-gray-600">• CRM Integration (+$149/mo)</p>
-                <p className="text-sm text-gray-600">• SEO Package (+$749/mo)</p>
-                <p className="text-sm text-gray-600">• QuickBooks (+$149/mo)</p>
-                <p className="text-sm text-gray-600">• RingCentral VOIP (Custom pricing)</p>
+                <p className="text-sm text-gray-600">• CRM Integration</p>
+                <p className="text-sm text-gray-600">• SEO Package</p>
+                <p className="text-sm text-gray-600">• QuickBooks Integration</p>
+                <p className="text-sm text-gray-600">• RingCentral VOIP</p>
+                <p className="text-xs text-gray-500 mt-2">Contact for add-on pricing</p>
               </div>
 
               <button className="w-full bg-purple-600 text-white py-3 rounded-xl font-bold hover:bg-purple-700 transition">

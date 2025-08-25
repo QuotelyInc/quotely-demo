@@ -629,7 +629,7 @@ export default function AMSAgencyManagementSystem() {
             <p>
               In today's rapidly evolving insurance landscape, Agency Management Systems (AMS) have 
               become the cornerstone of successful agency operations. With the insurance industry 
-              processing over <strong>$1.4 trillion in premiums annually</strong>, agencies need 
+              experiencing unprecedented growth, agencies need 
               sophisticated technology to remain competitive and deliver exceptional client experiences.
             </p>
             <p>
@@ -962,11 +962,11 @@ export default function AMSAgencyManagementSystem() {
               <div className="highlight-box">
                 <h4>Typical AMS Cost Structure:</h4>
                 <ul>
-                  <li><strong>Licensing:</strong> $100-500 per user per month</li>
-                  <li><strong>Implementation:</strong> $5,000-50,000 one-time</li>
-                  <li><strong>Training:</strong> $2,000-10,000 initial investment</li>
-                  <li><strong>Customization:</strong> $10,000-100,000 as needed</li>
-                  <li><strong>Annual Maintenance:</strong> 15-20% of license cost</li>
+                  <li><strong>Licensing:</strong> Varies by platform and user count</li>
+                  <li><strong>Implementation:</strong> One-time setup investment</li>
+                  <li><strong>Training:</strong> Initial team onboarding</li>
+                  <li><strong>Customization:</strong> Available as needed</li>
+                  <li><strong>Annual Maintenance:</strong> Ongoing support costs</li>
                 </ul>
               </div>
 
@@ -1237,15 +1237,13 @@ export default function AMSAgencyManagementSystem() {
               <h4>Sample ROI Calculation for 20-Person Agency:</h4>
               <p><strong>Annual Benefits:</strong></p>
               <ul>
-                <li>Time Savings: 15 hrs/week × $50/hr × 52 weeks × 20 people = $780,000</li>
-                <li>Error Reduction: 3 E&O claims × $25,000 = $75,000</li>
-                <li>Increased Capacity: 500 policies × $400 commission = $200,000</li>
-                <li>Retention Improvement: 5% × $5M book × 15% commission = $37,500</li>
-                <li>Operational Savings: $50,000</li>
+                <li>Time Savings: Significant reduction in manual tasks</li>
+                <li>Error Reduction: Fewer E&O claims and compliance issues</li>
+                <li>Increased Capacity: Handle more policies with same team</li>
+                <li>Retention Improvement: Better client service and follow-up</li>
+                <li>Operational Savings: Streamlined workflows and automation</li>
               </ul>
-              <p><strong>Total Annual Benefit: $1,142,500</strong></p>
-              <p><strong>Annual AMS Cost: $120,000</strong></p>
-              <p><strong>Net Annual ROI: $1,022,500 (852% return)</strong></p>
+              <p><strong>Contact us for a custom ROI analysis based on your agency size and needs</strong></p>
             </div>
 
             <h3>Long-term Value Creation</h3>

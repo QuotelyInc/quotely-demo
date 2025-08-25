@@ -739,9 +739,9 @@ function QUADPage() {
           
           <div className="stats-grid">
             <div className="stat-box" style={{background: 'var(--surface)'}}>
-              <div className="stat-number" style={{color: 'var(--primary)'}}>$200</div>
+              <div className="stat-number" style={{color: 'var(--primary)'}}>💰</div>
               <div className="stat-label" style={{color: 'var(--text-primary)'}}>
-                <strong>Monthly Savings</strong><br />vs. retail pricing locked forever
+                <strong>Significant Savings</strong><br />vs. retail pricing locked forever
               </div>
             </div>
             <div className="stat-box" style={{background: 'var(--surface)'}}>
@@ -761,7 +761,7 @@ function QUADPage() {
           <div className="pricing-grid">
             <div className="pricing-card">
               <h3>QUAD 1.0</h3>
-              <div className="price">$679<span>/month</span></div>
+              <div className="price">Contact<span> for pricing</span></div>
               <p style={{marginBottom: '1.5rem'}}>Perfect for getting started</p>
               <ul className="feature-list">
                 <li>65 Monthly Quotes</li>
@@ -783,7 +783,7 @@ function QUADPage() {
             <div className="pricing-card popular">
               <div className="pricing-badge">MOST POPULAR</div>
               <h3>QUAD 3.0</h3>
-              <div className="price">$929<span>/month</span></div>
+              <div className="price">Contact<span> for pricing</span></div>
               <p style={{marginBottom: '1.5rem'}}>Most popular choice</p>
               <ul className="feature-list">
                 <li>225 Monthly Quotes</li>
@@ -805,7 +805,7 @@ function QUADPage() {
             
             <div className="pricing-card">
               <h3>QUAD 7.0</h3>
-              <div className="price">$1,529<span>/month</span></div>
+              <div className="price">Contact<span> for pricing</span></div>
               <p style={{marginBottom: '1.5rem'}}>Enterprise solution</p>
               <ul className="feature-list">
                 <li>625+ Monthly Quotes</li>
@@ -830,7 +830,7 @@ function QUADPage() {
             <div className="step-box">
               <div className="step-number">1</div>
               <h3>Choose Your Tier</h3>
-              <p>Start with QUAD 1.0 ($1,500 buy-in) or go higher for more features</p>
+              <p>Start with QUAD 1.0 (setup fee applies) or go higher for more features</p>
             </div>
             <div className="step-box">
               <div className="step-number">2</div>
@@ -883,11 +883,11 @@ function QUADPage() {
               <tr className="tier-row">
                 <td><strong>Exclusive Group Pricing</strong></td>
                 <td>25 agent minimum</td>
-                <td>$200/month savings per agent vs retail</td>
+                <td>Significant savings per agent vs retail</td>
               </tr>
               <tr>
                 <td>Member Recruitment Tool</td>
-                <td>$1,500 buy-in per agent</td>
+                <td>Setup fee per agent</td>
                 <td>Competitive advantage in agent retention</td>
               </tr>
               <tr className="tier-row">
@@ -987,9 +987,9 @@ function QUADPage() {
             <div className="feature-card">
               <h3>📈 ROI Breakdown</h3>
               <ul className="feature-list">
-                <li><strong>QUAD 1.0:</strong> $200/month savings, 7.5 month payback</li>
-                <li><strong>QUAD 3.0:</strong> $270/month savings, 11.1 month payback</li>
-                <li><strong>QUAD 7.0:</strong> $470/month savings, 12.8 month payback</li>
+                <li><strong>QUAD 1.0:</strong> Substantial monthly savings, quick payback</li>
+                <li><strong>QUAD 3.0:</strong> Higher monthly savings, excellent ROI</li>
+                <li><strong>QUAD 7.0:</strong> Maximum monthly savings, strong payback</li>
                 <li><strong>Years 2+:</strong> Pure savings every month</li>
               </ul>
             </div>
@@ -1088,7 +1088,7 @@ function QUADPage() {
               <div className="step-number" style={{background: 'white', color: 'var(--primary)'}}>1</div>
               <h3 style={{color: 'white'}}>Individual Agents</h3>
               <p style={{color: 'white'}}>
-                Lock in early access pricing starting at $679/month with $1,500 setup fee
+                Lock in early access pricing - contact for details
               </p>
               <button 
                 onClick={() => {

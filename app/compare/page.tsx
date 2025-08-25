@@ -21,7 +21,7 @@ export default function ComparePage() {
     { feature: 'Mobile Score', quotely: '95/100', ezlynx: '72/100', applied: '68/100' },
     { feature: 'AI Transparency', quotely: 'Full visibility', ezlynx: 'Limited', applied: 'None' },
     { feature: 'Setup Time', quotely: '3 days', ezlynx: '2 weeks', applied: '3 weeks' },
-    { feature: 'Monthly Cost', quotely: '$679', ezlynx: '$1,140', applied: '$1,250' },
+    { feature: 'Monthly Cost', quotely: 'Contact for pricing', ezlynx: 'Contact for comparison', applied: 'Contact for comparison' },
     { feature: 'Carrier Integrations', quotely: '250+', ezlynx: '200+', applied: '180+' },
     { feature: 'Support Response', quotely: '< 1 hour', ezlynx: '24 hours', applied: '48 hours' },
   ]

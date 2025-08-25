@@ -864,7 +864,7 @@ export default function AMSCustomerSupportExperience() {
                   <div className="metric-label">CSAT Score</div>
                 </div>
                 <div className="metric">
-                  <div className="metric-value">$180K</div>
+                  <div className="metric-value">Significant</div>
                   <div className="metric-label">Annual Savings</div>
                 </div>
                 <div className="metric">
@@ -901,8 +901,8 @@ export default function AMSCustomerSupportExperience() {
                   <div className="metric-label">NPS Score</div>
                 </div>
                 <div className="metric">
-                  <div className="metric-value">$2.1M</div>
-                  <div className="metric-label">New Revenue</div>
+                  <div className="metric-value">Substantial</div>
+                  <div className="metric-label">Revenue Growth</div>
                 </div>
               </div>
               
@@ -1011,8 +1011,8 @@ export default function AMSCustomerSupportExperience() {
             <div className="faq-item">
               <h3 className="faq-question">What's the typical cost of AMS customer support features?</h3>
               <p className="faq-answer">
-                AMS support capabilities are typically included in the base platform cost, ranging from $100-500 
-                per user per month. Advanced AI features may add 20-30% to base costs but deliver ROI through 
+                AMS support capabilities are typically included in the base platform cost. Pricing varies 
+                based on platform and user count. Advanced AI features are available and deliver strong ROI through 
                 dramatic efficiency gains.
               </p>
             </div>
