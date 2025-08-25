@@ -361,11 +361,11 @@ function generateMockAIInsights() {
     savingsOpportunities: [
       'Bundle home and auto for additional 15% savings',
       'Install telematics device for up to 30% discount',
-      'Pay annually to save $120/year'
+      'Pay annually for better value'
     ],
     coverageGaps: [
       'Consider increasing liability limits to 250/500',
-      'Add rental car coverage for $6/month'
+      'Add rental car coverage for additional protection'
     ],
     marketTrends: {
       averagePremium: 1680,

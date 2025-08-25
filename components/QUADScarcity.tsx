@@ -6,16 +6,14 @@ interface TierAvailability {
   tier: string;
   total: number;
   remaining: number;
-  buyIn: number;
-  monthly: number;
   color: string;
 }
 
 export default function QUADScarcity() {
   const [availability, setAvailability] = useState<TierAvailability[]>([
-    { tier: 'QUAD 1.0', total: 100, remaining: 47, buyIn: 1500, monthly: 679, color: 'blue' },
-    { tier: 'QUAD 2.0', total: 50, remaining: 18, buyIn: 3000, monthly: 979, color: 'purple' },
-    { tier: 'QUAD 3.0', total: 25, remaining: 7, buyIn: 5000, monthly: 1529, color: 'gold' }
+    { tier: 'QUAD 1.0', total: 100, remaining: 47, color: 'blue' },
+    { tier: 'QUAD 2.0', total: 50, remaining: 18, color: 'purple' },
+    { tier: 'QUAD 3.0', total: 25, remaining: 7, color: 'gold' }
   ]);
 
   // Simulate real-time updates
@@ -97,7 +95,7 @@ export default function QUADScarcity() {
                 <div className="mb-4">
                   <h3 className="text-2xl font-bold">{tier.tier}</h3>
                   <div className="text-sm opacity-75 mt-1">
-                    ${tier.buyIn} buy-in • ${tier.monthly}/mo
+                    Contact for pricing details
                   </div>
                 </div>
 
@@ -137,7 +135,7 @@ export default function QUADScarcity() {
                     <svg className="w-4 h-4 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span>Locked-in pricing forever</span>
+                    <span>Exclusive early access benefits</span>
                   </div>
                   <div className="flex items-center text-sm">
                     <svg className="w-4 h-4 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">

@@ -29,8 +29,8 @@
                     <div class="input-group">
                         <label for="currentPlatform">Current Platform</label>
                         <select id="currentPlatform">
-                            <option value="ezlynx">EZLynx ($1,140/agent/month)</option>
-                            <option value="applied">Applied Rater ($1,295/agent/month)</option>
+                            <option value="ezlynx">EZLynx</option>
+                            <option value="applied">Applied Rater</option>
                             <option value="other">Other Platform</option>
                             <option value="none">No Platform (Manual)</option>
                         </select>
@@ -60,8 +60,8 @@
                         <span class="input-help">Average policy premium value</span>
                     </div>
 
-                    <button class="btn btn-primary btn-large" onclick="calculateROI()">
-                        Calculate My Savings →
+                    <button class="btn btn-primary btn-large" onclick="contactForPricing()">
+                        Get Custom Quote →
                     </button>
                 </div>
 
@@ -70,15 +70,15 @@
                     <h3>Your Projected Results with Quotely</h3>
                     
                     <div class="result-card highlight">
-                        <div class="result-label">Total Annual Savings</div>
-                        <div class="result-value" id="totalSavings">$168,672</div>
-                        <div class="result-detail">Cost savings + productivity gains</div>
+                        <div class="result-label">Contact for ROI Analysis</div>
+                        <div class="result-value" id="totalSavings">Customized</div>
+                        <div class="result-detail">Pricing based on your specific needs</div>
                     </div>
 
                     <div class="results-grid">
                         <div class="result-card">
                             <div class="result-label">Monthly Cost Savings</div>
-                            <div class="result-value" id="monthlySavings">$10,721</div>
+                            <div class="result-value" id="monthlySavings">Contact us</div>
                         </div>
 
                         <div class="result-card">
@@ -104,14 +104,14 @@
                                 <div class="bar-label">Current Platform</div>
                                 <div class="bar-wrapper">
                                     <div class="bar bar-current" id="currentBar"></div>
-                                    <span class="bar-value" id="currentBarValue">$11,400/mo</span>
+                                    <span class="bar-value" id="currentBarValue">Contact for comparison</span>
                                 </div>
                             </div>
                             <div class="bar-item">
                                 <div class="bar-label">Quotely</div>
                                 <div class="bar-wrapper">
                                     <div class="bar bar-quotely"></div>
-                                    <span class="bar-value">$679/mo</span>
+                                    <span class="bar-value">Contact for pricing</span>
                                 </div>
                             </div>
                         </div>
@@ -157,28 +157,28 @@
                             </div>
                             <div class="timeline-item">
                                 <div class="timeline-period">Month 3</div>
-                                <div class="timeline-value">+$32,163</div>
+                                <div class="timeline-value">Positive ROI</div>
                             </div>
                             <div class="timeline-item">
                                 <div class="timeline-period">Month 6</div>
-                                <div class="timeline-value">+$64,326</div>
+                                <div class="timeline-value">Strong Returns</div>
                             </div>
                             <div class="timeline-item">
                                 <div class="timeline-period">Year 1</div>
-                                <div class="timeline-value" id="yearOneROI">+$168,672</div>
+                                <div class="timeline-value" id="yearOneROI">Contact for details</div>
                             </div>
                         </div>
                     </div>
 
                     <div class="cta-section">
-                        <h3>Ready to Save <span id="ctaSavings">$168,672</span> Per Year?</h3>
-                        <p>Get started with Quotely today and transform your agency's performance.</p>
+                        <h3>Ready to Transform Your Agency?</h3>
+                        <p>Get started with Quotely today and discover your savings potential.</p>
                         <div class="hero-actions">
                             <a href="#demo" class="btn btn-primary btn-large">
                                 Schedule Your Demo →
                             </a>
                             <a href="#" class="btn btn-secondary btn-large">
-                                Download ROI Report
+                                Get Custom ROI Analysis
                             </a>
                         </div>
                     </div>
@@ -501,86 +501,11 @@
 </style>
 
 <script>
-function calculateROI() {
-    // Get input values
-    const numAgents = parseInt(document.getElementById('numAgents').value) || 10;
-    const quotesPerDay = parseInt(document.getElementById('quotesPerDay').value) || 15;
-    const currentPlatform = document.getElementById('currentPlatform').value;
-    const avgQuoteTime = parseInt(document.getElementById('avgQuoteTime').value) || 12;
-    const conversionRate = parseInt(document.getElementById('conversionRate').value) || 18;
-    const avgPremium = parseInt(document.getElementById('avgPremium').value) || 2400;
-    
-    // Calculate current costs
-    let currentMonthlyCost;
-    switch(currentPlatform) {
-        case 'ezlynx':
-            currentMonthlyCost = numAgents * 1140;
-            break;
-        case 'applied':
-            currentMonthlyCost = numAgents * 1295;
-            break;
-        case 'other':
-            currentMonthlyCost = parseInt(document.getElementById('currentCost').value) || numAgents * 1000;
-            break;
-        default:
-            currentMonthlyCost = 0;
-    }
-    
-    // Quotely cost
-    const quotelyMonthlyCost = 679;
-    
-    // Calculate savings
-    const monthlySavings = currentMonthlyCost - quotelyMonthlyCost;
-    const annualSavings = monthlySavings * 12;
-    
-    // Calculate time savings (Quotely is 85% faster)
-    const quotelyQuoteTime = 1.8;
-    const timeSavedPerQuote = avgQuoteTime - quotelyQuoteTime;
-    const dailyQuotes = numAgents * quotesPerDay;
-    const monthlyQuotes = dailyQuotes * 22; // Working days
-    const monthlyTimeSaved = (monthlyQuotes * timeSavedPerQuote) / 60; // Convert to hours
-    
-    // Calculate additional quotes possible with time saved
-    const additionalQuotesPerDay = Math.floor((timeSavedPerQuote * quotesPerDay) / quotelyQuoteTime);
-    const additionalQuotesPerMonth = additionalQuotesPerDay * numAgents * 22;
-    
-    // Calculate revenue increase (improved conversion + more quotes)
-    const improvedConversionRate = Math.min(conversionRate * 1.33, 100); // 33% improvement
-    const currentMonthlyRevenue = monthlyQuotes * (conversionRate / 100) * avgPremium * 0.15; // 15% commission
-    const newMonthlyQuotes = monthlyQuotes + additionalQuotesPerMonth;
-    const newMonthlyRevenue = newMonthlyQuotes * (improvedConversionRate / 100) * avgPremium * 0.15;
-    const revenueIncrease = ((newMonthlyRevenue - currentMonthlyRevenue) / currentMonthlyRevenue * 100).toFixed(0);
-    
-    // Calculate total value (cost savings + productivity gains)
-    const productivityValue = (monthlyTimeSaved * 50) * 12; // $50/hour value
-    const totalAnnualValue = annualSavings + productivityValue;
-    
-    // Update display
-    document.getElementById('totalSavings').textContent = '$' + totalAnnualValue.toLocaleString();
-    document.getElementById('monthlySavings').textContent = '$' + monthlySavings.toLocaleString();
-    document.getElementById('timeSaved').textContent = Math.round(monthlyTimeSaved) + ' hours';
-    document.getElementById('additionalQuotes').textContent = '+' + additionalQuotesPerMonth.toLocaleString();
-    document.getElementById('revenueIncrease').textContent = '+' + revenueIncrease + '%';
-    
-    // Update bar chart
-    document.getElementById('currentBarValue').textContent = '$' + currentMonthlyCost.toLocaleString() + '/mo';
-    const maxCost = Math.max(currentMonthlyCost, 15000);
-    document.querySelector('.bar-current').style.width = (currentMonthlyCost / maxCost * 100) + '%';
-    document.querySelector('.bar-quotely').style.width = Math.max((quotelyMonthlyCost / maxCost * 100), 5) + '%';
-    
-    // Update efficiency metrics
-    document.getElementById('oldQuoteTime').textContent = avgQuoteTime + ' min';
-    document.getElementById('oldDailyQuotes').textContent = quotesPerDay;
-    document.getElementById('newDailyQuotes').textContent = quotesPerDay + additionalQuotesPerDay;
-    document.getElementById('oldConversion').textContent = conversionRate + '%';
-    document.getElementById('newConversion').textContent = improvedConversionRate.toFixed(0) + '%';
-    
-    // Update CTA
-    document.getElementById('ctaSavings').textContent = '$' + totalAnnualValue.toLocaleString();
-    document.getElementById('yearOneROI').textContent = '+$' + totalAnnualValue.toLocaleString();
-    
-    // Animate the results
-    document.querySelector('.calculator-results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+function contactForPricing() {
+    // Simple redirect to contact or show contact modal
+    alert('Please contact our sales team for a personalized ROI analysis and pricing quote.');
+    // Alternatively, could redirect to contact page:
+    // window.location.href = '/contact';
 }
 
 // Handle platform selection change
@@ -590,13 +515,6 @@ document.getElementById('currentPlatform').addEventListener('change', function()
         customCostGroup.style.display = 'block';
     } else {
         customCostGroup.style.display = 'none';
-    }
-});
-
-// Calculate on page load
-window.addEventListener('load', () => {
-    if (document.getElementById('numAgents')) {
-        calculateROI();
     }
 });
 </script>

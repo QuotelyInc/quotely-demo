@@ -5,6 +5,7 @@ import { ThemeProvider } from "../components/ThemeProvider"
 import ClientThemeSwitcher from "../components/ClientThemeSwitcher"
 import PreLaunchNotice from "../components/PreLaunchNotice"
 import { AnalyticsProvider } from "../lib/analytics/analytics-provider"
+import ErrorBoundary from "../components/ErrorBoundary"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
     description: 'Modern insurance technology platform for independent agents. Generate quotes 10x faster with AI-powered insights.',
     images: [
       {
-        url: '/og-image.jpg',
+        url: '/og-image.svg',
         width: 1200,
         height: 630,
         alt: 'Quotely - Insurance Technology Platform',
@@ -45,7 +46,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Quotely - AI-Powered Insurance Platform',
     description: 'Generate insurance quotes 10x faster with AI-powered insights',
-    images: ['/og-image.jpg'],
+    images: ['/og-image.svg'],
   },
 }
 
@@ -80,14 +81,16 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <ThemeProvider>
-          <AnalyticsProvider>
-            <OTTOProvider>
-              {children}
-              <ClientThemeSwitcher />
-            </OTTOProvider>
-          </AnalyticsProvider>
-        </ThemeProvider>
+        <ErrorBoundary>
+          <ThemeProvider>
+            <AnalyticsProvider>
+              <OTTOProvider>
+                {children}
+                <ClientThemeSwitcher />
+              </OTTOProvider>
+            </AnalyticsProvider>
+          </ThemeProvider>
+        </ErrorBoundary>
       </body>
     </html>
   )

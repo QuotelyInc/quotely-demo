@@ -299,7 +299,7 @@ const ProgressiveQuoteForm = ({ onSubmit }: { onSubmit: (data: any) => void }) =
                   value={formData.coverageAmount}
                   onChange={handleInputChange}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" 
-                  placeholder="$500,000"
+                  placeholder="Coverage Amount"
                 />
               </div>
               <div>
@@ -310,7 +310,7 @@ const ProgressiveQuoteForm = ({ onSubmit }: { onSubmit: (data: any) => void }) =
                   value={formData.deductible}
                   onChange={handleInputChange}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" 
-                  placeholder="$1,000"
+                  placeholder="Deductible Amount"
                 />
               </div>
             </div>
@@ -420,7 +420,7 @@ const AITransparencyPanel = ({ visible }: { visible: boolean }) => {
       <div className="bg-blue-50 rounded-lg p-4 mb-4">
         <p className="text-sm text-gray-800">
           Based on the client profile and market analysis, we recommend <strong>Progressive Insurance</strong> 
-          with an estimated premium of <strong>$1,247/year</strong>.
+          with competitive rates available.
         </p>
       </div>
 
@@ -675,9 +675,9 @@ export default function TurboRaterHubV2() {
       
       // Set quote results
       const generatedQuotes = [
-        { carrier: 'Progressive', premium: '$1,247/year', savings: '$458', rating: '4.8' },
-        { carrier: 'State Farm', premium: '$1,389/year', savings: '$316', rating: '4.6' },
-        { carrier: 'Geico', premium: '$1,455/year', savings: '$250', rating: '4.5' }
+        { carrier: 'Progressive', premium: 'Contact for quote', savings: 'Available', rating: '4.8' },
+        { carrier: 'State Farm', premium: 'Contact for quote', savings: 'Available', rating: '4.6' },
+        { carrier: 'Geico', premium: 'Contact for quote', savings: 'Available', rating: '4.5' }
       ]
       setQuotes(generatedQuotes)
       
