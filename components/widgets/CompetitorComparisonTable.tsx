@@ -22,7 +22,7 @@ export default function CompetitorComparisonTable() {
       highlighted: true
     },
     {
-      name: 'EZLynx',
+      name: 'competitor platforms',
       logo: 'E',
       pricing: {
         '5': '$644',
@@ -42,7 +42,7 @@ export default function CompetitorComparisonTable() {
       }
     },
     {
-      name: 'Applied Systems',
+      name: 'legacy systems',
       logo: 'A',
       pricing: {
         '5': '$725',
@@ -140,10 +140,10 @@ export default function CompetitorComparisonTable() {
                 {agentCounts.map(count => {
                   const priceKey = count.toString() as '5' | '10' | '20' | '50';
                   const companyPriceStr = company.pricing[priceKey] || '$0';
-                  const ezlynxPriceStr = competitors[1].pricing[priceKey] || '$0';
+                  const competitorPriceStr = competitors[1].pricing[priceKey] || '$0';
                   const companyPrice = parseInt(companyPriceStr.replace(/[^0-9]/g, ''));
-                  const ezlynxPrice = parseInt(ezlynxPriceStr.replace(/[^0-9]/g, ''));
-                  const savings = ezlynxPrice - companyPrice;
+                  const competitorPrice = parseInt(competitorPriceStr.replace(/[^0-9]/g, ''));
+                  const savings = competitorPrice - companyPrice;
                   
                   return (
                     <td key={count} className="px-6 py-4 text-center">

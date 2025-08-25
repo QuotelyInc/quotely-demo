@@ -171,7 +171,7 @@ export default function MinimalNav() {
           
           <ul className="nav-links">
             <li><Link href="/features" className="nav-link">Features</Link></li>
-            <li><Link href="/compare/vs-ezlynx" className="nav-link">Compare</Link></li>
+            <li><Link href="/compare/vs-competitor" className="nav-link">Compare</Link></li>
             <li><Link href="/details#ai" className="nav-link">AI Transparency</Link></li>
             <li><Link href="/details#integrations" className="nav-link">Integrations</Link></li>
             <li><Link href="/pricing" className="nav-link">Pricing</Link></li>

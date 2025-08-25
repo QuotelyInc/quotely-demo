@@ -460,7 +460,7 @@ Synchronized data ensures that support tickets generated from a policy inquiry c
 Key platform integrations include:
 
 - Vertafore AMS360
-- Applied Systems Epic
+- legacy systems Epic
 - Salesforce Insurance Cloud
 - Microsoft Dynamics 365 Insurance Accelerator
 - HubSpot CRM
@@ -637,7 +637,7 @@ We've identified three high-priority guest post opportunities:
 
 **1. The Hidden Cost of Outdated AMS**
 - Data-driven analysis showing $2M annual loss
-- Statistics: 45% time savings, 60% faster than EZLynx
+- Statistics: 45% time savings, 60% faster than competitor platforms
 - Target: Q1 2025
 
 **2. AI Transparency: The Missing Link**
@@ -871,7 +871,7 @@ In today's insurance landscape, artificial intelligence powers everything from q
 
 ## The Black Box Problem
 
-Traditional insurance platforms like EZLynx and Applied Epic use complex algorithms that even their own teams can't fully explain. This creates several issues:
+Traditional insurance platforms like competitor platforms and Applied Epic use complex algorithms that even their own teams can't fully explain. This creates several issues:
 
 - **Trust Deficit**: Agents can't explain pricing to clients
 - **Compliance Risk**: Regulators increasingly demand algorithmic transparency
@@ -910,19 +910,19 @@ Ready to see the difference transparent AI makes? [Start your free trial](/get-s
       published: true
     },
     {
-      slug: 'switching-from-ezlynx-success-story',
-      title: 'How We Saved $5,000/Month Switching from EZLynx',
-      excerpt: 'A real agency shares their journey from EZLynx to Quotely, including challenges, wins, and massive cost savings.',
+      slug: 'switching-from-competitor-success-story',
+      title: 'How We Saved $5,000/Month Switching from competitor platforms',
+      excerpt: 'A real agency shares their journey from competitor platforms to Quotely, including challenges, wins, and massive cost savings.',
       content: `
-# How We Saved $5,000/Month Switching from EZLynx
+# How We Saved $5,000/Month Switching from competitor platforms
 
 *Guest post by Michael Rodriguez, Premier Insurance Group*
 
-After 5 years with EZLynx, we made the switch to Quotely. Here's our story.
+After 5 years with competitor platforms, we made the switch to Quotely. Here's our story.
 
 ## The Breaking Point
 
-Our EZLynx bill had grown to $6,400/month for our 15-agent team. Between the base subscription, add-ons, and per-user fees, costs were out of control. Worse, our agents were spending 40% of their time fighting the system instead of selling.
+Our competitor platforms bill had grown to $6,400/month for our 15-agent team. Between the base subscription, add-ons, and per-user fees, costs were out of control. Worse, our agents were spending 40% of their time fighting the system instead of selling.
 
 ## Making the Switch
 
@@ -936,7 +936,7 @@ Quotely's migration team handled everything. Zero downtime.
 ## The Results
 
 ### Financial Impact
-- Previous: $6,400/month (EZLynx)
+- Previous: $6,400/month (competitor platforms)
 - Current: $1,379/month (Quotely)
 - **Savings: $5,021/month**
 
@@ -966,7 +966,7 @@ One year later, switching to Quotely remains the best business decision we've ma
       author: 'Michael Rodriguez',
       date: '2024-01-10',
       category: 'Case Studies',
-      tags: ['Migration', 'EZLynx', 'Cost Savings', 'Success Story'],
+      tags: ['Migration', 'competitor platforms', 'Cost Savings', 'Success Story'],
       readTime: '7 min',
       image: '/blog/success-story.jpg',
       published: true

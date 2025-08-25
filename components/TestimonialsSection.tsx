@@ -165,13 +165,13 @@ const TestimonialsSection = () => {
       quote: "We cut our quote time from 4 minutes to 45 seconds. The ROI was immediate.",
       author: "Sarah Chen",
       title: "Owner, Chen Insurance Agency",
-      company: "Previously Applied Rater user"
+      company: "Previously legacy rater user"
     },
     {
       quote: "Finally, a platform that doesn't nickel and dime us with hidden fees.",
       author: "Mike Rodriguez",
       title: "Independent Agent",
-      company: "Switched from EZLynx"
+      company: "Switched from competitor platforms"
     },
     {
       quote: "The mobile experience alone made switching worth it. Our agents can quote anywhere.",

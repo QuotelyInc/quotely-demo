@@ -757,11 +757,11 @@ const TurboRaterDemo = () => {
       </h3>
       <div className="grid grid-cols-3 gap-4 text-center">
         <div className="text-gray-600">
-          <div className="text-sm">EZLynx</div>
+          <div className="text-sm">competitor platforms</div>
           <div className="text-xl font-bold text-red-500">~5 min</div>
         </div>
         <div className="text-gray-600">
-          <div className="text-sm">Applied Rater</div>
+          <div className="text-sm">legacy rater</div>
           <div className="text-xl font-bold text-orange-500">~4 min</div>
         </div>
         <div className="bg-white rounded-lg p-2 border-2 border-blue-200">
@@ -1212,7 +1212,7 @@ const TurboRaterDemo = () => {
                   <div className="text-center">
                     <div className="text-2xl font-bold text-green-600">{formatTime(elapsedTime)}</div>
                     <div className="text-sm text-gray-600">Total Time</div>
-                    <div className="text-xs text-green-600">60% faster than EZLynx</div>
+                    <div className="text-xs text-green-600">60% faster than competitor platforms</div>
                   </div>
                   <div className="text-center">
                     <div className="text-2xl font-bold text-blue-600">{quotes.length}</div>

@@ -619,7 +619,7 @@ function GetStartedPage() {
                     onChange={handleInputChange}
                   >
                     <option value="">Select current system</option>
-                    <option value="ezlynx">EZLynx</option>
+                    <option value="competitor">competitor platforms</option>
                     <option value="applied">Applied Epic/TAM</option>
                     <option value="ams360">AMS360</option>
                     <option value="hawksoft">HawkSoft</option>

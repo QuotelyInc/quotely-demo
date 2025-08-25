@@ -65,11 +65,11 @@ export const RotatingNewsCommentary = () => {
           quotelyAngle: "Why modern AMS platforms are essential for superior customer service"
         },
         {
-          title: "EZLynx Announces New Features Amid Growing Competition",
-          link: "https://insurancejournal.com/ezlynx-features",
+          title: "competitor platforms Announces New Features Amid Growing Competition",
+          link: "https://insurancejournal.com/competitor-features",
           pubDate: new Date(Date.now() - 172800000).toISOString(),
           category: "news",
-          excerpt: "EZLynx releases updates to compete with newer platforms...",
+          excerpt: "competitor platforms releases updates to compete with newer platforms...",
           source: "Insurance Journal",
           relevanceScore: 92,
           quotelyAngle: "How Quotely delivers 60% faster performance than legacy systems"

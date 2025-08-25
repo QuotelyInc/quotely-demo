@@ -5,9 +5,9 @@ import { useOTTOTracking } from '@/components/OTTOProvider'
 import { ResponsiveHero, ResponsiveComparisonTable, ResponsiveQuoteForm } from '@/components'
 
 const comparisonData = [
-  { feature: 'User Interface', appliedRater: '❌ Outdated', ezlynx: '⚠️ Average', quotely: '✅ Modern & Intuitive' },
-  { feature: 'Mobile Support', appliedRater: false, ezlynx: false, quotely: true },
-  { feature: 'Quote Speed', appliedRater: '2-4 minutes', ezlynx: '3-5 minutes', quotely: '30-60 seconds' },
+  { feature: 'User Interface', appliedRater: '❌ Outdated', competitor: '⚠️ Average', quotely: '✅ Modern & Intuitive' },
+  { feature: 'Mobile Support', appliedRater: false, competitor: false, quotely: true },
+  { feature: 'Quote Speed', appliedRater: '2-4 minutes', competitor: '3-5 minutes', quotely: '30-60 seconds' },
 ];
 
 const formFields = [
@@ -29,8 +29,8 @@ export default function HomePage() {
   return (
     <>
       <ResponsiveHero
-        title="Say Goodbye to Applied Rater's 1990s Interface"
-        subtitle="The modern insurance quoting platform built for independent agents who want to escape Applied Rater and EZLynx limitations"
+        title="Say Goodbye to legacy rater's 1990s Interface"
+        subtitle="The modern insurance quoting platform built for independent agents who want to escape legacy rater and competitor platforms limitations"
         ctaText="Start Free Trial"
         ctaHref="/signup"
         features={['60% Faster Quotes', 'Modern Interface', 'Full API Access', 'No Hidden Fees']}

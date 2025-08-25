@@ -446,7 +446,7 @@ export default function ModernSaasHero() {
           </h1>
 
           <p className="hero-subtitle">
-            The modern insurance platform that replaces EZLynx, Applied, and
+            The modern insurance platform that replaces competitor platforms, Applied, and
             legacy systems with AI-powered efficiency.
           </p>
 

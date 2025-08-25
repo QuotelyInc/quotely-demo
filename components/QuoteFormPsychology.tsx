@@ -438,7 +438,7 @@ export default function QuoteFormPsychology() {
           </p>
           <div className="quote-summary">
             <div className="quote-amount">$119/month</div>
-            <div className="quote-savings">You save $47/month vs EZLynx users</div>
+            <div className="quote-savings">You save $47/month vs competitor platforms users</div>
           </div>
           <button className="btn btn-primary btn-large">
             Secure This Rate Now

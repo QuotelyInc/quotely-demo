@@ -637,7 +637,7 @@ export default function FlowSyncLanding() {
         <div className="hero-content">
           <h1>Everything Your Agency Needs in One Platform</h1>
           <p className="hero-subtitle">
-            Replace EZLynx, Applied, and legacy systems with Quotely. Instant quotes, AI recommendations, 
+            Replace competitor platforms, Applied, and legacy systems with Quotely. Instant quotes, AI recommendations, 
             and multi-carrier integration - all seamlessly connected.
           </p>
           <div className="hero-cta">

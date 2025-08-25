@@ -532,8 +532,8 @@ function DemoPage() {
                   onChange={handleInputChange}
                 >
                   <option value="">Select your current system</option>
-                  <option value="ezlynx">EZLynx</option>
-                  <option value="applied">Applied Systems</option>
+                  <option value="competitor">competitor platforms</option>
+                  <option value="applied">legacy systems</option>
                   <option value="vertafore">Vertafore</option>
                   <option value="nowcerts">NowCerts</option>
                   <option value="hawksoft">HawkSoft</option>

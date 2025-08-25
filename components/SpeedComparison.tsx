@@ -115,37 +115,37 @@ export default function SpeedComparison() {
             <div className="comparison-header">
               <div>Feature</div>
               <div>Quotely</div>
-              <div>EZLynx</div>
+              <div>competitor platforms</div>
               <div>Applied</div>
             </div>
             <div className="comparison-row">
               <div className="comparison-feature">Quote Generation Speed</div>
               <div className="comparison-value quotely" data-label="Quotely">&lt; 2 min</div>
-              <div className="comparison-value competitor" data-label="EZLynx">5 min</div>
+              <div className="comparison-value competitor" data-label="competitor platforms">5 min</div>
               <div className="comparison-value competitor" data-label="Applied">4 min</div>
             </div>
             <div className="comparison-row">
               <div className="comparison-feature">Page Load Speed</div>
               <div className="comparison-value quotely" data-label="Quotely">1.2s</div>
-              <div className="comparison-value competitor" data-label="EZLynx">3.4s</div>
+              <div className="comparison-value competitor" data-label="competitor platforms">3.4s</div>
               <div className="comparison-value competitor" data-label="Applied">2.9s</div>
             </div>
             <div className="comparison-row">
               <div className="comparison-feature">AI Transparency</div>
               <div className="comparison-value quotely" data-label="Quotely">✓ Full</div>
-              <div className="comparison-value competitor" data-label="EZLynx">Limited</div>
+              <div className="comparison-value competitor" data-label="competitor platforms">Limited</div>
               <div className="comparison-value competitor" data-label="Applied">None</div>
             </div>
             <div className="comparison-row">
               <div className="comparison-feature">Mobile Experience</div>
               <div className="comparison-value quotely" data-label="Quotely">95/100</div>
-              <div className="comparison-value competitor" data-label="EZLynx">72/100</div>
+              <div className="comparison-value competitor" data-label="competitor platforms">72/100</div>
               <div className="comparison-value competitor" data-label="Applied">68/100</div>
             </div>
             <div className="comparison-row">
               <div className="comparison-feature">Setup Time</div>
               <div className="comparison-value quotely" data-label="Quotely">3 days</div>
-              <div className="comparison-value competitor" data-label="EZLynx">2 weeks</div>
+              <div className="comparison-value competitor" data-label="competitor platforms">2 weeks</div>
               <div className="comparison-value competitor" data-label="Applied">3 weeks</div>
             </div>
           </div>

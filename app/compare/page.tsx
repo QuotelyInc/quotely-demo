@@ -16,14 +16,14 @@ export default function ComparePage() {
   }, [trackPageView])
 
   const comparisonData = [
-    { feature: 'Average Quote Time', quotely: '< 2 minutes', ezlynx: '5+ minutes', applied: '4+ minutes' },
-    { feature: 'Page Load Speed', quotely: '1.2 seconds', ezlynx: '3.4 seconds', applied: '2.9 seconds' },
-    { feature: 'Mobile Score', quotely: '95/100', ezlynx: '72/100', applied: '68/100' },
-    { feature: 'AI Transparency', quotely: 'Full visibility', ezlynx: 'Limited', applied: 'None' },
-    { feature: 'Setup Time', quotely: '3 days', ezlynx: '2 weeks', applied: '3 weeks' },
-    { feature: 'Monthly Cost', quotely: 'Contact for pricing', ezlynx: 'Contact for comparison', applied: 'Contact for comparison' },
-    { feature: 'Carrier Integrations', quotely: '250+', ezlynx: '200+', applied: '180+' },
-    { feature: 'Support Response', quotely: '< 1 hour', ezlynx: '24 hours', applied: '48 hours' },
+    { feature: 'Average Quote Time', quotely: '< 2 minutes', competitor: '5+ minutes', applied: '4+ minutes' },
+    { feature: 'Page Load Speed', quotely: '1.2 seconds', competitor: '3.4 seconds', applied: '2.9 seconds' },
+    { feature: 'Mobile Score', quotely: '95/100', competitor: '72/100', applied: '68/100' },
+    { feature: 'AI Transparency', quotely: 'Full visibility', competitor: 'Limited', applied: 'None' },
+    { feature: 'Setup Time', quotely: '3 days', competitor: '2 weeks', applied: '3 weeks' },
+    { feature: 'Monthly Cost', quotely: 'Contact for pricing', competitor: 'Contact for comparison', applied: 'Contact for comparison' },
+    { feature: 'Carrier Integrations', quotely: '250+', competitor: '200+', applied: '180+' },
+    { feature: 'Support Response', quotely: '< 1 hour', competitor: '24 hours', applied: '48 hours' },
   ]
 
   return (
@@ -185,8 +185,8 @@ export default function ComparePage() {
                   Quotely
                   <span className="winner-badge">Best Value</span>
                 </th>
-                <th className="product-header">EZLynx</th>
-                <th className="product-header">Applied Systems</th>
+                <th className="product-header">competitor platforms</th>
+                <th className="product-header">legacy systems</th>
               </tr>
             </thead>
             <tbody>
@@ -194,7 +194,7 @@ export default function ComparePage() {
                 <tr key={index}>
                   <td>{row.feature}</td>
                   <td className="quotely-cell">{row.quotely}</td>
-                  <td>{row.ezlynx}</td>
+                  <td>{row.competitor}</td>
                   <td>{row.applied}</td>
                 </tr>
               ))}

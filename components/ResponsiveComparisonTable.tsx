@@ -3,7 +3,7 @@
 interface ComparisonRow {
   feature: string;
   appliedRater: string | boolean;
-  ezlynx: string | boolean;
+  competitor: string | boolean;
   quotely: string | boolean;
 }
 
@@ -37,8 +37,8 @@ export function ResponsiveComparisonTable({ title, data }: ResponsiveComparisonT
             <thead>
               <tr className="border-b-2 border-gray-200">
                 <th className="text-left py-4 px-6 font-semibold text-gray-700">Feature</th>
-                <th className="text-center py-4 px-6 font-semibold text-gray-700">Applied Rater</th>
-                <th className="text-center py-4 px-6 font-semibold text-gray-700">EZLynx</th>
+                <th className="text-center py-4 px-6 font-semibold text-gray-700">legacy rater</th>
+                <th className="text-center py-4 px-6 font-semibold text-gray-700">competitor platforms</th>
                 <th className="text-center py-4 px-6 font-semibold text-blue-600">Quotely</th>
               </tr>
             </thead>
@@ -47,7 +47,7 @@ export function ResponsiveComparisonTable({ title, data }: ResponsiveComparisonT
                 <tr key={index} className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
                   <td className="py-4 px-6 font-medium text-gray-800">{row.feature}</td>
                   <td className="py-4 px-6 text-center">{renderCell(row.appliedRater)}</td>
-                  <td className="py-4 px-6 text-center">{renderCell(row.ezlynx)}</td>
+                  <td className="py-4 px-6 text-center">{renderCell(row.competitor)}</td>
                   <td className="py-4 px-6 text-center bg-blue-50">{renderCell(row.quotely)}</td>
                 </tr>
               ))}
@@ -62,12 +62,12 @@ export function ResponsiveComparisonTable({ title, data }: ResponsiveComparisonT
               <h3 className="font-semibold text-gray-900 mb-3">{row.feature}</h3>
               <div className="space-y-2">
                 <div className="flex justify-between items-center">
-                  <span className="text-gray-600">Applied Rater:</span>
+                  <span className="text-gray-600">legacy rater:</span>
                   <span className="font-medium">{renderCell(row.appliedRater)}</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-gray-600">EZLynx:</span>
-                  <span className="font-medium">{renderCell(row.ezlynx)}</span>
+                  <span className="text-gray-600">competitor platforms:</span>
+                  <span className="font-medium">{renderCell(row.competitor)}</span>
                 </div>
                 <div className="flex justify-between items-center bg-blue-50 -mx-4 px-4 py-2 rounded">
                   <span className="text-blue-600 font-medium">Quotely:</span>

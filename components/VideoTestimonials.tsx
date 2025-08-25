@@ -46,7 +46,7 @@ export default function VideoTestimonials() {
         { metric: 'Agent Productivity', value: '+120%' },
         { metric: 'Customer Satisfaction', value: '98%' }
       ],
-      quote: 'Switching from EZLynx to Quotely was the best decision we made this year.'
+      quote: 'Switching from competitor platforms to Quotely was the best decision we made this year.'
     },
     {
       id: 3,

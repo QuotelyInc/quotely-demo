@@ -237,7 +237,7 @@ const ColorPaletteAnalyzer = () => {
           lineHeight: '1.6',
           fontSize: '1.1rem'
         }}>
-          <strong>60% faster</strong> than EZLynx. <strong>AI-powered</strong> recommendations. 
+          <strong>60% faster</strong> than competitor platforms. <strong>AI-powered</strong> recommendations. 
           <span style={{ color: scheme.accent, fontWeight: '600' }}> $2.4M average revenue boost.</span>
         </p>
         

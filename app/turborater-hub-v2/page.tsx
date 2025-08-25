@@ -484,7 +484,7 @@ const AITransparencyPanel = ({ visible }: { visible: boolean }) => {
 const SpeedComparisonWidget = () => {
   const comparisons = [
     { name: 'Quotely', time: 1.8, color: 'bg-green-500', width: 'w-full' },
-    { name: 'EZLynx', time: 4.2, color: 'bg-gray-300', width: 'w-20' },
+    { name: 'competitor platforms', time: 4.2, color: 'bg-gray-300', width: 'w-20' },
     { name: 'Applied', time: 3.8, color: 'bg-gray-300', width: 'w-24' }
   ]
 
@@ -713,7 +713,7 @@ export default function TurboRaterHubV2() {
             
             <div className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-6 py-3 rounded-full flex items-center space-x-2 shadow-lg">
               <Star className="w-5 h-5" />
-              <span className="font-semibold">60% Faster than EZLynx</span>
+              <span className="font-semibold">60% Faster than competitor platforms</span>
             </div>
           </div>
           

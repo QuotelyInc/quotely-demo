@@ -318,10 +318,10 @@ const AITransparencyPanel = () => {
 
 // Speed Comparison Widget
 const SpeedComparisonWidget = () => {
-  const [activeComparison, setActiveComparison] = useState('ezlynx')
+  const [activeComparison, setActiveComparison] = useState('competitor')
   
   const comparisons = {
-    ezlynx: { name: 'EZLynx', ourTime: 0.8, theirTime: 4.2, color: 'red' },
+    competitor: { name: 'competitor platforms', ourTime: 0.8, theirTime: 4.2, color: 'red' },
     applied: { name: 'Applied', ourTime: 0.8, theirTime: 3.5, color: 'orange' },
     hawksoft: { name: 'HawkSoft', ourTime: 0.8, theirTime: 2.8, color: 'yellow' }
   }

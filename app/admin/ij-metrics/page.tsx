@@ -79,7 +79,7 @@ export default function IJMetricsDashboard() {
         publishDate: new Date(Date.now() - 86400000).toISOString()
       },
       {
-        title: 'EZLynx Announces New Features Amid Competition',
+        title: 'competitor platforms Announces New Features Amid Competition',
         source: 'Insurance Journal',
         relevanceScore: 92,
         engagement: 412,
@@ -91,7 +91,7 @@ export default function IJMetricsDashboard() {
 
     setCompetitorMentions([
       { 
-        competitor: 'EZLynx', 
+        competitor: 'competitor platforms', 
         mentions: 23, 
         sentiment: 'negative',
         context: ['performance issues', 'customer complaints', 'missing features']

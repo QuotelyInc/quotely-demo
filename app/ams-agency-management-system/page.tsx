@@ -1009,7 +1009,7 @@ export default function AMSAgencyManagementSystem() {
                       <th>Feature</th>
                       <th>Quotely</th>
                       <th>Applied Epic</th>
-                      <th>EZLynx</th>
+                      <th>competitor platforms</th>
                       <th>AMS360</th>
                     </tr>
                   </thead>

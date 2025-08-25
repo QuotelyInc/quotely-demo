@@ -517,7 +517,7 @@ export default function HulyNavigation() {
                     Industry Insights
                   </Link>
                   <Link
-                    href="/compare/vs-ezlynx"
+                    href="/compare/vs-competitor"
                     className="dropdown-item"
                     onClick={() => {
                       handleNavClick("compare");
@@ -685,7 +685,7 @@ export default function HulyNavigation() {
             </li>
             <li>
               <Link
-                href="/compare/vs-ezlynx"
+                href="/compare/vs-competitor"
                 className={`mobile-nav-link ${
                   isActive("/compare") ? "active" : ""
                 }`}

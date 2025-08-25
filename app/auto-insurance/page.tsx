@@ -94,7 +94,7 @@ export default function AutoInsurancePage() {
                 Quote Auto Insurance in 60 Seconds
               </h1>
               <p className="text-2xl mb-8 opacity-95 font-light">
-                AI-powered platform that's 60% faster than EZLynx. Zero training required.
+                AI-powered platform that's 60% faster than competitor platforms. Zero training required.
               </p>
               
               <div className="flex flex-wrap gap-4 mb-12">
@@ -159,7 +159,7 @@ export default function AutoInsurancePage() {
               <span className="text-4xl">⚡</span>
               <div>
                 <div className="text-3xl font-bold text-green-400">{animatedMetrics.speed}%</div>
-                <div className="text-sm opacity-80">Faster than EZLynx</div>
+                <div className="text-sm opacity-80">Faster than competitor platforms</div>
               </div>
             </div>
             <div className="flex items-center gap-4">
@@ -543,7 +543,7 @@ export default function AutoInsurancePage() {
             <div className="bg-gray-900 text-white grid grid-cols-4 p-4 font-bold">
               <div>Feature</div>
               <div className="text-center">Quotely</div>
-              <div className="text-center">EZLynx</div>
+              <div className="text-center">competitor platforms</div>
               <div className="text-center">Applied</div>
             </div>
             

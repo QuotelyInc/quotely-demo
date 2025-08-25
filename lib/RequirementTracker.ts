@@ -338,7 +338,7 @@ class RequirementTracker {
   private async verifyCompetitiveRequirement(_requirement: Requirement): Promise<boolean> {
     // Check if competitive comparison pages exist
     const competitorPages = [
-      '/compare/vs-ezlynx',
+      '/compare/vs-competitor',
       '/compare/vs-applied-systems'
     ];
     

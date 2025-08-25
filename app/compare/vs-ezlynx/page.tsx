@@ -6,20 +6,20 @@ import MinimalNav from '@/components/MinimalNav'
 import Footer from '@/components/layout/Footer'
 import Link from 'next/link'
 
-function VsEZLynxPage() {
+function Vscompetitor platformsPage() {
   const { trackPageView, trackUserAction } = useOTTOTracking()
 
   useEffect(() => {
-    trackPageView('compare_vs_ezlynx', {
+    trackPageView('compare_vs_competitor', {
       section: 'competitor_comparison',
-      competitor: 'ezlynx'
+      competitor: 'competitor'
     })
   }, [trackPageView])
 
   const handleCTAClick = (action: string) => {
     trackUserAction('cta_clicked', {
       button: action,
-      location: 'vs_ezlynx_page'
+      location: 'vs_competitor_page'
     })
   }
 
@@ -233,7 +233,7 @@ function VsEZLynxPage() {
           color: #065F46;
         }
         
-        .ezlynx-brand {
+        .competitor-brand {
           background: #FEE2E2;
           color: #991B1B;
         }
@@ -515,9 +515,9 @@ function VsEZLynxPage() {
       {/* Hero Section */}
       <section className="hero-section">
         <div className="container">
-          <h1>Quotely vs EZLynx</h1>
+          <h1>Quotely vs competitor platforms</h1>
           <p>
-            Why thousands of agents are switching from EZLynx to Quotely's 
+            Why thousands of agents are switching from competitor platforms to Quotely's 
             faster, more transparent, and affordable platform
           </p>
           <div className="switch-badge">
@@ -531,7 +531,7 @@ function VsEZLynxPage() {
         <div className="container">
           <div className="section-header">
             <h2>Feature-by-Feature Comparison</h2>
-            <p>See why Quotely outperforms EZLynx in every category that matters</p>
+            <p>See why Quotely outperforms competitor platforms in every category that matters</p>
           </div>
           
           <div style={{position: 'relative', marginTop: '3rem'}}>
@@ -543,7 +543,7 @@ function VsEZLynxPage() {
                     <span className="winner-badge">WINNER</span>
                     Quotely
                   </th>
-                  <th>EZLynx</th>
+                  <th>competitor platforms</th>
                 </tr>
               </thead>
               <tbody>
@@ -628,7 +628,7 @@ function VsEZLynxPage() {
             
             <div className="difference-card">
               <h3>
-                <span className="brand-name ezlynx-brand">EZLynx</span>
+                <span className="brand-name competitor-brand">competitor platforms</span>
               </h3>
               <ul className="difference-list">
                 <li>Black box algorithms with no visibility into calculations</li>
@@ -643,11 +643,11 @@ function VsEZLynxPage() {
         </div>
       </section>
 
-      {/* Common EZLynx Pain Points */}
+      {/* Common competitor platforms Pain Points */}
       <section className="pain-points-section">
         <div className="container">
           <div className="section-header">
-            <h2>Common EZLynx Frustrations We Solve</h2>
+            <h2>Common competitor platforms Frustrations We Solve</h2>
             <p>Based on feedback from hundreds of agents who made the switch</p>
           </div>
           
@@ -655,7 +655,7 @@ function VsEZLynxPage() {
             <div className="pain-point-card">
               <h3>⏱️ "Everything takes forever"</h3>
               <p>
-                EZLynx users report spending 12+ seconds per quote, with multi-carrier 
+                competitor platforms users report spending 12+ seconds per quote, with multi-carrier 
                 comparisons taking even longer.
               </p>
               <div className="solution">
@@ -667,7 +667,7 @@ function VsEZLynxPage() {
             <div className="pain-point-card">
               <h3>🔒 "We can't see how it works"</h3>
               <p>
-                EZLynx's black box approach makes it impossible to explain calculations 
+                competitor platforms's black box approach makes it impossible to explain calculations 
                 to clients or verify accuracy.
               </p>
               <div className="solution">
@@ -696,13 +696,13 @@ function VsEZLynxPage() {
         <div className="container">
           <div className="section-header">
             <h2>Agents Who Made the Switch</h2>
-            <p>Real stories from agencies that left EZLynx for Quotely</p>
+            <p>Real stories from agencies that left competitor platforms for Quotely</p>
           </div>
           
           <div className="testimonials-grid">
             <div className="testimonial-card">
               <p className="testimonial-quote">
-                "We cut our quote time by 65% after switching from EZLynx. The transparency 
+                "We cut our quote time by 65% after switching from competitor platforms. The transparency 
                 feature alone has helped us close 30% more deals because clients trust us more."
               </p>
               <div className="testimonial-author">
@@ -716,7 +716,7 @@ function VsEZLynxPage() {
             
             <div className="testimonial-card">
               <p className="testimonial-quote">
-                "EZLynx had so many add-ons to track. Quotely gives us 
+                "competitor platforms had so many add-ons to track. Quotely gives us 
                 more features at a competitive rate with significant annual savings."
               </p>
               <div className="testimonial-author">
@@ -730,8 +730,8 @@ function VsEZLynxPage() {
             
             <div className="testimonial-card">
               <p className="testimonial-quote">
-                "The migration from EZLynx was painless. Quotely handled everything, and we 
-                were up and running in 2 days instead of the weeks EZLynx took to set up."
+                "The migration from competitor platforms was painless. Quotely handled everything, and we 
+                were up and running in 2 days instead of the weeks competitor platforms took to set up."
               </p>
               <div className="testimonial-author">
                 <div className="author-avatar">SK</div>
@@ -758,7 +758,7 @@ function VsEZLynxPage() {
               <div className="step-number">1</div>
               <h3>Free Consultation</h3>
               <p>
-                We analyze your EZLynx setup and create a custom migration plan
+                We analyze your competitor platforms setup and create a custom migration plan
               </p>
             </div>
             
@@ -792,16 +792,16 @@ function VsEZLynxPage() {
       {/* CTA Section */}
       <section className="container">
         <div className="cta-section">
-          <h2>Ready to Leave EZLynx Behind?</h2>
+          <h2>Ready to Leave competitor platforms Behind?</h2>
           <p>
             Join thousands of agents who've already made the switch to faster, 
             more transparent, and affordable insurance technology.
           </p>
           
           <div className="special-offer">
-            <h3>🎁 EZLynx Switcher Special</h3>
+            <h3>🎁 competitor platforms Switcher Special</h3>
             <p>
-              Special offers available for agencies switching from EZLynx. 
+              Special offers available for agencies switching from competitor platforms. 
               Plus free data migration and dedicated onboarding support.
             </p>
           </div>
@@ -810,7 +810,7 @@ function VsEZLynxPage() {
             <Link 
               href="/get-started" 
               className="btn btn-primary"
-              onClick={() => handleCTAClick('switch_from_ezlynx')}
+              onClick={() => handleCTAClick('switch_from_competitor')}
             >
               Switch to Quotely →
             </Link>
@@ -830,6 +830,6 @@ function VsEZLynxPage() {
   )
 }
 
-export default function VsEZLynx() {
-  return <VsEZLynxPage />
+export default function Vscompetitor platforms() {
+  return <Vscompetitor platformsPage />
 }

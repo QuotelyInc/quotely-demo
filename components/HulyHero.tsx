@@ -519,7 +519,7 @@ export default function HulyHero() {
               </h1>
 
               <p className="hero-subtitle">
-                All-in-one platform replacement for EZLynx, Applied, and legacy systems. 
+                All-in-one platform replacement for competitor platforms, Applied, and legacy systems. 
                 Built for modern insurance agencies.
               </p>
 

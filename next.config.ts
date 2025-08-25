@@ -18,6 +18,7 @@ const nextConfig: NextConfig = {
   experimental: {
     scrollRestoration: true,
     optimizePackageImports: ['@heroicons/react', 'date-fns', 'lodash'],
+    // optimizeCss temporarily disabled for compatibility
   },
   
   // Compress responses

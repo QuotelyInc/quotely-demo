@@ -82,7 +82,7 @@ export const QUOTELY_REQUIREMENTS = {
   
   CONV_003: {
     id: 'CONV_003',
-    description: 'Create ROI calculator comparing costs vs EZLynx/Applied Systems',
+    description: 'Create ROI calculator comparing costs vs competitor platforms/legacy systems',
     priority: 'HIGH' as const,
     category: 'CONVERSION' as RequirementCategory,
     acceptanceCriteria: [

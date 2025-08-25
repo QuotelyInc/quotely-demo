@@ -126,7 +126,7 @@ const CompetitorCard = ({
           <div className="flex items-center justify-between mb-2">
             <span className="text-xs text-gray-600 uppercase tracking-wide">Performance</span>
             <span className="text-xs font-semibold">
-              {name === 'Quotely' ? '60 sec' : name === 'EZLynx' ? '3-5 min' : '2-4 min'}
+              {name === 'Quotely' ? '60 sec' : name === 'competitor platforms' ? '3-5 min' : '2-4 min'}
             </span>
           </div>
           <div className="w-full bg-gray-200 rounded-full h-2">
@@ -134,7 +134,7 @@ const CompetitorCard = ({
               className={`h-2 rounded-full transition-all duration-1000 ${
                 name === 'Quotely'
                   ? 'bg-green-500 w-full'
-                  : name === 'EZLynx'
+                  : name === 'competitor platforms'
                   ? 'bg-yellow-500 w-1/3'
                   : 'bg-red-500 w-1/2'
               }`}
@@ -146,7 +146,7 @@ const CompetitorCard = ({
         <div className="flex items-center justify-between pt-2">
           <span className="text-xs text-gray-600 uppercase tracking-wide">Monthly Cost</span>
           <span className="font-bold text-lg">
-            {name === 'Quotely' ? '$679' : name === 'EZLynx' ? '$1,299' : '$1,140'}
+            {name === 'Quotely' ? '$679' : name === 'competitor platforms' ? '$1,299' : '$1,140'}
           </span>
         </div>
       </div>
@@ -173,14 +173,14 @@ const CompetitorCard = ({
 // Feature Comparison Table Component
 const FeatureComparisonTable = () => {
   const features = [
-    { feature: 'Average Quote Time', quotely: '60 seconds', ezlynx: '3-5 minutes', applied: '2-4 minutes' },
-    { feature: 'Mobile Support', quotely: true, ezlynx: 'Limited', applied: false },
-    { feature: 'AI Insights', quotely: true, ezlynx: false, applied: false },
-    { feature: 'API Access', quotely: 'Full REST API', ezlynx: 'Paid Add-on', applied: 'Limited' },
-    { feature: 'Setup Time', quotely: '24 hours', ezlynx: '2-3 weeks', applied: '1-2 weeks' },
-    { feature: 'Hidden Fees', quotely: false, ezlynx: true, applied: true },
-    { feature: 'Customer Support', quotely: '24/7 Live Chat', ezlynx: 'Business Hours', applied: 'Email Only' },
-    { feature: 'Training Required', quotely: '2 hours', ezlynx: '2 days', applied: '3 days' },
+    { feature: 'Average Quote Time', quotely: '60 seconds', competitor: '3-5 minutes', applied: '2-4 minutes' },
+    { feature: 'Mobile Support', quotely: true, competitor: 'Limited', applied: false },
+    { feature: 'AI Insights', quotely: true, competitor: false, applied: false },
+    { feature: 'API Access', quotely: 'Full REST API', competitor: 'Paid Add-on', applied: 'Limited' },
+    { feature: 'Setup Time', quotely: '24 hours', competitor: '2-3 weeks', applied: '1-2 weeks' },
+    { feature: 'Hidden Fees', quotely: false, competitor: true, applied: true },
+    { feature: 'Customer Support', quotely: '24/7 Live Chat', competitor: 'Business Hours', applied: 'Email Only' },
+    { feature: 'Training Required', quotely: '2 hours', competitor: '2 days', applied: '3 days' },
   ]
   
   return (
@@ -196,8 +196,8 @@ const FeatureComparisonTable = () => {
                   <span className="text-xs font-normal opacity-90">(Recommended)</span>
                 </div>
               </th>
-              <th className="px-6 py-4 text-center text-sm font-semibold">EZLynx</th>
-              <th className="px-6 py-4 text-center text-sm font-semibold">Applied Rater</th>
+              <th className="px-6 py-4 text-center text-sm font-semibold">competitor platforms</th>
+              <th className="px-6 py-4 text-center text-sm font-semibold">legacy rater</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200">
@@ -216,14 +216,14 @@ const FeatureComparisonTable = () => {
                   )}
                 </td>
                 <td className="px-6 py-4 text-center">
-                  {typeof row.ezlynx === 'boolean' ? (
-                    row.ezlynx ? (
+                  {typeof row.competitor === 'boolean' ? (
+                    row.competitor ? (
                       <Check className="h-5 w-5 text-green-500 mx-auto" />
                     ) : (
                       <X className="h-5 w-5 text-red-500 mx-auto" />
                     )
                   ) : (
-                    <span className="text-sm text-gray-600">{row.ezlynx}</span>
+                    <span className="text-sm text-gray-600">{row.competitor}</span>
                   )}
                 </td>
                 <td className="px-6 py-4 text-center">
@@ -280,7 +280,7 @@ const ComparisonSection = () => {
           
           <div className="grid lg:grid-cols-3 gap-8 mb-16">
             <CompetitorCard
-              name="Applied Rater"
+              name="legacy rater"
               rating={2}
               issues={[
                 "1990s interface design",
@@ -292,7 +292,7 @@ const ComparisonSection = () => {
             />
             
             <CompetitorCard
-              name="EZLynx"
+              name="competitor platforms"
               rating={3}
               issues={[
                 "Hidden fees and charges",

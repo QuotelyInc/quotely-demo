@@ -321,7 +321,7 @@ export default function ModernHero() {
 
         <div className="hero-content">
           <div className="hero-badge">
-            ⚡ 60% Faster Than EZLynx
+            ⚡ 60% Faster Than competitor platforms
           </div>
 
           <h1 className="hero-title">
@@ -331,7 +331,7 @@ export default function ModernHero() {
 
           <p className="hero-subtitle">
             Quote in under 2 minutes. Compare rates instantly. Close deals faster.
-            Quotely outperforms Applied Rater and EZLynx with transparent AI-powered insights.
+            Quotely outperforms legacy rater and competitor platforms with transparent AI-powered insights.
           </p>
 
           <div className="hero-cta">

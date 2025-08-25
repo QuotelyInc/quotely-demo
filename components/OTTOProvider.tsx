@@ -35,7 +35,7 @@ export const OTTOProvider = ({ children }: { children: ReactNode }) => {
             ],
             geography: 'United States',
             competitors: [
-              'ezlynx',
+              'competitor',
               'applied systems',
               'vertafore',
               'nowcerts',

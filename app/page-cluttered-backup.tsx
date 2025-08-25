@@ -1213,8 +1213,8 @@ function HomePage() {
             <div className="table-header">
               <div>Feature</div>
               <div>Quotely</div>
-              <div>EZLynx</div>
-              <div>Applied Rater</div>
+              <div>competitor platforms</div>
+              <div>legacy rater</div>
             </div>
             
             <div className="table-row quotely-highlight">

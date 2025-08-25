@@ -7,7 +7,7 @@ import Footer from '@/components/layout/Footer'
 import MinimalNav from '@/components/MinimalNav'
 
 export const metadata = {
-  title: 'Detailed Platform Comparison - Quotely vs EZLynx & Applied',
+  title: 'Detailed Platform Comparison - Quotely vs competitor platforms & Applied',
   description: 'In-depth comparison of Quotely against legacy insurance platforms. See detailed metrics, testimonials, and platform capabilities.',
 }
 

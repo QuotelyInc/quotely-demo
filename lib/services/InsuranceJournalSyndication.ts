@@ -116,7 +116,7 @@ export class InsuranceJournalSyndication {
   }
   
   checkCompetitors(article: ArticleData): string[] {
-    const competitors = ['Applied Epic', 'EZLynx', 'AMS360', 'Vertafore', 'HawkSoft', 'AgencyBloc'];
+    const competitors = ['Applied Epic', 'competitor platforms', 'AMS360', 'Vertafore', 'HawkSoft', 'AgencyBloc'];
     const content = `${article.title} ${article.excerpt}`;
     
     return competitors.filter(comp => 
@@ -259,10 +259,10 @@ export class InsuranceJournalSyndication {
       });
     }
     
-    if (article.competitorMentions?.includes('EZLynx')) {
+    if (article.competitorMentions?.includes('competitor platforms')) {
       related.push({
-        title: 'Quotely vs EZLynx: Detailed Comparison',
-        url: '/compare/vs-ezlynx'
+        title: 'Quotely vs competitor platforms: Detailed Comparison',
+        url: '/compare/vs-competitor'
       });
     }
     
