@@ -6,7 +6,7 @@ import MinimalNav from '@/components/MinimalNav'
 import Footer from '@/components/layout/Footer'
 import Link from 'next/link'
 
-function Vscompetitor platformsPage() {
+function VsCompetitorPlatformsPage() {
   const { trackPageView, trackUserAction } = useOTTOTracking()
 
   useEffect(() => {
@@ -830,6 +830,4 @@ function Vscompetitor platformsPage() {
   )
 }
 
-export default function Vscompetitor platforms() {
-  return <Vscompetitor platformsPage />
-}
+export default VsCompetitorPlatformsPage
