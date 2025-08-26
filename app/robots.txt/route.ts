@@ -1,9 +1,23 @@
-// Dynamic robots.txt route handler for Next.js
-// This replaces the static robots.txt file with environment-aware content
+// Dynamic robots.txt route handler for Next.js with bot tracking
+// This replaces the static robots.txt file with environment-aware content and analytics
 
-export async function GET() {
+import { headers } from 'next/headers';
+import { trackBotAccess, identifyBot, BotCategory } from '@/lib/bot-analytics';
+
+export async function GET(request: Request) {
   const isProduction = process.env.NODE_ENV === 'production';
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://tryquotely.com';
+  
+  // Get request headers for bot tracking
+  const headersList = await headers();
+  const userAgent = headersList.get('user-agent') || 'Unknown';
+  
+  // Track bot access to robots.txt
+  await trackBotAccess(userAgent, '/robots.txt', headersList);
+  
+  // Identify the bot for custom rules
+  const bot = identifyBot(userAgent);
+  const isBlockedBot = bot.category === BotCategory.SEO_TOOL || bot.category === BotCategory.SCRAPER;
   
   // Production robots.txt - optimized for search engines
   const productionRobots = `# Robots.txt for ${siteUrl}
@@ -98,8 +112,30 @@ Disallow: /
 # This is a development/staging environment.
 # Please visit ${siteUrl} for the production site.`;
 
-  // Select appropriate robots.txt based on environment
-  const robotsTxt = isProduction ? productionRobots : developmentRobots;
+  // Custom robots.txt for blocked bots (SEO tools, scrapers)
+  const blockedBotRobots = `# Access Restricted
+# Your bot (${bot.name}) has been identified as ${bot.category}
+
+User-agent: ${bot.name}
+Disallow: /
+
+# For legitimate access, please contact: support@tryquotely.com`;
+
+  // Select appropriate robots.txt based on environment and bot type
+  let robotsTxt: string;
+  
+  if (!isProduction) {
+    robotsTxt = developmentRobots;
+  } else if (isBlockedBot) {
+    robotsTxt = blockedBotRobots;
+  } else {
+    robotsTxt = productionRobots;
+  }
+  
+  // Add tracking comment for known bots
+  if (bot.name !== 'Unknown') {
+    robotsTxt += `\n\n# Bot Detected: ${bot.name} (${bot.category})\n# Access logged: ${new Date().toISOString()}`;
+  }
   
   return new Response(robotsTxt, {
     headers: {
@@ -108,6 +144,9 @@ Disallow: /
         ? 'public, max-age=86400, s-maxage=86400' // Cache for 24 hours in production
         : 'no-store, no-cache, must-revalidate', // No caching in development
       'X-Robots-Environment': isProduction ? 'production' : 'development',
+      'X-Bot-Detected': bot.name,
+      'X-Bot-Category': bot.category,
+      'X-Bot-Allowed': (!isBlockedBot).toString(),
     },
   });
 }
