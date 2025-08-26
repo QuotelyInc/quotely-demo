@@ -1,4 +1,7 @@
-{
+﻿{
+  "framework": null,
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
   "headers": [
     {
       "source": "/(.*).xml",
@@ -8,6 +11,12 @@
           "value": "application/xml; charset=utf-8"
         }
       ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/pricing",
+      "destination": "/pricing.html"
     }
   ]
 }
