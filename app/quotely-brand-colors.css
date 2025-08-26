@@ -1,0 +1,277 @@
+/**
+ * Quotely Brand Color System
+ * Based on official brand HEX codes
+ */
+
+:root {
+  /* ===== PRIMARY BRAND COLORS ===== */
+  --brand-white: #ffffff;           /* Pure white for backgrounds and text contrast */
+  --brand-deep-purple: #413970;     /* Deep Purple/Navy - hero backgrounds, nav bar */
+  --brand-medium-purple: #6b61ad;   /* Medium Purple - gradients, section fills */
+  --brand-dark-indigo: #40386f;     /* Dark Indigo - shadows, secondary dark UI */
+  --brand-muted-violet: #746bb2;    /* Muted Violet - secondary gradients, accents */
+  
+  /* ===== NEUTRAL COLORS ===== */
+  --brand-off-white: #f9f9f8;       /* Off-White - content backgrounds */
+  --brand-gray-lavender: #eae9f0;   /* Light Gray-Lavender - dividers, subtle backgrounds */
+  --brand-light-gray: #f7f7f7;      /* Very Light Gray - secondary background areas */
+  
+  /* ===== SEMANTIC COLORS (Derived) ===== */
+  --brand-success: #10b981;         /* Green for success states */
+  --brand-warning: #f59e0b;         /* Amber for warnings */
+  --brand-error: #ef4444;           /* Red for errors */
+  --brand-info: var(--brand-medium-purple); /* Using medium purple for info */
+  
+  /* ===== TEXT COLORS ===== */
+  --text-primary: #1f2937;          /* Dark gray for primary text */
+  --text-secondary: #4b5563;        /* Medium gray for secondary text */
+  --text-inverse: #ffffff;          /* White text on dark backgrounds */
+  --text-muted: #9ca3af;            /* Light gray for muted text */
+  --text-on-purple: #ffffff;        /* White text on purple backgrounds */
+  
+  /* ===== GRADIENTS ===== */
+  --gradient-hero: linear-gradient(135deg, #413970 0%, #6b61ad 50%, #746bb2 100%);
+  --gradient-hero-radial: radial-gradient(circle at top right, #746bb2 0%, #413970 70%);
+  --gradient-surface: linear-gradient(180deg, #ffffff 0%, #f9f9f8 100%);
+  --gradient-card: linear-gradient(135deg, #f9f9f8 0%, #eae9f0 100%);
+  --gradient-button: linear-gradient(135deg, #6b61ad 0%, #413970 100%);
+  --gradient-button-hover: linear-gradient(135deg, #746bb2 0%, #40386f 100%);
+  --gradient-nav: linear-gradient(180deg, rgba(65, 57, 112, 0.98) 0%, rgba(64, 56, 111, 1) 100%);
+  
+  /* ===== SHADOWS (Using Brand Colors) ===== */
+  --shadow-sm: 0 1px 2px 0 rgba(65, 57, 112, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(65, 57, 112, 0.1), 0 2px 4px -1px rgba(65, 57, 112, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(65, 57, 112, 0.1), 0 4px 6px -2px rgba(65, 57, 112, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(65, 57, 112, 0.15), 0 10px 10px -5px rgba(65, 57, 112, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(65, 57, 112, 0.25);
+  --shadow-inner: inset 0 2px 4px 0 rgba(65, 57, 112, 0.06);
+  --shadow-card: 0 4px 20px rgba(65, 57, 112, 0.08);
+  
+  /* ===== OPACITY VARIANTS ===== */
+  --brand-deep-purple-5: rgba(65, 57, 112, 0.05);
+  --brand-deep-purple-10: rgba(65, 57, 112, 0.1);
+  --brand-deep-purple-20: rgba(65, 57, 112, 0.2);
+  --brand-deep-purple-30: rgba(65, 57, 112, 0.3);
+  --brand-deep-purple-50: rgba(65, 57, 112, 0.5);
+  --brand-deep-purple-80: rgba(65, 57, 112, 0.8);
+  --brand-deep-purple-95: rgba(65, 57, 112, 0.95);
+  
+  --brand-medium-purple-5: rgba(107, 97, 173, 0.05);
+  --brand-medium-purple-10: rgba(107, 97, 173, 0.1);
+  --brand-medium-purple-20: rgba(107, 97, 173, 0.2);
+  --brand-medium-purple-30: rgba(107, 97, 173, 0.3);
+  --brand-medium-purple-50: rgba(107, 97, 173, 0.5);
+  --brand-medium-purple-80: rgba(107, 97, 173, 0.8);
+  
+  /* ===== COMPONENT-SPECIFIC COLORS ===== */
+  --nav-bg: var(--brand-deep-purple);
+  --nav-bg-blur: var(--brand-deep-purple-95);
+  --hero-bg: var(--gradient-hero);
+  --card-bg: var(--brand-white);
+  --card-hover-bg: var(--brand-off-white);
+  --section-bg: var(--brand-light-gray);
+  --section-alt-bg: var(--brand-off-white);
+  --footer-bg: var(--brand-dark-indigo);
+  
+  /* ===== BORDERS ===== */
+  --border-color: var(--brand-gray-lavender);
+  --border-hover: var(--brand-medium-purple);
+  --border-focus: var(--brand-muted-violet);
+  
+  /* ===== INTERACTIVE STATES ===== */
+  --link-color: var(--brand-medium-purple);
+  --link-hover: var(--brand-muted-violet);
+  --button-primary-bg: var(--gradient-button);
+  --button-primary-hover: var(--gradient-button-hover);
+  --button-secondary-bg: var(--brand-white);
+  --button-secondary-hover: var(--brand-off-white);
+  
+  /* ===== LEGACY MAPPING (Override old colors) ===== */
+  --primary: var(--brand-deep-purple);
+  --primary-dark: var(--brand-dark-indigo);
+  --primary-light: var(--brand-muted-violet);
+  --secondary: var(--brand-medium-purple);
+  --accent: var(--brand-medium-purple);
+  --surface: var(--brand-white);
+  --background: var(--brand-light-gray);
+  --foreground: var(--text-primary);
+}
+
+/* ===== TAILWIND CUSTOM UTILITIES ===== */
+@layer utilities {
+  .bg-brand-gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .bg-brand-gradient-button {
+    background: var(--gradient-button);
+  }
+  
+  .bg-brand-gradient-card {
+    background: var(--gradient-card);
+  }
+  
+  .text-brand-primary {
+    color: var(--brand-deep-purple);
+  }
+  
+  .text-brand-secondary {
+    color: var(--brand-medium-purple);
+  }
+  
+  .border-brand {
+    border-color: var(--border-color);
+  }
+  
+  .shadow-brand {
+    box-shadow: var(--shadow-md);
+  }
+  
+  .shadow-brand-lg {
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+/* ===== COMPONENT STYLES ===== */
+
+/* Navigation Bar */
+.nav-brand {
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-md);
+}
+
+.nav-brand-blur {
+  background: var(--nav-bg-blur);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Hero Section */
+.hero-brand {
+  background: var(--gradient-hero);
+  position: relative;
+}
+
+.hero-brand::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-hero-radial);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Cards */
+.card-brand {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-card);
+  transition: all 0.3s ease;
+}
+
+.card-brand:hover {
+  background: var(--card-hover-bg);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+/* Buttons */
+.btn-brand-primary {
+  background: var(--gradient-button);
+  color: var(--text-inverse);
+  border: none;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+}
+
+.btn-brand-primary:hover {
+  background: var(--gradient-button-hover);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-1px);
+}
+
+.btn-brand-secondary {
+  background: var(--button-secondary-bg);
+  color: var(--brand-deep-purple);
+  border: 2px solid var(--brand-deep-purple);
+  transition: all 0.3s ease;
+}
+
+.btn-brand-secondary:hover {
+  background: var(--brand-deep-purple);
+  color: var(--text-inverse);
+}
+
+/* Sections */
+.section-brand {
+  background: var(--section-bg);
+}
+
+.section-brand-alt {
+  background: var(--section-alt-bg);
+}
+
+/* Footer */
+.footer-brand {
+  background: var(--footer-bg);
+  color: var(--text-inverse);
+}
+
+/* Form Elements */
+.input-brand {
+  background: var(--brand-white);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+}
+
+.input-brand:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px var(--brand-medium-purple-20);
+  outline: none;
+}
+
+/* Links */
+.link-brand {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.link-brand:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+/* Glassmorphism Effect */
+.glass-brand {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Dark Mode Overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --card-bg: var(--brand-dark-indigo);
+    --text-primary: var(--brand-white);
+    --text-secondary: var(--brand-gray-lavender);
+    --section-bg: #1a1625;
+    --section-alt-bg: #221e33;
+  }
+  
+  .card-brand {
+    background: var(--brand-dark-indigo);
+    border-color: var(--brand-muted-violet-30);
+    color: var(--brand-white);
+  }
+  
+  .input-brand {
+    background: var(--brand-dark-indigo);
+    border-color: var(--brand-muted-violet-30);
+    color: var(--brand-white);
+  }
+}

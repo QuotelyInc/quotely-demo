@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./quotely-brand-colors.css";
 @import "./modern-design-system.css";
 @import "./huly-dark-theme.css";
 @import "./modern-saas-style.css";
@@ -39,32 +40,32 @@
 }
 
 :root {
-  /* Clean, Minimal Professional Theme */
-  --primary: #2A4365;        /* Deep blue for trust & professionalism */
-  --primary-dark: #1A365D;   /* Darker shade for hover states */
-  --primary-light: #3A5883;  /* Lighter shade for gradients */
-  --secondary: #2A4365;      /* Deep blue consistency */
-  --accent: #38B2AC;         /* Teal accent for highlights */
-  --accent-secondary: #319795; /* Darker teal for hover */
+  /* Quotely Brand Colors - Overriding old theme */
+  --primary: #413970;        /* Deep Purple for trust & professionalism */
+  --primary-dark: #40386f;   /* Dark Indigo for hover states */
+  --primary-light: #746bb2;  /* Muted Violet for gradients */
+  --secondary: #6b61ad;      /* Medium Purple consistency */
+  --accent: #6b61ad;         /* Medium Purple for highlights */
+  --accent-secondary: #746bb2; /* Muted Violet for hover */
   --warning: #F6AD55;        /* Soft warning orange */
   --error: #FC8181;          /* Soft error red */
-  --success: #38B2AC;        /* Teal for success states */
-  --premium: #2A4365;        /* Deep blue for premium */
-  --surface: #FFFFFF;        /* Pure white for cards */
-  --background: #F7FAFC;     /* Very light gray background */
-  --text-primary: #2D3748;   /* Dark gray for text */
-  --text-secondary: #718096; /* Medium gray for secondary text */
-  --text-light: #718096;     /* Light gray text */
-  --border: #E5E7EB;
-  --card-bg: #EBF4FF;        /* Light blue card background */
-  --gradient: linear-gradient(135deg, #2A4365 0%, #3A5883 100%);
-  --gradient-bg: linear-gradient(135deg, #2A4365 0%, #1A365D 100%);
-  --gradient-cta: linear-gradient(135deg, #2A4365 0%, #38B2AC 100%);
-  --gradient-premium: linear-gradient(135deg, #2A4365 0%, #3A5883 100%);
-  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --success: #10b981;        /* Green for success states */
+  --premium: #413970;        /* Deep Purple for premium */
+  --surface: #ffffff;        /* Pure white for cards */
+  --background: #f7f7f7;     /* Very light gray background */
+  --text-primary: #1f2937;   /* Dark gray for text */
+  --text-secondary: #4b5563; /* Medium gray for secondary text */
+  --text-light: #9ca3af;     /* Light gray text */
+  --border: #eae9f0;         /* Light Gray-Lavender borders */
+  --card-bg: #f9f9f8;        /* Off-White card background */
+  --gradient: linear-gradient(135deg, #413970 0%, #6b61ad 50%, #746bb2 100%);
+  --gradient-bg: linear-gradient(135deg, #413970 0%, #40386f 100%);
+  --gradient-cta: linear-gradient(135deg, #6b61ad 0%, #413970 100%);
+  --gradient-premium: linear-gradient(135deg, #413970 0%, #746bb2 100%);
+  --shadow: 0 4px 6px rgba(65, 57, 112, 0.1);
   
   /* Legacy support */
-  --foreground: #2D3748;
+  --foreground: #1f2937;
 }
 
 @theme inline {
@@ -86,8 +87,8 @@ html {
 }
 
 body {
-  background: #090A0C;
-  color: white;
+  background: var(--background);
+  color: var(--text-primary);
   font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
   
