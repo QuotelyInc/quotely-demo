@@ -6,6 +6,14 @@
     {
       "source": "/pricing",
       "destination": "/pricing.html"
+    },
+    {
+      "source": "/insurance-quoting-software",
+      "destination": "/insurance-quoting-software.html"
+    },
+    {
+      "source": "/applied-rater-alternative",
+      "destination": "/applied-rater-alternative.html"
     }
   ]
 }
