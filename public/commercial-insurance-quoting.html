@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commercial Insurance Quoting Software | B2B Insurance Platform | Quotely</title>
+    <meta name="description" content="Streamline commercial insurance quoting with Quotely's platform. Generate GL, Commercial Auto, Workers Comp quotes 60% faster than Applied Rater for business clients.">
+    <meta name="keywords" content="commercial insurance quoting software, business insurance platform, commercial insurance quotes, GL quoting software, workers comp software">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Quotely Commercial Insurance Quoting Software",
+        "description": "Commercial insurance quoting platform that generates business insurance quotes 60% faster than legacy systems.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "199",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Header */
+        .header { background: linear-gradient(135deg, #1e293b 0%, #475569 100%); color: white; padding: 80px 0; }
+        .header h1 { font-size: 3.5rem; margin-bottom: 20px; font-weight: 700; line-height: 1.1; }
+        .header .highlight { color: #fbbf24; }
+        .header p { font-size: 1.4rem; margin-bottom: 30px; opacity: 0.9; max-width: 800px; }
+        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; margin: 30px 0; }
+        .stat { background: rgba(255,255,255,0.1); padding: 20px; border-radius: 8px; text-align: center; }
+        .stat-number { font-size: 2rem; font-weight: 700; color: #fbbf24; }
+        .stat-label { font-size: 0.9rem; opacity: 0.8; }
+        .cta-buttons { display: flex; gap: 20px; margin-top: 30px; flex-wrap: wrap; }
+        .btn-primary { background: #10b981; color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1.1rem; display: inline-block; }
+        .btn-secondary { border: 2px solid white; color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1.1rem; display: inline-block; }
+        
+        /* Commercial Lines */
+        .commercial-lines { padding: 80px 0; background: #f8fafc; }
+        .commercial-lines h2 { text-align: center; font-size: 2.5rem; margin-bottom: 50px; color: #1e293b; }
+        .lines-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .line { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-left: 4px solid #1e40af; }
+        .line h3 { color: #1e40af; margin-bottom: 15px; font-size: 1.3rem; }
+        .line .quote-time { background: #eff6ff; color: #1e40af; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; margin-bottom: 15px; display: inline-block; }
+        .line ul { list-style: none; }
+        .line li { margin-bottom: 8px; position: relative; padding-left: 20px; }
+        .line li:before { content: "✓"; color: #10b981; font-weight: bold; position: absolute; left: 0; }
+        
+        /* Industry Focus */
+        .industries { padding: 80px 0; }
+        .industries h2 { text-align: center; font-size: 2.5rem; margin-bottom: 50px; color: #1e293b; }
+        .industry-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; }
+        .industry-card { background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); padding: 30px; border-radius: 12px; border-left: 4px solid #0ea5e9; }
+        .industry-card h3 { color: #0c4a6e; margin-bottom: 15px; font-size: 1.4rem; }
+        .industry-challenges { margin-bottom: 20px; }
+        .industry-challenges h4 { color: #dc2626; margin-bottom: 10px; font-size: 1rem; }
+        .industry-challenges ul { list-style: none; }
+        .industry-challenges li { margin-bottom: 5px; font-size: 0.9rem; color: #7f1d1d; padding-left: 15px; position: relative; }
+        .industry-challenges li:before { content: "●"; color: #dc2626; position: absolute; left: 0; }
+        .industry-solution { background: rgba(16, 185, 129, 0.1); padding: 15px; border-radius: 8px; }
+        .industry-solution h4 { color: #059669; margin-bottom: 10px; font-size: 1rem; }
+        .industry-solution p { color: #065f46; font-size: 0.9rem; }
+        
+        /* ROI Calculator */
+        .roi-calculator { background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 80px 0; }
+        .roi-calculator h2 { text-align: center; font-size: 2.5rem; margin-bottom: 50px; }
+        .calculator-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; text-align: center; }
+        .calculator-item { background: rgba(255,255,255,0.1); padding: 30px; border-radius: 12px; }
+        .calculator-number { font-size: 2.5rem; font-weight: 700; margin-bottom: 10px; }
+        .calculator-label { opacity: 0.9; margin-bottom: 10px; }
+        .calculator-details { font-size: 0.9rem; opacity: 0.7; }
+        
+        /* Comparison */
+        .comparison { padding: 80px 0; background: #f8fafc; }
+        .comparison h2 { text-align: center; font-size: 2.5rem; margin-bottom: 50px; color: #1e293b; }
+        .comparison-table { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+        .comparison-table table { width: 100%; border-collapse: collapse; }
+        .comparison-table th { background: linear-gradient(135deg, #1e40af 0%, #3730a3 100%); color: white; padding: 20px; font-weight: 600; text-align: left; }
+        .comparison-table td { padding: 15px 20px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+        .comparison-table tr:nth-child(even) { background: #f8fafc; }
+        .quotely-col { background: #f0fdf4 !important; font-weight: 600; color: #059669; }
+        
+        /* Testimonials */
+        .testimonials { padding: 80px 0; }
+        .testimonials h2 { text-align: center; font-size: 2.5rem; margin-bottom: 50px; color: #1e293b; }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+        .testimonial { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+        .testimonial-stars { color: #fbbf24; margin-bottom: 15px; font-size: 1.2rem; }
+        .testimonial-quote { font-style: italic; margin-bottom: 20px; color: #4b5563; }
+        .testimonial-author { font-weight: 600; color: #1e293b; }
+        .testimonial-company { color: #64748b; font-size: 0.9rem; }
+        .testimonial-metric { background: #eff6ff; color: #1e40af; padding: 10px; border-radius: 6px; margin-top: 15px; font-weight: 600; text-align: center; font-size: 0.9rem; }
+        
+        /* Final CTA */
+        .final-cta { background: linear-gradient(135deg, #1e293b 0%, #475569 100%); color: white; padding: 80px 0; text-align: center; }
+        .final-cta h2 { font-size: 2.5rem; margin-bottom: 20px; }
+        .final-cta p { font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9; }
+        .benefits-list { display: flex; justify-content: center; gap: 40px; margin-top: 30px; flex-wrap: wrap; }
+        .benefits-list span { font-size: 0.9rem; opacity: 0.8; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2.5rem; }
+            .stats { grid-template-columns: repeat(2, 1fr); }
+            .cta-buttons { flex-direction: column; }
+            .lines-grid { grid-template-columns: 1fr; }
+            .industry-cards { grid-template-columns: 1fr; }
+            .calculator-grid { grid-template-columns: 1fr; }
+            .testimonials-grid { grid-template-columns: 1fr; }
+            .benefits-list { flex-direction: column; gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <section class="header">
+        <div class="container">
+            <h1>Commercial Insurance Quoting <span class="highlight">That Closes More B2B Deals</span></h1>
+            <p>Generate commercial insurance quotes in under 2 minutes with Quotely's AI-powered platform. Handle General Liability, Commercial Auto, Workers Comp, and Property coverage faster than ever.</p>
+            
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">90s</div>
+                    <div class="stat-label">Avg GL Quote</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Carrier Partners</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">99.2%</div>
+                    <div class="stat-label">Quote Accuracy</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">60%</div>
+                    <div class="stat-label">Faster Than Legacy</div>
+                </div>
+            </div>
+
+            <div class="cta-buttons">
+                <a href="#" class="btn-primary">Try Commercial Quoting Free</a>
+                <a href="#" class="btn-secondary">Watch Commercial Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commercial Lines -->
+    <section class="commercial-lines">
+        <div class="container">
+            <h2>Complete Commercial Insurance Quoting Platform</h2>
+            
+            <div class="lines-grid">
+                <div class="line">
+                    <h3>General Liability</h3>
+                    <div class="quote-time">90 second quotes</div>
+                    <ul>
+                        <li>Automated class code selection</li>
+                        <li>Per occurrence and aggregate limits</li>
+                        <li>Product liability inclusion</li>
+                        <li>Real-time carrier comparison</li>
+                        <li>Industry-specific forms</li>
+                    </ul>
+                </div>
+                
+                <div class="line">
+                    <h3>Commercial Auto</h3>
+                    <div class="quote-time">2 minute quotes</div>
+                    <ul>
+                        <li>Fleet management integration</li>
+                        <li>Driver record automation</li>
+                        <li>Vehicle valuation lookup</li>
+                        <li>Commercial use classification</li>
+                        <li>Multi-state coverage</li>
+                    </ul>
+                </div>
+                
+                <div class="line">
+                    <h3>Workers Compensation</h3>
+                    <div class="quote-time">75 second quotes</div>
+                    <ul>
+                        <li>NCCI code automation</li>
+                        <li>Experience modifier calculation</li>
+                        <li>Multi-state coverage options</li>
+                        <li>Claims history integration</li>
+                        <li>Payroll verification</li>
+                    </ul>
+                </div>
+                
+                <div class="line">
+                    <h3>Commercial Property</h3>
+                    <div class="quote-time">2.5 minute quotes</div>
+                    <ul>
+                        <li>Property valuation tools</li>
+                        <li>Coverage limit recommendations</li>
+                        <li>Natural disaster modeling</li>
+                        <li>Equipment breakdown coverage</li>
+                        <li>Business interruption analysis</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry-Specific Solutions -->
+    <section class="industries">
+        <div class="container">
+            <h2>Industry-Specific Commercial Insurance Solutions</h2>
+            
+            <div class="industry-cards">
+                <div class="industry-card">
+                    <h3>Construction & Contracting</h3>
+                    <div class="industry-challenges">
+                        <h4>Industry Challenges:</h4>
+                        <ul>
+                            <li>Complex risk assessment requirements</li>
+                            <li>Project-based coverage needs</li>
+                            <li>Equipment valuation difficulties</li>
+                            <li>Subcontractor insurance verification</li>
+                        </ul>
+                    </div>
+                    <div class="industry-solution">
+                        <h4>Quotely Solution:</h4>
+                        <p>Automated NCCI codes, project duration tracking, equipment schedules, and certificate management streamline the entire process.</p>
+                    </div>
+                </div>
+                
+                <div class="industry-card">
+                    <h3>Restaurants & Hospitality</h3>
+                    <div class="industry-challenges">
+                        <h4>Industry Challenges:</h4>
+                        <ul>
+                            <li>Liquor liability coverage</li>
+                            <li>Food contamination risks</li>
+                            <li>High employee turnover</li>
+                            <li>Seasonal business fluctuations</li>
+                        </ul>
+                    </div>
+                    <div class="industry-solution">
+                        <h4>Quotely Solution:</h4>
+                        <p>Industry-specific forms, automated employee count updates, and hospitality-focused liability calculations.</p>
+                    </div>
+                </div>
+                
+                <div class="industry-card">
+                    <h3>Technology & Professional Services</h3>
+                    <div class="industry-challenges">
+                        <h4>Industry Challenges:</h4>
+                        <ul>
+                            <li>Cyber liability requirements</li>
+                            <li>E&O coverage complexity</li>
+                            <li>Intellectual property protection</li>
+                            <li>International operations coverage</li>
+                        </ul>
+                    </div>
+                    <div class="industry-solution">
+                        <h4>Quotely Solution:</h4>
+                        <p>Tech-focused questionnaires, cyber risk assessment tools, and professional liability automation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Calculator -->
+    <section class="roi-calculator">
+        <div class="container">
+            <h2>Commercial Insurance ROI Calculator</h2>
+            
+            <div class="calculator-grid">
+                <div class="calculator-item">
+                    <div class="calculator-number">40%</div>
+                    <div class="calculator-label">More Commercial Accounts</div>
+                    <div class="calculator-details">Handle more B2B clients with same staff</div>
+                </div>
+                
+                <div class="calculator-item">
+                    <div class="calculator-number">15 hrs</div>
+                    <div class="calculator-label">Saved Per Week</div>
+                    <div class="calculator-details">60% faster quote generation</div>
+                </div>
+                
+                <div class="calculator-item">
+                    <div class="calculator-number">$18K</div>
+                    <div class="calculator-label">Annual ROI</div>
+                    <div class="calculator-details">Based on efficiency gains</div>
+                </div>
+                
+                <div class="calculator-item">
+                    <div class="calculator-number">2 days</div>
+                    <div class="calculator-label">Payback Period</div>
+                    <div class="calculator-details">Immediate productivity gains</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="comparison">
+        <div class="container">
+            <h2>Commercial Quoting Platform Comparison</h2>
+            
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Applied Rater</th>
+                            <th>EZLynx</th>
+                            <th>Quotely</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>GL Quote Time</strong></td>
+                            <td>3-5 minutes</td>
+                            <td>4-6 minutes</td>
+                            <td class="quotely-col">90 seconds</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Workers Comp Automation</strong></td>
+                            <td>Manual NCCI lookup</td>
+                            <td>Basic automation</td>
+                            <td class="quotely-col">Full NCCI automation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Industry-Specific Forms</strong></td>
+                            <td>Limited selection</td>
+                            <td>Basic forms</td>
+                            <td class="quotely-col">Comprehensive library</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mobile Quoting</strong></td>
+                            <td>Not available</td>
+                            <td>Limited mobile</td>
+                            <td class="quotely-col">Full mobile platform</td>
+                        </tr>
+                        <tr>
+                            <td><strong>API Integration</strong></td>
+                            <td>Expensive add-on</td>
+                            <td>Limited API</td>
+                            <td class="quotely-col">Full REST API included</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>Commercial Insurance Success Stories</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <div class="testimonial-quote">"Our commercial lines revenue increased 35% after switching to Quotely. We can finally compete on speed with the big brokers while maintaining our personal service."</div>
+                    <div class="testimonial-author">Robert Chang</div>
+                    <div class="testimonial-company">Chang Commercial Insurance, Seattle</div>
+                    <div class="testimonial-metric">+35% Commercial Revenue Growth</div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <div class="testimonial-quote">"The construction contractor module is incredible. We went from losing deals due to slow turnaround to being the fastest quote in town."</div>
+                    <div class="testimonial-author">Maria Rodriguez</div>
+                    <div class="testimonial-company">Rodriguez Risk Management, Texas</div>
+                    <div class="testimonial-metric">60% Faster Construction Quotes</div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <div class="testimonial-quote">"Workers comp quoting used to take forever. Now it's automated and accurate. Our clients love the speed and we love the efficiency."</div>
+                    <div class="testimonial-author">James Wilson</div>
+                    <div class="testimonial-company">Wilson Business Insurance, Florida</div>
+                    <div class="testimonial-metric">75% Reduction in Workers Comp Quote Time</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Ready to Transform Your Commercial Quoting?</h2>
+            <p>Join commercial agencies generating quotes 60% faster with Quotely</p>
+            
+            <div class="cta-buttons">
+                <a href="#" class="btn-primary">Start Free Commercial Trial</a>
+                <a href="#" class="btn-secondary">Request Commercial Demo</a>
+            </div>
+            
+            <div class="benefits-list">
+                <span>✅ No setup fees</span>
+                <span>✅ Same-day activation</span>
+                <span>✅ Full commercial lines support</span>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
