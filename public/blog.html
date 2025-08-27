@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotely Blog | Insurance Technology & Agency Growth Insights</title>
+    <meta name="description" content="Expert insights on insurance technology, agency growth strategies, and industry trends. Learn how to modernize your insurance agency operations.">
+    <meta name="keywords" content="insurance blog, agency growth, insurance technology, quotely insights, applied rater alternative">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Header/Nav - Exact same as homepage */
+        .nav { background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); position: fixed; top: 0; left: 0; right: 0; z-index: 1000; border-bottom: 1px solid #e2e8f0; }
+        .nav-content { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; max-width: 1200px; margin: 0 auto; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: #1e40af; text-decoration: none; }
+        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .nav-links a { text-decoration: none; color: #64748b; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: #1e40af; }
+        .nav-links a.active { color: #1e40af; font-weight: 600; }
+        .nav-cta { background: #1e40af; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; }
+        
+        /* Hero Section - Same blue gradient */
+        .hero { background: linear-gradient(135deg, #1e40af 0%, #3730a3 100%); color: white; padding: 120px 0 80px; margin-top: 70px; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.1"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="180" fill="url(%23a)"/><circle cx="800" cy="300" r="120" fill="url(%23a)"/><circle cx="400" cy="700" r="150" fill="url(%23a)"/></svg>') no-repeat center; opacity: 0.3; }
+        .hero-content { position: relative; z-index: 2; text-align: center; }
+        .hero h1 { font-size: 3.5rem; font-weight: 700; line-height: 1.1; margin-bottom: 20px; }
+        .hero p { font-size: 1.3rem; margin-bottom: 30px; opacity: 0.9; max-width: 600px; margin-left: auto; margin-right: auto; }
+        
+        /* Blog Categories - Subtle blue effects */
+        .categories { padding: 60px 0; background: #f8fafc; }
+        .categories h2 { text-align: center; font-size: 2rem; margin-bottom: 40px; color: #1e293b; }
+        .category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .category-card { background: white; padding: 25px; border-radius: 12px; text-decoration: none; color: inherit; transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(30, 64, 175, 0.08); border-left: 4px solid #e2e8f0; }
+        .category-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(30, 64, 175, 0.15); border-left-color: #1e40af; }
+        .category-card h3 { color: #1e40af; margin-bottom: 10px; font-size: 1.2rem; }
+        .category-card p { color: #64748b; font-size: 0.9rem; }
+        .category-count { background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); color: #1e40af; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; display: inline-block; margin-top: 10px; }
+        
+        /* Featured Posts */
+        .featured { padding: 80px 0; background: white; }
+        .featured h2 { text-align: center; font-size: 2.5rem; margin-bottom: 50px; color: #1e293b; }
+        .featured-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; }
+        .featured-post { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 16px rgba(30, 64, 175, 0.1); transition: all 0.3s ease; border: 1px solid #f1f5f9; }
+        .featured-post:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(30, 64, 175, 0.15); }
+        .post-image { height: 200px; background: linear-gradient(135deg, #1e40af 0%, #3730a3 100%); position: relative; }
+        .post-image::before { content: ''; position: absolute; inset: 0; background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>'); }
+        .post-category { position: absolute; top: 15px; left: 15px; background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); color: white; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+        .post-content { padding: 25px; }
+        .post-title { font-size: 1.3rem; font-weight: 700; color: #1e293b; margin-bottom: 12px; line-height: 1.3; }
+        .post-excerpt { color: #64748b; font-size: 0.9rem; margin-bottom: 15px; line-height: 1.5; }
+        .post-meta { display: flex; justify-content: space-between; align-items: center; color: #94a3b8; font-size: 0.8rem; }
+        .post-date { display: flex; align-items: center; gap: 5px; }
+        .read-time { background: #f1f5f9; padding: 4px 8px; border-radius: 12px; }
+        
+        /* Recent Posts */
+        .recent-posts { padding: 80px 0; background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); }
+        .recent-posts h2 { text-align: center; font-size: 2.5rem; margin-bottom: 50px; color: #1e293b; }
+        .posts-grid { display: grid; gap: 25px; }
+        .post-card { background: white; padding: 25px; border-radius: 12px; display: flex; gap: 20px; box-shadow: 0 2px 8px rgba(30, 64, 175, 0.08); transition: all 0.3s ease; border-left: 4px solid #e2e8f0; }
+        .post-card:hover { transform: translateX(4px); box-shadow: 0 8px 24px rgba(30, 64, 175, 0.12); border-left-color: #1e40af; }
+        .post-card-image { width: 120px; height: 80px; background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); border-radius: 8px; flex-shrink: 0; position: relative; }
+        .post-card-image::before { content: ''; position: absolute; inset: 0; background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%231e40af" stroke-width="1.5"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/><path d="M9 9h6"/><path d="M9 13h6"/><path d="M9 17h3"/></svg>') center no-repeat; opacity: 0.3; }
+        .post-card-content { flex: 1; }
+        .post-card-title { font-size: 1.1rem; font-weight: 600; color: #1e293b; margin-bottom: 8px; line-height: 1.3; }
+        .post-card-excerpt { color: #64748b; font-size: 0.85rem; margin-bottom: 10px; line-height: 1.4; }
+        .post-card-meta { display: flex; gap: 15px; color: #94a3b8; font-size: 0.8rem; }
+        
+        /* Newsletter Signup */
+        .newsletter { padding: 80px 0; background: linear-gradient(135deg, #1e40af 0%, #3730a3 100%); color: white; position: relative; overflow: hidden; }
+        .newsletter::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="b"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.1"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="300" cy="400" r="200" fill="url(%23b)"/><circle cx="700" cy="200" r="150" fill="url(%23b)"/></svg>') no-repeat center; opacity: 0.4; }
+        .newsletter-content { position: relative; z-index: 2; text-align: center; max-width: 600px; margin: 0 auto; }
+        .newsletter h2 { font-size: 2.5rem; margin-bottom: 20px; }
+        .newsletter p { font-size: 1.1rem; margin-bottom: 30px; opacity: 0.9; }
+        .newsletter-form { display: flex; gap: 15px; margin-bottom: 20px; }
+        .newsletter-input { flex: 1; padding: 15px; border: none; border-radius: 8px; font-size: 1rem; }
+        .newsletter-button { background: #10b981; color: white; padding: 15px 30px; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; transition: background 0.3s; }
+        .newsletter-button:hover { background: #059669; }
+        .newsletter-privacy { font-size: 0.8rem; opacity: 0.7; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.5rem; }
+            .category-grid { grid-template-columns: 1fr; }
+            .featured-grid { grid-template-columns: 1fr; }
+            .post-card { flex-direction: column; }
+            .post-card-image { width: 100%; height: 120px; }
+            .newsletter-form { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation - Same as homepage -->
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="/" class="logo">Quotely</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/#features">Features</a>
+                <a href="/pricing.html">Pricing</a>
+                <a href="/#comparison">vs Competitors</a>
+                <a href="/blog.html" class="active">Blog</a>
+                <a href="#" class="nav-cta">Start Free Trial</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Insurance Agency Insights</h1>
+                <p>Expert advice on modernizing your agency, winning more deals, and staying ahead of industry trends</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Categories -->
+    <section class="categories">
+        <div class="container">
+            <h2>Explore Topics</h2>
+            <div class="category-grid">
+                <a href="#" class="category-card">
+                    <h3>Agency Growth</h3>
+                    <p>Strategies to scale your insurance agency and increase revenue</p>
+                    <span class="category-count">12 articles</span>
+                </a>
+                <a href="#" class="category-card">
+                    <h3>Technology Trends</h3>
+                    <p>Latest insurance technology and digital transformation insights</p>
+                    <span class="category-count">8 articles</span>
+                </a>
+                <a href="#" class="category-card">
+                    <h3>Competitive Analysis</h3>
+                    <p>How to outperform Applied Rater, EZLynx, and other competitors</p>
+                    <span class="category-count">15 articles</span>
+                </a>
+                <a href="#" class="category-card">
+                    <h3>Industry News</h3>
+                    <p>Latest insurance industry news and regulatory updates</p>
+                    <span class="category-count">22 articles</span>
+                </a>
+                <a href="#" class="category-card">
+                    <h3>GAIL AI Insights</h3>
+                    <p>How artificial intelligence is transforming insurance quoting</p>
+                    <span class="category-count">6 articles</span>
+                </a>
+                <a href="#" class="category-card">
+                    <h3>Best Practices</h3>
+                    <p>Proven methods for improving quote conversion and client retention</p>
+                    <span class="category-count">18 articles</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Posts -->
+    <section class="featured">
+        <div class="container">
+            <h2>Featured Articles</h2>
+            <div class="featured-grid">
+                <article class="featured-post">
+                    <div class="post-image">
+                        <span class="post-category">Agency Growth</span>
+                    </div>
+                    <div class="post-content">
+                        <h3 class="post-title">How Independent Agencies Are Beating Applied Rater's Quote Times by 60%</h3>
+                        <p class="post-excerpt">Discover the exact strategies successful agencies are using to generate quotes faster than ever while maintaining accuracy and competitive pricing.</p>
+                        <div class="post-meta">
+                            <span class="post-date">Dec 15, 2024</span>
+                            <span class="read-time">8 min read</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="featured-post">
+                    <div class="post-image">
+                        <span class="post-category">GAIL AI</span>
+                    </div>
+                    <div class="post-content">
+                        <h3 class="post-title">GAIL AI Case Study: How Coastal Insurance Increased Win Rate by 40%</h3>
+                        <p class="post-excerpt">Real results from agencies using competitive intelligence to price more strategically and win deals they previously would have lost.</p>
+                        <div class="post-meta">
+                            <span class="post-date">Dec 12, 2024</span>
+                            <span class="read-time">6 min read</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="featured-post">
+                    <div class="post-image">
+                        <span class="post-category">Technology</span>
+                    </div>
+                    <div class="post-content">
+                        <h3 class="post-title">The Hidden Costs of EZLynx: What Agencies Need to Know Before Renewing</h3>
+                        <p class="post-excerpt">A detailed breakdown of EZLynx's pricing structure, hidden fees, and why agencies are switching to more transparent platforms.</p>
+                        <div class="post-meta">
+                            <span class="post-date">Dec 8, 2024</span>
+                            <span class="read-time">12 min read</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Posts -->
+    <section class="recent-posts">
+        <div class="container">
+            <h2>Latest Insights</h2>
+            <div class="posts-grid">
+                <article class="post-card">
+                    <div class="post-card-image"></div>
+                    <div class="post-card-content">
+                        <h3 class="post-card-title">5 Signs It's Time to Replace Your Applied Rater System</h3>
+                        <p class="post-card-excerpt">Is your legacy quoting system holding back your agency? Here are the red flags that indicate it's time for an upgrade.</p>
+                        <div class="post-card-meta">
+                            <span>Dec 5, 2024</span>
+                            <span>5 min read</span>
+                            <span>Agency Growth</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card">
+                    <div class="post-card-image"></div>
+                    <div class="post-card-content">
+                        <h3 class="post-card-title">Commercial Insurance Quoting: Speed vs Accuracy</h3>
+                        <p class="post-card-excerpt">How modern platforms balance lightning-fast quote generation with the precision commercial lines demand.</p>
+                        <div class="post-card-meta">
+                            <span>Dec 1, 2024</span>
+                            <span>7 min read</span>
+                            <span>Best Practices</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card">
+                    <div class="post-card-image"></div>
+                    <div class="post-card-content">
+                        <h3 class="post-card-title">2025 Insurance Technology Predictions: What Agencies Need to Prepare For</h3>
+                        <p class="post-card-excerpt">AI, automation, and regulatory changes that will reshape the insurance industry in the coming year.</p>
+                        <div class="post-card-meta">
+                            <span>Nov 28, 2024</span>
+                            <span>10 min read</span>
+                            <span>Industry News</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card">
+                    <div class="post-card-image"></div>
+                    <div class="post-card-content">
+                        <h3 class="post-card-title">Mobile Quoting: Why Field Agents Love Modern Insurance Platforms</h3>
+                        <p class="post-card-excerpt">The competitive advantage of true mobile quoting capabilities and how they're changing the client experience.</p>
+                        <div class="post-card-meta">
+                            <span>Nov 25, 2024</span>
+                            <span>6 min read</span>
+                            <span>Technology</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card">
+                    <div class="post-card-image"></div>
+                    <div class="post-card-content">
+                        <h3 class="post-card-title">Competitive Intelligence in Insurance: Beyond Basic Rate Comparison</h3>
+                        <p class="post-card-excerpt">How GAIL AI helps agencies understand market positioning and win more competitive deals.</p>
+                        <div class="post-card-meta">
+                            <span>Nov 22, 2024</span>
+                            <span>9 min read</span>
+                            <span>GAIL AI</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card">
+                    <div class="post-card-image"></div>
+                    <div class="post-card-content">
+                        <h3 class="post-card-title">The True Cost of Insurance Software: Hidden Fees Revealed</h3>
+                        <p class="post-card-excerpt">A transparent comparison of what agencies actually pay for Applied Rater, EZLynx, and modern alternatives.</p>
+                        <div class="post-card-meta">
+                            <span>Nov 18, 2024</span>
+                            <span>11 min read</span>
+                            <span>Competitive Analysis</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Stay Ahead of the Competition</h2>
+                <p>Get weekly insights on insurance technology, agency growth strategies, and industry trends delivered to your inbox.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Enter your email address" class="newsletter-input">
+                    <button class="newsletter-button">Subscribe</button>
+                </div>
+                <p class="newsletter-privacy">No spam, unsubscribe anytime. Used by 500+ agency owners.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
