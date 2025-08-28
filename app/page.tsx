@@ -2,8 +2,8 @@
 
 import { useEffect } from 'react'
 import { useOTTOTracking } from '@/components/OTTOProvider'
-import { BrandHero } from '@/components/BrandHero'
-import { ProductSpecs } from '@/components/ProductSpecs'
+import { BrandHero } from '@/components/home/BrandHero'
+import { ProductSpecs } from '@/components/home/ProductSpecs'
 import { FeatureComparison } from '@/components/FeatureComparison'
 import { ResponsiveQuoteForm } from '@/components'
 
