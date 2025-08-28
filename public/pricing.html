@@ -3,451 +3,1189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quotely Pricing: Transparent Insurance Software Pricing - No Hidden Fees</title>
-    <meta name="description" content="Simple, transparent Quotely pricing. $679/month all-inclusive vs $461/month EZLynx + fees, $890/month Applied Rater + fees. Start free 14-day trial.">
-    <meta name="keywords" content="quotely pricing, insurance software pricing, transparent pricing, no hidden fees">
-    
+    <title>Pricing | Quotely - Transparent Insurance Quoting Software Pricing</title>
+    <meta name="description" content="Simple, transparent pricing for insurance quoting software. No hidden fees, no per-user charges. Start at $299/month with 14-day free trial.">
+    <meta name="keywords" content="insurance software pricing, quotely pricing, applied rater cost, ezlynx pricing, insurance quoting software cost">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         
-        /* Header/Nav - Match homepage */
-        .nav { background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); position: fixed; top: 0; left: 0; right: 0; z-index: 1000; border-bottom: 1px solid #e2e8f0; }
-        .nav-content { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; max-width: 1200px; margin: 0 auto; }
-        .logo { font-size: 1.5rem; font-weight: 700; color: #1e40af; text-decoration: none; }
-        .nav-links { display: flex; gap: 30px; align-items: center; }
-        .nav-links a { text-decoration: none; color: #64748b; font-weight: 500; transition: color 0.3s; }
-        .nav-links a:hover { color: #1e40af; }
-        .nav-links a.active { color: #1e40af; font-weight: 600; }
-        .nav-cta { background: #1e40af; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #29274C;
+            background-color: #E4E4E4;
+        }
+        
+        /* Top Banner */
+        .top-banner {
+            background: linear-gradient(135deg, #29274C 0%, #555E88 100%);
+            color: white;
+            text-align: center;
+            padding: 0.75rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .top-banner a {
+            color: #F26D00;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background-color: #ffffff;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(41, 39, 76, 0.1);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #29274C;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .logo::after {
+            content: "🎯";
+            margin-left: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #555E88;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: #F26D00;
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown::after {
+            content: "▼";
+            font-size: 0.7rem;
+            margin-left: 0.3rem;
+            color: #9F9F9F;
+            transition: transform 0.3s;
+        }
+        
+        .dropdown:hover::after {
+            transform: rotate(180deg);
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(41, 39, 76, 0.15);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s;
+            min-width: 250px;
+            z-index: 1000;
+            margin-top: 0.5rem;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-menu ul {
+            list-style: none;
+            padding: 1rem 0;
+            margin: 0;
+        }
+        
+        .dropdown-menu li {
+            padding: 0;
+        }
+        
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: #29274C !important;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            border-left: 3px solid transparent;
+        }
+        
+        .dropdown-menu a:hover {
+            background-color: #E4E4E4;
+            color: #F26D00 !important;
+            border-left-color: #F26D00;
+        }
+        
+        .dropdown-section {
+            padding: 0.5rem 1.5rem 0.25rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #9F9F9F;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: #E4E4E4;
+            border-radius: 25px;
+            padding: 0.5rem 1rem;
+            border: 1px solid #BEBEBE;
+            min-width: 300px;
+        }
+        
+        .search-bar input {
+            border: none;
+            background: none;
+            outline: none;
+            flex: 1;
+            padding: 0.25rem;
+            color: #555E88;
+        }
+        
+        .search-bar input::placeholder {
+            color: #9F9F9F;
+        }
+        
+        .search-btn {
+            background: none;
+            border: none;
+            color: #555E88;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .cta-button {
+            background-color: #F26D00;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            background-color: #d45a00;
+            transform: translateY(-1px);
+        }
         
         /* Hero Section */
-        .hero { background: linear-gradient(135deg, #1e40af 0%, #3730a3 100%); color: white; padding: 120px 0 80px; margin-top: 70px; }
-        .hero h1 { font-size: 3.5rem; font-weight: 700; line-height: 1.1; margin-bottom: 20px; text-align: center; }
-        .hero p { font-size: 1.3rem; margin-bottom: 30px; opacity: 0.9; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto; }
-        .hero-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 40px; }
-        .hero-stat { text-align: center; background: rgba(255,255,255,0.1); padding: 20px; border-radius: 8px; }
-        .hero-stat-number { font-size: 2rem; font-weight: 700; color: #fbbf24; }
-        .hero-stat-label { font-size: 0.9rem; opacity: 0.8; }
+        .hero {
+            background: linear-gradient(135deg, #29274C 0%, #555E88 100%);
+            padding: 4rem 0;
+            text-align: center;
+            color: white;
+        }
         
-        /* Billing Toggle */
-        .billing-toggle { padding: 40px 0; background: #f8fafc; }
-        .toggle-container { display: flex; justify-content: center; margin-bottom: 20px; }
-        .toggle { background: #e2e8f0; border-radius: 8px; padding: 4px; display: flex; }
-        .toggle-option { padding: 12px 24px; border-radius: 6px; font-weight: 600; cursor: pointer; transition: all 0.3s; position: relative; }
-        .toggle-option.active { background: #1e40af; color: white; }
-        .toggle-option:not(.active) { color: #64748b; }
-        .toggle-badge { position: absolute; top: -8px; right: -8px; background: #10b981; color: white; font-size: 0.7rem; padding: 2px 6px; border-radius: 10px; }
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
         
-        /* Pricing Grid */
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 40px 0; }
-        .pricing-card { background: white; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.1); border: 2px solid transparent; transition: all 0.3s; position: relative; overflow: hidden; }
-        .pricing-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.15); }
-        .pricing-card.featured { border-color: #10b981; scale: 1.05; }
-        .pricing-card.featured::before { content: 'Most Popular'; position: absolute; top: 20px; right: -30px; background: #10b981; color: white; padding: 8px 40px; font-size: 0.8rem; font-weight: 600; transform: rotate(45deg); }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
         
-        .card-header { padding: 30px 30px 20px; text-align: center; }
-        .card-title { font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-bottom: 10px; }
-        .card-subtitle { color: #64748b; font-size: 0.9rem; margin-bottom: 20px; }
-        .card-price { font-size: 3rem; font-weight: 700; color: #1e40af; margin-bottom: 5px; }
-        .card-period { color: #64748b; font-size: 0.9rem; }
-        .card-savings { background: #dcfce7; color: #166534; padding: 8px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-top: 10px; display: inline-block; }
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            color: #E4E4E4;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
         
-        .card-features { padding: 0 30px 30px; }
-        .card-features ul { list-style: none; }
-        .card-features li { margin-bottom: 12px; display: flex; align-items: flex-start; }
-        .card-features li::before { content: '✓'; color: #10b981; font-weight: bold; margin-right: 10px; margin-top: 2px; }
+        .pricing-promise {
+            background: rgba(242, 109, 0, 0.2);
+            border: 1px solid #F26D00;
+            border-radius: 10px;
+            padding: 1rem 2rem;
+            display: inline-block;
+            margin-top: 1rem;
+        }
         
-        .card-cta { padding: 0 30px 30px; }
-        .card-button { width: 100%; padding: 15px; border-radius: 8px; font-weight: 600; text-decoration: none; text-align: center; display: block; transition: all 0.3s; }
-        .card-button.primary { background: #1e40af; color: white; }
-        .card-button.primary:hover { background: #1e3a8a; }
-        .card-button.secondary { border: 2px solid #1e40af; color: #1e40af; }
-        .card-button.secondary:hover { background: #1e40af; color: white; }
+        .pricing-promise strong {
+            color: #F26D00;
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb {
+            background-color: white;
+            padding: 1rem 0;
+            border-bottom: 1px solid #BEBEBE;
+        }
+        
+        .breadcrumb-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .breadcrumb-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #9F9F9F;
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumb-nav a {
+            color: #555E88;
+            text-decoration: none;
+        }
+        
+        .breadcrumb-nav a:hover {
+            color: #F26D00;
+        }
+        
+        /* Pricing Cards Section */
+        .pricing-section {
+            background-color: white;
+            padding: 4rem 0;
+        }
+        
+        .pricing-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #29274C;
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #555E88;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .pricing-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(41, 39, 76, 0.1);
+            border: 2px solid #E4E4E4;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            border-color: #F26D00;
+        }
+        
+        .pricing-card.popular {
+            border-color: #F26D00;
+            transform: translateY(-10px);
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #F26D00;
+            color: white;
+            padding: 0.5rem 2rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .plan-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #29274C;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .plan-price {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .price-amount {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #F26D00;
+        }
+        
+        .price-period {
+            color: #555E88;
+            font-size: 1rem;
+        }
+        
+        .plan-description {
+            color: #555E88;
+            text-align: center;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+        
+        .plan-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .plan-features li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            color: #555E88;
+        }
+        
+        .plan-features li::before {
+            content: "✓";
+            color: #F26D00;
+            font-weight: bold;
+            margin-right: 0.75rem;
+            font-size: 1.1rem;
+        }
+        
+        .plan-cta {
+            width: 100%;
+            background: #F26D00;
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            display: block;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .plan-cta:hover {
+            background: #d45a00;
+        }
+        
+        .plan-cta.secondary {
+            background: transparent;
+            color: #F26D00;
+            border: 2px solid #F26D00;
+        }
+        
+        .plan-cta.secondary:hover {
+            background: #F26D00;
+            color: white;
+        }
+        
+        /* ROI Calculator */
+        .roi-section {
+            background: #E4E4E4;
+            padding: 4rem 0;
+        }
+        
+        .roi-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .roi-calculator {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 40px rgba(41, 39, 76, 0.1);
+        }
+        
+        .roi-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #29274C;
+            margin-bottom: 2rem;
+        }
+        
+        .roi-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .roi-inputs {
+            space-y: 1rem;
+        }
+        
+        .roi-field {
+            margin-bottom: 1.5rem;
+        }
+        
+        .roi-field label {
+            display: block;
+            color: #29274C;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .roi-field input, .roi-field select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #E4E4E4;
+            border-radius: 10px;
+            font-size: 1rem;
+            color: #29274C;
+            transition: border-color 0.3s;
+        }
+        
+        .roi-field input:focus, .roi-field select:focus {
+            outline: none;
+            border-color: #F26D00;
+        }
+        
+        .roi-results {
+            background: linear-gradient(135deg, #29274C 0%, #555E88 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .roi-metric {
+            margin-bottom: 1.5rem;
+        }
+        
+        .roi-metric h4 {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+        }
+        
+        .roi-metric .value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #F26D00;
+        }
         
         /* Comparison Section */
-        .comparison { padding: 80px 0; background: white; }
-        .comparison h2 { text-align: center; font-size: 2.5rem; margin-bottom: 50px; color: #1e293b; }
-        .comparison-table { background: #f8fafc; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.1); }
-        .comparison-table table { width: 100%; border-collapse: collapse; }
-        .comparison-table th { background: #1e293b; color: white; padding: 20px; font-weight: 600; text-align: left; }
-        .comparison-table td { padding: 15px 20px; border-bottom: 1px solid #e2e8f0; }
-        .comparison-table tr:nth-child(even) { background: white; }
-        .quotely-col { background: #dcfce7 !important; font-weight: 600; color: #166534; }
+        .comparison-section {
+            background: white;
+            padding: 4rem 0;
+        }
         
-        /* No Hidden Fees */
-        .no-fees { padding: 80px 0; background: #f0fdf4; }
-        .no-fees h2 { text-align: center; font-size: 2.5rem; margin-bottom: 50px; color: #166534; }
-        .fees-comparison { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-        .fees-card { background: white; padding: 30px; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
-        .fees-card h3 { font-size: 1.3rem; margin-bottom: 20px; color: #1e293b; }
-        .fees-list { list-style: none; }
-        .fees-list li { margin-bottom: 10px; padding-left: 25px; position: relative; }
-        .fees-list .included::before { content: '✓'; color: #10b981; font-weight: bold; position: absolute; left: 0; }
-        .fees-list .extra-cost::before { content: '+$'; color: #ef4444; font-weight: bold; position: absolute; left: 0; }
+        .comparison-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
         
-        /* FAQ */
-        .faq { padding: 80px 0; background: #f8fafc; }
-        .faq h2 { text-align: center; font-size: 2.5rem; margin-bottom: 50px; color: #1e293b; }
-        .faq-grid { display: grid; gap: 20px; max-width: 800px; margin: 0 auto; }
-        .faq-item { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-        .faq-question { padding: 25px; font-weight: 600; color: #1e293b; cursor: pointer; border-bottom: 1px solid #f1f5f9; }
-        .faq-answer { padding: 0 25px 25px; color: #64748b; line-height: 1.6; }
+        .comparison-table {
+            background: #E4E4E4;
+            border-radius: 20px;
+            padding: 2rem;
+            overflow-x: auto;
+            margin-top: 2rem;
+        }
         
-        /* Final CTA */
-        .final-cta { background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 80px 0; text-align: center; }
-        .final-cta h2 { font-size: 2.5rem; margin-bottom: 20px; }
-        .final-cta p { font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9; }
-        .cta-buttons { display: flex; gap: 20px; justify-content: center; margin-bottom: 30px; flex-wrap: wrap; }
-        .btn-primary { background: white; color: #10b981; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1.1rem; }
-        .btn-secondary { border: 2px solid white; color: white; padding: 13px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1.1rem; }
-        .guarantee { font-size: 0.9rem; opacity: 0.8; }
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            border-bottom: 1px solid #BEBEBE;
+            align-items: center;
+        }
         
-        /* Responsive */
+        .comparison-row:last-child {
+            border-bottom: none;
+        }
+        
+        .comparison-header {
+            background: #29274C;
+            color: white;
+            border-radius: 15px;
+            margin-bottom: 1rem;
+        }
+        
+        .comparison-feature {
+            font-weight: 600;
+            color: #29274C;
+        }
+        
+        .quotely-price {
+            color: #F26D00;
+            font-weight: bold;
+            text-align: center;
+            font-size: 1rem;
+        }
+        
+        .competitor-price {
+            color: #9F9F9F;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            background: #E4E4E4;
+            padding: 4rem 0;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(41, 39, 76, 0.1);
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            background: white;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #29274C;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-question:hover {
+            background: #E4E4E4;
+        }
+        
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: #555E88;
+            line-height: 1.6;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #F26D00 0%, #d45a00 100%);
+            padding: 4rem 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .cta-primary {
+            background: white;
+            color: #F26D00;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s;
+        }
+        
+        .cta-primary:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #29274C;
+            color: white;
+            padding: 3rem 0 2rem;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h4 {
+            color: #F26D00;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: #BEBEBE;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #F26D00;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #555E88;
+            padding-top: 2rem;
+            text-align: center;
+            color: #9F9F9F;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 968px) {
+            .roi-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .comparison-row {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+                text-align: center;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background: #E4E4E4;
+                margin-top: 0.5rem;
+                border-radius: 5px;
+            }
+        }
+        
         @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .hero h1 { font-size: 2.5rem; }
-            .hero-stats { grid-template-columns: repeat(2, 1fr); }
-            .pricing-grid { grid-template-columns: 1fr; }
-            .pricing-card.featured { scale: 1; }
-            .fees-comparison { grid-template-columns: 1fr; }
-            .cta-buttons { flex-direction: column; }
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+            
+            .search-bar {
+                min-width: 250px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Top Banner -->
+    <div class="top-banner">
+        14-day free trial. No setup fees. <a href="#start-trial">Start now →</a>
+    </div>
+
     <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-content">
+    <nav class="navbar">
+        <div class="nav-container">
             <a href="/" class="logo">Quotely</a>
-            <div class="nav-links">
-                <a href="/">Home</a>
-                <a href="/#features">Features</a>
-                <a href="/pricing.html" class="active">Pricing</a>
-                <a href="/#comparison">vs Competitors</a>
-                <a href="/#testimonials">Success Stories</a>
-                <a href="#" class="nav-cta">Start Free Trial</a>
+            <ul class="nav-links">
+                <li class="dropdown">
+                    <a href="#solutions">Solutions</a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <div class="dropdown-section">Insurance Software</div>
+                            <li><a href="/insurance-quoting-software.html">Insurance Quoting Software</a></li>
+                            <li><a href="/applied-rater-alternative.html">Applied Rater Alternative</a></li>
+                            <li><a href="/commercial-insurance-quoting.html">Commercial Insurance Quoting</a></li>
+                            <div class="dropdown-section">Platform</div>
+                            <li><a href="/#features">Features</a></li>
+                            <li><a href="#integrations">Integrations</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="/pricing.html">Pricing</a></li>
+                <li><a href="#demo">Demo</a></li>
+                <li class="dropdown">
+                    <a href="#company">Company</a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="/#about">About</a></li>
+                            <li><a href="/blog.html">Blog</a></li>
+                            <li><a href="#careers">Careers</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="#press">Press</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for carriers or coverage types">
+                <button class="search-btn">🔍</button>
             </div>
+            <a href="#get-started" class="cta-button">Start Free Trial</a>
         </div>
     </nav>
 
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="breadcrumb-container">
+            <nav class="breadcrumb-nav">
+                <a href="/">Home</a> > <span>Pricing</span>
+            </nav>
+        </div>
+    </div>
+
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
+        <div class="hero-container">
             <h1>Simple, Transparent Pricing</h1>
-            <p>No hidden fees, no surprise charges, no long-term contracts. What you see is what you pay - unlike Applied Rater and EZLynx's complex fee structures.</p>
+            <p>No hidden fees, no per-user charges, no long-term contracts. Pay for what you need.</p>
+            <div class="pricing-promise">
+                <strong>Price Promise:</strong> Guaranteed 40% less than Applied Rater + EZLynx combined
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Cards Section -->
+    <section class="pricing-section">
+        <div class="pricing-container">
+            <h2 class="section-title">Choose Your Plan</h2>
+            <p class="section-subtitle">All plans include 14-day free trial, free setup, and free migration from Applied Rater or EZLynx</p>
             
-            <div class="hero-stats">
-                <div class="hero-stat">
-                    <div class="hero-stat-number">$0</div>
-                    <div class="hero-stat-label">Setup Fees</div>
-                </div>
-                <div class="hero-stat">
-                    <div class="hero-stat-number">$0</div>
-                    <div class="hero-stat-label">Hidden Costs</div>
-                </div>
-                <div class="hero-stat">
-                    <div class="hero-stat-number">14 Days</div>
-                    <div class="hero-stat-label">Free Trial</div>
-                </div>
-                <div class="hero-stat">
-                    <div class="hero-stat-number">Same Day</div>
-                    <div class="hero-stat-label">Activation</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Billing Toggle -->
-    <section class="billing-toggle">
-        <div class="container">
-            <div class="toggle-container">
-                <div class="toggle">
-                    <div class="toggle-option active" id="monthly-toggle">Monthly</div>
-                    <div class="toggle-option" id="yearly-toggle">
-                        Yearly
-                        <span class="toggle-badge">Save 10%</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Grid -->
-    <section class="billing-toggle">
-        <div class="container">
             <div class="pricing-grid">
-                <!-- Starter Plan -->
                 <div class="pricing-card">
-                    <div class="card-header">
-                        <div class="card-title">Starter</div>
-                        <div class="card-subtitle">Perfect for growing independent agencies</div>
-                        <div class="card-price" id="starter-price">$149</div>
-                        <div class="card-period">per user/month</div>
-                        <div class="card-savings" id="starter-savings" style="display: none;">Save $180/year</div>
+                    <div class="plan-name">Starter</div>
+                    <div class="plan-price">
+                        <span class="price-amount">$299</span>
+                        <span class="price-period">/month</span>
                     </div>
-                    <div class="card-features">
-                        <ul>
-                            <li>Up to 100 quotes per month</li>
-                            <li>Basic carrier integrations</li>
-                            <li>Email support</li>
-                            <li>Mobile app access</li>
-                            <li>Standard reporting</li>
-                            <li>API access included</li>
-                        </ul>
-                    </div>
-                    <div class="card-cta">
-                        <a href="#" class="card-button secondary">Start Free Trial</a>
-                    </div>
+                    <div class="plan-description">Perfect for solo agents and small agencies getting started</div>
+                    <ul class="plan-features">
+                        <li>Up to 100 quotes/month</li>
+                        <li>Personal & commercial lines</li>
+                        <li>Basic carrier integrations</li>
+                        <li>Mobile quoting app</li>
+                        <li>Email support</li>
+                        <li>Standard analytics</li>
+                        <li>1 user account</li>
+                    </ul>
+                    <button class="plan-cta">Start Free Trial</button>
                 </div>
-
-                <!-- Professional Plan (Featured) -->
-                <div class="pricing-card featured">
-                    <div class="card-header">
-                        <div class="card-title">Professional</div>
-                        <div class="card-subtitle">Most popular for established agencies</div>
-                        <div class="card-price" id="pro-price">$199</div>
-                        <div class="card-period">per user/month</div>
-                        <div class="card-savings" id="pro-savings" style="display: none;">Save $240/year</div>
+                
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="plan-name">Professional</div>
+                    <div class="plan-price">
+                        <span class="price-amount">$599</span>
+                        <span class="price-period">/month</span>
                     </div>
-                    <div class="card-features">
-                        <ul>
-                            <li>Up to 300 quotes per month</li>
-                            <li>All carrier integrations</li>
-                            <li>Priority phone + email support</li>
-                            <li>Advanced mobile features</li>
-                            <li>Advanced analytics & reporting</li>
-                            <li>Custom branding</li>
-                            <li>GAIL AI competitive intelligence</li>
-                            <li>AMS integrations</li>
-                        </ul>
-                    </div>
-                    <div class="card-cta">
-                        <a href="#" class="card-button primary">Start Free Trial</a>
-                    </div>
+                    <div class="plan-description">Ideal for growing agencies with multiple agents</div>
+                    <ul class="plan-features">
+                        <li>Up to 500 quotes/month</li>
+                        <li>All commercial & personal lines</li>
+                        <li>Premium carrier integrations</li>
+                        <li>GAIL AI intelligence</li>
+                        <li>AMS integration (Applied Epic, AMS360)</li>
+                        <li>Priority phone support</li>
+                        <li>Advanced analytics & reports</li>
+                        <li>Up to 5 user accounts</li>
+                        <li>White-label branding</li>
+                    </ul>
+                    <button class="plan-cta">Start Free Trial</button>
                 </div>
-
-                <!-- Enterprise Plan -->
+                
                 <div class="pricing-card">
-                    <div class="card-header">
-                        <div class="card-title">Enterprise</div>
-                        <div class="card-subtitle">For large agencies and MGAs</div>
-                        <div class="card-price">Custom</div>
-                        <div class="card-period">contact for pricing</div>
+                    <div class="plan-name">Enterprise</div>
+                    <div class="plan-price">
+                        <span class="price-amount">$1,299</span>
+                        <span class="price-period">/month</span>
                     </div>
-                    <div class="card-features">
-                        <ul>
-                            <li>Unlimited quotes</li>
-                            <li>Custom carrier development</li>
-                            <li>Dedicated account manager</li>
-                            <li>White-label solution</li>
-                            <li>Enterprise SSO</li>
-                            <li>SLA guarantees</li>
-                            <li>Custom integrations</li>
-                            <li>Advanced GAIL AI features</li>
-                            <li>Multi-location support</li>
-                        </ul>
+                    <div class="plan-description">For large agencies and multi-location operations</div>
+                    <ul class="plan-features">
+                        <li>Unlimited quotes</li>
+                        <li>All coverage types</li>
+                        <li>Custom carrier integrations</li>
+                        <li>Advanced GAIL AI features</li>
+                        <li>Custom AMS integrations</li>
+                        <li>Dedicated account manager</li>
+                        <li>Custom reporting & analytics</li>
+                        <li>Unlimited user accounts</li>
+                        <li>Multi-location management</li>
+                        <li>API access</li>
+                    </ul>
+                    <button class="plan-cta secondary">Contact Sales</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Calculator -->
+    <section class="roi-section">
+        <div class="roi-container">
+            <div class="roi-calculator">
+                <h3 class="roi-title">Calculate Your ROI with Quotely</h3>
+                <div class="roi-grid">
+                    <div class="roi-inputs">
+                        <div class="roi-field">
+                            <label>Current Monthly Quote Volume</label>
+                            <input type="number" placeholder="200" value="200" id="quoteVolume">
+                        </div>
+                        <div class="roi-field">
+                            <label>Average Commission per Quote</label>
+                            <input type="number" placeholder="150" value="150" id="avgCommission">
+                        </div>
+                        <div class="roi-field">
+                            <label>Current Platform Cost/Month</label>
+                            <select id="currentCost">
+                                <option value="800">Applied Rater (~$800/month)</option>
+                                <option value="900">EZLynx (~$900/month)</option>
+                                <option value="1200">Both Applied Rater + EZLynx (~$1,200/month)</option>
+                                <option value="0">Other/None</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="card-cta">
-                        <a href="#" class="card-button secondary">Contact Sales</a>
+                    <div class="roi-results">
+                        <div class="roi-metric">
+                            <h4>Additional Monthly Revenue</h4>
+                            <div class="value" id="additionalRevenue">$12,000</div>
+                        </div>
+                        <div class="roi-metric">
+                            <h4>Monthly Cost Savings</h4>
+                            <div class="value" id="costSavings">$201</div>
+                        </div>
+                        <div class="roi-metric">
+                            <h4>Total Monthly Benefit</h4>
+                            <div class="value" id="totalBenefit">$12,201</div>
+                        </div>
+                        <div class="roi-metric">
+                            <h4>Annual ROI</h4>
+                            <div class="value" id="annualROI">2,037%</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Comparison Table -->
-    <section class="comparison">
-        <div class="container">
-            <h2>True Cost Comparison: Quotely vs Competitors</h2>
+    <!-- Comparison Section -->
+    <section class="comparison-section">
+        <div class="comparison-container">
+            <h2 class="section-title">Pricing Comparison</h2>
             <div class="comparison-table">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Cost Component</th>
-                            <th>Applied Rater</th>
-                            <th>EZLynx</th>
-                            <th>Quotely</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Base Monthly Cost</strong></td>
-                            <td>$299+ per user</td>
-                            <td>$199+ per user</td>
-                            <td class="quotely-col">From $149 per user</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Setup/Implementation</strong></td>
-                            <td>$2,000-5,000</td>
-                            <td>$1,500-3,000</td>
-                            <td class="quotely-col">$0 - Free setup</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Training Costs</strong></td>
-                            <td>$500-1,000 per user</td>
-                            <td>$300-800 per user</td>
-                            <td class="quotely-col">$0 - 2-hour onboarding</td>
-                        </tr>
-                        <tr>
-                            <td><strong>API Access</strong></td>
-                            <td>$100-200/month extra</td>
-                            <td>$50-150/month extra</td>
-                            <td class="quotely-col">$0 - Included free</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Mobile App</strong></td>
-                            <td>Limited/Extra cost</td>
-                            <td>$50/month extra</td>
-                            <td class="quotely-col">$0 - Full mobile included</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Annual Total (3 users)</strong></td>
-                            <td>$15,000-20,000+</td>
-                            <td>$10,000-15,000+</td>
-                            <td class="quotely-col">$5,364-7,164</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <!-- No Hidden Fees -->
-    <section class="no-fees">
-        <div class="container">
-            <h2>What's Included vs What Costs Extra</h2>
-            <div class="fees-comparison">
-                <div class="fees-card">
-                    <h3>Quotely - Everything Included</h3>
-                    <ul class="fees-list">
-                        <li class="included">Setup and implementation</li>
-                        <li class="included">User training and onboarding</li>
-                        <li class="included">Full API access</li>
-                        <li class="included">Mobile applications</li>
-                        <li class="included">Standard integrations</li>
-                        <li class="included">Phone and email support</li>
-                        <li class="included">Regular software updates</li>
-                        <li class="included">Data backup and security</li>
-                    </ul>
+                <div class="comparison-row comparison-header">
+                    <div class="comparison-feature">Feature</div>
+                    <div>Quotely</div>
+                    <div>Applied Rater</div>
+                    <div>EZLynx</div>
                 </div>
-
-                <div class="fees-card">
-                    <h3>Applied Rater - Hidden Extras</h3>
-                    <ul class="fees-list">
-                        <li class="extra-cost">$2,000-5,000 setup fee</li>
-                        <li class="extra-cost">$500+ per user training</li>
-                        <li class="extra-cost">$100-200/month API access</li>
-                        <li class="extra-cost">Limited mobile features</li>
-                        <li class="extra-cost">Integration fees vary</li>
-                        <li class="included">Support included</li>
-                        <li class="extra-cost">Update fees may apply</li>
-                        <li class="included">Basic backup included</li>
-                    </ul>
+                
+                <div class="comparison-row">
+                    <div class="comparison-feature">Base Monthly Cost</div>
+                    <div class="quotely-price">$299 - $1,299</div>
+                    <div class="competitor-price">$400 - $800+</div>
+                    <div class="competitor-price">$500 - $900+</div>
                 </div>
-
-                <div class="fees-card">
-                    <h3>EZLynx - Additional Costs</h3>
-                    <ul class="fees-list">
-                        <li class="extra-cost">$1,500-3,000 implementation</li>
-                        <li class="extra-cost">$300+ per user training</li>
-                        <li class="extra-cost">$50-150/month API fees</li>
-                        <li class="extra-cost">$50/month mobile app</li>
-                        <li class="extra-cost">Integration setup fees</li>
-                        <li class="included">Phone support included</li>
-                        <li class="included">Updates included</li>
-                        <li class="included">Standard backup</li>
-                    </ul>
+                
+                <div class="comparison-row">
+                    <div class="comparison-feature">Setup Fees</div>
+                    <div class="quotely-price">$0 (Free)</div>
+                    <div class="competitor-price">$2,500 - $5,000</div>
+                    <div class="competitor-price">$1,500 - $3,000</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="comparison-feature">Per-User Fees</div>
+                    <div class="quotely-price">$0 (Included)</div>
+                    <div class="competitor-price">$50 - $100/user</div>
+                    <div class="competitor-price">$75 - $125/user</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="comparison-feature">Training & Support</div>
+                    <div class="quotely-price">Free</div>
+                    <div class="competitor-price">$500 - $2,000</div>
+                    <div class="competitor-price">$750 - $1,500</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="comparison-feature">Contract Length</div>
+                    <div class="quotely-price">Month-to-month</div>
+                    <div class="competitor-price">12-36 months</div>
+                    <div class="competitor-price">24-36 months</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="comparison-feature">Free Trial</div>
+                    <div class="quotely-price">14 days</div>
+                    <div class="competitor-price">Demo only</div>
+                    <div class="competitor-price">Limited demo</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="faq">
-        <div class="container">
-            <h2>Pricing Questions & Answers</h2>
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <div class="faq-question">Are there any setup fees or hidden costs?</div>
-                    <div class="faq-answer">No setup fees, no implementation costs, no hidden charges. What you see is what you pay. Unlike Applied Rater ($2,000+ setup) and EZLynx ($1,500+ implementation), we include everything in your monthly subscription.</div>
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    Is there a setup fee?
+                    <span>+</span>
+                </button>
+                <div class="faq-answer">
+                    No setup fees ever. We include free setup, data migration from Applied Rater or EZLynx, and initial training for all plans. You only pay the monthly subscription fee.
                 </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Can I cancel anytime?</div>
-                    <div class="faq-answer">Yes, you can cancel anytime with 30 days notice. No long-term contracts required, though annual plans receive a 10% discount.</div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    Do you charge per user?
+                    <span>+</span>
+                </button>
+                <div class="faq-answer">
+                    No per-user fees. Each plan includes a specific number of user accounts (1 for Starter, 5 for Professional, unlimited for Enterprise). Unlike Applied Rater and EZLynx, we don't charge extra for additional users within your plan limits.
                 </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">What's included in the free trial?</div>
-                    <div class="faq-answer">Full access to all Professional plan features for 14 days, including GAIL AI competitive intelligence, all integrations, and unlimited support. No credit card required.</div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    Can I cancel anytime?
+                    <span>+</span>
+                </button>
+                <div class="faq-answer">
+                    Yes, absolutely. All our plans are month-to-month with no long-term contracts. Cancel anytime with 30 days notice. No cancellation fees or penalties.
                 </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">How does pricing scale as we add users?</div>
-                    <div class="faq-answer">Simple per-user pricing. Add or remove users monthly. Volume discounts available for 10+ users. Enterprise plans offer custom pricing for large agencies.</div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    How does migration from Applied Rater work?
+                    <span>+</span>
+                </button>
+                <div class="faq-answer">
+                    We handle the entire migration process for free. Our team will export your data from Applied Rater, import it into Quotely, and train your staff. The process typically takes 2-3 business days with zero downtime.
                 </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Is API access really free?</div>
-                    <div class="faq-answer">Yes, full REST API access is included at no extra cost. Unlike Applied Rater ($100-200/month) and EZLynx ($50-150/month), we don't charge extra for integrations.</div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    What's included in the free trial?
+                    <span>+</span>
+                </button>
+                <div class="faq-answer">
+                    The 14-day free trial includes full access to all features of your chosen plan. Generate real quotes, access all carriers, use GAIL AI, and get full support. No credit card required to start.
                 </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">What if I need help migrating from my current system?</div>
-                    <div class="faq-answer">We provide free migration assistance for all new customers. Our team will help export your data and get you set up quickly - usually within 24-48 hours.</div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    Do you offer volume discounts?
+                    <span>+</span>
+                </button>
+                <div class="faq-answer">
+                    Yes, we offer volume discounts for agencies with high quote volumes or multiple locations. Contact our sales team to discuss custom pricing for your specific needs.
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Final CTA -->
-    <section class="final-cta">
-        <div class="container">
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
             <h2>Ready to Save Money and Quote Faster?</h2>
-            <p>Join 500+ agencies who switched to transparent pricing and modern technology</p>
-            
+            <p>Join 1,000+ agencies who switched from Applied Rater and EZLynx to save money while generating quotes 60% faster</p>
             <div class="cta-buttons">
-                <a href="#" class="btn-primary">Start Free 14-Day Trial</a>
-                <a href="#" class="btn-secondary">Schedule Pricing Demo</a>
-            </div>
-            
-            <div class="guarantee">
-                30-day money-back guarantee • No setup fees • Cancel anytime
+                <a href="#start-trial" class="cta-primary">Start Free 14-Day Trial</a>
             </div>
         </div>
     </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="/#features">Features</a></li>
+                        <li><a href="/pricing.html">Pricing</a></li>
+                        <li><a href="#demo">Demo</a></li>
+                        <li><a href="#integrations">Integrations</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="/insurance-quoting-software.html">Insurance Quoting Software</a></li>
+                        <li><a href="/applied-rater-alternative.html">Applied Rater Alternative</a></li>
+                        <li><a href="/commercial-insurance-quoting.html">Commercial Insurance</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/#about">About</a></li>
+                        <li><a href="/blog.html">Blog</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#privacy">Privacy</a></li>
+                        <li><a href="#terms">Terms</a></li>
+                        <li><a href="#security">Security</a></li>
+                        <li><a href="#compliance">Compliance</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Quotely. All rights reserved. Built for insurance agencies.</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
-        // Billing toggle functionality
-        const monthlyToggle = document.getElementById('monthly-toggle');
-        const yearlyToggle = document.getElementById('yearly-toggle');
-        const starterPrice = document.getElementById('starter-price');
-        const proPrice = document.getElementById('pro-price');
-        const starterSavings = document.getElementById('starter-savings');
-        const proSavings = document.getElementById('pro-savings');
-
-        const monthlyPrices = { starter: 149, pro: 199 };
-        const yearlyPrices = { starter: 134, pro: 179 }; // 10% discount
-
-        monthlyToggle.addEventListener('click', () => {
-            monthlyToggle.classList.add('active');
-            yearlyToggle.classList.remove('active');
-            starterPrice.textContent = '$' + monthlyPrices.starter;
-            proPrice.textContent = '$' + monthlyPrices.pro;
-            starterSavings.style.display = 'none';
-            proSavings.style.display = 'none';
-        });
-
-        yearlyToggle.addEventListener('click', () => {
-            yearlyToggle.classList.add('active');
-            monthlyToggle.classList.remove('active');
-            starterPrice.textContent = '$' + yearlyPrices.starter;
-            proPrice.textContent = '$' + yearlyPrices.pro;
-            starterSavings.style.display = 'inline-block';
-            proSavings.style.display = 'inline-block';
-        });
+        // ROI Calculator
+        function updateROI() {
+            const quoteVolume = parseInt(document.getElementById('quoteVolume').value) || 200;
+            const avgCommission = parseInt(document.getElementById('avgCommission').value) || 150;
+            const currentCost = parseInt(document.getElementById('currentCost').value) || 800;
+            
+            // Calculate 40% increase in quote volume due to 60% faster quoting
+            const additionalQuotes = Math.round(quoteVolume * 0.4);
+            const additionalRevenue = additionalQuotes * avgCommission;
+            
+            // Calculate cost savings (Quotely Professional at $599 vs competitors)
+            const quotelyCost = 599;
+            const costSavings = currentCost - quotelyCost;
+            
+            const totalBenefit = additionalRevenue + Math.max(0, costSavings);
+            const annualROI = Math.round((totalBenefit * 12 / quotelyCost) * 100);
+            
+            document.getElementById('additionalRevenue').textContent = `$${additionalRevenue.toLocaleString()}`;
+            document.getElementById('costSavings').textContent = `$${Math.max(0, costSavings).toLocaleString()}`;
+            document.getElementById('totalBenefit').textContent = `$${totalBenefit.toLocaleString()}`;
+            document.getElementById('annualROI').textContent = `${annualROI.toLocaleString()}%`;
+        }
+        
+        // Add event listeners for ROI calculator
+        document.getElementById('quoteVolume').addEventListener('input', updateROI);
+        document.getElementById('avgCommission').addEventListener('input', updateROI);
+        document.getElementById('currentCost').addEventListener('change', updateROI);
+        
+        // Initialize ROI calculation
+        updateROI();
     </script>
 </body>
 </html>
