@@ -3,268 +3,945 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quotely Blog | Insurance Technology & Agency Growth Insights</title>
-    <meta name="description" content="Expert insights on insurance technology, agency growth strategies, and industry trends. Learn how to modernize your insurance agency operations.">
-    <meta name="keywords" content="insurance blog, agency growth, insurance technology, quotely insights, applied rater alternative">
-    
+    <title>Blog | Quotely - Insurance Technology & Industry Insights</title>
+    <meta name="description" content="Insurance industry insights, technology trends, and agency growth strategies. Expert advice on insurance quoting, AI, and digital transformation.">
+    <meta name="keywords" content="insurance blog, insurance technology, agency growth, insurance AI, digital transformation, insurance quotes">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; background: #fafbfc; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         
-        /* Header/Nav - Same as homepage */
-        .nav { background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); position: fixed; top: 0; left: 0; right: 0; z-index: 1000; border-bottom: 1px solid #e2e8f0; }
-        .nav-content { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; max-width: 1200px; margin: 0 auto; }
-        .logo { font-size: 1.5rem; font-weight: 700; color: #1e40af; text-decoration: none; }
-        .nav-links { display: flex; gap: 30px; align-items: center; }
-        .nav-links a { text-decoration: none; color: #64748b; font-weight: 500; transition: color 0.3s; }
-        .nav-links a:hover { color: #1e40af; }
-        .nav-links a.active { color: #1e40af; font-weight: 600; }
-        .nav-cta { background: #1e40af; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #29274C;
+            background-color: #E4E4E4;
+        }
         
-        /* Blog Header */
-        .blog-header { background: linear-gradient(135deg, #1e40af 0%, #3730a3 100%); color: white; padding: 120px 0 60px; margin-top: 70px; text-align: center; }
-        .blog-header h1 { font-size: 3rem; font-weight: 700; margin-bottom: 16px; }
-        .blog-header p { font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto 30px; }
-        .blog-stats { display: flex; justify-content: center; gap: 40px; margin-top: 30px; }
-        .blog-stat { text-align: center; }
-        .blog-stat-number { font-size: 1.8rem; font-weight: 700; color: #fbbf24; }
-        .blog-stat-label { font-size: 0.9rem; opacity: 0.8; }
+        /* Top Banner */
+        .top-banner {
+            background: linear-gradient(135deg, #29274C 0%, #555E88 100%);
+            color: white;
+            text-align: center;
+            padding: 0.75rem 0;
+            font-size: 0.9rem;
+        }
         
-        /* Main Content Layout */
-        .blog-content { display: grid; grid-template-columns: 1fr 300px; gap: 40px; padding: 60px 0; }
-        .main-content { background: white; }
-        .sidebar { position: sticky; top: 120px; height: fit-content; }
+        .top-banner a {
+            color: #F26D00;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background-color: #ffffff;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(41, 39, 76, 0.1);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #29274C;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .logo::after {
+            content: "🎯";
+            margin-left: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #555E88;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: #F26D00;
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown::after {
+            content: "▼";
+            font-size: 0.7rem;
+            margin-left: 0.3rem;
+            color: #9F9F9F;
+            transition: transform 0.3s;
+        }
+        
+        .dropdown:hover::after {
+            transform: rotate(180deg);
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(41, 39, 76, 0.15);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s;
+            min-width: 250px;
+            z-index: 1000;
+            margin-top: 0.5rem;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-menu ul {
+            list-style: none;
+            padding: 1rem 0;
+            margin: 0;
+        }
+        
+        .dropdown-menu li {
+            padding: 0;
+        }
+        
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: #29274C !important;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            border-left: 3px solid transparent;
+        }
+        
+        .dropdown-menu a:hover {
+            background-color: #E4E4E4;
+            color: #F26D00 !important;
+            border-left-color: #F26D00;
+        }
+        
+        .dropdown-section {
+            padding: 0.5rem 1.5rem 0.25rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #9F9F9F;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: #E4E4E4;
+            border-radius: 25px;
+            padding: 0.5rem 1rem;
+            border: 1px solid #BEBEBE;
+            min-width: 300px;
+        }
+        
+        .search-bar input {
+            border: none;
+            background: none;
+            outline: none;
+            flex: 1;
+            padding: 0.25rem;
+            color: #555E88;
+        }
+        
+        .search-bar input::placeholder {
+            color: #9F9F9F;
+        }
+        
+        .search-btn {
+            background: none;
+            border: none;
+            color: #555E88;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .cta-button {
+            background-color: #F26D00;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            background-color: #d45a00;
+            transform: translateY(-1px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #29274C 0%, #555E88 100%);
+            padding: 4rem 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            color: #E4E4E4;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .blog-search {
+            max-width: 400px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .blog-search input {
+            width: 100%;
+            padding: 1rem 3rem 1rem 1rem;
+            border-radius: 25px;
+            border: none;
+            font-size: 1rem;
+            color: #29274C;
+        }
+        
+        .blog-search button {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #F26D00;
+            border: none;
+            color: white;
+            padding: 0.5rem;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb {
+            background-color: white;
+            padding: 1rem 0;
+            border-bottom: 1px solid #BEBEBE;
+        }
+        
+        .breadcrumb-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .breadcrumb-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #9F9F9F;
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumb-nav a {
+            color: #555E88;
+            text-decoration: none;
+        }
+        
+        .breadcrumb-nav a:hover {
+            color: #F26D00;
+        }
+        
+        /* Main Content */
+        .main-content {
+            background-color: white;
+            padding: 4rem 0;
+        }
+        
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
         
         /* Featured Article */
-        .featured-article { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 16px rgba(30, 64, 175, 0.08); margin-bottom: 40px; }
-        .featured-image { height: 300px; background: linear-gradient(135deg, #1e40af 0%, #3730a3 100%); position: relative; display: flex; align-items: center; justify-content: center; color: white; }
-        .featured-badge { position: absolute; top: 20px; left: 20px; background: #10b981; color: white; padding: 8px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
-        .featured-content { padding: 30px; }
-        .featured-title { font-size: 2rem; font-weight: 700; color: #1e293b; margin-bottom: 16px; line-height: 1.3; }
-        .featured-excerpt { color: #64748b; font-size: 1.1rem; margin-bottom: 20px; line-height: 1.6; }
-        .featured-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-        .author-info { display: flex; align-items: center; gap: 12px; }
-        .author-avatar { width: 40px; height: 40px; background: #1e40af; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; }
-        .author-details { font-size: 0.9rem; color: #64748b; }
-        .author-name { font-weight: 600; color: #1e293b; }
-        .read-more { background: #1e40af; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-block; transition: background 0.3s; }
-        .read-more:hover { background: #1e3a8a; }
+        .featured-article {
+            background: #E4E4E4;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 40px rgba(41, 39, 76, 0.1);
+        }
         
-        /* Article Grid */
-        .articles-grid { display: grid; gap: 30px; }
-        .article-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(30, 64, 175, 0.06); transition: all 0.3s ease; border: 1px solid #f1f5f9; }
-        .article-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(30, 64, 175, 0.1); }
-        .article-image { height: 200px; background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); position: relative; display: flex; align-items: center; justify-content: center; color: #1e40af; font-weight: bold; font-size: 1.2rem; }
-        .article-category { position: absolute; top: 15px; left: 15px; background: #1e40af; color: white; padding: 6px 12px; border-radius: 16px; font-size: 0.8rem; font-weight: 600; }
-        .article-content { padding: 24px; }
-        .article-title { font-size: 1.3rem; font-weight: 700; color: #1e293b; margin-bottom: 12px; line-height: 1.4; }
-        .article-excerpt { color: #64748b; font-size: 0.95rem; margin-bottom: 16px; line-height: 1.5; }
-        .article-meta { display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: #94a3b8; }
-        .reading-time { background: #f1f5f9; padding: 4px 10px; border-radius: 12px; }
+        .featured-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #29274C 0%, #555E88 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
         
-        /* Sidebar */
-        .sidebar-section { background: white; border-radius: 12px; padding: 24px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(30, 64, 175, 0.06); }
-        .sidebar-title { font-size: 1.1rem; font-weight: 700; color: #1e293b; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0; }
+        .featured-content {
+            padding: 2rem;
+        }
         
-        /* Categories */
-        .category-list { list-style: none; }
-        .category-item { margin-bottom: 8px; }
-        .category-link { display: flex; justify-content: between; align-items: center; padding: 8px 12px; color: #64748b; text-decoration: none; border-radius: 6px; transition: all 0.3s; }
-        .category-link:hover { background: #f8fafc; color: #1e40af; }
-        .category-count { background: #e2e8f0; color: #64748b; padding: 2px 8px; border-radius: 12px; font-size: 0.8rem; margin-left: auto; }
+        .featured-category {
+            display: inline-block;
+            background: #F26D00;
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
         
-        /* Popular Posts */
-        .popular-post { display: flex; gap: 12px; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid #f1f5f9; }
-        .popular-post:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-        .popular-thumb { width: 60px; height: 45px; background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); border-radius: 6px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #1e40af; font-size: 0.8rem; font-weight: bold; }
-        .popular-content h4 { font-size: 0.9rem; color: #1e293b; margin-bottom: 4px; line-height: 1.3; }
-        .popular-date { font-size: 0.8rem; color: #94a3b8; }
+        .featured-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #29274C;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
         
-        /* Newsletter Signup */
-        .newsletter-signup { background: linear-gradient(135deg, #1e40af 0%, #3730a3 100%); color: white; text-align: center; }
-        .newsletter-signup h3 { margin-bottom: 8px; }
-        .newsletter-signup p { font-size: 0.9rem; opacity: 0.9; margin-bottom: 16px; }
-        .newsletter-form { display: flex; gap: 8px; }
-        .newsletter-input { flex: 1; padding: 8px 12px; border: none; border-radius: 6px; font-size: 0.9rem; }
-        .newsletter-button { background: #10b981; color: white; padding: 8px 16px; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.9rem; }
+        .featured-excerpt {
+            color: #555E88;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
         
-        /* Tags */
-        .tag-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
-        .tag { background: #f1f5f9; color: #64748b; padding: 6px 12px; border-radius: 16px; font-size: 0.8rem; text-decoration: none; transition: all 0.3s; }
-        .tag:hover { background: #1e40af; color: white; }
+        .featured-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #9F9F9F;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .featured-read-more {
+            background: #F26D00;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+        
+        .featured-read-more:hover {
+            background: #d45a00;
+            transform: translateY(-2px);
+        }
+        
+        /* Blog Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .blog-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(41, 39, 76, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #E4E4E4 0%, #BEBEBE 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #555E88;
+        }
+        
+        .blog-content {
+            padding: 1.5rem;
+        }
+        
+        .blog-category {
+            display: inline-block;
+            background: #E4E4E4;
+            color: #555E88;
+            padding: 0.25rem 0.75rem;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .blog-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #29274C;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+        
+        .blog-excerpt {
+            color: #555E88;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+        
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #9F9F9F;
+            font-size: 0.85rem;
+        }
+        
+        .read-more {
+            color: #F26D00;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .read-more:hover {
+            text-decoration: underline;
+        }
         
         /* Pagination */
-        .pagination { display: flex; justify-content: center; gap: 12px; margin-top: 60px; }
-        .page-link { padding: 10px 16px; border: 1px solid #e2e8f0; border-radius: 6px; color: #64748b; text-decoration: none; transition: all 0.3s; }
-        .page-link:hover, .page-link.active { background: #1e40af; color: white; border-color: #1e40af; }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 3rem;
+        }
         
-        /* Responsive */
+        .pagination a {
+            color: #555E88;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        .pagination a:hover {
+            background: #E4E4E4;
+            color: #F26D00;
+        }
+        
+        .pagination .active {
+            background: #F26D00;
+            color: white;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            background: #E4E4E4;
+            padding: 2rem;
+            border-radius: 15px;
+            height: fit-content;
+            position: sticky;
+            top: 120px;
+        }
+        
+        .sidebar h3 {
+            color: #29274C;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        
+        .sidebar-section {
+            margin-bottom: 2.5rem;
+        }
+        
+        .sidebar-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(41, 39, 76, 0.1);
+        }
+        
+        .newsletter h4 {
+            color: #29274C;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .newsletter p {
+            color: #555E88;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .newsletter-form input {
+            padding: 0.75rem;
+            border: 1px solid #BEBEBE;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .newsletter-form button {
+            background: #F26D00;
+            color: white;
+            border: none;
+            padding: 0.75rem;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .newsletter-form button:hover {
+            background: #d45a00;
+        }
+        
+        /* Categories */
+        .categories {
+            list-style: none;
+        }
+        
+        .categories li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .categories a {
+            color: #555E88;
+            text-decoration: none;
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        .categories a:hover {
+            background: white;
+            color: #F26D00;
+        }
+        
+        .category-count {
+            color: #9F9F9F;
+            font-size: 0.8rem;
+        }
+        
+        /* Popular Posts */
+        .popular-posts {
+            list-style: none;
+        }
+        
+        .popular-post {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #BEBEBE;
+        }
+        
+        .popular-post:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        
+        .popular-image {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #555E88 0%, #9F9F9F 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .popular-content h5 {
+            color: #29274C;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+        
+        .popular-meta {
+            color: #9F9F9F;
+            font-size: 0.8rem;
+        }
+        
+        /* Tags */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .tag {
+            background: white;
+            color: #555E88;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+        }
+        
+        .tag:hover {
+            background: #F26D00;
+            color: white;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #29274C;
+            color: white;
+            padding: 3rem 0 2rem;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h4 {
+            color: #F26D00;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: #BEBEBE;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #F26D00;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #555E88;
+            padding-top: 2rem;
+            text-align: center;
+            color: #9F9F9F;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 968px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .sidebar {
+                position: static;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background: #E4E4E4;
+                margin-top: 0.5rem;
+                border-radius: 5px;
+            }
+        }
+        
         @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .blog-header h1 { font-size: 2.5rem; }
-            .blog-stats { flex-direction: column; gap: 20px; }
-            .blog-content { grid-template-columns: 1fr; gap: 30px; }
-            .sidebar { position: static; }
-            .featured-title { font-size: 1.5rem; }
-            .newsletter-form { flex-direction: column; }
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+            
+            .search-bar {
+                min-width: 250px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .featured-image {
+                height: 200px;
+                font-size: 2.5rem;
+            }
+            
+            .pagination {
+                flex-wrap: wrap;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Top Banner -->
+    <div class="top-banner">
+        Latest: AI transforms insurance quoting in 2025. <a href="#ai-article">Read more →</a>
+    </div>
+
     <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-content">
+    <nav class="navbar">
+        <div class="nav-container">
             <a href="/" class="logo">Quotely</a>
-            <div class="nav-links">
-                <a href="/">Home</a>
-                <a href="/#features">Features</a>
-                <a href="/pricing.html">Pricing</a>
-                <a href="/#comparison">vs Competitors</a>
-                <a href="/blog.html" class="active">Blog</a>
-                <a href="#" class="nav-cta">Start Free Trial</a>
+            <ul class="nav-links">
+                <li class="dropdown">
+                    <a href="#solutions">Solutions</a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <div class="dropdown-section">Insurance Software</div>
+                            <li><a href="/insurance-quoting-software.html">Insurance Quoting Software</a></li>
+                            <li><a href="/applied-rater-alternative.html">Applied Rater Alternative</a></li>
+                            <li><a href="/commercial-insurance-quoting.html">Commercial Insurance Quoting</a></li>
+                            <div class="dropdown-section">Platform</div>
+                            <li><a href="/#features">Features</a></li>
+                            <li><a href="#integrations">Integrations</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="/pricing.html">Pricing</a></li>
+                <li><a href="#demo">Demo</a></li>
+                <li class="dropdown">
+                    <a href="#company">Company</a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="/#about">About</a></li>
+                            <li><a href="/blog.html">Blog</a></li>
+                            <li><a href="#careers">Careers</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="#press">Press</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for carriers or coverage types">
+                <button class="search-btn">🔍</button>
             </div>
+            <a href="#get-started" class="cta-button">Get Started</a>
         </div>
     </nav>
 
-    <!-- Blog Header -->
-    <section class="blog-header">
-        <div class="container">
-            <h1>Insurance Agency Insights</h1>
-            <p>Expert strategies, industry trends, and actionable advice to help your insurance agency thrive in the modern market</p>
-            <div class="blog-stats">
-                <div class="blog-stat">
-                    <div class="blog-stat-number">50+</div>
-                    <div class="blog-stat-label">Articles</div>
-                </div>
-                <div class="blog-stat">
-                    <div class="blog-stat-number">500+</div>
-                    <div class="blog-stat-label">Agency Readers</div>
-                </div>
-                <div class="blog-stat">
-                    <div class="blog-stat-number">Weekly</div>
-                    <div class="blog-stat-label">New Content</div>
-                </div>
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="breadcrumb-container">
+            <nav class="breadcrumb-nav">
+                <a href="/">Home</a> > <span>Blog</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1>Insurance Technology Blog</h1>
+            <p>Expert insights on insurance technology, agency growth, and digital transformation</p>
+            <div class="blog-search">
+                <input type="text" placeholder="Search articles...">
+                <button>🔍</button>
             </div>
         </div>
     </section>
 
     <!-- Main Content -->
-    <section class="blog-content">
-        <div class="container">
-            <div class="blog-content">
-                <main class="main-content">
+    <section class="main-content">
+        <div class="content-container">
+            <div class="content-grid">
+                <main class="blog-main">
                     <!-- Featured Article -->
                     <article class="featured-article">
-                        <div class="featured-image">
-                            <span class="featured-badge">Featured</span>
-                            <div style="font-size: 3rem;">60%</div>
-                        </div>
+                        <div class="featured-image">🤖</div>
                         <div class="featured-content">
-                            <h2 class="featured-title">How Independent Agencies Beat Applied Rater's Quote Times by 60%</h2>
-                            <p class="featured-excerpt">Discover the exact strategies successful agencies are using to generate quotes faster than ever while maintaining accuracy and competitive pricing. This comprehensive guide breaks down the technology, processes, and mindset shifts that are helping agencies modernize their operations.</p>
+                            <span class="featured-category">AI Technology</span>
+                            <h2 class="featured-title">How AI is Revolutionizing Insurance Quoting in 2025</h2>
+                            <p class="featured-excerpt">Artificial intelligence is transforming how insurance agencies generate quotes, with new AI-powered systems like GAIL AI delivering 60% faster quote times and unprecedented competitive intelligence. Learn how leading agencies are leveraging AI to outperform competitors and increase revenue.</p>
                             <div class="featured-meta">
-                                <div class="author-info">
-                                    <div class="author-avatar">Q</div>
-                                    <div class="author-details">
-                                        <div class="author-name">Quotely Team</div>
-                                        <div>Dec 15, 2024</div>
-                                    </div>
-                                </div>
-                                <span class="reading-time">8 min read</span>
+                                <span>By Sarah Chen • January 15, 2025</span>
+                                <span>8 min read</span>
                             </div>
-                            <a href="#" class="read-more">Read Full Article</a>
+                            <a href="#" class="featured-read-more">Read Full Article</a>
                         </div>
                     </article>
 
-                    <!-- Articles Grid -->
-                    <div class="articles-grid">
-                        <article class="article-card">
-                            <div class="article-image">
-                                <span class="article-category">GAIL AI</span>
-                                AI
-                            </div>
-                            <div class="article-content">
-                                <h3 class="article-title">GAIL AI Case Study: 40% Win Rate Increase at Coastal Insurance</h3>
-                                <p class="article-excerpt">Real results from agencies using competitive intelligence to price strategically and win deals they previously would have lost to competitors.</p>
-                                <div class="article-meta">
-                                    <span>Dec 12, 2024</span>
-                                    <span class="reading-time">6 min read</span>
+                    <!-- Blog Grid -->
+                    <div class="blog-grid">
+                        <article class="blog-card">
+                            <div class="blog-image">📊</div>
+                            <div class="blog-content">
+                                <span class="blog-category">Analytics</span>
+                                <h3 class="blog-title">5 KPIs Every Insurance Agency Should Track in 2025</h3>
+                                <p class="blog-excerpt">Discover the essential performance metrics that top-performing agencies monitor to drive growth and profitability.</p>
+                                <div class="blog-meta">
+                                    <span>Mike Rodriguez • Jan 12</span>
+                                    <a href="#" class="read-more">Read more</a>
                                 </div>
                             </div>
                         </article>
 
-                        <article class="article-card">
-                            <div class="article-image">
-                                <span class="article-category">Cost Analysis</span>
-                                $$$
-                            </div>
-                            <div class="article-content">
-                                <h3 class="article-title">The Hidden Costs of EZLynx: What Agencies Need to Know</h3>
-                                <p class="article-excerpt">A detailed breakdown of EZLynx's pricing structure, hidden fees, and why agencies are switching to more transparent platforms like Quotely.</p>
-                                <div class="article-meta">
-                                    <span>Dec 8, 2024</span>
-                                    <span class="reading-time">12 min read</span>
+                        <article class="blog-card">
+                            <div class="blog-image">⚡</div>
+                            <div class="blog-content">
+                                <span class="blog-category">Technology</span>
+                                <h3 class="blog-title">Why Applied Rater's Slow Quote Times Are Costing You Leads</h3>
+                                <p class="blog-excerpt">Analysis of how quote speed impacts conversion rates and why modern agencies are switching to faster alternatives.</p>
+                                <div class="blog-meta">
+                                    <span>Jennifer Chen • Jan 10</span>
+                                    <a href="#" class="read-more">Read more</a>
                                 </div>
                             </div>
                         </article>
 
-                        <article class="article-card">
-                            <div class="article-image">
-                                <span class="article-category">Agency Growth</span>
-                                📈
-                            </div>
-                            <div class="article-content">
-                                <h3 class="article-title">5 Signs It's Time to Replace Your Applied Rater System</h3>
-                                <p class="article-excerpt">Is your legacy quoting system holding back your agency? Here are the red flags that indicate it's time for a modern upgrade.</p>
-                                <div class="article-meta">
-                                    <span>Dec 5, 2024</span>
-                                    <span class="reading-time">5 min read</span>
+                        <article class="blog-card">
+                            <div class="blog-image">🏢</div>
+                            <div class="blog-content">
+                                <span class="blog-category">Commercial Insurance</span>
+                                <h3 class="blog-title">Commercial Insurance Trends Shaping 2025</h3>
+                                <p class="blog-excerpt">Key trends in commercial insurance including cyber liability growth, ESG considerations, and digital transformation.</p>
+                                <div class="blog-meta">
+                                    <span>David Park • Jan 8</span>
+                                    <a href="#" class="read-more">Read more</a>
                                 </div>
                             </div>
                         </article>
 
-                        <article class="article-card">
-                            <div class="article-image">
-                                <span class="article-category">Commercial Lines</span>
-                                B2B
-                            </div>
-                            <div class="article-content">
-                                <h3 class="article-title">Commercial Insurance Quoting: Speed vs Accuracy Balance</h3>
-                                <p class="article-excerpt">How modern platforms balance lightning-fast quote generation with the precision that commercial insurance lines demand.</p>
-                                <div class="article-meta">
-                                    <span>Dec 1, 2024</span>
-                                    <span class="reading-time">7 min read</span>
+                        <article class="blog-card">
+                            <div class="blog-image">📱</div>
+                            <div class="blog-content">
+                                <span class="blog-category">Mobile Technology</span>
+                                <h3 class="blog-title">Mobile-First Insurance Agencies: A Competitive Advantage</h3>
+                                <p class="blog-excerpt">How mobile-responsive quoting platforms are helping agencies capture leads on-the-go and improve client experience.</p>
+                                <div class="blog-meta">
+                                    <span>Lisa Wang • Jan 5</span>
+                                    <a href="#" class="read-more">Read more</a>
                                 </div>
                             </div>
                         </article>
 
-                        <article class="article-card">
-                            <div class="article-image">
-                                <span class="article-category">Industry Trends</span>
-                                2025
-                            </div>
-                            <div class="article-content">
-                                <h3 class="article-title">2025 Insurance Technology Predictions for Agencies</h3>
-                                <p class="article-excerpt">AI, automation, and regulatory changes that will reshape the insurance industry landscape in the coming year.</p>
-                                <div class="article-meta">
-                                    <span>Nov 28, 2024</span>
-                                    <span class="reading-time">10 min read</span>
+                        <article class="blog-card">
+                            <div class="blog-image">💰</div>
+                            <div class="blog-content">
+                                <span class="blog-category">Agency Growth</span>
+                                <h3 class="blog-title">ROI Analysis: Switching from Legacy Quoting Systems</h3>
+                                <p class="blog-excerpt">Real-world case studies showing the financial impact of modernizing insurance quoting technology.</p>
+                                <div class="blog-meta">
+                                    <span>Alex Thompson • Jan 3</span>
+                                    <a href="#" class="read-more">Read more</a>
                                 </div>
                             </div>
                         </article>
 
-                        <article class="article-card">
-                            <div class="article-image">
-                                <span class="article-category">Mobile Tech</span>
-                                📱
-                            </div>
-                            <div class="article-content">
-                                <h3 class="article-title">Mobile Quoting: Why Field Agents Love Modern Platforms</h3>
-                                <p class="article-excerpt">The competitive advantage of true mobile quoting capabilities and how they're transforming the client experience.</p>
-                                <div class="article-meta">
-                                    <span>Nov 25, 2024</span>
-                                    <span class="reading-time">6 min read</span>
+                        <article class="blog-card">
+                            <div class="blog-image">🔒</div>
+                            <div class="blog-content">
+                                <span class="blog-category">Security</span>
+                                <h3 class="blog-title">Cybersecurity Best Practices for Insurance Agencies</h3>
+                                <p class="blog-excerpt">Essential security measures to protect client data and ensure compliance in the digital age.</p>
+                                <div class="blog-meta">
+                                    <span>Emily Johnson • Jan 1</span>
+                                    <a href="#" class="read-more">Read more</a>
                                 </div>
                             </div>
                         </article>
@@ -272,105 +949,149 @@
 
                     <!-- Pagination -->
                     <div class="pagination">
-                        <a href="#" class="page-link active">1</a>
-                        <a href="#" class="page-link">2</a>
-                        <a href="#" class="page-link">3</a>
-                        <a href="#" class="page-link">Next</a>
+                        <a href="#">← Previous</a>
+                        <a href="#" class="active">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#">4</a>
+                        <a href="#">Next →</a>
                     </div>
                 </main>
 
-                <!-- Sidebar -->
                 <aside class="sidebar">
                     <!-- Newsletter Signup -->
-                    <div class="sidebar-section newsletter-signup">
-                        <h3>Stay Updated</h3>
-                        <p>Get weekly insurance insights</p>
-                        <div class="newsletter-form">
-                            <input type="email" placeholder="Your email" class="newsletter-input">
-                            <button class="newsletter-button">Subscribe</button>
+                    <div class="sidebar-section">
+                        <div class="newsletter">
+                            <h4>Insurance Technology Newsletter</h4>
+                            <p>Get the latest insights on insurance technology, AI, and agency growth strategies.</p>
+                            <form class="newsletter-form">
+                                <input type="email" placeholder="Your email address">
+                                <button type="submit">Subscribe</button>
+                            </form>
                         </div>
                     </div>
 
                     <!-- Categories -->
                     <div class="sidebar-section">
-                        <h3 class="sidebar-title">Categories</h3>
-                        <ul class="category-list">
-                            <li class="category-item">
-                                <a href="#" class="category-link">
-                                    Agency Growth
-                                    <span class="category-count">12</span>
-                                </a>
-                            </li>
-                            <li class="category-item">
-                                <a href="#" class="category-link">
-                                    Applied Rater Alternatives
-                                    <span class="category-count">8</span>
-                                </a>
-                            </li>
-                            <li class="category-item">
-                                <a href="#" class="category-link">
-                                    GAIL AI Success Stories
-                                    <span class="category-count">6</span>
-                                </a>
-                            </li>
-                            <li class="category-item">
-                                <a href="#" class="category-link">
-                                    Technology Trends
-                                    <span class="category-count">15</span>
-                                </a>
-                            </li>
-                            <li class="category-item">
-                                <a href="#" class="category-link">
-                                    Cost Analysis
-                                    <span class="category-count">5</span>
-                                </a>
-                            </li>
+                        <h3>Categories</h3>
+                        <ul class="categories">
+                            <li><a href="#">AI Technology <span class="category-count">12</span></a></li>
+                            <li><a href="#">Agency Growth <span class="category-count">8</span></a></li>
+                            <li><a href="#">Commercial Insurance <span class="category-count">15</span></a></li>
+                            <li><a href="#">Digital Transformation <span class="category-count">6</span></a></li>
+                            <li><a href="#">Industry Trends <span class="category-count">11</span></a></li>
+                            <li><a href="#">Mobile Technology <span class="category-count">4</span></a></li>
+                            <li><a href="#">Security & Compliance <span class="category-count">7</span></a></li>
+                            <li><a href="#">Software Comparisons <span class="category-count">9</span></a></li>
                         </ul>
                     </div>
 
                     <!-- Popular Posts -->
                     <div class="sidebar-section">
-                        <h3 class="sidebar-title">Popular Posts</h3>
-                        <article class="popular-post">
-                            <div class="popular-thumb">60%</div>
-                            <div class="popular-content">
-                                <h4>How Agencies Beat Applied Rater Quote Times</h4>
-                                <div class="popular-date">Dec 15, 2024</div>
-                            </div>
-                        </article>
-                        <article class="popular-post">
-                            <div class="popular-thumb">AI</div>
-                            <div class="popular-content">
-                                <h4>GAIL AI Competitive Intelligence Guide</h4>
-                                <div class="popular-date">Dec 12, 2024</div>
-                            </div>
-                        </article>
-                        <article class="popular-post">
-                            <div class="popular-thumb">$$$</div>
-                            <div class="popular-content">
-                                <h4>Hidden Costs of Legacy Insurance Software</h4>
-                                <div class="popular-date">Dec 8, 2024</div>
-                            </div>
-                        </article>
+                        <h3>Popular Posts</h3>
+                        <ul class="popular-posts">
+                            <li class="popular-post">
+                                <div class="popular-image">🚀</div>
+                                <div class="popular-content">
+                                    <h5>Why 1,000+ Agencies Switched from Applied Rater</h5>
+                                    <div class="popular-meta">Dec 28, 2024</div>
+                                </div>
+                            </li>
+                            <li class="popular-post">
+                                <div class="popular-image">📈</div>
+                                <div class="popular-content">
+                                    <h5>Insurance Agency Profit Margins: 2024 Benchmark Report</h5>
+                                    <div class="popular-meta">Dec 20, 2024</div>
+                                </div>
+                            </li>
+                            <li class="popular-post">
+                                <div class="popular-image">🤝</div>
+                                <div class="popular-content">
+                                    <h5>Building Client Trust in the Digital Insurance Era</h5>
+                                    <div class="popular-meta">Dec 15, 2024</div>
+                                </div>
+                            </li>
+                            <li class="popular-post">
+                                <div class="popular-image">⚙️</div>
+                                <div class="popular-content">
+                                    <h5>AMS Integration Guide: Applied Epic vs AMS360</h5>
+                                    <div class="popular-meta">Dec 10, 2024</div>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
 
                     <!-- Tags -->
                     <div class="sidebar-section">
-                        <h3 class="sidebar-title">Popular Tags</h3>
-                        <div class="tag-cloud">
+                        <h3>Popular Tags</h3>
+                        <div class="tags">
+                            <a href="#" class="tag">AI</a>
                             <a href="#" class="tag">Applied Rater</a>
                             <a href="#" class="tag">EZLynx</a>
-                            <a href="#" class="tag">GAIL AI</a>
                             <a href="#" class="tag">Quote Speed</a>
-                            <a href="#" class="tag">Agency Growth</a>
-                            <a href="#" class="tag">Mobile Quoting</a>
-                            <a href="#" class="tag">Cost Savings</a>
-                            <a href="#" class="tag">Insurance Tech</a>
+                            <a href="#" class="tag">ROI</a>
+                            <a href="#" class="tag">Mobile</a>
+                            <a href="#" class="tag">GAIL AI</a>
+                            <a href="#" class="tag">Commercial</a>
+                            <a href="#" class="tag">Analytics</a>
+                            <a href="#" class="tag">Integration</a>
+                            <a href="#" class="tag">Security</a>
+                            <a href="#" class="tag">Growth</a>
                         </div>
                     </div>
                 </aside>
             </div>
         </div>
     </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="/#features">Features</a></li>
+                        <li><a href="/pricing.html">Pricing</a></li>
+                        <li><a href="#demo">Demo</a></li>
+                        <li><a href="#integrations">Integrations</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="/insurance-quoting-software.html">Insurance Quoting Software</a></li>
+                        <li><a href="/applied-rater-alternative.html">Applied Rater Alternative</a></li>
+                        <li><a href="/commercial-insurance-quoting.html">Commercial Insurance</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/#about">About</a></li>
+                        <li><a href="/blog.html">Blog</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#privacy">Privacy</a></li>
+                        <li><a href="#terms">Terms</a></li>
+                        <li><a href="#security">Security</a></li>
+                        <li><a href="#compliance">Compliance</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Quotely. All rights reserved. Built for insurance agencies.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
