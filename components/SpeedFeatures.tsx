@@ -4,7 +4,7 @@ export default function SpeedFeatures() {
       icon: '⚡',
       title: 'Lightning Fast Quotes',
       description: 'Generate accurate quotes in under 2 minutes with our optimized workflow and smart defaults.',
-      metric: '↑ 60% faster than competitors'
+      metric: 'Optimized for speed'
     },
     {
       icon: '🤖',
@@ -28,7 +28,7 @@ export default function SpeedFeatures() {
       icon: '📊',
       title: 'Smart Analytics',
       description: 'Track conversion rates, identify bottlenecks, and optimize your sales process.',
-      metric: '45% better conversions'
+      metric: 'Conversion-focused design'
     },
     {
       icon: '🔐',

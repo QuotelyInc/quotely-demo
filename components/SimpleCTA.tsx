@@ -122,7 +122,7 @@ export default function SimpleCTA() {
         <div className="cta-container">
           <h2 className="cta-title">Ready to simplify?</h2>
           <p className="cta-subtitle">
-            Join 1,000+ agencies already using Quotely
+            Join forward-thinking agencies transforming with Quotely
           </p>
           <button className="cta-button" onClick={handleStartTrial}>
             <span>Start Free Trial</span>

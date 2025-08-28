@@ -1093,7 +1093,7 @@ const TurboRaterDemo = () => {
                 <span className="font-medium text-green-900">Quote Generation Complete!</span>
               </div>
               <p className="text-green-800 text-sm">
-                ⚡ Generated in {formatTime(elapsedTime)} - 60% faster than traditional platforms
+                ⚡ Generated in {formatTime(elapsedTime)} - Optimized for speed and efficiency
               </p>
             </div>
           </div>
@@ -1212,7 +1212,7 @@ const TurboRaterDemo = () => {
                   <div className="text-center">
                     <div className="text-2xl font-bold text-green-600">{formatTime(elapsedTime)}</div>
                     <div className="text-sm text-gray-600">Total Time</div>
-                    <div className="text-xs text-green-600">60% faster than competitor platforms</div>
+                    <div className="text-xs text-green-600">Industry-leading performance</div>
                   </div>
                   <div className="text-center">
                     <div className="text-2xl font-bold text-blue-600">{quotes.length}</div>

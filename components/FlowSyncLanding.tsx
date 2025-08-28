@@ -667,7 +667,7 @@ export default function FlowSyncLanding() {
             <div className="feature-card">
               <div className="feature-icon">⚡</div>
               <h3>1.8 Min Quotes</h3>
-              <p>Generate accurate quotes in under 2 minutes with our AI-powered engine. 60% faster than legacy platforms.</p>
+              <p>Generate accurate quotes in under 2 minutes with our AI-powered engine. Optimized for maximum efficiency.</p>
             </div>
             
             <div className="feature-card">

@@ -72,7 +72,7 @@ export const RotatingNewsCommentary = () => {
           excerpt: "competitor platforms releases updates to compete with newer platforms...",
           source: "Insurance Journal",
           relevanceScore: 92,
-          quotelyAngle: "How Quotely delivers 60% faster performance than legacy systems"
+          quotelyAngle: "How Quotely optimizes performance for modern insurance agencies"
         }
       ];
       

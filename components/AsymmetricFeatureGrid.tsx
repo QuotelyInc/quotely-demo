@@ -58,7 +58,7 @@ export default function AsymmetricFeatureGrid() {
       id: "instant-quotes",
       title: "Instant Quote Generation",
       description:
-        "Generate accurate quotes in under 2 minutes with our AI-powered engine. 60% faster than traditional platforms.",
+        "Generate accurate quotes in under 2 minutes with our AI-powered engine. Built for maximum efficiency.",
       videoUrl: "/demos/instant-quote.mp4",
       size: "large",
       icon: "⚡",

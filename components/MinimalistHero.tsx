@@ -212,7 +212,7 @@ export default function MinimalistHero() {
         
         <div className="hero-content">
           <div className="speed-badge">
-            ⚡ 60% faster than competitors
+            ⚡ Built for speed and efficiency
           </div>
           
           <h1 className="hero-title">
