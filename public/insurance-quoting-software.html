@@ -670,10 +670,10 @@
             font-size: 1.5rem;
             color: #29274C;
             cursor: pointer;
+            padding: 0.5rem;
         }
         
         .mobile-nav {
-            display: none;
             position: fixed;
             top: 0;
             left: -100%;
@@ -682,7 +682,7 @@
             background: white;
             z-index: 2000;
             transition: left 0.3s ease;
-            box-shadow: 2px 0 10px rgba(41, 39, 76, 0.1);
+            box-shadow: 2px 0 10px rgba(41, 39, 76, 0.2);
             overflow-y: auto;
         }
         
@@ -696,6 +696,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            background: white;
+        }
+        
+        .mobile-nav-header .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #29274C;
         }
         
         .mobile-nav-close {
@@ -704,10 +711,12 @@
             font-size: 1.5rem;
             color: #29274C;
             cursor: pointer;
+            padding: 0.5rem;
         }
         
         .mobile-nav-content {
             padding: 1rem 0;
+            background: white;
         }
         
         .mobile-nav-section {
@@ -734,7 +743,8 @@
             border-left: 3px solid transparent;
         }
         
-        .mobile-nav-link:hover {
+        .mobile-nav-link:hover,
+        .mobile-nav-link:active {
             background-color: #E4E4E4;
             color: #F26D00;
             border-left-color: #F26D00;
@@ -753,7 +763,6 @@
         }
         
         .mobile-overlay {
-            display: none;
             position: fixed;
             top: 0;
             left: 0;
@@ -761,10 +770,14 @@
             height: 100%;
             background: rgba(41, 39, 76, 0.5);
             z-index: 1500;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
         }
         
         .mobile-overlay.active {
-            display: block;
+            opacity: 1;
+            visibility: visible;
         }
         
         /* Mobile Responsive */
@@ -968,13 +981,11 @@
                     </ul>
 
                     <h3>Integration Capabilities</h3>
-                    <p>Unlike standalone quoting tools, Quotely integrates seamlessly with your existing agency management system:</p>
+                    <p>Unlike standalone quoting tools, Quotely integrates seamlessly with your existing systems:</p>
                     <ul>
-                        <li><strong>Applied Epic:</strong> Full two-way data synchronization</li>
-                        <li><strong>AMS360:</strong> Client data import/export, policy management</li>
-                        <li><strong>Salesforce:</strong> Lead tracking and conversion optimization</li>
-                        <li><strong>QuickBooks:</strong> Automated commission tracking</li>
-                        <li><strong>Agency Matrix:</strong> Streamlined workflow integration</li>
+                        <li><strong>Momentum AMP by NowCerts:</strong> Full two-way data synchronization</li>
+                        <li><strong>GAIL AI:</strong> Advanced competitive intelligence and rate optimization</li>
+                        <li><strong>TurboRater by Zywave:</strong> Streamlined workflow integration</li>
                     </ul>
 
                     <div class="highlight-box">
@@ -1180,28 +1191,35 @@
             const mobileNav = document.getElementById('mobileNav');
             const overlay = document.querySelector('.mobile-overlay');
             
-            mobileNav.classList.toggle('active');
-            overlay.classList.toggle('active');
+            if (mobileNav && overlay) {
+                mobileNav.classList.toggle('active');
+                overlay.classList.toggle('active');
+            }
         }
         
         function closeMobileNav() {
             const mobileNav = document.getElementById('mobileNav');
             const overlay = document.querySelector('.mobile-overlay');
             
-            mobileNav.classList.remove('active');
-            overlay.classList.remove('active');
+            if (mobileNav && overlay) {
+                mobileNav.classList.remove('active');
+                overlay.classList.remove('active');
+            }
         }
         
-        // Close mobile nav when clicking on a link
-        document.querySelectorAll('.mobile-nav-link, .mobile-cta').forEach(link => {
-            link.addEventListener('click', closeMobileNav);
-        });
-        
-        // Close mobile nav on window resize
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 968) {
-                closeMobileNav();
-            }
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Close mobile nav when clicking on a link
+            document.querySelectorAll('.mobile-nav-link, .mobile-cta').forEach(link => {
+                link.addEventListener('click', closeMobileNav);
+            });
+            
+            // Close mobile nav on window resize
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 968) {
+                    closeMobileNav();
+                }
+            });
         });
     </script>
 </body>
