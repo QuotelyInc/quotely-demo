@@ -645,10 +645,10 @@
             font-size: 1.5rem;
             color: #29274C;
             cursor: pointer;
+            padding: 0.5rem;
         }
         
         .mobile-nav {
-            display: none;
             position: fixed;
             top: 0;
             left: -100%;
@@ -657,7 +657,7 @@
             background: white;
             z-index: 2000;
             transition: left 0.3s ease;
-            box-shadow: 2px 0 10px rgba(41, 39, 76, 0.1);
+            box-shadow: 2px 0 10px rgba(41, 39, 76, 0.2);
             overflow-y: auto;
         }
         
@@ -671,6 +671,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            background: white;
+        }
+        
+        .mobile-nav-header .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #29274C;
         }
         
         .mobile-nav-close {
@@ -679,10 +686,12 @@
             font-size: 1.5rem;
             color: #29274C;
             cursor: pointer;
+            padding: 0.5rem;
         }
         
         .mobile-nav-content {
             padding: 1rem 0;
+            background: white;
         }
         
         .mobile-nav-section {
@@ -709,7 +718,8 @@
             border-left: 3px solid transparent;
         }
         
-        .mobile-nav-link:hover {
+        .mobile-nav-link:hover,
+        .mobile-nav-link:active {
             background-color: #E4E4E4;
             color: #F26D00;
             border-left-color: #F26D00;
@@ -728,7 +738,6 @@
         }
         
         .mobile-overlay {
-            display: none;
             position: fixed;
             top: 0;
             left: 0;
@@ -736,10 +745,14 @@
             height: 100%;
             background: rgba(41, 39, 76, 0.5);
             z-index: 1500;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
         }
         
         .mobile-overlay.active {
-            display: block;
+            opacity: 1;
+            visibility: visible;
         }
         
         /* Mobile Responsive */
@@ -1149,12 +1162,19 @@
 
     <script>
         function toggleMobileNav() {
+            console.log('Hamburger clicked!'); // Debug log
             const mobileNav = document.getElementById('mobileNav');
             const overlay = document.querySelector('.mobile-overlay');
+            
+            console.log('Mobile nav element:', mobileNav); // Debug log
+            console.log('Overlay element:', overlay); // Debug log
             
             if (mobileNav && overlay) {
                 mobileNav.classList.toggle('active');
                 overlay.classList.toggle('active');
+                console.log('Menu should now be:', mobileNav.classList.contains('active') ? 'OPEN' : 'CLOSED'); // Debug log
+            } else {
+                console.log('ERROR: Mobile nav elements not found!'); // Debug log
             }
         }
         
@@ -1170,6 +1190,14 @@
         
         // Wait for DOM to be fully loaded
         document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, setting up mobile nav...'); // Debug log
+            
+            // Test if elements exist
+            const mobileNav = document.getElementById('mobileNav');
+            const hamburger = document.querySelector('.mobile-menu-toggle');
+            console.log('Found mobile nav:', !!mobileNav);
+            console.log('Found hamburger:', !!hamburger);
+            
             // Close mobile nav when clicking on a link
             document.querySelectorAll('.mobile-nav-link, .mobile-cta').forEach(link => {
                 link.addEventListener('click', closeMobileNav);
