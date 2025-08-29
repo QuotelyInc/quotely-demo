@@ -982,7 +982,7 @@
                 <div class="feature-card">
                     <div class="feature-icon">🔗</div>
                     <h3>Seamless Integration</h3>
-                    <p>Connect with Applied Epic, AMS360, Salesforce, and 50+ other systems your agency already uses.</p>
+                    <p>Connect with Momentum AMP by NowCerts, GAIL AI, and TurboRater by Zywave - the only integrations you need.</p>
                 </div>
                 
                 <div class="feature-card">
@@ -1089,11 +1089,11 @@
                 </div>
                 
                 <div class="footer-section">
-                    <h4>Resources</h4>
+                    <h4>Integrations</h4>
                     <ul>
-                        <li><a href="/insurance-quoting-software.html">Insurance Quoting Software</a></li>
-                        <li><a href="/applied-rater-alternative.html">Applied Rater Alternative</a></li>
-                        <li><a href="/commercial-insurance-quoting.html">Commercial Insurance</a></li>
+                        <li><a href="#momentum-amp">Momentum AMP by NowCerts</a></li>
+                        <li><a href="#gail-ai">GAIL AI</a></li>
+                        <li><a href="#turborater">TurboRater by Zywave</a></li>
                         <li><a href="#help">Help Center</a></li>
                     </ul>
                 </div>
@@ -1120,28 +1120,35 @@
             const mobileNav = document.getElementById('mobileNav');
             const overlay = document.querySelector('.mobile-overlay');
             
-            mobileNav.classList.toggle('active');
-            overlay.classList.toggle('active');
+            if (mobileNav && overlay) {
+                mobileNav.classList.toggle('active');
+                overlay.classList.toggle('active');
+            }
         }
         
         function closeMobileNav() {
             const mobileNav = document.getElementById('mobileNav');
             const overlay = document.querySelector('.mobile-overlay');
             
-            mobileNav.classList.remove('active');
-            overlay.classList.remove('active');
+            if (mobileNav && overlay) {
+                mobileNav.classList.remove('active');
+                overlay.classList.remove('active');
+            }
         }
         
-        // Close mobile nav when clicking on a link
-        document.querySelectorAll('.mobile-nav-link, .mobile-cta').forEach(link => {
-            link.addEventListener('click', closeMobileNav);
-        });
-        
-        // Close mobile nav on window resize
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 968) {
-                closeMobileNav();
-            }
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Close mobile nav when clicking on a link
+            document.querySelectorAll('.mobile-nav-link, .mobile-cta').forEach(link => {
+                link.addEventListener('click', closeMobileNav);
+            });
+            
+            // Close mobile nav on window resize
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 968) {
+                    closeMobileNav();
+                }
+            });
         });
     </script>
 </body>
