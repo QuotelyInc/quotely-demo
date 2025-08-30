@@ -21,6 +21,13 @@ Quotely is the next-generation insurance platform that transforms agencies into 
 - **Deployment**: Vercel
 - **Analytics**: Integrated tracking system
 
+## 🛜 Social Media 
+https://www.youtube.com/@tryquotely
+https://x.com/TryQuotely
+https://www.tiktok.com/@tryquotely
+https://www.lemon8-app.com/@tryquotely
+https://www.facebook.com/TryQuotely/
+
 ## 📦 Installation
 
 ```bash
