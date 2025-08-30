@@ -1,4 +1,5 @@
 # Quotely - Revolutionary Insurance Platform
+![image (43)](https://github.com/user-attachments/assets/112f8117-8e52-48be-b212-a9a0de9f887b)
 
 ## 🚀 Overview
 
@@ -149,8 +150,9 @@ tryquotely/
 ## 📞 Support
 
 - **Email**: support@tryquotely.com
-- **Documentation**: docs.tryquotely.com
-- **Status Page**: status.tryquotely.com
+- **Phone**: (918)794-6993
+- **Documentation**: https://tryquotely.com/
+- **Status Page**: https://tryquotely.com/
 
 ## 🗺️ Roadmap
 
@@ -166,4 +168,6 @@ Copyright © 2025 Quotely, Inc. All rights reserved.
 
 ---
 
-**Built with ❤️ by the Quotely Team**
+**Built with ❤️ by the Quotely Team 
+  Quotely = I/O → A/I → UI/UX → Ø**<img width="1024" height="1024" alt="Futuristic Glowing _Quotely_ Design" src="https://github.com/user-attachments/assets/1047ca5c-6400-4e48-a21e-d8d88b28e5e6" />
+
