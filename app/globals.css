@@ -6,6 +6,27 @@
 @import "./desktop-fixes.css";
 @import "./wcag-accessibility.css";
 
+/* Tailwind base setup */
+@layer base {
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  }
+}
+
+@layer components {
+  .gradient-bg {
+    background: linear-gradient(135deg, #4c51bf 0%, #667eea 100%);
+  }
+  
+  .purple-gradient {
+    background: linear-gradient(135deg, #5a67d8 0%, #667eea 50%, #764ba2 100%);
+  }
+  
+  .quotely-shadow {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+}
+
 /* Demo Video Animations */
 @keyframes fadeIn {
   from {

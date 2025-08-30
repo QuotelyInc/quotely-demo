@@ -152,8 +152,7 @@ const TurboRaterDemoWithAPI = () => {
     const quoteId = `Q-${Date.now().toString().slice(-6)}`;
     addLogEntry('success', `Quote generated: ${quoteId}`);
     addLogEntry('info', `Premium: $${Math.floor(Math.random() * 500 + 1000)}/6mo`);
-    addLogEntry('info', `Carrier: ${['State Farm', 'GEICO', 'Progressive'][Math.floor(Math.random() * 3)]}`);
-  };
+    addLogEntry('info', `Carrier: ${['Carrier A', 'Carrier B', 'Carrier C'][Math.floor(Math.random() * 3)]}`);  };
 
   return (
     <div className="max-w-6xl mx-auto p-6">

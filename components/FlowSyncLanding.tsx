@@ -709,12 +709,9 @@ export default function FlowSyncLanding() {
           <h2>Seamlessly Integrate with Top Carriers</h2>
           
           <div className="integration-logos">
-            <div className="integration-logo">Progressive</div>
-            <div className="integration-logo">State Farm</div>
-            <div className="integration-logo">Allstate</div>
-            <div className="integration-logo">Liberty</div>
-            <div className="integration-logo">Farmers</div>
-            <div className="integration-logo">Nationwide</div>
+            <div className="integration-logo">TurboRater</div>
+            <div className="integration-logo">Insurance Partners</div>
+            <div className="integration-logo">Carrier Network</div>
           </div>
         </div>
       </section>

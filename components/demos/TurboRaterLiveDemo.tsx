@@ -92,9 +92,9 @@ const TurboRaterLiveDemo = () => {
           id: `Q-${Date.now().toString().slice(-6)}`,
           premium: Math.floor(Math.random() * 500 + 1000),
           carriers: [
-            { name: 'State Farm', premium: 1247, savings: 234 },
-            { name: 'GEICO', premium: 1189, savings: 292 },
-            { name: 'Progressive', premium: 1356, savings: 125 }
+            { name: 'Carrier A', premium: 1247, savings: 234 },
+            { name: 'Carrier B', premium: 1189, savings: 292 },
+            { name: 'Carrier C', premium: 1356, savings: 125 }
           ],
           generatedIn: 1.8
         };

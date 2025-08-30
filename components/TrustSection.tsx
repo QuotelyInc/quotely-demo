@@ -58,14 +58,10 @@ const SecurityBadge = ({
 // Customer Logos Component
 const CustomerLogos = () => {
   const customers = [
-    { name: "State Farm", type: "Insurance Partner" },
-    { name: "Allstate", type: "Insurance Partner" },
-    { name: "Progressive", type: "Insurance Partner" },
-    { name: "Liberty Mutual", type: "Insurance Partner" },
-    { name: "Farmers", type: "Insurance Partner" },
-    { name: "Nationwide", type: "Insurance Partner" },
-    { name: "USAA", type: "Insurance Partner" },
-    { name: "Travelers", type: "Insurance Partner" }
+    { name: "TurboRater Network", type: "Technology Partner" },
+    { name: "Carrier Network", type: "Insurance Platform" },
+    { name: "Agency Partners", type: "Distribution" },
+    { name: "InsurTech Solutions", type: "Technology" }
   ]
   
   return (

@@ -57,14 +57,14 @@ const TurboRaterDemo = () => {
   });
 
   const enhancedSampleQuotes = [
-    { id: 'Q001', customer: 'John Smith', status: 'Active', premium: '$1,156', syncStatus: 'Synced', lastSync: '2024-01-15 14:30', carrier: 'State Farm', policy: 'Auto' },
-    { id: 'Q002', customer: 'Sarah Johnson', status: 'Pending', premium: '$1,289', syncStatus: 'Pending', lastSync: '2024-01-15 12:15', carrier: 'Allstate', policy: 'Home' },
-    { id: 'Q003', customer: 'Mike Davis', status: 'Active', premium: '$1,445', syncStatus: 'Synced', lastSync: '2024-01-15 16:45', carrier: 'Progressive', policy: 'Auto' },
-    { id: 'Q004', customer: 'Lisa Wilson', status: 'Quote', premium: '$1,234', syncStatus: 'New', lastSync: 'Never', carrier: 'GEICO', policy: 'Auto' },
-    { id: 'Q005', customer: 'Tom Brown', status: 'Active', premium: '$1,567', syncStatus: 'Synced', lastSync: '2024-01-15 13:20', carrier: 'Liberty Mutual', policy: 'Home' },
-    { id: 'Q006', customer: 'Emma Garcia', status: 'Pending', premium: '$987', syncStatus: 'Error', lastSync: '2024-01-15 11:30', carrier: 'Farmers', policy: 'Auto' },
-    { id: 'Q007', customer: 'David Lee', status: 'Active', premium: '$2,156', syncStatus: 'Synced', lastSync: '2024-01-15 15:10', carrier: 'Nationwide', policy: 'Home' },
-    { id: 'Q008', customer: 'Jennifer White', status: 'Quote', premium: '$1,678', syncStatus: 'New', lastSync: 'Never', carrier: 'Travelers', policy: 'Auto' }
+    { id: 'Q001', customer: 'John Smith', status: 'Active', premium: '$1,156', syncStatus: 'Synced', lastSync: '2024-01-15 14:30', carrier: 'Carrier A', policy: 'Auto' },
+    { id: 'Q002', customer: 'Sarah Johnson', status: 'Pending', premium: '$1,289', syncStatus: 'Pending', lastSync: '2024-01-15 12:15', carrier: 'Carrier B', policy: 'Home' },
+    { id: 'Q003', customer: 'Mike Davis', status: 'Active', premium: '$1,445', syncStatus: 'Synced', lastSync: '2024-01-15 16:45', carrier: 'Carrier C', policy: 'Auto' },
+    { id: 'Q004', customer: 'Lisa Wilson', status: 'Quote', premium: '$1,234', syncStatus: 'New', lastSync: 'Never', carrier: 'Carrier D', policy: 'Auto' },
+    { id: 'Q005', customer: 'Tom Brown', status: 'Active', premium: '$1,567', syncStatus: 'Synced', lastSync: '2024-01-15 13:20', carrier: 'Carrier E', policy: 'Home' },
+    { id: 'Q006', customer: 'Emma Garcia', status: 'Pending', premium: '$987', syncStatus: 'Error', lastSync: '2024-01-15 11:30', carrier: 'Carrier G', policy: 'Auto' },
+    { id: 'Q007', customer: 'David Lee', status: 'Active', premium: '$2,156', syncStatus: 'Synced', lastSync: '2024-01-15 15:10', carrier: 'Carrier H', policy: 'Home' },
+    { id: 'Q008', customer: 'Jennifer White', status: 'Quote', premium: '$1,678', syncStatus: 'New', lastSync: 'Never', carrier: 'Carrier F', policy: 'Auto' }
   ];
 
   // Demo Functions
@@ -184,7 +184,7 @@ const TurboRaterDemo = () => {
     const mockQuotes = [
       {
         id: 1,
-        carrier: 'State Farm',
+        carrier: 'Carrier A',
         premium: 1247,
         coverage: 'Full Coverage',
         confidence: 92,
@@ -194,7 +194,7 @@ const TurboRaterDemo = () => {
       },
       {
         id: 2,
-        carrier: 'Geico',
+        carrier: 'Carrier B',
         premium: 1189,
         coverage: 'Full Coverage', 
         confidence: 88,
@@ -204,7 +204,7 @@ const TurboRaterDemo = () => {
       },
       {
         id: 3,
-        carrier: 'Progressive',
+        carrier: 'Carrier C',
         premium: 1356,
         coverage: 'Full Coverage',
         confidence: 85,

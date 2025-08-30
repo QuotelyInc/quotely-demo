@@ -109,7 +109,6 @@ export default function ExitIntentPopup() {
                     <li>• 20% off your first month</li>
                     <li>• Free data migration (valued at $500)</li>
                     <li>• Priority onboarding support</li>
-                    <li>• 30-day money-back guarantee</li>
                   </ul>
                 </div>
               </div>
