@@ -1,0 +1,65 @@
+name: Auto Deploy Quotely Platform
+description: Automatically deploy changes to Vercel when files are modified
+trigger: file_change
+enabled: true
+
+filters:
+  paths:
+    - app/**/*
+    - components/**/*
+    - lib/**/*
+    - styles/**/*
+    - public/**/*
+    - package.json
+    - vercel.json
+  ignore:
+    - "*.md"
+    - "*.log"
+    - ".env*"
+    - "node_modules/**"
+    - ".next/**"
+    - ".vercel/**"
+
+steps:
+  - name: Check Git Status
+    command: git status --porcelain
+    continue_on_error: false
+
+  - name: Run Linter
+    command: npm run lint
+    continue_on_error: true
+
+  - name: Build Application
+    command: npm run build
+    continue_on_error: false
+
+  - name: Commit Changes
+    command: |
+      git add .
+      git commit -m "Auto-update: $(date +'%Y-%m-%d %H:%M:%S')"
+    continue_on_error: true
+
+  - name: Push to GitHub
+    command: git push origin master
+    continue_on_error: false
+
+  - name: Deploy to Vercel
+    command: vercel --prod --yes
+    continue_on_error: true
+    
+  - name: Notify Deployment
+    command: |
+      echo "✅ Deployment triggered"
+      echo "📦 Check status at: https://vercel.com/quotely/tryquotely"
+    continue_on_error: true
+
+notifications:
+  on_success:
+    message: "✅ Quotely platform deployed successfully"
+  on_failure:
+    message: "❌ Quotely deployment failed - manual intervention required"
+
+settings:
+  max_retries: 2
+  timeout: 300
+  debounce: 5000
