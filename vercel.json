@@ -12,24 +12,8 @@
       "develop": false
     }
   },
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/next"
-    }
-  ],
   "env": {
-    "NODE_ENV": "production",
-    "NEXT_PUBLIC_OTTO_UUID": "@next_public_otto_uuid",
-    "NEXT_PUBLIC_OTTO_ENABLED": "@next_public_otto_enabled",
-    "NEXT_PUBLIC_SITE_URL": "@next_public_site_url"
-  },
-  "build": {
-    "env": {
-      "NEXT_PUBLIC_OTTO_UUID": "@next_public_otto_uuid",
-      "NEXT_PUBLIC_OTTO_ENABLED": "@next_public_otto_enabled",
-      "NEXT_PUBLIC_SITE_URL": "@next_public_site_url"
-    }
+    "NODE_ENV": "production"
   },
   "functions": {
     "app/api/**/*.ts": {
