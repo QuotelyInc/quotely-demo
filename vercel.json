@@ -1,26 +1,17 @@
 {
   "version": 2,
-  "public": true,
-  "github": {
-    "enabled": true,
-    "autoAlias": true
-  },
-  "git": {
-    "deploymentEnabled": {
-      "master": true,
-      "main": true,
-      "develop": false
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next"
     }
-  },
+  ],
   "env": {
     "NODE_ENV": "production"
   },
   "functions": {
     "app/api/**/*.ts": {
       "maxDuration": 30
-    },
-    "app/api/turborater/**/*.ts": {
-      "maxDuration": 60
     }
   },
   "headers": [
@@ -29,50 +20,14 @@
       "headers": [
         { "key": "Access-Control-Allow-Origin", "value": "*" },
         { "key": "Access-Control-Allow-Methods", "value": "GET, POST, PUT, DELETE, OPTIONS" },
-        { "key": "Access-Control-Allow-Headers", "value": "Content-Type, Authorization" },
-        { "key": "Cache-Control", "value": "no-store, max-age=0" }
-      ]
-    },
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "X-Robots-Tag",
-          "value": "index, follow"
-        },
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        },
-        {
-          "key": "X-Frame-Options",
-          "value": "SAMEORIGIN"
-        },
-        {
-          "key": "Strict-Transport-Security",
-          "value": "max-age=31536000; includeSubDomains"
-        }
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type, Authorization" }
       ]
     }
   ],
   "rewrites": [
     {
       "source": "/api/quotes/:path*",
-      "destination": "/api/turborater/:path*"
-    }
-  ],
-  "redirects": [
-    {
-      "source": "/home",
-      "destination": "/",
-      "permanent": true
-    }
-  ],
-  "regions": ["iad1"],
-  "crons": [
-    {
-      "path": "/api/health",
-      "schedule": "0 12 * * *"
+      "destination": "/api/quotes/:path*"
     }
   ]
 }
