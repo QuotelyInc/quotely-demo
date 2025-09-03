@@ -61,33 +61,24 @@ jobs:
           NEXT_PUBLIC_OTTO_ENABLED: true
           NEXT_PUBLIC_SITE_URL: https://tryquotely.com
           
-      - name: Install Vercel CLI
-        run: npm install --global vercel@latest
-        
-      - name: Clean Vercel Directory
-        run: rm -rf .vercel
-        
       - name: Deploy to Vercel (Production)
         if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
-        run: |
-          vercel --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
-        env:
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-          NEXT_PUBLIC_OTTO_UUID: ${{ secrets.NEXT_PUBLIC_OTTO_UUID }}
-          NEXT_PUBLIC_OTTO_ENABLED: true
-          NEXT_PUBLIC_SITE_URL: https://tryquotely.com
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-args: '--prod'
+          working-directory: ./
         
       - name: Deploy to Vercel (Preview)
         if: github.ref != 'refs/heads/master' && github.ref != 'refs/heads/main'
-        run: |
-          vercel --yes --token=${{ secrets.VERCEL_TOKEN }}
-        env:
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-          NEXT_PUBLIC_OTTO_UUID: ${{ secrets.NEXT_PUBLIC_OTTO_UUID }}
-          NEXT_PUBLIC_OTTO_ENABLED: true
-          NEXT_PUBLIC_SITE_URL: https://tryquotely.com
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          working-directory: ./
         
       - name: Comment PR with deployment URL
         if: github.event_name == 'pull_request'
