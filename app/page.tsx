@@ -23,13 +23,22 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div className="space-y-8">
+              <div className="launch-notice bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full inline-block mb-4" style={{
+                border: '1px solid rgba(255,255,255,0.2)',
+                fontSize: '0.9rem',
+                letterSpacing: '0.5px',
+                fontWeight: '500'
+              }}>
+                InsurTech SaaS Startup | Launching Q4 2025 | For Independent Insurance Agents
+              </div>
+              
               <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
-                Get real quotes<br />
-                from real carriers
+                Insurance Workflow Platform for Independent Agents
               </h1>
               
-              <p className="text-xl lg:text-2xl text-white/90 leading-relaxed">
-                With AI-powered insights and personalized recommendations, we guide you to your best insurance options 60% faster than Applied Rater.
+              <p className="hero-subtitle text-xl lg:text-2xl text-white/90 leading-relaxed">
+                Quotely is an InsurTech SaaS startup launching Q4 2025, designed specifically for independent insurance agents. 
+                Streamline workflows and reduce operational costs with 24/7 AI-powered assistance.
               </p>
               
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
@@ -37,7 +46,7 @@ export default function HomePage() {
                   href="/demo"
                   className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors inline-flex items-center justify-center"
                 >
-                  Get Quotes
+                  Join Early Access
                 </Link>
               </div>
             </div>
@@ -101,10 +110,10 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Why agencies choose Quotely
+              Why choose Quotely
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Join over 1 million agencies who trust our platform for faster, more accurate insurance quotes
+              Built specifically for independent insurance agents to streamline operations and enhance productivity
             </p>
           </div>
 
@@ -115,9 +124,9 @@ export default function HomePage() {
                   <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Real Carriers, Real Quotes</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Comprehensive Platform</h3>
               <p className="text-gray-600">
-                Direct integrations with major insurance carriers ensure you get accurate, real-time quotes every time.
+                All-in-one solution combining quoting, CRM, and analytics tools designed for independent agents.
               </p>
             </div>
 
@@ -127,9 +136,9 @@ export default function HomePage() {
                   <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">60% Faster Quotes</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Workflow Automation</h3>
               <p className="text-gray-600">
-                AI-powered automation reduces quote time from hours to minutes, beating Applied Rater's speed.
+                Streamline your daily operations with intelligent automation that reduces manual tasks and saves time.
               </p>
             </div>
 
@@ -139,9 +148,9 @@ export default function HomePage() {
                   <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">AI-Powered Insights</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">24/7 AI Assistant</h3>
               <p className="text-gray-600">
-                GAIL AI provides personalized recommendations and explains why certain policies fit your clients better.
+                Get intelligent support around the clock with our AI assistant that helps with quotes, questions, and recommendations.
               </p>
             </div>
 
