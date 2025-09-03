@@ -67,7 +67,7 @@ jobs:
       - name: Deploy to Vercel (Production)
         if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
         run: |
-          vercel deploy --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
+          npx vercel@latest --prod --yes --confirm --token=${{ secrets.VERCEL_TOKEN }} --name=quotely-platform --build-env NEXT_PUBLIC_OTTO_UUID=${{ secrets.NEXT_PUBLIC_OTTO_UUID }} --build-env NEXT_PUBLIC_OTTO_ENABLED=true --build-env NEXT_PUBLIC_SITE_URL=https://tryquotely.com
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
@@ -75,7 +75,7 @@ jobs:
       - name: Deploy to Vercel (Preview)
         if: github.ref != 'refs/heads/master' && github.ref != 'refs/heads/main'
         run: |
-          vercel deploy --yes --token=${{ secrets.VERCEL_TOKEN }}
+          npx vercel@latest --yes --confirm --token=${{ secrets.VERCEL_TOKEN }} --name=quotely-platform --build-env NEXT_PUBLIC_OTTO_UUID=${{ secrets.NEXT_PUBLIC_OTTO_UUID }} --build-env NEXT_PUBLIC_OTTO_ENABLED=true --build-env NEXT_PUBLIC_SITE_URL=https://tryquotely.com
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
