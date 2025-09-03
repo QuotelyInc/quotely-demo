@@ -193,21 +193,91 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Partners Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Powered by Industry Leaders
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              We partner with trusted technology providers to deliver comprehensive insurance solutions
+            </p>
+          </div>
+          
+          <div className="partners-grid grid md:grid-cols-3 gap-8">
+            <div className="partner-card bg-gray-50 rounded-xl p-8 border border-gray-200 hover:shadow-lg transition-shadow">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">TurboRater by Zywave</h3>
+              <p className="text-gray-600 mb-4">
+                Direct pricing integration - all quotes come from TurboRater's carrier network. Quotely provides the interface, not the pricing.
+              </p>
+              <a 
+                href="https://www.zywave.com/personal-lines/sales-cloud/turborater/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-700 font-medium inline-flex items-center gap-2"
+              >
+                Learn More
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+            
+            <div className="partner-card bg-gray-50 rounded-xl p-8 border border-gray-200 hover:shadow-lg transition-shadow">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Momentum AMP by NowCerts</h3>
+              <p className="text-gray-600 mb-4">
+                Integrated AMS/CRM system for workflow management and agency operations.
+              </p>
+              <a 
+                href="https://momentumamp.com/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-700 font-medium inline-flex items-center gap-2"
+              >
+                Learn More
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+            
+            <div className="partner-card bg-gray-50 rounded-xl p-8 border border-gray-200 hover:shadow-lg transition-shadow">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">GAIL AI</h3>
+              <p className="text-gray-600 mb-4">
+                Transformative AI technology for financial services and workflow optimization.
+              </p>
+              <a 
+                href="https://meetgail.com/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-700 font-medium inline-flex items-center gap-2"
+              >
+                Learn More
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-6">
-            Ready to transform your quoting process?
+            Ready to join the Q4 2025 launch?
           </h2>
           <p className="text-xl text-blue-100 mb-8">
-            Join over 1 million agencies already using Quotely to serve their clients better.
+            Be among the first independent agents to experience the future of insurance technology.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/demo"
               className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors"
             >
-              Start Free Trial
+              Join Early Access
             </Link>
             <Link
               href="/pricing"
