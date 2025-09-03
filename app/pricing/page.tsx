@@ -433,11 +433,8 @@ function PricingPage() {
       {/* Pricing Hero */}
       <section className="pricing-hero">
         <div className="container">
-          <div className="early-access-badge">
-            🔥 Exclusive Early Access Available
-          </div>
-          <h1>Flexible QUAD Pricing Plans</h1>
-          <p>Choose your perfect tier with customized solutions for agencies of all sizes</p>
+          <h1>Transparent Platform Pricing</h1>
+          <p>Professional insurance technology platform for modern agencies</p>
         </div>
       </section>
 
@@ -538,21 +535,44 @@ function PricingPage() {
       <section className="pricing-section">
         <div className="container">
           <div className="section-header">
-            <h2>Featured QUAD Tiers</h2>
-            <p>Start anywhere, upgrade anytime with flexible options</p>
+            <h2>Quotely Platform Pricing</h2>
+            <p>Complete insurance platform solution with transparent pricing</p>
           </div>
           
           <div className="pricing-grid">
-            {/* QUAD 1.0 */}
+            {/* Main Platform Pricing */}
             <div className="pricing-card recommended">
-              <div className="pricing-badge badge-recommended">BEST ENTRY POINT</div>
+              <div className="pricing-badge badge-recommended">COMPLETE PLATFORM</div>
               <div className="pricing-header">
-                <div className="pricing-name">QUAD 1.0</div>
-                <div className="pricing-description">Perfect for getting started</div>
+                <div className="pricing-name">Quotely Platform</div>
+                <div className="pricing-description">All-inclusive insurance technology solution</div>
               </div>
               
               <div className="pricing-main">
-                <div className="contact-pricing">Contact for Pricing</div>
+                <div className="pricing-highlight" style={{
+                  background: 'linear-gradient(135deg, #FF6B35 0%, #F7931E 100%)',
+                  color: 'white',
+                  padding: '2rem',
+                  borderRadius: '0.75rem',
+                  textAlign: 'center',
+                  marginBottom: '1.5rem'
+                }}>
+                  <div className="price-line" style={{marginBottom: '0.5rem'}}>
+                    <span className="new-price" style={{fontSize: '2.5rem', fontWeight: 'bold'}}>$999/month</span>
+                  </div>
+                  <div className="pricing-subtitle" style={{fontSize: '1.2rem', opacity: 0.95}}>
+                    ($12,000/year)
+                  </div>
+                </div>
+                <div className="pricing-description" style={{
+                  padding: '1.5rem',
+                  background: '#F0F9FF',
+                  borderRadius: '0.75rem',
+                  marginBottom: '1.5rem',
+                  textAlign: 'center'
+                }}>
+                  Complete platform including AMS/CRM with Momentum AMP, AI technology with GAIL, and TurboRater integration
+                </div>
               </div>
               
               <ul className="feature-list">
@@ -567,180 +587,54 @@ function PricingPage() {
                 <li>Basic Support</li>
               </ul>
               
-              <div className="upgrade-info">
-                <h4>💡 Flexible Upgrade Path</h4>
-                <p>Start here and upgrade anytime as your agency grows</p>
-              </div>
               
               <button 
                 onClick={() => {
-                  handlePlanClick('QUAD 1.0')
-                  window.location.href = 'mailto:sales@quotely.com?subject=QUAD 1.0 Pricing Inquiry'
+                  handlePlanClick('Platform')
+                  window.location.href = 'mailto:sales@quotely.com?subject=Platform Pricing Inquiry'
                 }} 
                 className="btn btn-primary" 
                 style={{width: '100%'}}
               >
-                Get QUAD 1.0 Pricing
-              </button>
-            </div>
-
-            {/* QUAD 3.0 */}
-            <div className="pricing-card popular">
-              <div className="pricing-badge badge-popular">MOST POPULAR</div>
-              <div className="pricing-header">
-                <div className="pricing-name">QUAD 3.0</div>
-                <div className="pricing-description">Growing agencies</div>
-              </div>
-              
-              <div className="pricing-main">
-                <div className="contact-pricing">Contact for Pricing</div>
-              </div>
-              
-              <ul className="feature-list">
-                <li>Increased Quote Volume</li>
-                <li>Premium Analytics Suite</li>
-                <li>All Product Lines</li>
-                <li>Premium Support</li>
-                <li>Advanced Cross-Selling</li>
-                <li>Custom Dashboards</li>
-                <li>Automated Workflows</li>
-                <li>API Integration Access</li>
-                <li>Performance Optimization</li>
-              </ul>
-              
-              <div className="upgrade-info">
-                <h4>💡 Scalable Solution</h4>
-                <p>Perfect balance of features and value for growing teams</p>
-              </div>
-              
-              <button 
-                onClick={() => {
-                  handlePlanClick('QUAD 3.0')
-                  window.location.href = 'mailto:sales@quotely.com?subject=QUAD 3.0 Pricing Inquiry'
-                }} 
-                className="btn btn-primary" 
-                style={{width: '100%'}}
-              >
-                Get QUAD 3.0 Pricing
-              </button>
-            </div>
-
-            {/* QUAD 7.0 */}
-            <div className="pricing-card enterprise">
-              <div className="pricing-badge badge-enterprise">UNLIMITED</div>
-              <div className="pricing-header">
-                <div className="pricing-name">QUAD 7.0</div>
-                <div className="pricing-description">Ultimate enterprise solution</div>
-              </div>
-              
-              <div className="pricing-main">
-                <div className="contact-pricing">Contact for Pricing</div>
-              </div>
-              
-              <ul className="feature-list">
-                <li>Unlimited Quote Volume</li>
-                <li>Unlimited Everything</li>
-                <li>Custom Enterprise Features</li>
-                <li>Full API Access & Control</li>
-                <li>24/7 Dedicated Support Team</li>
-                <li>Custom Development Team</li>
-                <li>Custom Branding Options</li>
-                <li>Priority Development Queue</li>
-                <li>Custom Feature Development</li>
-              </ul>
-              
-              <div className="upgrade-info">
-                <h4>💡 Maximum Power</h4>
-                <p>Enterprise level solution with unlimited capabilities</p>
-              </div>
-              
-              <button 
-                onClick={() => {
-                  handlePlanClick('QUAD 7.0')
-                  window.location.href = 'mailto:enterprise@quotely.com?subject=QUAD 7.0 Enterprise Pricing'
-                }} 
-                className="btn btn-primary" 
-                style={{width: '100%'}}
-              >
-                Get Enterprise Pricing
+                Get Started Today
               </button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Complete Comparison Table */}
+      {/* Platform Features Table */}
       <section className="comparison-section">
-        <h2>📊 Complete QUAD Comparison - All 7 Levels</h2>
+        <h2>Platform Features Included</h2>
         
         <div style={{overflowX: 'auto'}}>
           <table className="comparison-table">
             <thead>
               <tr>
-                <th>Tier</th>
-                <th>Quote Volume</th>
-                <th>Features</th>
-                <th>Support Level</th>
-                <th>Best For</th>
-                <th>Action</th>
+                <th>Category</th>
+                <th>Features Included</th>
               </tr>
             </thead>
             <tbody>
               <tr className="highlight-row">
-                <td><strong>QUAD 1.0</strong></td>
-                <td>Starter Volume</td>
-                <td>Core Features</td>
-                <td>Basic Support</td>
-                <td>New agencies, testing platform</td>
-                <td><a href="mailto:sales@quotely.com?subject=QUAD 1.0">Contact Sales</a></td>
+                <td><strong>Core Platform</strong></td>
+                <td>AMS/CRM System, Quote Generation, Policy Management, Client Database</td>
               </tr>
               <tr>
-                <td><strong>QUAD 2.0</strong></td>
-                <td>Small Agency Volume</td>
-                <td>Enhanced Features</td>
-                <td>Standard Support</td>
-                <td>Small agencies</td>
-                <td><a href="mailto:sales@quotely.com?subject=QUAD 2.0">Contact Sales</a></td>
+                <td><strong>AI Technology</strong></td>
+                <td>GAIL AI Assistant, Predictive Analytics, Risk Assessment, Smart Recommendations</td>
               </tr>
               <tr className="highlight-row">
-                <td><strong>QUAD 3.0</strong></td>
-                <td>Growing Agency Volume</td>
-                <td>Premium Features</td>
-                <td>Premium Support</td>
-                <td>Growing agencies</td>
-                <td><a href="mailto:sales@quotely.com?subject=QUAD 3.0">Contact Sales</a></td>
+                <td><strong>Integrations</strong></td>
+                <td>TurboRater, Momentum AMP, QuickBooks, RingCentral VOIP</td>
               </tr>
               <tr>
-                <td><strong>QUAD 4.0</strong></td>
-                <td>Established Volume</td>
-                <td>Advanced Features</td>
-                <td>Priority Support</td>
-                <td>Established agencies</td>
-                <td><a href="mailto:sales@quotely.com?subject=QUAD 4.0">Contact Sales</a></td>
+                <td><strong>Product Lines</strong></td>
+                <td>Personal Lines, Commercial Lines, Life Insurance, Recreational Vehicles</td>
               </tr>
-              <tr>
-                <td><strong>QUAD 5.0</strong></td>
-                <td>High Volume</td>
-                <td>Professional Features</td>
-                <td>Dedicated Support</td>
-                <td>High-volume agencies</td>
-                <td><a href="mailto:sales@quotely.com?subject=QUAD 5.0">Contact Sales</a></td>
-              </tr>
-              <tr className="enterprise-row">
-                <td><strong>QUAD 6.0</strong></td>
-                <td>Enterprise Volume</td>
-                <td>Enterprise Features</td>
-                <td>24/7 Support</td>
-                <td>Enterprise agencies</td>
-                <td><a href="mailto:sales@quotely.com?subject=QUAD 6.0">Contact Sales</a></td>
-              </tr>
-              <tr className="enterprise-row">
-                <td><strong>QUAD 7.0</strong></td>
-                <td>Unlimited</td>
-                <td>All Features + Custom</td>
-                <td>White Glove Support</td>
-                <td>Ultimate enterprise</td>
-                <td><a href="mailto:enterprise@quotely.com?subject=QUAD 7.0">Contact Sales</a></td>
+              <tr className="highlight-row">
+                <td><strong>Support</strong></td>
+                <td>Email Support, Knowledge Base, Training Resources, Updates Included</td>
               </tr>
             </tbody>
           </table>
