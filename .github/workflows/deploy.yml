@@ -64,11 +64,9 @@ jobs:
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
         
-      - name: Setup Vercel Project
+      - name: Link Vercel Project
         run: |
-          rm -rf .vercel
-          mkdir -p .vercel
-          echo '{"projectId":"${{ secrets.VERCEL_PROJECT_ID }}","orgId":"${{ secrets.VERCEL_ORG_ID }}"}' > .vercel/project.json
+          vercel link --yes --project=quotely-platform --scope=quotelys-projects-93b374b6 --token=${{ secrets.VERCEL_TOKEN }}
         
       - name: Pull Vercel Environment Information
         run: vercel pull --yes --environment=${{ github.event.inputs.environment || 'production' }} --token=${{ secrets.VERCEL_TOKEN }}
