@@ -1,4 +1,5 @@
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 import QuoteCard from '@/components/QuoteCard'
 import Link from 'next/link'
 
@@ -209,58 +210,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center space-x-2 mb-6">
-                <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
-                  <span className="text-white text-sm font-bold">Q</span>
-                </div>
-                <span className="text-xl font-bold">Quotely</span>
-              </div>
-              <p className="text-gray-400 mb-4">
-                AI-powered insurance quoting platform trusted by over 1 million agencies worldwide.
-              </p>
-            </div>
-            
-            <div>
-              <h3 className="font-bold mb-4">Solutions</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li><Link href="/auto-insurance" className="hover:text-white">Auto Insurance</Link></li>
-                <li><Link href="/home-insurance" className="hover:text-white">Home Insurance</Link></li>
-                <li><Link href="/commercial-insurance" className="hover:text-white">Commercial</Link></li>
-                <li><Link href="/life-insurance" className="hover:text-white">Life Insurance</Link></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h3 className="font-bold mb-4">Company</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li><Link href="/about" className="hover:text-white">About Us</Link></li>
-                <li><Link href="/careers" className="hover:text-white">Careers</Link></li>
-                <li><Link href="/press" className="hover:text-white">Press</Link></li>
-                <li><Link href="/contact" className="hover:text-white">Contact</Link></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h3 className="font-bold mb-4">Support</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li><Link href="/help" className="hover:text-white">Help Center</Link></li>
-                <li><Link href="/api-docs" className="hover:text-white">API Docs</Link></li>
-                <li><Link href="/privacy" className="hover:text-white">Privacy Policy</Link></li>
-                <li><Link href="/terms" className="hover:text-white">Terms of Service</Link></li>
-              </ul>
-            </div>
-          </div>
-          
-          <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 Quotely. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }

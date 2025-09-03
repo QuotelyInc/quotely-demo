@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { OTTOProvider } from "../components/OTTOProvider"
 import OTTOScript from "../components/OTTOScript"
 import { ThemeProvider } from "../components/ThemeProvider"
@@ -7,6 +7,14 @@ import PreLaunchNotice from "../components/PreLaunchNotice"
 import { AnalyticsProvider } from "../lib/analytics/analytics-provider"
 import ErrorBoundary from "../components/ErrorBoundary"
 import "./globals.css"
+import "./mobile-responsive.css"
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+}
 
 export const metadata: Metadata = {
   title: 'Quotely - Get real quotes from real carriers',
