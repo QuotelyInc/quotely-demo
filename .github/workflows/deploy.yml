@@ -64,21 +64,30 @@ jobs:
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
         
+      - name: Clean Vercel Directory
+        run: rm -rf .vercel
+        
       - name: Deploy to Vercel (Production)
         if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
         run: |
-          npx vercel@latest --prod --yes --confirm --token=${{ secrets.VERCEL_TOKEN }} --name=quotely-platform --build-env NEXT_PUBLIC_OTTO_UUID=${{ secrets.NEXT_PUBLIC_OTTO_UUID }} --build-env NEXT_PUBLIC_OTTO_ENABLED=true --build-env NEXT_PUBLIC_SITE_URL=https://tryquotely.com
+          vercel --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          NEXT_PUBLIC_OTTO_UUID: ${{ secrets.NEXT_PUBLIC_OTTO_UUID }}
+          NEXT_PUBLIC_OTTO_ENABLED: true
+          NEXT_PUBLIC_SITE_URL: https://tryquotely.com
         
       - name: Deploy to Vercel (Preview)
         if: github.ref != 'refs/heads/master' && github.ref != 'refs/heads/main'
         run: |
-          npx vercel@latest --yes --confirm --token=${{ secrets.VERCEL_TOKEN }} --name=quotely-platform --build-env NEXT_PUBLIC_OTTO_UUID=${{ secrets.NEXT_PUBLIC_OTTO_UUID }} --build-env NEXT_PUBLIC_OTTO_ENABLED=true --build-env NEXT_PUBLIC_SITE_URL=https://tryquotely.com
+          vercel --yes --token=${{ secrets.VERCEL_TOKEN }}
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          NEXT_PUBLIC_OTTO_UUID: ${{ secrets.NEXT_PUBLIC_OTTO_UUID }}
+          NEXT_PUBLIC_OTTO_ENABLED: true
+          NEXT_PUBLIC_SITE_URL: https://tryquotely.com
         
       - name: Comment PR with deployment URL
         if: github.event_name == 'pull_request'
