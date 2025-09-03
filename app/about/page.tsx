@@ -149,31 +149,6 @@ export default function AboutPage() {
           </p>
         </div>
 
-        <div className="team-section">
-          <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-            <h2 style={{ textAlign: 'center', marginBottom: 'var(--space-md)' }}>
-              By the Numbers
-            </h2>
-            <div className="stats-grid">
-              <div className="stat">
-                <span className="stat-number">500+</span>
-                <span className="stat-label">Agencies Trust Us</span>
-              </div>
-              <div className="stat">
-                <span className="stat-number">2M+</span>
-                <span className="stat-label">Quotes Generated</span>
-              </div>
-              <div className="stat">
-                <span className="stat-number">45%</span>
-                <span className="stat-label">Faster Conversions</span>
-              </div>
-              <div className="stat">
-                <span className="stat-number">99.9%</span>
-                <span className="stat-label">Uptime</span>
-              </div>
-            </div>
-          </div>
-        </div>
 
         <div className="content-section">
           <h2>Our Values</h2>

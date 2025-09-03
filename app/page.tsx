@@ -124,9 +124,9 @@ export default function HomePage() {
                   <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Comprehensive Platform</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">24/7 AI Operation</h3>
               <p className="text-gray-600">
-                All-in-one solution combining quoting, CRM, and analytics tools designed for independent agents.
+                AI-powered platform operates continuously (8,760 hours/year) at $1.37/hour, compared to human employees at $15/hour for standard work hours.
               </p>
             </div>
 
@@ -136,9 +136,9 @@ export default function HomePage() {
                   <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Workflow Automation</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Mobile-Friendly Interface</h3>
               <p className="text-gray-600">
-                Streamline your daily operations with intelligent automation that reduces manual tasks and saves time.
+                Responsive web interface accessible on all devices. Note: Quotely is not a mobile app, but works seamlessly on mobile browsers.
               </p>
             </div>
 
@@ -148,9 +148,9 @@ export default function HomePage() {
                   <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">24/7 AI Assistant</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Verified Integrations</h3>
               <p className="text-gray-600">
-                Get intelligent support around the clock with our AI assistant that helps with quotes, questions, and recommendations.
+                Real partnerships with TurboRater, Momentum AMP, and GAIL. Pricing accuracy comes directly from carrier networks via TurboRater.
               </p>
             </div>
 
