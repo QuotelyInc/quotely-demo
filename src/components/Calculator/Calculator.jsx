@@ -33,8 +33,8 @@ const Calculator = () => {
     const improvementRate = 0.25;
     const additionalRevenue = yearlyRevenue * improvementRate;
     
-    // ROI calculation (assuming $799/month Professional plan)
-    const quotelyCost = 799 * 12;
+    // ROI calculation (assuming $999/month Core Platform - Flash Sale Price)
+    const quotelyCost = 999 * 12;
     const roiMultiplier = additionalRevenue / quotelyCost;
 
     setResults({
@@ -236,7 +236,9 @@ const Calculator = () => {
               <div style={styles.ctaContent}>
                 <h4 style={styles.ctaTitle}>Ready to unlock this potential?</h4>
                 <p style={styles.ctaDescription}>
-                  Start your 14-day free trial and see these results in your own agency.
+                  Start your free trial and see these results in your own agency.
+                  <br />
+                  <strong style={{ color: '#ff6600' }}>Flash Sale: Save $700/month - Only $999 (was $1,699)</strong>
                 </p>
                 <div style={styles.ctaButtons}>
                   <a 

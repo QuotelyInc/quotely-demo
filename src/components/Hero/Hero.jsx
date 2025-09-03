@@ -17,6 +17,12 @@ const Hero = () => {
               already revolutionized their business.
             </p>
             
+            <div style={styles.priceHighlight}>
+              <span style={styles.priceStrike}>$1,699/month</span>
+              <span style={styles.priceNew}>$999/month</span>
+              <span style={styles.priceBadge}>LIMITED TIME OFFER</span>
+            </div>
+            
             <div style={styles.stats}>
               <div style={styles.stat}>
                 <span style={styles.statNumber}>300%</span>
@@ -36,7 +42,7 @@ const Hero = () => {
               <EarlySignupButton 
                 buttonStyle={styles.primaryButton}
               >
-                Get Early Access
+                Get Early Access - Save $700/month
                 <span style={styles.buttonIcon}>→</span>
               </EarlySignupButton>
               <a 
@@ -55,15 +61,6 @@ const Hero = () => {
               </a>
             </div>
 
-            <div style={styles.trustIndicators}>
-              <p style={styles.trustText}>Trusted by 10,000+ insurance professionals</p>
-              <div style={styles.trustLogos}>
-                <div style={styles.trustLogo}>Progressive</div>
-                <div style={styles.trustLogo}>State Farm</div>
-                <div style={styles.trustLogo}>Allstate</div>
-                <div style={styles.trustLogo}>Geico</div>
-              </div>
-            </div>
           </div>
 
           <div style={styles.visualContent}>
@@ -404,21 +401,54 @@ const styles = {
   },
   floatingIcon: {
     fontSize: '1.2rem'
+  },
+  priceHighlight: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '16px',
+    marginBottom: '32px',
+    '@media (max-width: 968px)': {
+      justifyContent: 'center'
+    }
+  },
+  priceStrike: {
+    fontSize: '1.2rem',
+    color: 'rgba(255, 255, 255, 0.6)',
+    textDecoration: 'line-through'
+  },
+  priceNew: {
+    fontSize: '1.8rem',
+    fontWeight: '700',
+    color: '#ffd700'
+  },
+  priceBadge: {
+    backgroundColor: '#ff6600',
+    color: 'white',
+    padding: '6px 12px',
+    borderRadius: '20px',
+    fontSize: '0.75rem',
+    fontWeight: '600',
+    animation: 'pulse 2s infinite'
   }
 };
 
-// Add CSS animation for floating elements
-const floatAnimation = `
+// Add CSS animations
+const animations = `
   @keyframes float {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-10px); }
   }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.9; transform: scale(1.05); }
+  }
 `;
 
-// Inject the animation into the document head
+// Inject the animations into the document head
 if (typeof document !== 'undefined') {
   const style = document.createElement('style');
-  style.textContent = floatAnimation;
+  style.textContent = animations;
   document.head.appendChild(style);
 }
 

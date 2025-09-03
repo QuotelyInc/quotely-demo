@@ -19,12 +19,12 @@ const FAQ = () => {
       answer: "You can start using Quotely immediately after signing up. Our onboarding process takes less than 30 minutes, and you'll be generating quotes within the same day. We provide step-by-step guidance and our support team is available to help with any questions during setup."
     },
     {
-      question: "What insurance carriers does Quotely integrate with?",
-      answer: "Quotely integrates with over 50 major insurance carriers including Progressive, State Farm, Allstate, Geico, Liberty Mutual, Travelers, and many more. We're constantly adding new carrier integrations based on customer demand. If you don't see your preferred carrier, let us know and we'll prioritize adding it."
+      question: "What platforms and systems does Quotely integrate with?",
+      answer: "Quotely features powerful built-in integrations with industry-leading platforms including TurboRater for instant multi-carrier comparative rating, Momentum AMP for comprehensive agency management, and Gail for AI-powered automation and workflow optimization. These deep integrations allow seamless data flow between systems, eliminating duplicate data entry and streamlining your entire quote-to-bind process. We're constantly expanding our partner ecosystem to provide you with the most comprehensive insurance technology stack."
     },
     {
       question: "Is there a contract or can I cancel anytime?",
-      answer: "There are no long-term contracts with Quotely. All plans are month-to-month and you can cancel anytime with 30 days notice. We also offer a 14-day free trial and a 30-day money-back guarantee, so you can try our platform risk-free."
+      answer: "There are no long-term contracts with Quotely. All plans are month-to-month and you can cancel anytime with 30 days notice. We also offer a 14-day free trial, so you can try our platform risk-free."
     },
     {
       question: "How does Quotely protect my customer data?",

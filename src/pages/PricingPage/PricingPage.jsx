@@ -6,7 +6,6 @@ const PricingPage = () => {
     <div style={styles.pricingPage}>
       <PricingHero />
       <Pricing />
-      <ComparisonSection />
       <FAQSection />
     </div>
   );
@@ -39,10 +38,6 @@ const PricingHero = () => {
               <span style={styles.featureIcon}>✅</span>
               <span>Cancel anytime</span>
             </div>
-            <div style={styles.heroFeature}>
-              <span style={styles.featureIcon}>✅</span>
-              <span>Money-back guarantee</span>
-            </div>
           </div>
         </div>
       </div>
@@ -50,98 +45,6 @@ const PricingHero = () => {
   );
 };
 
-// Detailed Comparison Section
-const ComparisonSection = () => {
-  const comparisonData = [
-    {
-      category: 'Quote Generation',
-      features: [
-        { name: 'Monthly quote limit', starter: '500', professional: 'Unlimited', enterprise: 'Unlimited' },
-        { name: 'Quote generation speed', starter: 'Standard', professional: 'Fast', enterprise: 'Fastest' },
-        { name: 'Multi-carrier comparison', starter: '✓', professional: '✓', enterprise: '✓' },
-        { name: 'Custom quote templates', starter: '✗', professional: '✓', enterprise: '✓' },
-        { name: 'White-label quotes', starter: '✗', professional: '✓', enterprise: '✓' }
-      ]
-    },
-    {
-      category: 'Analytics & Reporting',
-      features: [
-        { name: 'Basic analytics dashboard', starter: '✓', professional: '✓', enterprise: '✓' },
-        { name: 'Advanced reporting', starter: '✗', professional: '✓', enterprise: '✓' },
-        { name: 'Custom reports', starter: '✗', professional: '✗', enterprise: '✓' },
-        { name: 'Performance benchmarks', starter: '✗', professional: '✓', enterprise: '✓' },
-        { name: 'Revenue tracking', starter: 'Basic', professional: 'Advanced', enterprise: 'Advanced' }
-      ]
-    },
-    {
-      category: 'Integrations & API',
-      features: [
-        { name: 'Standard integrations', starter: '✓', professional: '✓', enterprise: '✓' },
-        { name: 'Premium integrations', starter: '✗', professional: '✓', enterprise: '✓' },
-        { name: 'API access', starter: '✗', professional: '✓', enterprise: '✓' },
-        { name: 'Custom integrations', starter: '✗', professional: '✗', enterprise: '✓' },
-        { name: 'Webhook support', starter: '✗', professional: '✓', enterprise: '✓' }
-      ]
-    },
-    {
-      category: 'Support & Training',
-      features: [
-        { name: 'Email support', starter: '✓', professional: '✓', enterprise: '✓' },
-        { name: 'Priority support', starter: '✗', professional: '✓', enterprise: '✓' },
-        { name: 'Phone support', starter: '✗', professional: '✗', enterprise: '✓' },
-        { name: 'Dedicated account manager', starter: '✗', professional: '✗', enterprise: '✓' },
-        { name: 'Custom training', starter: '✗', professional: '✗', enterprise: '✓' }
-      ]
-    }
-  ];
-
-  return (
-    <section style={styles.comparison}>
-      <div style={styles.container}>
-        <div style={styles.comparisonHeader}>
-          <h2 style={styles.comparisonTitle}>Detailed Feature Comparison</h2>
-          <p style={styles.comparisonSubtitle}>
-            Compare all features across our plans to find the perfect fit for your agency.
-          </p>
-        </div>
-
-        <div style={styles.comparisonTable}>
-          <div style={styles.tableHeader}>
-            <div style={styles.featureColumn}>Features</div>
-            <div style={styles.planColumn}>
-              <div style={styles.planName}>Starter</div>
-              <div style={styles.planPrice}>$299/mo</div>
-            </div>
-            <div style={styles.planColumn}>
-              <div style={styles.planName}>Professional</div>
-              <div style={styles.planPrice}>$799/mo</div>
-              <div style={styles.popularBadge}>Most Popular</div>
-            </div>
-            <div style={styles.planColumn}>
-              <div style={styles.planName}>Enterprise</div>
-              <div style={styles.planPrice}>$1,999/mo</div>
-            </div>
-          </div>
-
-          {comparisonData.map((category, categoryIndex) => (
-            <div key={categoryIndex} style={styles.categorySection}>
-              <div style={styles.categoryTitle}>{category.category}</div>
-              
-              {category.features.map((feature, featureIndex) => (
-                <div key={featureIndex} style={styles.featureRow}>
-                  <div style={styles.featureName}>{feature.name}</div>
-                  <div style={styles.featureValue}>{feature.starter}</div>
-                  <div style={styles.featureValue}>{feature.professional}</div>
-                  <div style={styles.featureValue}>{feature.enterprise}</div>
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
 
 // FAQ Section specific to pricing
 const FAQSection = () => {

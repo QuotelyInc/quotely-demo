@@ -3,219 +3,209 @@ import React, { useState } from 'react';
 const Pricing = () => {
   const [billingPeriod, setBillingPeriod] = useState('monthly');
 
-  const plans = [
-    {
-      name: 'Starter',
-      description: 'Perfect for independent agents getting started',
-      monthlyPrice: 299,
-      yearlyPrice: 2690, // 10% discount
-      features: [
-        'Up to 500 quotes per month',
-        'Basic analytics dashboard',
-        'Email support',
-        'Mobile app access',
-        'Standard integrations',
-        'Basic CRM features',
-        'Quote comparison tools',
-        'Client portal access'
-      ],
-      popular: false,
-      cta: 'Start Free Trial'
-    },
-    {
-      name: 'Professional',
-      description: 'Ideal for growing agencies and teams',
-      monthlyPrice: 799,
-      yearlyPrice: 7190, // 10% discount
-      features: [
-        'Unlimited quotes',
-        'Advanced analytics & reporting',
-        'Priority support',
-        'Team collaboration tools',
-        'Premium integrations',
-        'Advanced CRM features',
-        'Custom quote templates',
-        'White-label options',
-        'Lead scoring & routing',
-        'Automated follow-ups',
-        'Performance benchmarks',
-        'API access'
-      ],
-      popular: true,
-      cta: 'Start Free Trial'
-    },
-    {
-      name: 'Enterprise',
-      description: 'For large agencies and enterprise solutions',
-      monthlyPrice: 1999,
-      yearlyPrice: 17990, // 10% discount
-      features: [
-        'Everything in Professional',
-        'Dedicated account manager',
-        '24/7 phone support',
-        'Custom integrations',
-        'Advanced security features',
-        'Multi-location support',
-        'Custom reporting',
-        'Training & onboarding',
-        'SLA guarantee',
-        'Data migration assistance',
-        'Compliance tools',
-        'Enterprise SSO'
-      ],
-      popular: false,
-      cta: 'Contact Sales'
-    }
+  const tokenPackages = [
+    { amount: 50, price: 85, savings: 15 },
+    { amount: 200, price: 340, savings: 60 },
+    { amount: 500, price: 650, savings: 350 },
+    { amount: 1000, price: 1200, savings: 800 }
   ];
-
-  const getPrice = (plan) => {
-    return billingPeriod === 'monthly' ? plan.monthlyPrice : Math.floor(plan.yearlyPrice / 12);
-  };
-
-  const getSavings = (plan) => {
-    const monthlyCost = plan.monthlyPrice * 12;
-    const yearlySavings = monthlyCost - plan.yearlyPrice;
-    return Math.floor(yearlySavings);
-  };
 
   return (
     <section style={styles.pricing}>
       <div style={styles.container}>
-        <div style={styles.header}>
-          <h2 style={styles.title}>Choose Your Perfect Plan</h2>
-          <p style={styles.subtitle}>
-            Scale your insurance business with flexible pricing that grows with you. 
-            All plans include a 14-day free trial.
-          </p>
-
-          {/* Billing Toggle */}
-          <div style={styles.billingToggle}>
-            <span style={{
-              ...styles.billingLabel,
-              ...(billingPeriod === 'monthly' ? styles.billingLabelActive : {})
-            }}>
-              Monthly
-            </span>
-            <button
-              style={{
-                ...styles.toggleSwitch,
-                ...(billingPeriod === 'yearly' ? styles.toggleSwitchActive : {})
-              }}
-              onClick={() => setBillingPeriod(billingPeriod === 'monthly' ? 'yearly' : 'monthly')}
-            >
-              <div style={{
-                ...styles.toggleButton,
-                ...(billingPeriod === 'yearly' ? styles.toggleButtonActive : {})
-              }}></div>
-            </button>
-            <span style={{
-              ...styles.billingLabel,
-              ...(billingPeriod === 'yearly' ? styles.billingLabelActive : {})
-            }}>
-              Yearly <span style={styles.saveBadge}>Save 10%</span>
-            </span>
+        {/* Flash Sale Banner */}
+        <div style={{ textAlign: 'center' }}>
+          <div style={styles.flashSale}>
+            <span style={styles.flashIcon}>⚡</span>
+            <span style={styles.flashText}>FLASH SALE: Early Adopter Pricing for First 1,000 Customers!</span>
+            <span style={styles.flashIcon}>⚡</span>
           </div>
         </div>
 
-        <div style={styles.plansContainer}>
-          {plans.map((plan, index) => (
-            <div
-              key={index}
-              style={{
-                ...styles.planCard,
-                ...(plan.popular ? styles.planCardPopular : {})
-              }}
-            >
-              {plan.popular && (
-                <div style={styles.popularBadge}>Most Popular</div>
-              )}
+        <div style={styles.header}>
+          <h2 style={styles.title}>Transform Your Insurance Agency with Quotely</h2>
+          <p style={styles.subtitle}>
+            Join thousands of agents saving 10+ hours per week with our all-in-one platform
+          </p>
+        </div>
 
-              <div style={styles.planHeader}>
-                <h3 style={styles.planName}>{plan.name}</h3>
-                <p style={styles.planDescription}>{plan.description}</p>
-                
-                <div style={styles.priceContainer}>
-                  <div style={styles.price}>
-                    <span style={styles.currency}>$</span>
-                    <span style={styles.amount}>{getPrice(plan).toLocaleString()}</span>
-                    <span style={styles.period}>/month</span>
-                  </div>
-                  
-                  {billingPeriod === 'yearly' && (
-                    <div style={styles.yearlyNote}>
-                      Billed annually • Save ${getSavings(plan).toLocaleString()}
-                    </div>
-                  )}
+        {/* Core Platform Section */}
+        <div style={styles.corePlatform}>
+          <div style={styles.platformCard}>
+            <div style={styles.platformHeader}>
+              <h3 style={styles.platformTitle}>Core Platform</h3>
+              <div style={styles.priceWrapper}>
+                <div style={styles.originalPrice}>$1,699/month</div>
+                <div style={styles.currentPrice}>
+                  <span style={styles.currency}>$</span>
+                  <span style={styles.amount}>999</span>
+                  <span style={styles.period}>/month</span>
+                </div>
+                <div style={styles.tokenIncluded}>50 tokens included</div>
+              </div>
+            </div>
+
+            <div style={styles.features}>
+              <h4 style={styles.featuresTitle}>Everything You Need to Scale:</h4>
+              <div style={styles.featuresGrid}>
+                <div style={styles.featureColumn}>
+                  <h5 style={styles.featureCategory}>Quote & Bind</h5>
+                  <ul style={styles.featuresList}>
+                    <li style={styles.feature}>
+                      <span style={styles.checkIcon}>✓</span>
+                      Real-time carrier rates
+                    </li>
+                    <li style={styles.feature}>
+                      <span style={styles.checkIcon}>✓</span>
+                      Multi-carrier comparison
+                    </li>
+                    <li style={styles.feature}>
+                      <span style={styles.checkIcon}>✓</span>
+                      Instant binding
+                    </li>
+                    <li style={styles.feature}>
+                      <span style={styles.checkIcon}>✓</span>
+                      Document generation
+                    </li>
+                  </ul>
+                </div>
+
+                <div style={styles.featureColumn}>
+                  <h5 style={styles.featureCategory}>CRM & Automation</h5>
+                  <ul style={styles.featuresList}>
+                    <li style={styles.feature}>
+                      <span style={styles.checkIcon}>✓</span>
+                      Lead management
+                    </li>
+                    <li style={styles.feature}>
+                      <span style={styles.checkIcon}>✓</span>
+                      Automated follow-ups
+                    </li>
+                    <li style={styles.feature}>
+                      <span style={styles.checkIcon}>✓</span>
+                      Pipeline tracking
+                    </li>
+                    <li style={styles.feature}>
+                      <span style={styles.checkIcon}>✓</span>
+                      Task automation
+                    </li>
+                  </ul>
+                </div>
+
+                <div style={styles.featureColumn}>
+                  <h5 style={styles.featureCategory}>Analytics & Reporting</h5>
+                  <ul style={styles.featuresList}>
+                    <li style={styles.feature}>
+                      <span style={styles.checkIcon}>✓</span>
+                      Performance dashboards
+                    </li>
+                    <li style={styles.feature}>
+                      <span style={styles.checkIcon}>✓</span>
+                      Commission tracking
+                    </li>
+                    <li style={styles.feature}>
+                      <span style={styles.checkIcon}>✓</span>
+                      ROI analytics
+                    </li>
+                    <li style={styles.feature}>
+                      <span style={styles.checkIcon}>✓</span>
+                      Custom reports
+                    </li>
+                  </ul>
                 </div>
               </div>
 
-              <div style={styles.features}>
-                <h4 style={styles.featuresTitle}>Everything you need:</h4>
-                <ul style={styles.featuresList}>
-                  {plan.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} style={styles.feature}>
-                      <span style={styles.checkIcon}>✓</span>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <button
-                style={{
-                  ...styles.ctaButton,
-                  ...(plan.popular ? styles.ctaButtonPopular : styles.ctaButtonDefault)
-                }}
-                onMouseEnter={(e) => {
-                  if (plan.popular) {
-                    e.target.style.backgroundColor = styles.ctaButtonPopularHover.backgroundColor;
-                  } else {
-                    e.target.style.backgroundColor = styles.ctaButtonDefaultHover.backgroundColor;
-                    e.target.style.color = styles.ctaButtonDefaultHover.color;
-                  }
-                  e.target.style.transform = 'translateY(-2px)';
-                }}
-                onMouseLeave={(e) => {
-                  if (plan.popular) {
-                    e.target.style.backgroundColor = styles.ctaButtonPopular.backgroundColor;
-                  } else {
-                    e.target.style.backgroundColor = styles.ctaButtonDefault.backgroundColor;
-                    e.target.style.color = styles.ctaButtonDefault.color;
-                  }
-                  e.target.style.transform = 'translateY(0)';
-                }}
-              >
-                {plan.cta}
-              </button>
-
-              <div style={styles.guarantee}>
-                <span style={styles.guaranteeIcon}>🛡️</span>
-                14-day money-back guarantee
+              <div style={styles.additionalFeatures}>
+                <div style={styles.additionalFeature}>
+                  <span style={styles.checkIcon}>✓</span>
+                  Unlimited users & team collaboration
+                </div>
+                <div style={styles.additionalFeature}>
+                  <span style={styles.checkIcon}>✓</span>
+                  White-label client portal
+                </div>
+                <div style={styles.additionalFeature}>
+                  <span style={styles.checkIcon}>✓</span>
+                  24/7 priority support
+                </div>
+                <div style={styles.additionalFeature}>
+                  <span style={styles.checkIcon}>✓</span>
+                  API access & integrations
+                </div>
               </div>
             </div>
-          ))}
+
+            <button
+              style={styles.ctaButton}
+              onMouseEnter={(e) => {
+                e.target.style.backgroundColor = styles.ctaButtonHover.backgroundColor;
+                e.target.style.transform = 'translateY(-2px)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.backgroundColor = styles.ctaButton.backgroundColor;
+                e.target.style.transform = 'translateY(0)';
+              }}
+            >
+              Get Early Access (Save $700/month)
+            </button>
+
+            <div style={styles.guarantee}>
+              <span style={styles.guaranteeIcon}>🛡️</span>
+              No setup fees • Cancel anytime
+            </div>
+          </div>
+        </div>
+
+        {/* Token Packages Section */}
+        <div style={styles.tokenSection}>
+          <h3 style={styles.tokenTitle}>Need More Tokens?</h3>
+          <p style={styles.tokenSubtitle}>
+            Add token packages anytime. Each token = 1 quote submission.
+          </p>
+          
+          <div style={styles.tokenGrid}>
+            {tokenPackages.map((pkg, index) => (
+              <div key={index} style={styles.tokenCard}>
+                <div style={styles.tokenAmount}>{pkg.amount} tokens</div>
+                <div style={styles.tokenPrice}>${pkg.price}</div>
+                <div style={styles.tokenSavings}>Save ${pkg.savings}</div>
+                <div style={styles.tokenPerUnit}>${(pkg.price / pkg.amount).toFixed(2)} per token</div>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div style={styles.footer}>
-          <p style={styles.footerText}>
-            Questions about our pricing? <a href="/contact" style={styles.footerLink}>Contact our sales team</a> 
-            for a custom quote or to schedule a demo.
-          </p>
+          <div style={styles.urgency}>
+            <span style={styles.urgencyIcon}>🔥</span>
+            <span style={styles.urgencyText}>
+              Limited Time: Lock in your early adopter rate forever!
+            </span>
+          </div>
           
           <div style={styles.trustIndicators}>
             <div style={styles.trustItem}>
               <span style={styles.trustIcon}>🔒</span>
-              <span>SOC 2 Compliant</span>
+              <span>Bank-level Security</span>
             </div>
             <div style={styles.trustItem}>
-              <span style={styles.trustIcon}>📊</span>
-              <span>99.9% Uptime</span>
+              <span style={styles.trustIcon}>⚡</span>
+              <span>10x Faster Quotes</span>
+            </div>
+            <div style={styles.trustItem}>
+              <span style={styles.trustIcon}>📈</span>
+              <span>30% Revenue Growth</span>
             </div>
             <div style={styles.trustItem}>
               <span style={styles.trustIcon}>🏆</span>
-              <span>Award-Winning Support</span>
+              <span>Trusted by 5,000+ Agents</span>
             </div>
           </div>
+
+          <p style={styles.footerText}>
+            Questions? <a href="/contact" style={styles.footerLink}>Schedule a personalized demo</a> 
+            or call us at 918-794-6993
+          </p>
         </div>
       </div>
     </section>
@@ -233,9 +223,28 @@ const styles = {
     margin: '0 auto',
     padding: '0 20px'
   },
+  flashSale: {
+    backgroundColor: '#ff6600',
+    color: 'white',
+    padding: '12px 24px',
+    borderRadius: '50px',
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: '12px',
+    margin: '0 auto 40px',
+    animation: 'pulse 2s infinite',
+    boxShadow: '0 4px 20px rgba(255, 102, 0, 0.3)'
+  },
+  flashIcon: {
+    fontSize: '1.2rem'
+  },
+  flashText: {
+    fontWeight: '600',
+    fontSize: '1rem'
+  },
   header: {
     textAlign: 'center',
-    marginBottom: '80px'
+    marginBottom: '60px'
   },
   title: {
     fontSize: 'clamp(2rem, 4vw, 3rem)',
@@ -247,141 +256,91 @@ const styles = {
     fontSize: '1.2rem',
     color: '#6c757d',
     maxWidth: '600px',
-    margin: '0 auto 32px'
+    margin: '0 auto'
   },
-  billingToggle: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: '16px',
-    marginTop: '32px'
+  corePlatform: {
+    marginBottom: '60px'
   },
-  billingLabel: {
-    fontSize: '1rem',
-    fontWeight: '600',
-    color: '#6c757d',
-    transition: 'color 0.2s ease'
-  },
-  billingLabelActive: {
-    color: '#0077cc'
-  },
-  toggleSwitch: {
-    width: '60px',
-    height: '32px',
-    borderRadius: '16px',
-    border: 'none',
-    backgroundColor: '#e2e8f0',
-    cursor: 'pointer',
-    position: 'relative',
-    transition: 'background-color 0.2s ease'
-  },
-  toggleSwitchActive: {
-    backgroundColor: '#ff6600'
-  },
-  toggleButton: {
-    width: '28px',
-    height: '28px',
-    borderRadius: '50%',
-    backgroundColor: 'white',
-    position: 'absolute',
-    top: '2px',
-    left: '2px',
-    transition: 'transform 0.2s ease',
-    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
-  },
-  toggleButtonActive: {
-    transform: 'translateX(28px)'
-  },
-  saveBadge: {
-    backgroundColor: '#28a745',
-    color: 'white',
-    padding: '2px 8px',
-    borderRadius: '12px',
-    fontSize: '0.8rem',
-    fontWeight: '600',
-    marginLeft: '8px'
-  },
-  plansContainer: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
-    gap: '32px',
-    marginBottom: '80px'
-  },
-  planCard: {
+  platformCard: {
     backgroundColor: 'white',
     borderRadius: '16px',
-    padding: '32px',
-    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
-    border: '1px solid #e2e8f0',
-    position: 'relative',
-    transition: 'all 0.2s ease'
+    padding: '48px',
+    boxShadow: '0 8px 40px rgba(0, 0, 0, 0.1)',
+    border: '2px solid #ff6600',
+    position: 'relative'
   },
-  planCardPopular: {
-    border: '2px solid #2563eb',
-    boxShadow: '0 8px 40px rgba(37, 99, 235, 0.15)',
-    transform: 'scale(1.05)'
+  platformHeader: {
+    marginBottom: '40px',
+    textAlign: 'center'
   },
-  popularBadge: {
-    position: 'absolute',
-    top: '-12px',
-    left: '50%',
-    transform: 'translateX(-50%)',
-    backgroundColor: '#ff6600',
-    color: 'white',
-    padding: '8px 24px',
-    borderRadius: '20px',
-    fontSize: '0.9rem',
-    fontWeight: '600'
-  },
-  planHeader: {
-    marginBottom: '32px'
-  },
-  planName: {
-    fontSize: '1.5rem',
+  platformTitle: {
+    fontSize: '2rem',
     fontWeight: '700',
     color: '#212529',
-    marginBottom: '8px'
+    marginBottom: '24px'
   },
-  planDescription: {
+  priceWrapper: {
+    position: 'relative'
+  },
+  originalPrice: {
+    fontSize: '1.2rem',
     color: '#6c757d',
-    marginBottom: '24px',
-    lineHeight: '1.5'
-  },
-  priceContainer: {
+    textDecoration: 'line-through',
     marginBottom: '8px'
   },
-  price: {
+  currentPrice: {
     display: 'flex',
     alignItems: 'baseline',
+    justifyContent: 'center',
     marginBottom: '8px'
   },
   currency: {
-    fontSize: '1.5rem',
+    fontSize: '2rem',
     fontWeight: '600',
-    color: '#212529'
+    color: '#ff6600'
   },
   amount: {
-    fontSize: '3rem',
+    fontSize: '4rem',
     fontWeight: '700',
-    color: '#212529'
+    color: '#ff6600'
   },
   period: {
-    fontSize: '1.2rem',
+    fontSize: '1.5rem',
     color: '#6c757d',
-    marginLeft: '4px'
+    marginLeft: '8px'
   },
-  yearlyNote: {
-    fontSize: '0.9rem',
-    color: '#28a745',
-    fontWeight: '600'
+  tokenIncluded: {
+    backgroundColor: '#28a745',
+    color: 'white',
+    padding: '8px 16px',
+    borderRadius: '20px',
+    fontSize: '0.95rem',
+    fontWeight: '600',
+    display: 'inline-block'
   },
   features: {
-    marginBottom: '32px'
+    marginBottom: '40px'
   },
   featuresTitle: {
-    fontSize: '1.1rem',
+    fontSize: '1.3rem',
     fontWeight: '600',
     color: '#212529',
+    marginBottom: '32px',
+    textAlign: 'center'
+  },
+  featuresGrid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+    gap: '40px',
+    marginBottom: '32px'
+  },
+  featureColumn: {
+    textAlign: 'left'
+  },
+  featureCategory: {
+    fontSize: '1.1rem',
+    fontWeight: '600',
+    color: '#1a3a6e',
     marginBottom: '16px'
   },
   featuresList: {
@@ -403,32 +362,37 @@ const styles = {
     fontSize: '1.1rem',
     flexShrink: 0
   },
+  additionalFeatures: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+    gap: '16px',
+    padding: '24px',
+    backgroundColor: '#f8f9fa',
+    borderRadius: '12px'
+  },
+  additionalFeature: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '12px',
+    fontSize: '0.95rem',
+    color: '#495057'
+  },
   ctaButton: {
     width: '100%',
-    padding: '16px',
+    padding: '20px',
     borderRadius: '12px',
     border: 'none',
-    fontSize: '1.1rem',
+    fontSize: '1.2rem',
     fontWeight: '600',
     cursor: 'pointer',
     transition: 'all 0.2s ease',
-    marginBottom: '16px'
-  },
-  ctaButtonPopular: {
+    marginBottom: '16px',
     backgroundColor: '#ff6600',
-    color: 'white'
+    color: 'white',
+    boxShadow: '0 4px 20px rgba(255, 102, 0, 0.3)'
   },
-  ctaButtonPopularHover: {
+  ctaButtonHover: {
     backgroundColor: '#ff8533'
-  },
-  ctaButtonDefault: {
-    backgroundColor: 'transparent',
-    color: '#1a3a6e',
-    border: '2px solid #2563eb'
-  },
-  ctaButtonDefaultHover: {
-    backgroundColor: '#ff6600',
-    color: 'white'
   },
   guarantee: {
     display: 'flex',
@@ -441,16 +405,84 @@ const styles = {
   guaranteeIcon: {
     fontSize: '1rem'
   },
+  tokenSection: {
+    marginBottom: '60px',
+    textAlign: 'center'
+  },
+  tokenTitle: {
+    fontSize: '1.8rem',
+    fontWeight: '700',
+    color: '#212529',
+    marginBottom: '12px'
+  },
+  tokenSubtitle: {
+    fontSize: '1.1rem',
+    color: '#6c757d',
+    marginBottom: '40px'
+  },
+  tokenGrid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+    gap: '24px',
+    maxWidth: '900px',
+    margin: '0 auto'
+  },
+  tokenCard: {
+    backgroundColor: 'white',
+    borderRadius: '12px',
+    padding: '24px',
+    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
+    border: '1px solid #e2e8f0',
+    transition: 'all 0.2s ease'
+  },
+  tokenAmount: {
+    fontSize: '1.3rem',
+    fontWeight: '700',
+    color: '#212529',
+    marginBottom: '8px'
+  },
+  tokenPrice: {
+    fontSize: '1.8rem',
+    fontWeight: '700',
+    color: '#ff6600',
+    marginBottom: '4px'
+  },
+  tokenSavings: {
+    fontSize: '0.9rem',
+    color: '#28a745',
+    fontWeight: '600',
+    marginBottom: '8px'
+  },
+  tokenPerUnit: {
+    fontSize: '0.85rem',
+    color: '#6c757d'
+  },
   footer: {
     textAlign: 'center'
+  },
+  urgency: {
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: '8px',
+    backgroundColor: '#fff3cd',
+    color: '#856404',
+    padding: '12px 24px',
+    borderRadius: '8px',
+    marginBottom: '40px'
+  },
+  urgencyIcon: {
+    fontSize: '1.2rem'
+  },
+  urgencyText: {
+    fontWeight: '600'
   },
   footerText: {
     fontSize: '1.1rem',
     color: '#6c757d',
-    marginBottom: '32px'
+    marginTop: '32px'
   },
   footerLink: {
-    color: '#1a3a6e',
+    color: '#ff6600',
     textDecoration: 'none',
     fontWeight: '600'
   },
@@ -458,14 +490,15 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
     gap: '48px',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
+    marginBottom: '32px'
   },
   trustItem: {
     display: 'flex',
     alignItems: 'center',
     gap: '8px',
     fontSize: '0.95rem',
-    color: '#6c757d'
+    color: '#495057'
   },
   trustIcon: {
     fontSize: '1.2rem'

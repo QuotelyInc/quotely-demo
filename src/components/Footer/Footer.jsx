@@ -92,15 +92,15 @@ const Footer = () => {
             <div style={styles.contactInfo}>
               <div style={styles.contactItem}>
                 <span style={styles.contactIcon}>📧</span>
-                <span style={styles.contactText}>hello@quotely.com</span>
+                <span style={styles.contactText}>support@tryquotely.com</span>
               </div>
               <div style={styles.contactItem}>
                 <span style={styles.contactIcon}>📞</span>
-                <span style={styles.contactText}>1-800-QUOTELY</span>
+                <span style={styles.contactText}>918-794-6993</span>
               </div>
               <div style={styles.contactItem}>
                 <span style={styles.contactIcon}>📍</span>
-                <span style={styles.contactText}>San Francisco, CA</span>
+                <span style={styles.contactText}>Tulsa, OK</span>
               </div>
             </div>
 
